@@ -1,6 +1,6 @@
 site_name: {{ cookiecutter.project_name}}
 site_url: {{ cookiecutter.project_url}}
-repo_url: {{ cookiecutter.git_remote_upstream}}
+repo_url: {{ cookiecutter.git_https_upstream}}
 # extra_css:
 #   - stylesheets/extra.css
 theme:
@@ -26,7 +26,7 @@ theme:
 plugins:
   - search
   - macros
-  - autorefs
+  # - autorefs
   # - exclude:
   #     glob:
   #       - backends/template.md
@@ -123,11 +123,11 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/{{ cookiecutter.git_username }}
     - icon: fontawesome/brands/github
-      link: {{ cookiecutter.github_remote_upstream }}
+      link: {{ cookiecutter.git_https_upstream }}
   support_levels:
     supported:
       icon: :material-check-decagram:{ .verified }
-      description: Tested in CI. If this doesn't work for you, please [file an issue]({{ cookiecutter.github_remote_upstream }}/issues/new).
+      description: Tested in CI. If this doesn't work for you, please [file an issue]({{ cookiecutter.git_https_upstream }}/issues/new).
     bug:
       icon: :material-bug:{ .bug }
       description: Should work but doesn't because upstream is broken. Supported on a best-effort basis.

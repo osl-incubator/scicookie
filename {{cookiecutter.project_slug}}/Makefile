@@ -50,8 +50,9 @@ test: ## run tests quickly with the default Python
 .PHONY:docs
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -rf docs/_build
-	sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
-	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	# sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
+	#$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	mkdocs build
 
 .PHONY:build
 build:
