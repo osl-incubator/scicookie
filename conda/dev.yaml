@@ -1,7 +1,8 @@
-name: cookiecutter-pypkg
+name: pypkg
 channels:
   - nodefaults
   - conda-forge
 dependencies:
   - python
   - poetry
+  - nodejs

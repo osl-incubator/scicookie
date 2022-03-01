@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
+Report bugs at https://github.com/osl-incubator/cookiecutter-pypackage/issues.
 
 If you are reporting a bug, please include:
 
@@ -31,14 +31,14 @@ it.
 
 ### Write Documentation
 
-{{ cookiecutter.project_name }} could always use more documentation,
-whether as part of the official {{ cookiecutter.project_name }} docs,
+cookiecutter-pypackage could always use more documentation,
+whether as part of the official cookiecutter-pypackage docs,
 in docstrings, or even on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
 The best way to send feedback is to file an issue at
-https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
+https://github.com/osl-incubator/cookiecutter-pypackage/issues.
 
 If you are proposing a feature:
 
@@ -50,20 +50,20 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for local development.
+Ready to contribute? Here’s how to set up `cookiecutter-pypackage` for local development.
 
-1.  Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
+1.  Fork the `cookiecutter-pypackage` repo on GitHub.
 
 2.  Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
+    $ git clone git@github.com:your_name_here/cookiecutter-pypackage.git
 
 3.  Install your local copy into a virtualenv. Assuming you have
     virtualenvwrapper installed, this is how you set up your fork for
     local development::
 
-    $ mkvirtualenv {{ cookiecutter.project_slug }}
-    $ cd {{cookiecutter.project_slug }}/
+    $ mkvirtualenv cookiecutter-pypackage
+    $ cd cookiecutter-pypackage/
     $ python setup.py develop
 
 4.  Create a branch for local development::
@@ -75,7 +75,7 @@ Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for
 5.  When you’re done making changes, check that your changes pass flake8
     and the tests, including testing other Python versions with tox::
 
-    $ flake8 {{ cookiecutter.project_slug }} tests $ python setup.py
+    $ flake8 cookiecutter-pypackage tests $ python setup.py
     test or pytest $ tox
 
     To get flake8 and tox, just pip install them into your virtualenv.
@@ -102,7 +102,7 @@ Before you submit a pull request, check that it meets these guidelines:
 To run a subset of tests::
 
 ```
-$ pytest tests.test_{{ cookiecutter.project_slug }}
+$ pytest
 ```
 
 ## Release
@@ -121,7 +121,7 @@ publishes the release.
 By default, **semantic-release** uses [Angular Commit Message
 Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
 The commit message format can be changed with the `preset` or `config`
-options_ of the
+options\_ of the
 [@semantic-release/commit-analyzer](https://github.com/semantic-release/commit-analyzer#options)
 and
 [@semantic-release/release-notes-generator](https://github.com/semantic-release/release-notes-generator#options)

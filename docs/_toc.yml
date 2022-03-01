@@ -1,0 +1,11 @@
+format: jb-book
+root: intro
+options:
+  numbered: true
+
+parts:
+
+  - caption: blog
+    chapters:
+    - file: articles/0059-r-maps-viz/GraficaMapasR.md
+      title: "> 0059: Dibuja tus mapas en R usando archivos de formato Shapefile"

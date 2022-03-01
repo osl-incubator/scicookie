@@ -1,16 +1,50 @@
-BAKE_OPTIONS=--no-input
+.DEFAULT_GOAL := help
 
+define PRINT_HELP_PYSCRIPT
+import re, sys
+
+for line in sys.stdin:
+	match = re.match(r'^([a-zA-Z_-]+):.*?## (.*)$$', line)
+	if match:
+		target, help = match.groups()
+		print("%-20s %s" % (target, help))
+endef
+export PRINT_HELP_PYSCRIPT
+
+
+.PHONY:help
 help:
-	@echo "bake 	generate project using defaults"
-	@echo "watch 	generate project using defaults and watch for changes"
-	@echo "replay 	replay last cookiecutter run and watch for changes"
+	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-bake:
-	cookiecutter $(BAKE_OPTIONS) . --overwrite-if-exists
+.PHONY:clean
+clean: ## remove build artifacts, compiled files, and cache
+	rm -fr build/
+	rm -fr docs/_build/
+	rm -fr dist/
+	rm -fr .eggs/
+	find . -name '*.egg-info' -exec rm -fr {} +
+	find . -name '*.egg' -exec rm -f {} +
+	find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +
+	find . -name '__pycache__' -exec rm -fr {} +
+	rm -f .coverage
+	rm -fr htmlcov/
+	rm -fr .pytest_cache
 
-watch: bake
-	watchmedo shell-command -p '*.*' -c 'make bake -e BAKE_OPTIONS=$(BAKE_OPTIONS)' -W -R -D \{{cookiecutter.project_slug}}/
+.PHONY:lint
+lint:
+	pre-commit run --all-files
 
-replay: BAKE_OPTIONS=--replay
-replay: watch
-	;
+.PHONY:test
+test: ## run tests quickly with the default Python
+	pytest
+
+.PHONY:docs
+docs: ## generate Sphinx HTML documentation, including API docs
+	rm -f docs/_build
+	jupyter-book docs
+
+.PHONY:build
+build:
+	poetry build

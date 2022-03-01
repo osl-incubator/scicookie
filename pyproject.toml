@@ -9,11 +9,15 @@ license = "BSD"
 python = "^3.10"
 
 [tool.poetry.dev-dependencies]
-pytest = "5.3.1"
-cookiecutter = ">=1.4.0"
-pytest-cookies = "0.5.1"
-alabaster = "0.7.12"
-watchdog = "0.9.0"
+pytest = "^7"
+black = "^22"
+isort = "^5"
+pre-commit = "2"
+flake8 = "^4"
+mypy = "^0.931"
+cookiecutter = "^1.7.3"
+pytest-cov = "^3.0.0"
+jupyter-book = "^0.12.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
