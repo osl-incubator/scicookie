@@ -42,8 +42,8 @@ test: ## run tests quickly with the default Python
 
 .PHONY:docs
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/_build
-	jupyter-book docs
+	rm -rf docs/_build
+	jupyter-book build docs
 
 .PHONY:build
 build:
