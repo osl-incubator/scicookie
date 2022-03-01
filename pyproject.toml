@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "cookiecutter-pypackage"
+version = "1.0.0"
+description = "Cookiecutter template for a Python package"
+authors = ["Ivan Ogasawara <ivan.ogasawara@gmail.com>"]
+license = "BSD"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "5.3.1"
+cookiecutter = ">=1.4.0"
+pytest-cookies = "0.5.1"
+alabaster = "0.7.12"
+watchdog = "0.9.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]

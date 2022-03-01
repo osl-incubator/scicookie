@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.project_version }}"  # semantic-release
+description = "{{ cookiecutter.project_short_description }}"
+authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
+license = "{{ cookiecutter.project_license }}"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7"
+black = "^22"
+isort = "^5"
+pre-commit = "2"
+flake8 = "^4"
+mypy = "^0.931"
+cookiecutter = "^1.7.3"
+pytest-cov = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
