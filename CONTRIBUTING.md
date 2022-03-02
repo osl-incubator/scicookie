@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/osl-incubator/cookiecutter-pypackage/issues.
+Report bugs at https://github.com/osl-incubator/cookiecutter-python/issues.
 
 If you are reporting a bug, please include:
 
@@ -31,14 +31,14 @@ it.
 
 ### Write Documentation
 
-cookiecutter-pypackage could always use more documentation,
-whether as part of the official cookiecutter-pypackage docs,
+cookiecutter-python could always use more documentation,
+whether as part of the official cookiecutter-python docs,
 in docstrings, or even on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
 The best way to send feedback is to file an issue at
-https://github.com/osl-incubator/cookiecutter-pypackage/issues.
+https://github.com/osl-incubator/cookiecutter-python/issues.
 
 If you are proposing a feature:
 
@@ -50,20 +50,20 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here’s how to set up `cookiecutter-pypackage` for local development.
+Ready to contribute? Here’s how to set up `cookiecutter-python` for local development.
 
-1.  Fork the `cookiecutter-pypackage` repo on GitHub.
+1.  Fork the `cookiecutter-python` repo on GitHub.
 
 2.  Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/cookiecutter-pypackage.git
+    $ git clone git@github.com:your_name_here/cookiecutter-python.git
 
 3.  Install your local copy into a virtualenv. Assuming you have
     virtualenvwrapper installed, this is how you set up your fork for
     local development::
 
-    $ mkvirtualenv cookiecutter-pypackage
-    $ cd cookiecutter-pypackage/
+    $ mkvirtualenv cookiecutter-python
+    $ cd cookiecutter-python/
     $ python setup.py develop
 
 4.  Create a branch for local development::
@@ -75,7 +75,7 @@ Ready to contribute? Here’s how to set up `cookiecutter-pypackage` for local d
 5.  When you’re done making changes, check that your changes pass flake8
     and the tests, including testing other Python versions with tox::
 
-    $ flake8 cookiecutter-pypackage tests $ python setup.py
+    $ flake8 cookiecutter-python tests $ python setup.py
     test or pytest $ tox
 
     To get flake8 and tox, just pip install them into your virtualenv.

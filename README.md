@@ -3,7 +3,7 @@
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template
 for a Python package.
 
-  - GitHub repo: <https://github.com/osl-incubator/cookiecutter-pypackage/>
+  - GitHub repo: <https://github.com/osl-incubator/cookiecutter-python/>
   - Free software: BSD license
 
 ## Features
@@ -19,4 +19,4 @@ requires Cookiecutter 1.4.0 or higher):
 
 Generate a Python package project:
 
-    cookiecutter https://github.com/audreyfeldroy/cookiecutter-pypackage.git
+    cookiecutter https://github.com/audreyfeldroy/cookiecutter-python.git

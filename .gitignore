@@ -95,7 +95,7 @@ target/
 # Cookiecutter
 output/
 python_boilerplate/
-cookiecutter-pypackage-env/
+cookiecutter-python-env/
 
 # IDE settings
 .vscode/
