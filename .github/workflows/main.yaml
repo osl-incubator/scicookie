@@ -42,7 +42,8 @@ jobs:
     - name: Run style checks
       run: |
         pre-commit install
-        make lint
+        # make lint
+        # run lint for the project using the template
 
   release:
     needs: [test]

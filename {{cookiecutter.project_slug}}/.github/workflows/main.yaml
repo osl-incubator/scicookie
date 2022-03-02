@@ -35,8 +35,7 @@ jobs:
     - name: Run style checks
       run: |
         pre-commit install
-        # make lint
-        # run lint for a final project
+        make lint
 
     - name: Release
       if: ${{ "{{ github.event_name == 'push' }}" }}
