@@ -47,8 +47,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = '{{ cookiecutter.project_name }}'
-copyright = "{% now 'local', '%Y' %}, {{ cookiecutter.full_name }}"
-author = "{{ cookiecutter.full_name }}"
+copyright = "{% now 'local', '%Y' %}, {{ cookiecutter.author_full_name }}"
+author = "{{ cookiecutter.author_full_name }}"
 
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout
@@ -129,7 +129,7 @@ latex_elements = {
 latex_documents = [
     (master_doc, '{{ cookiecutter.project_slug }}.tex',
      '{{ cookiecutter.project_name }} Documentation',
-     '{{ cookiecutter.full_name }}', 'manual'),
+     '{{ cookiecutter.author_full_name }}', 'manual'),
 ]
 
 
@@ -157,6 +157,3 @@ texinfo_documents = [
      'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-
