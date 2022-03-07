@@ -1,10 +1,10 @@
 {
-  "author_full_name": "Monkey D. Luffy",
-  "author_email": "luffy@one.piece",
-  "github_username": "luffy",
-  "project_name": "Python Boilerplate",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
+  "author_full_name": "Roronoa Zoro",
+  "author_email": "zoro@one.piece",
+  "project_name": "OSL Python package",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+  "package_slug": "{{ cookiecutter.project_slug.lower().replace('-', '_') }}",
+  "project_short_description": "OSL Python Package contains all the boilerplate you need to create a Python package.",
   "project_version": "1.0.0",
   "project_license": [
     "MIT license",
@@ -14,9 +14,13 @@
     "GNU General Public License v3",
     "Other"
   ],
-  "pypi_username": "{{ cookiecutter.github_username }}",
   "command_line_interface": ["Click", "Argparse", "No command-line interface"],
   "test_library": [
     "pytest"
-  ]
+  ],
+  "git_username": "zoro",
+  "git_remote_origin": "Git remote origin (if known)",
+  "git_remote_upstream": "Git remote upstream (if known)",
+  "git_main_branch": "main",
+  "pypi_username": "{{ cookiecutter.git_username }}"
 }

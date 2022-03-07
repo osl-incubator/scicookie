@@ -31,8 +31,8 @@ it.
 
 ### Write Documentation
 
-{{ cookiecutter.project_name }} could always use more documentation,
-whether as part of the official {{ cookiecutter.project_name }} docs,
+**Cookiecutter Python** could always use more documentation,
+whether as part of the official **Cookiecutter Python** docs,
 in docstrings, or even on the web in blog posts, articles, and such.
 
 ### Submit Feedback
@@ -50,7 +50,7 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for local development.
+Ready to contribute? Here’s how to set up `cookiecutter-python` for local development.
 
 1.  Fork the `cookiecutter-python` repo on GitHub.
 
@@ -63,7 +63,7 @@ Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for
     local development::
 
     $ mkvirtualenv cookiecutter-python
-    $ cd {{cookiecutter.project_slug }}/
+    $ cd cookiecutter-python/
     $ python setup.py develop
 
 4.  Create a branch for local development::
@@ -102,7 +102,7 @@ Before you submit a pull request, check that it meets these guidelines:
 To run a subset of tests::
 
 ```
-$ pytest tests.test_cookiecutter-pypackage
+$ pytest tests.test_cookiecutter-python
 ```
 
 ## Release

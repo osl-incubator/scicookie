@@ -11,6 +11,14 @@ for line in sys.stdin:
 endef
 export PRINT_HELP_PYSCRIPT
 
+# sphinx
+
+SPHINXOPTS    =
+SPHINXBUILD   = python -msphinx
+SPHINXPROJ    = {{ cookiecutter.project_slug }}
+SOURCEDIR     = docs/
+BUILDDIR      = docs/_build
+
 
 .PHONY:help
 help:
@@ -41,8 +49,9 @@ test: ## run tests quickly with the default Python
 
 .PHONY:docs
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/_build
-	jupyter-book docs
+	rm -rf docs/_build
+	sphinx-apidoc -o docs/_build {{ cookiecutter.package_slub }}
+	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .PHONY:build
 build:

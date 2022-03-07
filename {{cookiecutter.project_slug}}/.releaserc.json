@@ -8,12 +8,12 @@
       {
         "replacements": [
           {
-            "files": ["{{ cookiecutter.project_slug }}/__init__.py"],
+            "files": ["{{ cookiecutter.package_slug }}/__init__.py"],
             "from": "return \".*\"  # semantic-release",
             "to": "return \"${nextRelease.version}\"  # semantic-release",
             "results": [
               {
-                "file": "{{ cookiecutter.project_slug }}/__init__.py",
+                "file": "{{ cookiecutter.package_slug }}/__init__.py",
                 "hasChanged": true,
                 "numMatches": 1,
                 "numReplacements": 1
@@ -42,7 +42,7 @@
     [
       "@semantic-release/changelog",
       {
-        "changelogTitle": "Release Notes\n---",
+        "changelogTitle": "# Release Notes\n---",
         "changelogFile": "CHANGELOG.md"
       }
     ],
@@ -64,7 +64,7 @@
         "assets": [
           "pyproject.toml",
           "CHANGELOG.md",
-          "{{ cookiecutter.project_slug }}/__init__.py"
+          "{{ cookiecutter.package_slug }}/__init__.py"
         ],
         "message": "chore(release): ${nextRelease.version}"
       }

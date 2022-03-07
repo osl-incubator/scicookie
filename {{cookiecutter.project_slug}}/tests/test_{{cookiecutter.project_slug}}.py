@@ -2,7 +2,7 @@
 
 import pytest
 
-from {{ cookiecutter.project_slug }} import {{ cookiecutter.project_slug }}
+from {{ cookiecutter.package_slug }} import {{ cookiecutter.package_slug }}
 
 
 @pytest.fixture

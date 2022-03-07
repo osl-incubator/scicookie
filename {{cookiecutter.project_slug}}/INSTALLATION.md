@@ -19,19 +19,19 @@ can guide you through the process.
 ## From sources
 
 The sources for {{ cookiecutter.project_name }} can be downloaded from
-the [Github repo](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}).
+the [Github repo]({{ cookiecutter.git_remote_upstream }}).
 
 You can either clone the public repository:
 
 ```bash
-$ git clone git://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+$ git clone {{ cookiecutter.git_remote_upstream }}
 ```
 
 Or download the
-[tarball](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/tarball/main):
+[tarball]({{ cookiecutter.git_remote_upstream }}/tarball/main):
 
 ```bash
-$ curl -OJL https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/tarball/main
+$ curl -OJL {{ cookiecutter.git_remote_upstream }}/tarball/main
 ```
 
 Once you have a copy of the source, you can install it with:

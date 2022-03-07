@@ -38,6 +38,12 @@ jobs:
         # test is not working
         # make test
         cookiecutter --output-dir /tmp/ --no-input .
+        cd /tmp/osl-python-package
+        mamba env create --file conda/dev.yaml
+        conda activate osl-python-package
+        poetry install
+        pre-commit install
+        make docs
 
     - name: Run style checks
       run: |

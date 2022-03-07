@@ -5,7 +5,7 @@
 
 {% if is_open_source %}
 * Free software: {{ cookiecutter.project_license }}
-* Documentation: https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io.
+* Documentation: https://{{ cookiecutter.project_slug }}.readthedocs.io.
 {% endif %}
 
 ## Features

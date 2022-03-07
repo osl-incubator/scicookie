@@ -49,7 +49,7 @@ repos:
     - entry: mypy
       exclude: ^$
       # note: it would be good to extend this to other apps as well
-      files: "{{ cookiecutter.project_slug }}/"
+      files: "{{ cookiecutter.package_slug }}/"
       id: mypy
       language: python
       name: mypy

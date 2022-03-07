@@ -1,4 +1,4 @@
-# Cookiecutter PyPackage
+# Cookiecutter Python Package
 
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template
 for a Python package.

@@ -1,10 +1,4 @@
 format: jb-book
 root: intro
-options:
-  numbered: true
-
-parts:
-
-  - caption: Cookiecutter PyPackage
-    chapters:
-    - file: contributing
+chapters:
+- file: contributing
