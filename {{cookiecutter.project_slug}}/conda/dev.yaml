@@ -1,0 +1,8 @@
+name: {{ cookiecutter.project_slug }}
+channels:
+  - nodefaults
+  - conda-forge
+dependencies:
+  - python
+  - poetry
+  - nodejs  # used by semantic-release

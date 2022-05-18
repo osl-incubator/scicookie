@@ -1,0 +1,138 @@
+site_name: {{ cookiecutter.project_name}}
+site_url: {{ cookiecutter.project_url}}
+repo_url: {{ cookiecutter.git_remote_upstream}}
+# extra_css:
+#   - stylesheets/extra.css
+theme:
+  name: material
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - header.autohide
+    - navigation.indexes
+    - navigation.instant
+    - search.highlight
+    - search.share
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+  logo: images/logo.png
+  favicon: images/favicon.png
+  palette:
+    scheme: slate
+    primary: teal
+    accent: lime
+  # custom_dir: docs/overrides
+plugins:
+  - search
+  - macros
+  - autorefs
+  # - exclude:
+  #     glob:
+  #       - backends/template.md
+  - mkdocstrings:
+      enable_inventory: true
+      handlers:
+        python:
+          import:
+            - https://docs.python.org/3/objects.inv
+          selection:
+            docstring_style: numpy
+            filters:
+              - "!^Bounds"
+              - "!^__class__"
+              - "!^_filter_with_like"
+              - "!^_find_backends"
+              - "!^_key$"
+              - "!^_literal_value_hash_key"
+              - "!^_log"
+              - "!^_nbytes"
+              - "!^_safe_name$"
+              - "!^_schema_from_csv"
+              - "!^_to_geodataframe"
+              - "!^_tuplize"
+              - "!^ast_schema"
+              - "!^backend_table_type"
+              - "!^bounds$"
+              - "!^column$"
+              - "!^compiler$"
+              - "!^context_class"
+              - "!^database_class"
+              - "!^do_connect"
+              - "!^fetch_from_cursor"
+              - "!^get_schema"
+              - "!^largest$"
+              - "!^reconnect"
+              - "!^select_builder_class"
+              - "!^select_class"
+              - "!^table_class$"
+              - "!^table_expr_class"
+              - "!^translator_class"
+              - "!^Options$"
+          rendering:
+            show_category_heading: true
+            show_root_full_path: false
+            show_root_heading: true
+            show_root_toc_entry: true
+            show_source: false
+  - mkdocs-jupyter:
+      execute: true
+      ignore:
+        - "*.py"
+      # execute_ignore: "tutorial/*Geospatial*.ipynb"
+      include_source: true
+      theme: dark
+  - literate-nav
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - docs/static/icons
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink:
+      provider: github
+      repo_url_shortener: true
+  - pymdownx.saneheaders
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc
+extra:
+  project_name: "{{ cookiecutter.project_name}}"
+  team:
+    - name: "Active maintainers"
+      members:
+        - {{ cookiecutter.git_username }}
+    - name: "Former maintainers"
+      members:
+        - {{ cookiecutter.git_username }}
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/{{ cookiecutter.git_username }}
+    - icon: fontawesome/brands/github
+      link: {{ cookiecutter.github_remote_upstream }}
+  support_levels:
+    supported:
+      icon: :material-check-decagram:{ .verified }
+      description: Tested in CI. If this doesn't work for you, please [file an issue]({{ cookiecutter.github_remote_upstream }}/issues/new).
+    bug:
+      icon: :material-bug:{ .bug }
+      description: Should work but doesn't because upstream is broken. Supported on a best-effort basis.
+    unsupported:
+      icon: :material-cancel:{ .cancel }
+      description: Unlikely to ever be supported or no upstream support.
+
+copyright: "Copyright &copy; 2022, {{ cookiecutter.project_name }} Team"

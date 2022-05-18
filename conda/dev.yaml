@@ -1,0 +1,9 @@
+name: pypkg
+channels:
+  - nodefaults
+  - conda-forge
+dependencies:
+  - git
+  - python
+  - poetry
+  - nodejs

@@ -29,3 +29,99 @@ jobs:
         activate-environment: pypkg
         use-mamba: true
         miniforge-variant: Mambaforge
+
+    - name: Install dependencies
+      run: poetry install
+
+    - name: Run tests
+      run: |
+        # test is not working
+        # make test
+        cookiecutter --output-dir /tmp/ --no-input .
+        cd /tmp/osl-python-package
+        mamba env create --file conda/dev.yaml
+        conda activate osl-python-package
+        poetry install
+        pre-commit install
+        make docs
+
+    - name: Run style checks
+      run: |
+        pre-commit install
+        # make lint
+        # run lint for the project using the template
+
+  release:
+    needs: [test]
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          miniconda-version: "latest"
+          mamba-version: "*"
+          environment-file: conda/dev.yaml
+          channels: conda-forge,nodefaults
+          activate-environment: inlyse-dashboard
+          use-mamba: true
+          miniforge-variant: Mambaforge
+
+      - name: semantic-release
+        if: ${{ github.event_name == 'push' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx --yes \
+            -p semantic-release \
+            -p "@semantic-release/commit-analyzer" \
+            -p "@semantic-release/release-notes-generator" \
+            -p "@semantic-release/changelog" \
+            -p "@semantic-release/exec" \
+            -p "@semantic-release/github" \
+            -p "@semantic-release/git" \
+            -p "@google/semantic-release-replace-plugin" \
+            semantic-release --ci
+
+  publish-docs:
+    needs: [test, release]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniconda-version: "latest"
+        mamba-version: "*"
+        environment-file: conda/dev.yaml
+        channels: conda-forge,nodefaults
+        activate-environment: pypkg
+        use-mamba: true
+        miniforge-variant: Mambaforge
+
+    - name: Install deps
+      run: poetry install
+
+    - name: Build the book
+      run: make docs
+
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.5.9
+      if: startsWith(github.event_name, 'push')
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_build/html
