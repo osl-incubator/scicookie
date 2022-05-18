@@ -1,0 +1,68 @@
+# Book settings
+title                       : Cookiecutter Python Package  # The title of the book. Will be placed in the left navbar.
+author                      : OpenScienceLabs Team  # The author of the book
+copyright                   : "2022"  # Copyright year to be placed in the footer
+logo                        : "images/osl.png"  # A path to the book logo
+exclude_patterns            : []
+only_build_toc_files        : true
+
+html:
+  favicon                   : "images/favicon.ico"  # A path to a favicon image
+  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  use_edit_page_button      : false
+  use_issues_button         : false
+  use_repository_button     : false
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  extra_navbar              : ""
+  extra_footer              : |
+    <div>
+      Powered by <a href="https://jupyterbook.org">Jupyter Book</a>.
+      All pages are under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA 4.0 License</a>
+    </div>
+    <div>
+      <a href="https://www.facebook.com/opensciencelabscommunity"><img src="https://opensciencelabs.github.io/articles/_images/facebook.png" /></a>
+      <a href="https://twitter.com/opensciencelabs"><img src="https://opensciencelabs.github.io/articles/_images/twitter.png" /></a>
+      <a href="https://www.linkedin.com/company/open-science-labs"><img src="https://opensciencelabs.github.io/articles/_images/linkedin.png" /></a>
+      <a href="http://youtube.opensciencelabs.org"><img src="https://opensciencelabs.github.io/articles/_images/youtube.png" /></a>
+      <a href="http://discord.opensciencelabs.org"><img src="https://opensciencelabs.github.io/articles/_images/discord.png" /></a>
+    </div>
+  comments:
+    hypothesis              : false
+    utterances              : false
+
+repository:
+  url                       : https://github.com/osl-incubator/cookiecutter-python # The URL to your book's repository
+  path_to_book              : ""    # A path to your book's folder, relative to the repository root.
+  branch                    : main  # Which branch of the repository should be used when creating links
+
+#######################################################################################
+# Execution settings
+######################################################################################
+
+execute:
+  execute_notebooks         : auto  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
+  cache                     : ""    # A path to the jupyter cache that will be used to store execution artifacts. Defaults to `_build/.jupyter_cache/`
+  exclude_patterns          : []    # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
+  timeout                   : 30    # The maximum time (in seconds) each notebook cell is allowed to run.
+  run_in_temp               : false # If `True`, then a temporary directory will be created and used as the command working directory (cwd),
+                                    # otherwise the notebook's parent directory will be the cwd.
+  allow_errors              : false # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
+  stderr_output             : show  # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
+
+#######################################################################################
+# LaTeX-specific settings
+#######################################################################################
+latex:
+  latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+  use_jupyterbook_latex     : true # use sphinx-jupyterbook-latex for pdf builds as default
+
+#######################################################################################
+# Launch button settings
+#######################################################################################
+launch_buttons:
+  notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+  colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)

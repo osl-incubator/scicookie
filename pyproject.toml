@@ -1,0 +1,53 @@
+[tool.black]
+line-length = 79
+# note: for support "py39", we need to update black using poetry
+#       currently, it has conflicts with typing-extensions
+target-version = ["py38"]
+force-exclude = """
+(
+  /(
+      docs/*
+    |.*\\.egg-info
+  )/
+)
+"""
+
+[tool.isort]
+ensure_newline_before_comments = true
+line_length = 79
+multi_line_output = 3
+include_trailing_comma = true
+skip_glob = ["docs/*", "*.egg-info"]
+
+
+[tool.poetry]
+name = "cookiecutter-python"
+version = "1.0.0"
+description = "Cookiecutter template for a Python package"
+authors = ["Ivan Ogasawara <ivan.ogasawara@gmail.com>"]
+license = "BSD"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7"
+black = "^22"
+isort = "^5"
+pre-commit = "2"
+flake8 = "^4"
+mypy = "^0.931"
+cookiecutter = "^1.7.3"
+pytest-cov = "^3.0.0"
+pytest-cookies = "^0.6.1"
+Sphinx = "^4.4.0"
+jupyter-book = "^0.12.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]

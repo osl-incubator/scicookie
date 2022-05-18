@@ -59,6 +59,7 @@ def check_output_inside_dir(command, dirpath):
 
 def test_year_compute_in_license_file(cookies):
     with bake_in_temp_dir(cookies) as result:
+        breakpoint()
         license_file_path = result.project.join('LICENSE')
         now = datetime.datetime.now()
         assert str(now.year) in license_file_path.read()
@@ -93,20 +94,20 @@ def test_bake_and_run_tests(cookies):
 
 
 def test_bake_withspecialchars_and_run_tests(cookies):
-    """Ensure that a `full_name` with double quotes does not break setup.py"""
+    """Ensure that a `author_full_name` with double quotes does not break setup.py"""
     with bake_in_temp_dir(
         cookies,
-        extra_context={'full_name': 'name "quote" name'}
+        extra_context={'author_full_name': 'name "quote" name'}
     ) as result:
         assert result.project.isdir()
         run_inside_dir('python setup.py test', str(result.project)) == 0
 
 
 def test_bake_with_apostrophe_and_run_tests(cookies):
-    """Ensure that a `full_name` with apostrophes does not break setup.py"""
+    """Ensure that a `author_full_name` with apostrophes does not break setup.py"""
     with bake_in_temp_dir(
         cookies,
-        extra_context={'full_name': "O'connor"}
+        extra_context={'author_full_name': "O'connor"}
     ) as result:
         assert result.project.isdir()
         run_inside_dir('python setup.py test', str(result.project)) == 0
@@ -119,7 +120,7 @@ def test_bake_with_apostrophe_and_run_tests(cookies):
 #
 #         # when:
 #         travis_setup_cmd = ('python travis_pypi_setup.py'
-#                             ' --repo audreyr/cookiecutter-pypackage'
+#                             ' --repo osl-incubator/cookiecutter-python'
 #                             ' --password invalidpass')
 #         run_inside_dir(travis_setup_cmd, project_path)
 #         # then:
@@ -144,27 +145,6 @@ def test_bake_without_travis_pypi_setup(cookies):
         assert "deploy" not in result_travis_config
         assert "python" == result_travis_config["language"]
         # found_toplevel_files = [f.basename for f in result.project.listdir()]
-
-
-def test_bake_without_author_file(cookies):
-    with bake_in_temp_dir(
-        cookies,
-        extra_context={'create_author_file': 'n'}
-    ) as result:
-        found_toplevel_files = [f.basename for f in result.project.listdir()]
-        assert 'AUTHORS.rst' not in found_toplevel_files
-        doc_files = [f.basename for f in result.project.join('docs').listdir()]
-        assert 'authors.rst' not in doc_files
-
-        # Assert there are no spaces in the toc tree
-        docs_index_path = result.project.join('docs/index.rst')
-        with open(str(docs_index_path)) as index_file:
-            assert 'contributing\n   history' in index_file.read()
-
-        # Check that
-        manifest_path = result.project.join('MANIFEST.in')
-        with open(str(manifest_path)) as manifest_file:
-            assert 'AUTHORS.rst' not in manifest_file.read()
 
 
 def test_make_help(cookies):
@@ -192,7 +172,7 @@ def test_bake_selecting_license(cookies):
     for license, target_string in license_strings.items():
         with bake_in_temp_dir(
             cookies,
-            extra_context={'open_source_license': license}
+            extra_context={'project_license': license}
         ) as result:
             assert target_string in result.project.join('LICENSE').read()
             assert license in result.project.join('setup.py').read()
@@ -201,7 +181,7 @@ def test_bake_selecting_license(cookies):
 def test_bake_not_open_source(cookies):
     with bake_in_temp_dir(
         cookies,
-        extra_context={'open_source_license': 'Not open source'}
+        extra_context={'project_license': 'Not open source'}
     ) as result:
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert 'setup.py' in found_toplevel_files
@@ -244,7 +224,7 @@ def test_not_using_pytest(cookies):
 #
 #     # when:
 #     travis_setup_cmd = ('python travis_pypi_setup.py'
-#                         ' --repo audreyr/cookiecutter-pypackage'
+#                         ' --repo osl-incubator/cookiecutter-python'
 #                         ' --password invalidpass')
 #     run_inside_dir(travis_setup_cmd, project_path)
 #
