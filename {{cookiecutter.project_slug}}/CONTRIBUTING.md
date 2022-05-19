@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at {{ cookiecutter.git_remote_upstream }}/issues.
+Report bugs at {{ cookiecutter.git_https_upstream }}/issues.
 
 If you are reporting a bug, please include:
 
@@ -38,7 +38,7 @@ in docstrings, or even on the web in blog posts, articles, and such.
 ### Submit Feedback
 
 The best way to send feedback is to file an issue at
-{{ cookiecutter.git_remote_upstream }}/issues.
+{{ cookiecutter.git_https_upstream }}/issues.
 
 If you are proposing a feature:
 

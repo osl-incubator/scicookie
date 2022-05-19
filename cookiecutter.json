@@ -6,6 +6,7 @@
   "package_slug": "{{ cookiecutter.project_slug.lower().replace('-', '_') }}",
   "project_short_description": "OSL Python Package contains all the boilerplate you need to create a Python package.",
   "project_version": "1.0.0",
+  "project_url": "https://{{ cookiecutter.project_slug }}.com",
   "project_license": [
     "MIT license",
     "BSD license",
@@ -19,8 +20,8 @@
     "pytest"
   ],
   "git_username": "zoro",
-  "git_remote_origin": "Git remote origin (if known)",
-  "git_remote_upstream": "Git remote upstream (if known)",
+  "git_https_origin": "Git remote origin (if known)",
+  "git_https_upstream": "Git remote upstream (if known)",
   "git_main_branch": "main",
   "pypi_username": "{{ cookiecutter.git_username }}"
 }
