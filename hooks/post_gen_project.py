@@ -17,18 +17,18 @@ def http2ssh(url):
 def post_gen():
     subprocess.call(["git", "init"])
 
-    git_remote_origin = http2ssh("{{cookiecutter.git_remote_origin}}")
-    git_remote_upstream = http2ssh("{{cookiecutter.git_remote_upstream}}")
+    git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
+    git_https_upstream = http2ssh("{{cookiecutter.git_https_upstream}}")
     git_main_branch = http2ssh("{{cookiecutter.git_main_branch}}")
     git_new_branch = "add-initial-structure"
 
-    if git_remote_origin != "Git remote origin (if known)":
-        subprocess.call(["git", "remote", "add", "origin", git_remote_origin])
+    if git_https_origin != "Git remote origin (if known)":
+        subprocess.call(["git", "remote", "add", "origin", git_https_origin])
         subprocess.call(["git", "fetch", "--all"])
 
-    if git_remote_upstream != "Git remote upstream (if known)":
+    if git_https_upstream != "Git remote upstream (if known)":
         subprocess.call(
-            ["git", "remote", "add", "upstream", git_remote_upstream]
+            ["git", "remote", "add", "upstream", git_https_upstream]
         )
         subprocess.call(["git", "fetch", "--all"])
 
@@ -43,7 +43,7 @@ def post_gen():
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
-    if git_remote_origin != "Git remote origin (if known)":
+    if git_https_origin != "Git remote origin (if known)":
         subprocess.call(
             ["git", "push", "--set-upstream", "origin", git_new_branch]
         )
