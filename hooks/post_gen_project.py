@@ -43,11 +43,6 @@ def post_gen():
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
-    if git_https_origin != "git@github.com:zoro_roronoa/origin":
-        subprocess.call(
-            ["git", "push", "--set-upstream", "origin", git_new_branch]
-        )
-
 
 if __name__ == "__main__":
     post_gen()

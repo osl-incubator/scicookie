@@ -44,7 +44,7 @@ jobs:
         poetry install
         pre-commit install
         make docs
-        make test-template
+        make build
 
     - name: Run style checks
       run: |

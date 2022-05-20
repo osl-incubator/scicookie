@@ -20,8 +20,8 @@
     "pytest"
   ],
   "git_username": "zoro_roronoa",
-  "git_https_origin": "https://github.com/{{ cookiecutter.git_username }}/origin",
-  "git_https_upstream": "https://github.com/{{ cookiecutter.git_username }}/upstream",
+  "git_https_origin": "https://github.com/{{ cookiecutter.git_username }}/origin.git",
+  "git_https_upstream": "https://github.com/{{ cookiecutter.git_username }}/upstream.git",
   "git_main_branch": "main",
   "pypi_username": "{{ cookiecutter.git_username }}"
 }
