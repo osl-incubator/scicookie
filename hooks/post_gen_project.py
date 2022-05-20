@@ -22,11 +22,11 @@ def post_gen():
     git_main_branch = http2ssh("{{cookiecutter.git_main_branch}}")
     git_new_branch = "add-initial-structure"
 
-    if git_https_origin != "Git remote origin (if known)":
+    if git_https_origin != "git@github.com:zoro_roronoa/origin":
         subprocess.call(["git", "remote", "add", "origin", git_https_origin])
         subprocess.call(["git", "fetch", "--all"])
 
-    if git_https_upstream != "Git remote upstream (if known)":
+    if git_https_upstream != "git@github.com:zoro_roronoa/upstream":
         subprocess.call(
             ["git", "remote", "add", "upstream", git_https_upstream]
         )
@@ -43,7 +43,7 @@ def post_gen():
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
-    if git_https_origin != "Git remote origin (if known)":
+    if git_https_origin != "git@github.com:zoro_roronoa/origin":
         subprocess.call(
             ["git", "push", "--set-upstream", "origin", git_new_branch]
         )
