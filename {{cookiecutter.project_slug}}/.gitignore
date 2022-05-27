@@ -62,8 +62,9 @@ instance/
 # Scrapy stuff:
 .scrapy
 
+{% if cookiecutter.doc_generator == 'Sphinx' %}
 # Sphinx documentation
-docs/_build/
+docs/_build/ {% endif %}
 
 # PyBuilder
 target/
@@ -95,8 +96,9 @@ ENV/
 # Rope project settings
 .ropeproject
 
+{% if cookiecutter.doc_generator == 'mkdocs' %}
 # mkdocs documentation
-/site
+/site {% endif %}
 
 # mypy
 .mypy_cache/

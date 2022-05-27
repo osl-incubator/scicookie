@@ -11,14 +11,13 @@ for line in sys.stdin:
 endef
 export PRINT_HELP_PYSCRIPT
 
-# sphinx
-
+{% if cookiecutter.doc_generator == 'Sphinx' %}
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = {{ cookiecutter.project_slug }}
 SOURCEDIR     = docs/
 BUILDDIR      = docs/_build
-
+{% endif %}
 
 .PHONY:help
 help:
@@ -48,11 +47,15 @@ test: ## run tests quickly with the default Python
 	pytest
 
 .PHONY:docs
-docs: ## generate Sphinx HTML documentation, including API docs
+docs:
+
+	{% if cookiecutter.doc_generator == 'Sphinx' %}
 	rm -rf docs/_build
-	# sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
-	#$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	mkdocs build
+	sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
+	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	{% endif %}
+
+	{% if cookiecutter.doc_generator == 'mkdocs' %}mkdocs build{% endif %}
 
 .PHONY:build
 build:

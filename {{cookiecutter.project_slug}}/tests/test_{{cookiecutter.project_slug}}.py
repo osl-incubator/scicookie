@@ -1,8 +1,7 @@
 """Tests for `{{ cookiecutter.project_slug }}` package."""
 
 import pytest
-
-from {{ cookiecutter.package_slug }} import {{ cookiecutter.package_slug }}
+from {{cookiecutter.package_slug}} import {{ cookiecutter.package_slug }}
 
 
 @pytest.fixture

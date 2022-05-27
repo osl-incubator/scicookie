@@ -7,7 +7,10 @@ repos:
   - repo: local
     hooks:
     - entry: black
-      exclude: ^$
+      exclude: |
+            (?x)(
+                ^{{cookiecutter.project_slug}}/
+            )
       files: ""
       id: black
       language: system
@@ -22,7 +25,10 @@ repos:
       types_or: []
 
     - entry: flake8
-      exclude: ^$
+      exclude: |
+            (?x)(
+                ^{{cookiecutter.project_slug}}/
+            )
       files: ""
       id: flake8
       language: python
