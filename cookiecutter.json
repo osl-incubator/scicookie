@@ -21,7 +21,7 @@
     "Argparse", 
     "No command-line interface"
   ],
-  "doc_generator":[
+  "documentation_engine":[
     "mkdocs",
     "Sphinx",
     "Jupyter-book"
@@ -30,8 +30,8 @@
     "pytest"
   ],
   "git_username": "zoro_roronoa",
-  "git_https_origin": "https:// Git remote origin (if known)",
-  "git_https_upstream": "https:// Git remote origin (if known)",
+  "git_https_origin": "",
+  "git_https_upstream": "",
   "git_main_branch": "main",
   "pypi_username": "{{ cookiecutter.git_username }}"
 }

@@ -11,14 +11,6 @@ for line in sys.stdin:
 endef
 export PRINT_HELP_PYSCRIPT
 
-{% if cookiecutter.doc_generator == 'Sphinx' %}
-SPHINXOPTS    =
-SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = {{ cookiecutter.project_slug }}
-SOURCEDIR     = docs/
-BUILDDIR      = docs/_build
-{% endif %}
-
 .PHONY:help
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
@@ -48,15 +40,29 @@ test: ## run tests quickly with the default Python
 
 .PHONY:docs
 docs:
-
-	{% if cookiecutter.doc_generator == 'Sphinx' %}
-	rm -rf docs/_build
-	sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
-	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	{% endif %}
-
-	{% if cookiecutter.doc_generator == 'mkdocs' %}mkdocs build{% endif %}
+	$(MAKE_DOCS)
 
 .PHONY:build
 build:
 	poetry build
+
+# Documentation Engine: {{ cookiecutter.documentation_engine }}
+
+{%- if cookiecutter.documentation_engine == 'mkdocs' %}
+define MAKE_DOCS
+mkdocs build
+endef
+{% endif -%}
+
+{%- if cookiecutter.documentation_engine == 'Sphinx' %}
+SPHINXOPTS    =
+SPHINXBUILD   = python -msphinx
+SPHINXPROJ    = {{ cookiecutter.project_slug }}
+SOURCEDIR     = docs/
+BUILDDIR      = docs/_build
+
+define MAKE_DOCS
+sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
+$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+endef
+{% endif -%}

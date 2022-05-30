@@ -21,7 +21,7 @@ skip_glob = ["docs/*", "*.egg-info"]
 
 [tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
-version = "{{ cookiecutter.project_version }}"  # semantic-release
+version = "{{ cookiecutter.project_version }}" 
 description = "{{ cookiecutter.project_short_description }}"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
 license = "{{ cookiecutter.project_license }}"
@@ -65,10 +65,8 @@ flake8 = "^4"
 mypy = "^0.931"
 cookiecutter = "^1.7.3"
 pytest-cov = "^3.0.0"
-Jinja2 = "^2.9.0"
-MarkupSafe = ">=0.23,<2.0.1"
 
-{% if cookiecutter.doc_generator == 'mkdocs' %}
+{%- if cookiecutter.documentation_engine == 'mkdocs' %}
 mkdocs = ">=1.2.3,<2"
 mkdocs-exclude = ">=1.0.2,<2"
 mkdocs-jupyter = ">=0.20.0,<1"
@@ -76,9 +74,8 @@ mkdocs-literate-nav = ">=0.4.1,<1"
 mkdocs-macros-plugin = ">=0.6.3,<1"
 mkdocs-material = ">=8.2.1,<9"
 mkdocstrings = ">=0.17.0,<0.18.0"
-{% endif %}
 
-{% if cookiecutter.doc_generator == 'Sphinx' %}
+{%- elif cookiecutter.documentation_engine == 'Sphinx' %}
 Sphinx = "^4.4.0"
 myst-parser = "^0.17.2"
 sphinx_book_theme = "^0.3.2"
