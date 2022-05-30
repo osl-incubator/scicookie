@@ -79,8 +79,10 @@ mkdocstrings = ">=0.17.0,<0.18.0"
 Sphinx = "^4.4.0"
 myst-parser = "^0.17.2"
 sphinx_book_theme = "^0.3.2"
-{% endif %}
 
+{%- elif cookiecutter.documentation_engine == 'Jupyter-book' %}
+jupyter-book = "^0.12.3"
+{% endif %}
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

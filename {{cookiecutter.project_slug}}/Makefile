@@ -52,9 +52,8 @@ build:
 define MAKE_DOCS
 mkdocs build
 endef
-{% endif -%}
 
-{%- if cookiecutter.documentation_engine == 'Sphinx' %}
+{%- elif cookiecutter.documentation_engine == 'Sphinx' %}
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = {{ cookiecutter.project_slug }}
@@ -64,5 +63,11 @@ BUILDDIR      = docs/_build
 define MAKE_DOCS
 sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
 $(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+endef
+
+{%- elif cookiecutter.documentation_engine == 'Jupyter-book' %}
+#NOTE: This command will fail if ({{cookiecutter.git_https_origin}})<- this is not a correct URL.
+define MAKE_DOCS
+jupyter-book build --all {{cookiecutter.project_slug}}-book/
 endef
 {% endif -%}
