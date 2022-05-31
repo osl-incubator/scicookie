@@ -67,6 +67,7 @@ cookiecutter = "^1.7.3"
 pytest-cov = "^3.0.0"
 
 {%- if cookiecutter.documentation_engine == 'mkdocs' %}
+Jinja2 = "<3.1.0"
 mkdocs = ">=1.2.3,<2"
 mkdocs-exclude = ">=1.0.2,<2"
 mkdocs-jupyter = ">=0.20.0,<1"
@@ -82,7 +83,8 @@ sphinx_book_theme = "^0.3.2"
 
 {%- elif cookiecutter.documentation_engine == 'Jupyter-book' %}
 jupyter-book = "^0.12.3"
-{% endif %}
+{%+ endif %}
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

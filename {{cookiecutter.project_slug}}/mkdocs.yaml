@@ -123,7 +123,7 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/{{ cookiecutter.git_username }}
     - icon: fontawesome/brands/github
-      link: {{ cookiecutter.git_https_upstream }}
+      link: {% if cookiecutter.git_https_upstream != "" %}{{cookiecutter.git_https_upstream}}{% else %}https://github.com/{% endif %}
   support_levels:
     supported:
       icon: :material-check-decagram:{ .verified }
