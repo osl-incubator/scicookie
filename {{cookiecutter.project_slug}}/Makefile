@@ -23,9 +23,9 @@ clean: ## remove build artifacts, compiled files, and cache
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
 	find . -name '*.pyc' -exec rm -f {} +
-	find . -name '*.pyo' -exec rm -f {} +
-	find . -name '*~' -exec rm -f {} +
-	find . -name '__pycache__' -exec rm -fr {} +
+	find . -name 
+	find . -name '__pycache__' -exec rm -fr '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +{} +
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
@@ -50,24 +50,24 @@ build:
 
 {%- if cookiecutter.documentation_engine == 'mkdocs' %}
 define MAKE_DOCS
-mkdocs build
+mkdocs build --config-file docs-mkdocs/mkdocs.yaml
 endef
 
-{%- elif cookiecutter.documentation_engine == 'Sphinx' %}
+{%- elif cookiecutter.documentation_engine == 'sphinx' %}
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = {{ cookiecutter.project_slug }}
-SOURCEDIR     = docs/
-BUILDDIR      = docs/_build
+SOURCEDIR     = docs-sphinx/
+BUILDDIR      = docs-sphinx/_build
 
 define MAKE_DOCS
-sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
+sphinx-apidoc -o docs-sphinx/_build {{ cookiecutter.package_slug }}
 $(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 endef
 
-{%- elif cookiecutter.documentation_engine == 'Jupyter-book' %}
+{%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
 #NOTE: This command will fail if ({{cookiecutter.git_https_origin}})<- this is not a correct URL.
 define MAKE_DOCS
-jupyter-book build --all {{cookiecutter.project_slug}}-book/
+jupyter-book build --all docs-jupyter-book/
 endef
 {% endif -%}

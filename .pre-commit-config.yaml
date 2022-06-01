@@ -4,6 +4,13 @@ repos:
     hooks:
       - id: end-of-file-fixer
 
+  # Flake8-pyproject is a fork from Flake8 that solves incompability
+  # with flake8 and pyproject.toml.
+  - repo: https://github.com/john-hen/Flake8-pyproject
+    rev: 0.9.0
+    hooks:
+      - id: Flake8-pyproject
+        
   - repo: local
     hooks:
     - entry: black
@@ -22,23 +29,6 @@ repos:
         - python
         - file
         - python
-      types_or: []
-
-    - entry: flake8
-      exclude: |
-            (?x)(
-                ^{{cookiecutter.project_slug}}/
-            )
-      files: ""
-      id: flake8
-      language: python
-      name: flake8
-      pass_filenames: true
-      stages:
-        - commit
-      types:
-        - python
-      types_or: []
 
     - entry: isort
       exclude: "^.*/js/.*$"
@@ -64,4 +54,3 @@ repos:
         - commit
       types:
         - python
-      types_or: []

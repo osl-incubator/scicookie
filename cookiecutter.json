@@ -23,8 +23,8 @@
   ],
   "documentation_engine":[
     "mkdocs",
-    "Sphinx",
-    "Jupyter-book"
+    "sphinx",
+    "jupyter-book"
   ],
   "test_library": [
     "pytest"

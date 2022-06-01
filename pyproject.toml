@@ -1,16 +1,25 @@
 [tool.black]
-line-length = 115
+line-length = 79
 # note: for support "py39", we need to update black using poetry
-#       currently, it has conflicts with typing-extensions
+#       currently, it has conflicts with typing-extensions.
+#       Black has clonflicts with Jinja2 syntax in hooks/post_gen_project.py.
 target-version = ["py38"]
-force-exclude = """
-(
-  /(
-      docs/*
-    |.*\\.egg-info
-  )/
-)
-"""
+force-exclude = '''
+/(
+  |  docs/*
+  |  hooks/* 
+  |.*\\.egg-info
+)/
+'''
+
+[tool.flake8]
+max-line-length = 79
+# Ignoring these erros will prevent conflicts with Flake8 and Jinja2 syntax.
+per-file-ignores = [
+  'docs/conf.py:E999', 
+  'hooks/post_gen_project.py:E999',
+  '{{cookiecutter.project_slug}}/tests/test_{{cookiecutter.project_slug}}.py:E265'
+]
 
 [tool.isort]
 ensure_newline_before_comments = true
@@ -18,7 +27,6 @@ line_length = 115
 multi_line_output = 3
 include_trailing_comma = true
 skip_glob = ["docs/*", "*.egg-info"]
-
 
 [tool.poetry]
 name = "cookiecutter-python"
@@ -42,6 +50,7 @@ pytest-cov = "^3.0.0"
 pytest-cookies = "^0.6.1"
 Sphinx = "^4.4.0"
 jupyter-book = "^0.12.2"
+Flake8-pyproject = "^0.9.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
