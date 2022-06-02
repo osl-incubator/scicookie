@@ -83,6 +83,7 @@ sphinx_book_theme = "^0.3.2"
 
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
 jupyter-book = "^0.12.3"
+myst-parser = "^0.15.0"
 {%+ endif %}
 
 [build-system]

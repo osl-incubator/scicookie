@@ -68,6 +68,5 @@ def post_gen():
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
 
-
 if __name__ == "__main__":
     post_gen()
