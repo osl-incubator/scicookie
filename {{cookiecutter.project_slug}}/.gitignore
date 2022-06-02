@@ -94,8 +94,8 @@ ENV/
 
 {%- if cookiecutter.documentation_engine == 'sphinx' %}
 # sphinx build & templates directory
-docs-sphinx/_build/
-docs-sphinx/_templates/
+docs/_build/
+docs/_templates/
 {%+ endif %}
 
 # mypy

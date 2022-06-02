@@ -17,8 +17,9 @@ latex:
 
 # Information about where the book exists on the web
 repository:
-  url: {{cookiecutter.git_https_origin}}  # Online location of your book
-  path_to_book: docs-jupyter-book  # Optional path to your book, relative to the repository root
+  url: {% if cookiecutter.git_https_origin != "" %}{{cookiecutter.git_https_origin}}/docs
+       {%- else %}https://github.com/test_repo/docs{% endif %}  # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository

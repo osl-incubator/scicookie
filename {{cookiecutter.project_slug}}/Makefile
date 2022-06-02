@@ -1,5 +1,13 @@
 .DEFAULT_GOAL := help
 
+{%- if cookiecutter.documentation_engine == 'sphinx' %}
+SPHINXOPTS    =
+SPHINXBUILD   = python -msphinx
+SPHINXPROJ    = {{ cookiecutter.project_slug }}
+SOURCEDIR     = docs/
+BUILDDIR      = docs/_build
+{%- endif +%}
+
 define PRINT_HELP_PYSCRIPT
 import re, sys
 
@@ -38,36 +46,26 @@ lint:
 test: ## run tests quickly with the default Python
 	pytest
 
+{% if cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs
 docs:
-	$(MAKE_DOCS)
+	mkdocs build --config-file docs/mkdocs.yaml
+
+{%- elif cookiecutter.documentation_engine == 'sphinx' -%}
+.PHONY:docs
+docs:
+	sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
+	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+{%- elif cookiecutter.documentation_engine == 'jupyter-book' -%}
+#NOTE: This command will fail if ({{cookiecutter.git_https_origin}})<- this is not a correct URL.
+.PHONY:docs
+docs:
+	jupyter-book build --all docs/
+{%- endif +%}
 
 .PHONY:build
 build:
 	poetry build
 
-# Documentation Engine: {{ cookiecutter.documentation_engine }}
 
-{%- if cookiecutter.documentation_engine == 'mkdocs' %}
-define MAKE_DOCS
-mkdocs build --config-file docs-mkdocs/mkdocs.yaml
-endef
-
-{%- elif cookiecutter.documentation_engine == 'sphinx' %}
-SPHINXOPTS    =
-SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = {{ cookiecutter.project_slug }}
-SOURCEDIR     = docs-sphinx/
-BUILDDIR      = docs-sphinx/_build
-
-define MAKE_DOCS
-sphinx-apidoc -o docs-sphinx/_build {{ cookiecutter.package_slug }}
-$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-endef
-
-{%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
-#NOTE: This command will fail if ({{cookiecutter.git_https_origin}})<- this is not a correct URL.
-define MAKE_DOCS
-jupyter-book build --all docs-jupyter-book/
-endef
-{% endif -%}

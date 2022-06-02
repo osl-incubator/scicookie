@@ -24,7 +24,7 @@ theme:
     scheme: slate
     primary: teal
     accent: lime
-  # custom_dir: docs-mkdocs/overrides
+  # custom_dir: docs/overrides
 plugins:
   - search
   - macros
@@ -98,7 +98,7 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
       options:
         custom_icons:
-          - docs-mkdocs/static/icons
+          - docs/static/icons
   - pymdownx.details
   - pymdownx.highlight
   - pymdownx.inlinehilite
@@ -125,7 +125,8 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/{{ cookiecutter.git_username }}
     - icon: fontawesome/brands/github
-      link: {% if cookiecutter.git_https_upstream != "" %}{{cookiecutter.git_https_upstream}}{% else %}https://github.com/{% endif %}
+      link: {% if cookiecutter.git_https_upstream != "" %}{{cookiecutter.git_https_upstream}}
+            {%- else %}https://github.com/{% endif %}
   support_levels:
     supported:
       icon: :material-check-decagram:{ .verified }

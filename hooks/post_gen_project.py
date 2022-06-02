@@ -6,16 +6,19 @@ import subprocess
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
+DOC_SPEC_DIR = f'{PROJECT_DIRECTORY}/docs-mkdocs'
 UNUSED_DOCS_DIRS = [
     f'{PROJECT_DIRECTORY}/docs-sphinx', 
     f'{PROJECT_DIRECTORY}/docs-jupyter-book'
 ]
 {%- elif cookiecutter.documentation_engine == 'sphinx' -%}
+DOC_SPEC_DIR = f'{PROJECT_DIRECTORY}/docs-sphinx'
 UNUSED_DOCS_DIRS = [
     f'{PROJECT_DIRECTORY}/docs-mkdocs', 
     f'{PROJECT_DIRECTORY}/docs-jupyter-book'
 ]
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' -%}
+DOC_SPEC_DIR = f'{PROJECT_DIRECTORY}/docs-jupyter-book'
 UNUSED_DOCS_DIRS = [
     f'{PROJECT_DIRECTORY}/docs-sphinx', 
     f'{PROJECT_DIRECTORY}/docs-mkdocs'
@@ -25,6 +28,10 @@ UNUSED_DOCS_DIRS = [
 def remove_unused_docs_dirs():
     for dirs in UNUSED_DOCS_DIRS:
         shutil.rmtree(dirs)
+
+def rename_doc_dir():
+    DOC_GEN_DIR = f'{PROJECT_DIRECTORY}/docs'
+    os.rename(DOC_SPEC_DIR, DOC_GEN_DIR)
 
 def remove_file(filepath):
     os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
@@ -37,6 +44,7 @@ def http2ssh(url):
 
 def post_gen():
     remove_unused_docs_dirs()
+    rename_doc_dir()
 
     subprocess.call(["git", "init"])
 

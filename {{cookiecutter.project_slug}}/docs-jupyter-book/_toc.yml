@@ -5,4 +5,4 @@ format: jb-book
 root: intro
 chapters:
 # Add below the .md and .ipynb pages of your Jupyter-book.
-- file: 
+- file: sample
