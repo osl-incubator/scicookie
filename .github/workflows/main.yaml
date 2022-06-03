@@ -44,7 +44,7 @@ jobs:
         poetry install
         pre-commit install
         make docs
-        make test-template
+        make build
 
     - name: Run style checks
       run: |
@@ -74,7 +74,7 @@ jobs:
           mamba-version: "*"
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
-          activate-environment: inlyse-dashboard
+          activate-environment: pypkg
           use-mamba: true
           miniforge-variant: Mambaforge
 

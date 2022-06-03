@@ -15,13 +15,23 @@
     "GNU General Public License v3",
     "Other"
   ],
-  "command_line_interface": ["Click", "Argparse", "No command-line interface"],
+
+  "command_line_interface": [
+    "Click", 
+    "Argparse", 
+    "No command-line interface"
+  ],
+  "documentation_engine":[
+    "mkdocs",
+    "sphinx",
+    "jupyter-book"
+  ],
   "test_library": [
     "pytest"
   ],
-  "git_username": "zoro",
-  "git_https_origin": "Git remote origin (if known)",
-  "git_https_upstream": "Git remote upstream (if known)",
+  "git_username": "zoro_roronoa",
+  "git_https_origin": "",
+  "git_https_upstream": "",
   "git_main_branch": "main",
   "pypi_username": "{{ cookiecutter.git_username }}"
 }
