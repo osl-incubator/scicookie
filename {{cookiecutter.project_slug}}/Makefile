@@ -1,5 +1,13 @@
 .DEFAULT_GOAL := help
 
+{%- if cookiecutter.documentation_engine == 'sphinx' %}
+SPHINXOPTS    =
+SPHINXBUILD   = python -msphinx
+SPHINXPROJ    = {{ cookiecutter.project_slug }}
+SOURCEDIR     = docs/
+BUILDDIR      = docs/_build
+{%- endif +%}
+
 define PRINT_HELP_PYSCRIPT
 import re, sys
 
@@ -10,15 +18,6 @@ for line in sys.stdin:
 		print("%-20s %s" % (target, help))
 endef
 export PRINT_HELP_PYSCRIPT
-
-# sphinx
-
-SPHINXOPTS    =
-SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = {{ cookiecutter.project_slug }}
-SOURCEDIR     = docs/
-BUILDDIR      = docs/_build
-
 
 .PHONY:help
 help:
@@ -32,9 +31,9 @@ clean: ## remove build artifacts, compiled files, and cache
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
 	find . -name '*.pyc' -exec rm -f {} +
-	find . -name '*.pyo' -exec rm -f {} +
-	find . -name '*~' -exec rm -f {} +
-	find . -name '__pycache__' -exec rm -fr {} +
+	find . -name 
+	find . -name '__pycache__' -exec rm -fr '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +{} +
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
@@ -47,13 +46,26 @@ lint:
 test: ## run tests quickly with the default Python
 	pytest
 
+{% if cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs
-docs: ## generate Sphinx HTML documentation, including API docs
-	rm -rf docs/_build
-	# sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
-	#$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	mkdocs build
+docs:
+	mkdocs build --config-file docs/mkdocs.yaml
+
+{%- elif cookiecutter.documentation_engine == 'sphinx' -%}
+.PHONY:docs
+docs:
+	sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
+	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+{%- elif cookiecutter.documentation_engine == 'jupyter-book' -%}
+#NOTE: This command will fail if ({{cookiecutter.git_https_origin}})<- this is not a correct URL.
+.PHONY:docs
+docs:
+	jupyter-book build --all docs/
+{%- endif +%}
 
 .PHONY:build
 build:
 	poetry build
+
+

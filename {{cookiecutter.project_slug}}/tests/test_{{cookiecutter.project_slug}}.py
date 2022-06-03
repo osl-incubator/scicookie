@@ -2,7 +2,7 @@
 
 import pytest
 
-from {{ cookiecutter.package_slug }} import {{ cookiecutter.package_slug }}
+#from {{cookiecutter.package_slug}} import {{ cookiecutter.package_slug }}
 
 
 @pytest.fixture
@@ -11,8 +11,8 @@ def response():
 
     See more at: http://doc.pytest.org/en/latest/fixture.html
     """
-    # import requests
-    # return requests.get('https://github.com/osl-incubator/cookiecutter-python')
+# import requests
+# return requests.get('https://github.com/osl-incubator/cookiecutter-python')
 
 
 def test_content(response):
