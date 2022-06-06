@@ -37,13 +37,19 @@ jobs:
       run: make test
 
     - name: Run Smoke Test (mkdocs)
-      run: ./tests/smoke/mkdocs.sh
+      run: |
+        chmod +x tests/smoke/mkdocs.sh
+        ./tests/smoke/mkdocs.sh
 
     - name: Run Smoke Test (sphinx)
-      run: ./tests/smoke/sphinx.sh
+      run: |
+        chmod +x tests/smoke/sphinx.sh
+        ./tests/smoke/sphinx.sh
 
     - name: Run Smoke Test (jupyter-book)
-      run: ./tests/smoke/jupyter-book.sh
+      run: |
+        chmod +x tests/smoke/jupyter-book.sh
+        ./tests/smoke/jupyter-book.sh
 
     - name: Run style checks
       run: |
