@@ -34,17 +34,7 @@ jobs:
       run: poetry install
 
     - name: Run tests
-      run: |
-        # test is not working
-        # make test
-        cookiecutter --output-dir /tmp/ --no-input .
-        cd /tmp/osl-python-package
-        mamba env create --file conda/dev.yaml
-        conda activate osl-python-package
-        poetry install
-        pre-commit install
-        make docs
-        make build
+      run: make test
 
     - name: Run style checks
       run: |
@@ -85,7 +75,7 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
-        
+
     steps:
     - uses: actions/checkout@v2
 
