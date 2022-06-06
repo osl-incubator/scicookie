@@ -54,6 +54,7 @@ Sphinx = "^4.4.0"
 Flake8-pyproject = "^0.9.0"
 jupyter-book = "^0.12.3"
 myst-parser = "^0.15"
+semantic-release = "^0.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
