@@ -28,5 +28,3 @@ jobs:
           -p "@semantic-release/git" \
           -p "@google/semantic-release-replace-plugin" \
           semantic-release --ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
