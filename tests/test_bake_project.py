@@ -1,8 +1,6 @@
-from tempfile import tempdir
-import pytest
 from pathlib import Path
-from collections import OrderedDict
-from cookiecutter import generate
+
+import pytest
 
 
 @pytest.fixture
@@ -15,8 +13,9 @@ def context():
         "project_short_description": "This is an example",
         "project_url": "example.com",
         "project_version": "0.1.0",
-        "documentation_engine": "sphinx"
+        "documentation_engine": "sphinx",
     }
+
 
 def test_bake_project(cookies):
     result = cookies.bake()
@@ -33,19 +32,23 @@ def test_project_generation_with_example_context(cookies, context):
     assert result.project_path.name == context["project_slug"]
     assert result.project_path.is_dir()
 
-def test_if_documentation_engine_is_sphinx_with_example_context(cookies, context):
+
+def test_if_documentation_engine_is_sphinx_with_example_context(
+    cookies, context
+):
     result = cookies.bake(extra_context={**context})
     assert result.exit_code == 0
     assert result.exception is None
-    SPHINX_CONF_PATH = Path(result.project_path) / 'docs' / 'conf.py'
+    SPHINX_CONF_PATH = Path(result.project_path) / "docs" / "conf.py"
     sphinx_file_exists = Path.is_file(SPHINX_CONF_PATH)
     assert sphinx_file_exists
+
 
 def test_project_name_with_example_context(cookies, context):
     result = cookies.bake(extra_context={**context})
     assert result.exit_code == 0
     assert result.exception is None
-    README_FILE = Path(result.project_path) / 'README.md'
+    README_FILE = Path(result.project_path) / "README.md"
     with open(README_FILE) as f:
         title = f.readline().rstrip()
         assert title == "# Example"

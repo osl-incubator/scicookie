@@ -35,4 +35,3 @@ jobs:
       run: |
         pre-commit install
         make lint
-

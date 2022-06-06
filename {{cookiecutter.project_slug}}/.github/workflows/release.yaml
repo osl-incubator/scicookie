@@ -1,13 +1,7 @@
 name: Release
 
 on:
-  workflow-dispatch:
-
-concurrency:
-  name: Release
-  group: release
-  # cancel-in-progress may cause incomplete releases.
-  cancel-in-progress: false
+  workflow_dispatch:
 
 jobs:
   release:

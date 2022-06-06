@@ -1,13 +1,7 @@
 name: Release
 
 on:
-  workflow-dispatch:
-
-concurrency:
-  name: Release
-  group: release
-  # cancel-in-progress may cause incomplete releases.
-  cancel-in-progress: false
+  workflow_dispatch:
 
 jobs:
   release:
@@ -28,3 +22,36 @@ jobs:
           -p "@semantic-release/git" \
           -p "@google/semantic-release-replace-plugin" \
           semantic-release --ci
+
+  publish-docs:
+    needs: [release]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniconda-version: "latest"
+        mamba-version: "*"
+        environment-file: conda/dev.yaml
+        channels: conda-forge,nodefaults
+        activate-environment: pypkg
+        use-mamba: true
+        miniforge-variant: Mambaforge
+
+    - name: Install deps
+      run: poetry install
+
+    - name: Build the book
+      run: make docs
+
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.5.9
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_build/html
