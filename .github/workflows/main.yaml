@@ -23,7 +23,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2
       with:
         miniconda-version: "latest"
-        mamba-version: "*"
+        mamba-version: "0.23.0"
         environment-file: conda/dev.yaml
         channels: conda-forge,nodefaults
         activate-environment: pypkg
@@ -54,5 +54,5 @@ jobs:
     - name: Run style checks
       run: |
         pre-commit install
-        # make lint
+        make lint
         # run lint for the project using the template

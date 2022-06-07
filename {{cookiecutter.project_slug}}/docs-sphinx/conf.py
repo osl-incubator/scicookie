@@ -20,9 +20,10 @@
 import os
 import sys
 
+import {{ cookiecutter.package_slug }}
+
 sys.path.insert(0, os.path.abspath(".."))
 
-import {{ cookiecutter.package_slug }}
 
 # -- General configuration ---------------------------------------------
 
