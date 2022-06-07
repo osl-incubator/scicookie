@@ -1,7 +1,0 @@
-format: jb-book
-root: index
-parts:
-  - caption: Jupyter-book example.
-  - sections:
-    - file: chap_1
-    - file: chap_2
