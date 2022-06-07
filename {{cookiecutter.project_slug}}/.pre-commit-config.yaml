@@ -9,7 +9,7 @@ repos:
     - entry: black
       exclude: |
             (?x)(
-                test_{{cookiecutter.project_slug}}/
+                tests/
             )
       files: ""
       id: black

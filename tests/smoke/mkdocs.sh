@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -e
+# tests/smoke/mkdocs.sh
+
 rm -rf /tmp/osl-python-package
 cookiecutter --output-dir /tmp/ --no-input . documentation_engine=mkdocs
 cd /tmp/osl-python-package
@@ -9,6 +9,6 @@ conda init bash
 conda activate osl-python-package
 poetry install
 pre-commit install
-make lint
+pre-commit run --all-files
 make docs
 make build

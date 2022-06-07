@@ -9,6 +9,6 @@ conda init bash
 conda activate osl-python-package
 poetry install
 pre-commit install
-make lint
+pre-commit run --all-files
 make docs
 make build
