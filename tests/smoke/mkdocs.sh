@@ -1,5 +1,5 @@
-# tests/smoke/mkdocs.sh
-
+#!/usr/bin/env bash
+set -e
 rm -rf /tmp/osl-python-package
 cookiecutter --output-dir /tmp/ --no-input . documentation_engine=mkdocs
 cd /tmp/osl-python-package

@@ -1,5 +1,5 @@
-# tests/smoke/jupyter-book.sh
-
+#!/usr/bin/env bash
+set -e
 rm -rf /tmp/osl-python-package
 cookiecutter --output-dir /tmp/ --no-input . documentation_engine=jupyter-book
 cd /tmp/osl-python-package
