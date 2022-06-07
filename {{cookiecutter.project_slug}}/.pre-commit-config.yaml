@@ -9,7 +9,7 @@ repos:
     - entry: black
       exclude: |
             (?x)(
-                tests/
+              
             )
       files: ""
       id: black
