@@ -20,9 +20,10 @@
 import os
 import sys
 
+import {{ cookiecutter.package_slug }}
+
 sys.path.insert(0, os.path.abspath(".."))
 
-import {{ cookiecutter.package_slug }}
 
 # -- General configuration ---------------------------------------------
 
@@ -100,7 +101,7 @@ html_theme = "sphinx_book_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
-html_logo = "images/logo.png"
+html_logo = "../images/logo.png"
 html_theme_options = {
     'logo_only': False,
 }

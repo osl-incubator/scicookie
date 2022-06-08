@@ -46,7 +46,7 @@ test-template: ## run tests quickly with the default Python
 	rm -rf /tmp/osl-python-package
 	cookiecutter --output-dir /tmp/ --no-input .
 	cd /tmp/osl-python-package
-	mamba env create --file conda/dev.yaml --force
+	conda env create --file conda/dev.yaml --force
 	conda activate osl-python-package
 	poetry install
 	pre-commit install
