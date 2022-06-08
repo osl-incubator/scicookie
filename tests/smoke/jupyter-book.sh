@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo '--------------- Smoke test for jupyter-book ------------------'
 set -e
 rm -rf /tmp/osl-python-package
 cookiecutter --output-dir /tmp/ --no-input . documentation_engine=jupyter-book
@@ -12,3 +13,4 @@ pre-commit install
 pre-commit run --all-files
 make docs
 make build
+echo '---------------------------- passed --------------------------'
