@@ -1,4 +1,4 @@
-name: pypkg
+name: osl-pypkg
 channels:
   - nodefaults
   - conda-forge
@@ -7,3 +7,4 @@ dependencies:
   - python
   - poetry
   - nodejs
+  - compilers

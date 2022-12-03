@@ -8,7 +8,16 @@ for a Python package.
 
 ## Features
 
-  - TBD
+  - Allows package slug (use `_` instead of `-`)
+  - Licenses supported: MIT, BSD 3 Clause, ISC License, Apache Software License 2.0, and GPL 3
+  - Documentation engines: mkdocs, sphinx, jupyter-boook
+  - Test library: pytest
+  - Auto format code tool: blue, and black
+  - Initial integration with git
+  - Support to conda (as base environment) and poetry as packaging and dependency management
+  - Support to pre-commit
+  - CI with github actions
+  - Release workflow with semantic release and github actions
 
 ## Quickstart
 
@@ -43,4 +52,11 @@ or, using ssh:
 ```bash
 cookiecutter git@github.com:osl-incubator/cookiecutter-python.git
 ```
-  
+
+## Development
+
+For testing your changes locally, you can run:
+
+```bash
+make test-template
+```

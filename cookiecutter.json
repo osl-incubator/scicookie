@@ -8,17 +8,16 @@
   "project_version": "1.0.0",
   "project_url": "https://{{ cookiecutter.project_slug }}.com",
   "project_license": [
-    "MIT license",
-    "BSD license",
+    "MIT",
+    "BSD 3 Clause",
     "ISC license",
     "Apache Software License 2.0",
     "GNU General Public License v3",
     "Other"
   ],
-
   "command_line_interface": [
-    "Click", 
-    "Argparse", 
+    "Click",
+    "Argparse",
     "No command-line interface"
   ],
   "documentation_engine":[
@@ -28,6 +27,10 @@
   ],
   "test_library": [
     "pytest"
+  ],
+  "auto_format_tool": [
+    "blue",
+    "black"
   ],
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
