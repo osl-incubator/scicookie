@@ -1,7 +1,9 @@
+{% if cookiecutter.auto_format_tool == 'blue' -%}
+[tool.blue]
+line-length = 79  # this is the default
+{% elif cookiecutter.auto_format_tool == 'blue' -%}
 [tool.black]
 line-length = 79
-# note: for support "py39", we need to update black using poetry
-#       currently, it has conflicts with typing-extensions
 target-version = ["py38"]
 force-exclude = """
 (
@@ -11,6 +13,7 @@ force-exclude = """
   )/
 )
 """
+{% endif -%}
 
 [tool.isort]
 ensure_newline_before_comments = true
@@ -58,7 +61,12 @@ python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7"
+{% if cookiecutter.auto_format_tool == 'blue' -%}
+blue = "^0.9.1"
+{% elif cookiecutter.auto_format_tool == 'black' -%}
 black = "^22"
+click = "<8.1.0"  # https://github.com/psf/black/issues/2964
+{% endif %}
 isort = "^5"
 pre-commit = "2"
 flake8 = "^4"
