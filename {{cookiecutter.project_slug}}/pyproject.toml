@@ -65,6 +65,7 @@ pytest = "^7"
 blue = "^0.9.1"
 {% elif cookiecutter.auto_format_tool == 'black' -%}
 black = "^22"
+click = "<8.1.0"  # https://github.com/psf/black/issues/2964
 {% endif %}
 isort = "^5"
 pre-commit = "2"
