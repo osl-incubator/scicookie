@@ -52,7 +52,7 @@ jobs:
     strategy:
       matrix:
         smoke_file:
-          - jupyter-books.sh
+          - jupyter-book.sh
           - mkdocs.sh
           - sphinx.sh
           - black.sh
