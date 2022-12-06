@@ -55,6 +55,8 @@ jobs:
           - jupyter-books.sh
           - mkdocs.sh
           - sphinx.sh
+          - black.sh
+          - blue.sh
 
     defaults:
       run:
