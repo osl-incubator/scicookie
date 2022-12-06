@@ -46,7 +46,7 @@ jobs:
   smoke-test:
     runs-on: ubuntu-latest
     concurrency:
-      group: ci-${{ github.ref }}
+      group: ci-smoke-${{ matrix.smoke_file }}-${{ github.ref }}
       cancel-in-progress: true
 
     strategy:
