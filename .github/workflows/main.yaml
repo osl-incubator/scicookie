@@ -80,9 +80,3 @@ jobs:
 
     - name: Run Smoke Test (mkdocs)
       run: bash ./tests/smoke/${{ matrix.smoke_file }}
-
-    - name: Run style checks
-      run: |
-        pre-commit install
-        make lint
-        # run lint for the project using the template
