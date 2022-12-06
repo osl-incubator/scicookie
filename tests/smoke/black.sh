@@ -13,7 +13,7 @@ fi
 
 rm -rf /tmp/osl-python-package
 
-cookiecutter --output-dir /tmp/ --no-input . documentation_engine=jupyter-book
+cookiecutter --output-dir /tmp/ --no-input . auto_format_tool=black
 cd /tmp/osl-python-package
 
 mamba env create --file conda/dev.yaml --force

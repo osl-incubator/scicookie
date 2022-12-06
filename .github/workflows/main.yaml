@@ -23,7 +23,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v2
       with:
         miniconda-version: "latest"
-        mamba-version: "0.23.0"
+        mamba-version: "1.1.0"
         environment-file: conda/dev.yaml
         channels: conda-forge,nodefaults
         activate-environment: pypkg
@@ -36,17 +36,46 @@ jobs:
     - name: Run tests
       run: make test
 
-    - name: Run Smoke Test (mkdocs)
-      run: bash ./tests/smoke/mkdocs.sh
-
-    - name: Run Smoke Test (sphinx)
-      run: bash ./tests/smoke/sphinx.sh
-
-    - name: Run Smoke Test (jupyter-book)
-      run: bash ./tests/smoke/jupyter-book.sh
-
     - name: Run style checks
       run: |
         pre-commit install
         make lint
-        # run lint for the project using the template
+
+
+  smoke-test:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ci-smoke-${{ matrix.smoke_file }}-${{ github.ref }}
+      cancel-in-progress: true
+
+    strategy:
+      matrix:
+        smoke_file:
+          - jupyter-book.sh
+          - mkdocs.sh
+          - sphinx.sh
+          - black.sh
+          - blue.sh
+
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniconda-version: "latest"
+        mamba-version: "1.1.0"
+        environment-file: conda/dev.yaml
+        channels: conda-forge,nodefaults
+        activate-environment: pypkg
+        use-mamba: true
+        miniforge-variant: Mambaforge
+
+    - name: Install dependencies
+      run: poetry install
+
+    - name: Run Smoke Test (mkdocs)
+      run: bash ./tests/smoke/${{ matrix.smoke_file }}

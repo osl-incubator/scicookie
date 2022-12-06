@@ -1,9 +1,10 @@
-name: pypkg
+name: osl-pypkg
 channels:
   - nodefaults
   - conda-forge
 dependencies:
   - git
-  - python
+  - python <3.11
   - poetry
   - nodejs
+  - compilers

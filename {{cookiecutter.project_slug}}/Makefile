@@ -31,7 +31,7 @@ clean: ## remove build artifacts, compiled files, and cache
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
 	find . -name '*.pyc' -exec rm -f {} +
-	find . -name 
+	find . -name
 	find . -name '__pycache__' -exec rm -fr '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +{} +
 	rm -f .coverage
@@ -42,9 +42,11 @@ clean: ## remove build artifacts, compiled files, and cache
 lint:
 	pre-commit run --all-files
 
+{% if cookiecutter.test_library == 'pytest' %}
 .PHONY:test
 test: ## run tests quickly with the default Python
 	pytest
+{% endif %}
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs
