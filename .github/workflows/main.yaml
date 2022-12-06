@@ -73,6 +73,9 @@ jobs:
         use-mamba: true
         miniforge-variant: Mambaforge
 
+    - name: Install dependencies
+      run: poetry install
+
     - name: Run Smoke Test (mkdocs)
       run: bash ./tests/smoke/${{ matrix.smoke_file }}
 
