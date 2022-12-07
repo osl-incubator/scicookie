@@ -5,9 +5,9 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   readme
    installation
    modules
+   example
    contributing
    changelog
 

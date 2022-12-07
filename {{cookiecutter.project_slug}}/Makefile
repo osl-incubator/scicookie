@@ -49,21 +49,32 @@ test: ## run tests quickly with the default Python
 {% endif %}
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
-.PHONY:docs
-docs:
+.PHONY:docs-build
+docs-build:
 	mkdocs build --config-file docs/mkdocs.yaml
 
+.PHONY: docs-preview
+docs-preview: docs-build
+	mkdocs serve --watch docs --config-file docs/mkdocs.yaml
+
 {%- elif cookiecutter.documentation_engine == 'sphinx' -%}
-.PHONY:docs
-docs:
+.PHONY:docs-build
+docs-build:
 	sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
 	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
+.PHONY: docs-preview
+docs-preview: docs-build
+	cd docs/_build && python -m http.server
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' -%}
 #NOTE: This command will fail if ({{cookiecutter.git_https_origin}})<- this is not a correct URL.
-.PHONY:docs
-docs:
+.PHONY:docs-build
+docs-build:
 	jupyter-book build --all docs/
+
+.PHONY: docs-preview
+docs-preview: docs-build
+	cd docs/_build/html/ && python -m http.server
 {%- endif +%}
 
 .PHONY:build

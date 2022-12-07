@@ -39,6 +39,7 @@ license = "BSD"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+jupyterlab = "^3.5.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7"
