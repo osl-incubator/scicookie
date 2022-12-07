@@ -15,13 +15,13 @@ UNUSED_DOCS_DIRS = [
 DOCUMENTATION_ENGINE = ""
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
-DOC_SPEC_DIR = UNUSED_DOCS_DIRS.pop(0)
+DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(0)
 DOCUMENTATION_ENGINE = "mkdocs"
 {%- elif cookiecutter.documentation_engine == 'sphinx' -%}
-DOC_SPEC_DIR = UNUSED_DOCS_DIRS.pop(1)
+DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(1)
 DOCUMENTATION_ENGINE = "sphinx"
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' -%}
-DOC_SPEC_DIR = UNUSED_DOCS_DIRS.pop(2)
+DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(2)
 DOCUMENTATION_ENGINE = "jupyter-book"
 {% endif %}
 
@@ -36,12 +36,14 @@ def remove_file(filepath: str):
 
 
 def move_selected_doc_dir():
-    doc_gen_dir = PROJECT_DIRECTORY / "docs"
-    for file_name in os.listdir(DOC_SPEC_DIR):
-        shutil.move(DOC_SPEC_DIR / file_name, doc_gen_dir)
+    docs_target_dir = PROJECT_DIRECTORY / "docs"
+    for file_name in os.listdir(DOCS_SPEC_DIR):
+        shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 
     if DOCUMENTATION_ENGINE == "sphinx":
         remove_file("docs/index.md")
+
+    shutil.rmtree(DOCS_SPEC_DIR)
 
 
 def http2ssh(url):
