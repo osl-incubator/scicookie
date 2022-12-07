@@ -43,7 +43,7 @@
       "@semantic-release/changelog",
       {
         "changelogTitle": "# Release Notes\n---",
-        "changelogFile": "CHANGELOG.md"
+        "changelogFile": "docs/changelog.md"
       }
     ],
     [
@@ -63,7 +63,7 @@
       {
         "assets": [
           "pyproject.toml",
-          "CHANGELOG.md",
+          "docs/changelog.md",
           "{{ cookiecutter.package_slug }}/__init__.py"
         ],
         "message": "chore(release): ${nextRelease.version}"

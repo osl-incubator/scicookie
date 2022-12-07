@@ -2,7 +2,7 @@ site_name: {{ cookiecutter.project_name}}
 site_url: {{ cookiecutter.project_url}}
 repo_url: {{ cookiecutter.git_https_upstream}}
 docs_dir: ./
-site_dir: ../site
+site_dir: ../build
 # extra_css:
 #   - stylesheets/extra.css
 theme:
@@ -18,11 +18,11 @@ theme:
     - search.suggest
   icon:
     repo: fontawesome/brands/github
-  logo: ../images/logo.png
-  favicon: ../images/favicon.png
+  logo: /images/logo.png
+  favicon: /images/favicon.png
   palette:
     scheme: slate
-    primary: teal
+    primary: white
     accent: lime
   # custom_dir: docs/overrides
 plugins:

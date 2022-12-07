@@ -6,15 +6,21 @@ repos:
 
   - repo: local
     hooks:
+    {%- if cookiecutter.auto_format_tool == 'blue' +%}
+    - entry: blue
+      id: blue
+      name: blue
+    {%- elif cookiecutter.auto_format_tool == 'black' +%}
     - entry: black
-      exclude: |
-            (?x)(
-              
-            )
-      files: ""
       id: black
-      language: system
       name: black
+    {%- endif +%}
+      exclude: |
+        (?x)(
+          docs
+        )
+      files: ""
+      language: system
       pass_filenames: true
       stages:
         - commit
