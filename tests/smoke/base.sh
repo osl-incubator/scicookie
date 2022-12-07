@@ -15,18 +15,26 @@ rm -rf "/tmp/${ENV_NAME}"
 cookiecutter --output-dir /tmp/ --no-input . ${1}
 cd "/tmp/${ENV_NAME}"
 
-mamba env create --file conda/dev.yaml --force
+# mamba env create --file conda/dev.yaml --force
 
 CONDA_PREFIX="${CONDA_PATH}/envs/${ENV_NAME}"
 export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
 echo "[II] included env conda to the PATH"
 
-poetry install
+# poetry install
 
 ipython kernel install --name "python3" --user
 
+echo "============================"
+cat osl_python_package/__init__.py
+echo "============================"
+
 pre-commit install
 pre-commit run --all-files
+
+echo "============================"
+cat osl_python_package/__init__.py
+echo "============================"
 
 make docs-build
 make build
