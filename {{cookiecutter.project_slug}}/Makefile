@@ -65,7 +65,7 @@ docs-build:
 
 .PHONY: docs-preview
 docs-preview: docs-build
-	cd docs && python -m http.server
+	cd docs/_build && python -m http.server
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' -%}
 #NOTE: This command will fail if ({{cookiecutter.git_https_origin}})<- this is not a correct URL.
 .PHONY:docs-build
