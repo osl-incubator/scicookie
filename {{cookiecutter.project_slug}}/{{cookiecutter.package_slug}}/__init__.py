@@ -2,9 +2,12 @@
 
 {%- if cookiecutter.auto_format_tool == 'blue' %}
   {%- set QUOTE = "'" -%}
-{% elif cookiecutter.auto_format_tool == 'black' %}
+{%- elif cookiecutter.auto_format_tool == 'black' %}
   {%- set QUOTE = '"' -%}
-{% endif %}
+{%- else %}
+  {%- set QUOTE = "'" -%}
+{%- endif %}
+
 
 __author__ = {{ QUOTE }}{{ cookiecutter.author_full_name }}{{ QUOTE }}
 __email__ = {{ QUOTE }}{{ cookiecutter.author_email }}{{ QUOTE }}
