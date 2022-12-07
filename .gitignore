@@ -99,3 +99,6 @@ cookiecutter-python-env/
 
 # IDE settings
 .vscode/
+
+# jupyter
+.ipynb_checkpoints
