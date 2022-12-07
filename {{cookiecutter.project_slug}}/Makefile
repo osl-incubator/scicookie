@@ -74,7 +74,7 @@ docs-build:
 
 .PHONY: docs-preview
 docs-preview: docs-build
-	cd docs && python -m http.server
+	cd docs/_build/html/ && python -m http.server
 {%- endif +%}
 
 .PHONY:build
