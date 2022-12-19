@@ -14,5 +14,4 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
 Indices and tables
 ==================
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

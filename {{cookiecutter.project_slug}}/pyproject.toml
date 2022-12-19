@@ -66,7 +66,7 @@ blue = "^0.9.1"
 {% elif cookiecutter.auto_format_tool == 'black' -%}
 black = "^22"
 click = "<8.1.0"  # https://github.com/psf/black/issues/2964
-{% endif %}
+{%- endif -%}
 isort = "^5"
 pre-commit = "2"
 flake8 = "^4"
@@ -75,6 +75,7 @@ cookiecutter = "^1.7.3"
 pytest-cov = "^3.0.0"
 {%- if cookiecutter.documentation_engine == 'mkdocs' %}
 Jinja2 = "<3.1.0"
+ipykernel = "^6.19.3"
 mkdocs = ">=1.2.3,<2"
 mkdocs-exclude = ">=1.0.2,<2"
 mkdocs-jupyter = ">=0.20.0,<1"
@@ -82,14 +83,14 @@ mkdocs-literate-nav = ">=0.4.1,<1"
 mkdocs-macros-plugin = ">=0.6.3,<1"
 mkdocs-material = ">=8.2.1,<9"
 mkdocstrings = ">=0.17.0,<0.18.0"
-{%- elif cookiecutter.documentation_engine == 'sphinx' %}
+{%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
+jupyter-book = "^0.12.3"
+myst-parser = "^0.15.0"
+{%- elif cookiecutter.documentation_engine == 'sphinx[.md]' or 'sphinx[.rst]' %}
 Sphinx = "^5.0.0"
 sphinx-rtd-theme = "^1.1.1"
 importlib-metadata = "^5.0.0"
 myst-parser = "^0.18.1"
-{%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
-jupyter-book = "^0.12.3"
-myst-parser = "^0.15.0"
 {%+ endif %}
 
 [build-system]

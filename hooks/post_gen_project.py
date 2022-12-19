@@ -45,7 +45,7 @@ def make_documentation_for(choice):
     for file in os.listdir(doc_dir):
         file = Path(doc_dir/file).resolve()
         if file.exists():
-            shutil.move(file, docs_target_dir, )
+            shutil.move(file, docs_target_dir)
 
     # Remove all `docs-*` directories
     for dir in docs_dirs:

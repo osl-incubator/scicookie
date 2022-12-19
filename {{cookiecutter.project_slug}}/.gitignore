@@ -92,7 +92,7 @@ ENV/
 # Rope project settings
 .ropeproject
 
-{%- if cookiecutter.documentation_engine == 'sphinx' %}
+{%- if cookiecutter.documentation_engine == 'sphinx[.md]' or 'sphinx[.rst]' %}
 # sphinx build & templates directory
 docs/_build/
 docs/_templates/
