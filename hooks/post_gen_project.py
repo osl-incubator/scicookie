@@ -43,7 +43,7 @@ def make_documentation_for(choice):
     
     # Move the all docs files into `docs` dir
     for file in os.listdir(doc_dir):
-        file = Path(doc_dir/file).resolve()
+        file = Path(doc_dir) / file
         if file.exists():
             shutil.move(file, docs_target_dir)
 

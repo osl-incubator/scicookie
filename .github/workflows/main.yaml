@@ -53,7 +53,8 @@ jobs:
         smoke_file:
           - jupyter-book.sh
           - mkdocs.sh
-          - sphinx.sh
+          - sphinx-md.sh
+          - sphinx-rst.sh
           - black.sh
           - blue.sh
 

@@ -13,7 +13,7 @@ def context():
         "project_short_description": "This is an example",
         "project_url": "example.com",
         "project_version": "0.1.0",
-        "documentation_engine": "sphinx",
+        "documentation_engine": "sphinx[.md]",
     }
 
 
@@ -39,9 +39,7 @@ def test_if_documentation_engine_is_sphinx_with_example_context(
     result = cookies.bake(extra_context={**context})
     assert result.exit_code == 0
     assert result.exception is None
-    SPHINX_CONF_PATH = Path(result.project_path) / "docs" / "conf.py"
-    sphinx_file_exists = Path.is_file(SPHINX_CONF_PATH)
-    assert sphinx_file_exists
+    assert Path.is_file(Path(result.project_path) / "docs" / "conf.py")
 
 
 def test_project_name_with_example_context(cookies, context):
