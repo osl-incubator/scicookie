@@ -22,7 +22,8 @@
   ],
   "documentation_engine":[
     "mkdocs",
-    "sphinx",
+    "sphinx[.md]",
+    "sphinx[.rst]",
     "jupyter-book"
   ],
   "test_library": [

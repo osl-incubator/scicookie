@@ -6,44 +6,52 @@ from pathlib import Path
 
 PROJECT_DIRECTORY = Path(os.path.abspath(os.path.curdir)).resolve()
 
-UNUSED_DOCS_DIRS = [
-    PROJECT_DIRECTORY / 'docs-mkdocs',
-    PROJECT_DIRECTORY / 'docs-sphinx',
-    PROJECT_DIRECTORY / 'docs-jupyter-book'
-]
 
-DOCUMENTATION_ENGINE = ""
-
-{% if cookiecutter.documentation_engine == 'mkdocs' -%}
-DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(0)
-DOCUMENTATION_ENGINE = "mkdocs"
-{%- elif cookiecutter.documentation_engine == 'sphinx' -%}
-DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(1)
-DOCUMENTATION_ENGINE = "sphinx"
-{%- elif cookiecutter.documentation_engine == 'jupyter-book' -%}
-DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(2)
-DOCUMENTATION_ENGINE = "jupyter-book"
-{% endif %}
-
-
-def remove_unused_docs_dirs(dirs: list=UNUSED_DOCS_DIRS):
-    for dirs in dirs:
-        shutil.rmtree(dirs)
-
-
-def remove_file(filepath: str):
-    os.remove(PROJECT_DIRECTORY / filepath)
-
-
-def move_selected_doc_dir():
+def make_documentation_for(choice):
+    docs_dirs = [
+        'docs-mkdocs',
+        'docs-sphinx-md',
+        'docs-sphinx-rst',
+        'docs-jupyter-book']
+        
     docs_target_dir = PROJECT_DIRECTORY / "docs"
-    for file_name in os.listdir(DOCS_SPEC_DIR):
-        shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 
-    if DOCUMENTATION_ENGINE == "sphinx":
-        remove_file("docs/index.md")
+    match choice:
+        case 'mkdocs':
+            doc_dir = 'docs-mkdocs'
 
-    shutil.rmtree(DOCS_SPEC_DIR)
+        case 'sphinx[.md]':
+            doc_dir = 'docs-sphinx-md'
+
+        case 'sphinx[.rst]':
+            doc_dir = 'docs-sphinx-rst'
+            
+            md_files = [
+                'changelog.md',
+                'contributing.md',
+                'index.md',
+                'installation.md']
+
+            for file in md_files:
+                file = Path(docs_target_dir) / file
+                file.unlink(missing_ok=True)
+
+        case 'jupyter-book':
+            doc_dir = 'docs-jupyter-book'
+
+    doc_dir = Path(PROJECT_DIRECTORY/doc_dir).resolve()
+    
+    # Move the all docs files into `docs` dir
+    for file in os.listdir(doc_dir):
+        file = Path(doc_dir/file).resolve()
+        if file.exists():
+            shutil.move(file, docs_target_dir, )
+
+    # Remove all `docs-*` directories
+    for dir in docs_dirs:
+        dir = Path(PROJECT_DIRECTORY/dir).resolve()
+        if Path(dir).exists():
+            shutil.rmtree(dir)
 
 
 def http2ssh(url):
@@ -52,8 +60,7 @@ def http2ssh(url):
 
 
 def post_gen():
-    remove_unused_docs_dirs()
-    move_selected_doc_dir()
+    make_documentation_for("{{cookiecutter.documentation_engine}}")
 
     subprocess.call(["git", "init"])
 
