@@ -22,7 +22,8 @@
   ],
   "documentation_engine":[
     "mkdocs",
-    "sphinx",
+    "sphinx[.md]",
+    "sphinx[.rst]",
     "jupyter-book"
   ],
   "test_library": [
@@ -36,6 +37,5 @@
   "git_https_origin": "",
   "git_https_upstream": "",
   "git_main_branch": "main",
-  "pypi_username": "{{ cookiecutter.git_username }}",
-  "_extensions": ["documentation.DocFormatExtension"]
+  "pypi_username": "{{ cookiecutter.git_username }}"
 }
