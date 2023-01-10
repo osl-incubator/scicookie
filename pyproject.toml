@@ -54,8 +54,6 @@ Sphinx = "^4.4.0"
 Flake8-pyproject = "^0.9.0"
 jupyter-book = "^0.12.3"
 myst-parser = "^0.15"
-
-[tool.poetry.group.dev.dependencies]
 cookiecutter = ">1.7.3"
 
 [build-system]
