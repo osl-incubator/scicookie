@@ -22,7 +22,12 @@ multi_line_output = 3
 include_trailing_comma = true
 skip_glob = ["docs/*", "*.egg-info"]
 
+{% if cookiecutter.build-system == 'poetry' -%}
 [tool.poetry]
+{% elif cookiecutter.build-system == 'pdm' -%}
+[tool.pdm]
+{% endif -%}
+
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.project_version }}" # semantic-release
 description = "{{ cookiecutter.project_short_description }}"
