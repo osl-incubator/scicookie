@@ -2,6 +2,7 @@
 [tool.blue]
 line-length = 79  # this is the default
 {% elif cookiecutter.auto_format_tool == 'blue' -%}
+
 [tool.black]
 line-length = 79
 target-version = ["py38"]
@@ -22,9 +23,9 @@ multi_line_output = 3
 include_trailing_comma = true
 skip_glob = ["docs/*", "*.egg-info"]
 
-{% if cookiecutter.build-system == 'poetry' -%}
+{% if cookiecutter.build_system == 'poetry' -%}
 [tool.poetry]
-{% elif cookiecutter.build-system == 'pdm' -%}
+{% elif cookiecutter.build_system == 'pdm' -%}
 [tool.pdm]
 {% endif -%}
 
