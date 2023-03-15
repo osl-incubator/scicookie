@@ -12,7 +12,7 @@ ENV_NAME=osl-python-package
 
 rm -rf "/tmp/${ENV_NAME}"
 
-cookiecutter --output-dir /tmp/ --no-input . ${1}
+cookiecutter --output-dir /tmp/ --no-input . ${1}="${2}"
 cd "/tmp/${ENV_NAME}"
 
 mamba env create --file conda/dev.yaml --force
