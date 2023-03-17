@@ -28,6 +28,11 @@
   "test_library": [
     "pytest"
   ],
+  "code_of_conduct": [
+    "Contributor Covenant (Recommended for projects of all sizes)",
+    "Citizen Code Of Conduct (Suitable for large communities and events)",
+    "None"
+  ],
   "auto_format_tool": [
     "blue",
     "black"

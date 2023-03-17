@@ -54,6 +54,7 @@ def http2ssh(url):
 def post_gen():
     remove_unused_docs_dirs()
     move_selected_doc_dir()
+    code_of_conduct_clean_up()
 
     subprocess.call(["git", "init"])
 
@@ -84,6 +85,9 @@ def post_gen():
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
+def code_of_conduct_clean_up():
+    if '{{cookiecutter.code_of_conduct}}' == 'None':
+        remove_file('CODE_OF_CONDUCT.md')
 
 if __name__ == "__main__":
     post_gen()
