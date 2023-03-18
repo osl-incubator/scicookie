@@ -90,6 +90,7 @@ def post_gen():
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
 def code_of_conduct_clean_up():
+    print('abc', '{{cookiecutter.code_of_conduct}}')
     if '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
         shutil.move(PROJECT_DIRECTORY/'coc/CONTRIBUTOR _COVENANT.md',PROJECT_DIRECTORY/'{{cookiecutter.project_slug}}')
         remove_dir("coc")
