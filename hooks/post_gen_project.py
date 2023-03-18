@@ -87,14 +87,14 @@ def post_gen():
 
 def code_of_conduct_clean_up():
     if '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
-        remove_file('../{{cookiecutter.project_slug}}/CODE_OF_CONDUCT.md')
+        remove_file('CODE_OF_CONDUCT.md')
         
     elif '{{cookiecutter.code_of_conduct}}' == "Citizen Code Of Conduct (Suitable for large communities and events)":
-        remove_file('../{{cookiecutter.project_slug}}/CONTRIBUTOR_CONVENT.md')
+        remove_file('CONTRIBUTOR_CONVENT.md')
         
     else :
-        remove_file('../{{cookiecutter.project_slug}}/CODE_OF_CONDUCT.md')
-        remove_file('../{{cookiecutter.project_slug}}/CONTRIBUTOR_CONVENT.md')
+        remove_file('CODE_OF_CONDUCT.md')
+        remove_file('CONTRIBUTOR_CONVENT.md')
 
 if __name__ == "__main__":
     post_gen()
