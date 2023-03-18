@@ -30,7 +30,11 @@ def remove_unused_docs_dirs(dirs: list=UNUSED_DOCS_DIRS):
     for dirs in dirs:
         shutil.rmtree(dirs)
 
-
+def remove_dir(dir_path):
+    """Remove a directory located at PROJECT_DIRECTORY/dir_path"""
+    shutil.rmtree(PROJECT_DIRECTORY/dir_path)
+    
+    
 def remove_file(filepath: str):
     os.remove(PROJECT_DIRECTORY / filepath)
 
@@ -87,14 +91,15 @@ def post_gen():
 
 def code_of_conduct_clean_up():
     if '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
-        remove_file("CODE_OF_CONDUCT.md")
+        shutil.move(PROJECT_DIRECTORY/'coc/CONTRIBUTOR _COVENANT.md',PROJECT_DIRECTORY/'{{cookiecutter.project_slug}}')
+        remove_dir("coc")
         
     elif '{{cookiecutter.code_of_conduct}}' == "Citizen Code Of Conduct (Suitable for large communities and events)":
-        remove_file('CONTRIBUTOR_CONVENT.md')
+        shutil.move(PROJECT_DIRECTORY/'coc/CODE_OF_CONDUCT.md',PROJECT_DIRECTORY/'{{cookiecutter.project_slug}}')
+        remove_dir("coc")
         
     else :
-        remove_file('CODE_OF_CONDUCT.md')
-        remove_file('CONTRIBUTOR_CONVENT.md')
+        remove_dir(PROJECT_DIRECTORY/'coc')
 
 if __name__ == "__main__":
     post_gen()
