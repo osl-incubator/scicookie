@@ -86,8 +86,16 @@ def post_gen():
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
 def code_of_conduct_clean_up():
-    if '{{cookiecutter.code_of_conduct}}' == 'None':
-        remove_file('CODE_OF_CONDUCT.md')
+    if '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
+        shutil.move({{cookiecutter.project_slug}}/coc/CONTRIBUTOR _COVENANT.md, {{cookiecutter.project_slug}})
+        remove_unused_docs_dirs({{cookiecutter.project_slug}}/coc)
+        
+    elif '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
+        shutil.move({{cookiecutter.project_slug}}/coc/CODE_OF_CONDUCT.md, {{cookiecutter.project_slug}})
+        remove_unused_docs_dirs({{cookiecutter.project_slug}}/coc)
+        
+    else :
+        remove_unused_docs_dirs({{cookiecutter.project_slug}}/coc)
 
 if __name__ == "__main__":
     post_gen()
