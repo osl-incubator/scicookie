@@ -87,15 +87,14 @@ def post_gen():
 
 def code_of_conduct_clean_up():
     if '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
-        shutil.move('{{cookiecutter.project_slug}}/coc/CONTRIBUTOR_COVENANT.md', '{{cookiecutter.project_slug}}')
-        remove_unused_docs_dirs('{{cookiecutter.project_slug}}/coc')
+        remove_file('{{cookiecutter.project_slug}}/CODE_OF_CONDUCT.md')
         
-    elif '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
-        shutil.move('{{cookiecutter.project_slug}}/coc/CODE_OF_CONDUCT.md', '{{cookiecutter.project_slug}}')
-        remove_unused_docs_dirs('{{cookiecutter.project_slug}}/coc')
+    elif '{{cookiecutter.code_of_conduct}}' == "Citizen Code Of Conduct (Suitable for large communities and events)":
+        remove_file('{{cookiecutter.project_slug}}/CONTRIBUTOR_CONVENT.md')
         
     else :
-        remove_unused_docs_dirs('{{cookiecutter.project_slug}}/coc')
+        remove_file('{{cookiecutter.project_slug}}/CODE_OF_CONDUCT.md')
+        remove_file('{{cookiecutter.project_slug}}/CONTRIBUTOR_CONVENT.md')
 
 if __name__ == "__main__":
     post_gen()
