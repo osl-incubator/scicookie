@@ -87,7 +87,7 @@ def post_gen():
 
 def code_of_conduct_clean_up():
     if '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
-        shutil.move({{cookiecutter.project_slug}}/coc/CONTRIBUTOR _COVENANT.md, {{cookiecutter.project_slug}})
+        shutil.move({{cookiecutter.project_slug}}/coc/CONTRIBUTOR_COVENANT.md, {{cookiecutter.project_slug}})
         remove_unused_docs_dirs({{cookiecutter.project_slug}}/coc)
         
     elif '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
