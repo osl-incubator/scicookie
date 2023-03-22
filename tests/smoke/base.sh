@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-echo '-------------------- Smoke test for ${1} -------------------'
-set -e
+echo "-------------------- Smoke test for ${1}=${2} -------------------"
+set -ex
 
 PATH_ORI=${PATH}
+PWD_ORI=$(pwd)
 CONDA_PATH=$(cd $(dirname $(which conda)) && cd .. && pwd)
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
@@ -11,10 +12,16 @@ echo "[II] included conda to the PATH"
 
 ENV_NAME=osl-python-package
 
-rm -rf "/tmp/${ENV_NAME}"
+OUTPUT_DIR="/tmp/osl"
+rm -rf "${OUTPUT_DIR}"
+mkdir -p "${OUTPUT_DIR}"
 
-cookiecutter --output-dir /tmp/ --no-input ${PROJECT_PATH} ${1}="${2}"
-cd "/tmp/${ENV_NAME}"
+cookiecutter --no-input \
+  --output-dir "${OUTPUT_DIR}" \
+  "${PROJECT_PATH}" \
+  ${1}="${2}"
+
+cd "${OUTPUT_DIR}/${ENV_NAME}"
 
 mamba env create --file conda/dev.yaml --force
 
@@ -35,3 +42,4 @@ make build
 export PATH=${PATH_ORI}
 
 echo '---------------------------- passed --------------------------'
+cd "${PWD_ORI}"
