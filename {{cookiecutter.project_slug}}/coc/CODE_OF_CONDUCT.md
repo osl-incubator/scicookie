@@ -6,7 +6,7 @@ A primary goal of {{ cookiecutter.project_name }} is to be inclusive to the larg
 
 This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior.
 
-We invite all those who participate in {{ cookiecutter.author_full_name }} to help us create safe and positive experiences for everyone.
+We invite all those who participate in {{ cookiecutter.project_name }} to help us create safe and positive experiences for everyone.
 
 ## 2. Open [Source/Culture/Tech] Citizenship
 
