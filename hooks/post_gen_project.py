@@ -25,6 +25,23 @@ DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(2)
 DOCUMENTATION_ENGINE = "jupyter-book"
 {% endif %}
 
+{% if cookiecutter.code_of_conduct == "Contributor Covenant (projects of all sizes)" -%}
+COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
+{%- elif cookiecutter.code_of_conduct == "Citizen Code Of Conduct (large communities and events)" -%}
+COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CITIZEN.md'
+{% else %}
+COC_PATH = None
+{% endif %}
+
+
+def code_of_conduct_clean_up():
+    if COC_PATH:
+        shutil.move(
+            COC_PATH,
+            PROJECT_DIRECTORY
+        )
+    remove_dir("coc")
+
 
 def remove_unused_docs_dirs(dirs: list=UNUSED_DOCS_DIRS):
     for dirs in dirs:
@@ -33,8 +50,8 @@ def remove_unused_docs_dirs(dirs: list=UNUSED_DOCS_DIRS):
 def remove_dir(dir_path):
     """Remove a directory located at PROJECT_DIRECTORY/dir_path"""
     shutil.rmtree(PROJECT_DIRECTORY/dir_path)
-    
-    
+
+
 def remove_file(filepath: str):
     os.remove(PROJECT_DIRECTORY / filepath)
 
@@ -89,17 +106,6 @@ def post_gen():
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
-def code_of_conduct_clean_up():
-    if '{{cookiecutter.code_of_conduct}}' == "Contributor Covenant (Recommended for projects of all sizes)":
-        shutil.move(PROJECT_DIRECTORY / 'coc/CONTRIBUTOR_COVENANT.md',PROJECT_DIRECTORY)
-        remove_dir("coc")
-        
-    elif '{{cookiecutter.code_of_conduct}}' == "Citizen Code Of Conduct (Suitable for large communities and events)":
-        shutil.move(PROJECT_DIRECTORY / 'coc/CODE_OF_CONDUCT.md',PROJECT_DIRECTORY)
-        remove_dir("coc")
-        
-    else :
-        remove_dir(PROJECT_DIRECTORY / 'coc')
 
 if __name__ == "__main__":
     post_gen()
