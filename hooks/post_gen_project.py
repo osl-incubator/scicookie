@@ -27,7 +27,7 @@ DOCUMENTATION_ENGINE = "jupyter-book"
 
 {% if cookiecutter.code_of_conduct == "Contributor Covenant (projects of all sizes)" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
-{%- elif cookiecutter.code_of_conduct == "Citizen Code Of Conduct (large communities and events)" -%}
+{%- elif cookiecutter.code_of_conduct == "Citizen Code of Conduct (large communities and events)" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CITIZEN.md'
 {% else %}
 COC_PATH = None
@@ -38,12 +38,12 @@ def code_of_conduct_clean_up():
     if COC_PATH:
         shutil.move(
             COC_PATH,
-            PROJECT_DIRECTORY
+            PROJECT_DIRECTORY / 'CODE_OF_CONDUCT.md'
         )
     remove_dir("coc")
 
 
-def remove_unused_docs_dirs(dirs: list=UNUSED_DOCS_DIRS):
+def remove_dirs(dirs: list):
     for dirs in dirs:
         shutil.rmtree(dirs)
 
@@ -73,7 +73,7 @@ def http2ssh(url):
 
 
 def post_gen():
-    remove_unused_docs_dirs()
+    remove_dirs(UNUSED_DOCS_DIRS)
     move_selected_doc_dir()
     code_of_conduct_clean_up()
 
