@@ -40,10 +40,11 @@ jobs:
       - name: Run style checks
         run: |
           pre-commit install
-          make tests.lint
+          makim tests.lint
 
       - name: Semantic Release PR Title Check
         uses: osl-incubator/semantic-release-pr-title-check@v1.4.1
+        if: success() || failure()
         with:
           convention-name: conventionalcommits
 
