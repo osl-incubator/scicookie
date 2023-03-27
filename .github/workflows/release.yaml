@@ -36,7 +36,6 @@ jobs:
       #     makim release.ci
 
       - name: Generate documentation with changes from semantic-release
-        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: makim docs.build
 
       - name: GitHub Pages action
