@@ -10,7 +10,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     concurrency:
-      group: ci-${{ github.ref }}
+      group: ci-main-tests-${{ github.ref }}
       cancel-in-progress: true
 
     defaults:
@@ -18,39 +18,40 @@ jobs:
         shell: bash -l {0}
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Semantic Release PR Title Check
-      uses: osl-incubator/semantic-release-pr-title-check@v1.4.1
-      with:                                   
-        convention-name: conventionalcommits
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          miniconda-version: "latest"
+          mamba-version: "1.1.0"
+          environment-file: conda/dev.yaml
+          channels: conda-forge,nodefaults
+          activate-environment: pypkg
+          use-mamba: true
+          miniforge-variant: Mambaforge
 
-    - uses: conda-incubator/setup-miniconda@v2
-      with:
-        miniconda-version: "latest"
-        mamba-version: "1.1.0"
-        environment-file: conda/dev.yaml
-        channels: conda-forge,nodefaults
-        activate-environment: pypkg
-        use-mamba: true
-        miniforge-variant: Mambaforge
+      - name: Install dependencies
+        run: poetry install
 
-    - name: Install dependencies
-      run: poetry install
+      - name: Run tests
+        run: makim tests.unittest
 
-    - name: Run tests
-      run: make test
+      - name: Run style checks
+        run: |
+          pre-commit install
+          makim tests.lint
 
-    - name: Run style checks
-      run: |
-        pre-commit install
-        make lint
+      - name: Semantic Release PR Title Check
+        uses: osl-incubator/semantic-release-pr-title-check@v1.4.1
+        if: success() || failure()
+        with:
+          convention-name: conventionalcommits
 
 
   smoke-test:
     runs-on: ubuntu-latest
     concurrency:
-      group: ci-smoke-${{ matrix.smoke_file }}-${{ github.ref }}
+      group: ci-main-smoke-${{ matrix.smoke_file }}-${{ github.ref }}
       cancel-in-progress: true
 
     strategy:
@@ -68,20 +69,20 @@ jobs:
         shell: bash -l {0}
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - uses: conda-incubator/setup-miniconda@v2
-      with:
-        miniconda-version: "latest"
-        mamba-version: "1.1.0"
-        environment-file: conda/dev.yaml
-        channels: conda-forge,nodefaults
-        activate-environment: pypkg
-        use-mamba: true
-        miniforge-variant: Mambaforge
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          miniconda-version: "latest"
+          mamba-version: "1.1.0"
+          environment-file: conda/dev.yaml
+          channels: conda-forge,nodefaults
+          activate-environment: pypkg
+          use-mamba: true
+          miniforge-variant: Mambaforge
 
-    - name: Install dependencies
-      run: poetry install
+      - name: Install dependencies
+        run: poetry install
 
-    - name: Run Smoke Test (mkdocs)
-      run: bash ./tests/smoke/${{ matrix.smoke_file }}
+      - name: Run Smoke Test (mkdocs)
+        run: bash ./tests/smoke/${{ matrix.smoke_file }}
