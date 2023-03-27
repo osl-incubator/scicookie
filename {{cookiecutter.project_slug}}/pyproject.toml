@@ -1,17 +1,11 @@
 {% if cookiecutter.build_system == 'poetry' -%}
 [tool.poetry]
-{% elif cookiecutter.build_system == 'pdm' -%}
 
-[project]
-
-[tool.pdm]
-{% endif -%}
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.project_version }}" # semantic-release
 description = "{{ cookiecutter.project_short_description }}"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
 license = "{{ cookiecutter.project_license }}"
-{% if cookiecutter.build_system == 'poetry' -%}
 include = [
   "*.cfg",
   "*.ini",
@@ -40,60 +34,11 @@ exclude = [
   ".env*",
 ]
 
-{% elif cookiecutter.build_system == 'pdm' -%}
-requires-python = ">=3.10"
-
-[tool.pdm.build]
-includes = [
-    "**/*.json",
-    "mypackage/",
-]
-excludes = [
-    "mypackage/_temp/*"
-]
-
-{% endif -%}
-
-[build-system]
-{% if cookiecutter.build_system == 'poetry' -%}
-
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-{% elif cookiecutter.build_system == 'pdm' -%}
-requires = ["pdm-pep517>=1.0.0"]
-build-backend = "pdm.pep517.api"
-
-{% endif -%}
-
-
-{% if cookiecutter.build_system == 'poetry' -%}
-
 [tool.poetry.dependencies]
 python = "^3.8"
 
-{% elif cookiecutter.build_system == 'pdm' -%}
-
-dependencies = [
-  python = "^3.8"
-]
-
-{% endif -%}
-
-{% if cookiecutter.build_system == 'poetry' -%}
-
 [tool.poetry.dev-dependencies]
 pytest = "^7"
-
-{% elif cookiecutter.build_system == 'pdm' -%}
-
-[tool.pdm.dev-dependencies]
-test = [
-    "pytest>=7.2.1",
-]
-{% endif -%}
-
-pytest-cov = "^3.0.0"
 {% if cookiecutter.auto_format_tool == 'blue' -%}
 blue = "^0.9.1"
 {% elif cookiecutter.auto_format_tool == 'black' -%}
@@ -105,6 +50,7 @@ pre-commit = "2"
 flake8 = "^4"
 mypy = "^0.931"
 cookiecutter = "^1.7.3"
+pytest-cov = "^3.0.0"
 {%- if cookiecutter.documentation_engine == 'mkdocs' %}
 Jinja2 = "<3.1.0"
 mkdocs = ">=1.2.3,<2"
@@ -128,7 +74,6 @@ myst-parser = "^0.15.0"
 [tool.blue]
 line-length = 79  # this is the default
 {% elif cookiecutter.auto_format_tool == 'blue' -%}
-
 [tool.black]
 line-length = 79
 target-version = ["py38"]
@@ -142,14 +87,70 @@ force-exclude = """
 """
 {% endif -%}
 
+[build_system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+{% elif cookiecutter.build_system == 'pdm' -%}
+[tool.pdm]
+
+[project]
+name = "osl-python-package"
+version = "1.0.0" # semantic-release
+description = "OSL Python Package contains all the boilerplate you need to create a Python package."
+authors = ["Roronoa Zoro <zoro@one.piece>"]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+
+dependencies = []
+
+[tool.pdm.dev-dependencies]
+pytest = "^7"
+{% if cookiecutter.auto_format_tool == 'blue' -%}
+blue = "^0.9.1"
+{% elif cookiecutter.auto_format_tool == 'black' -%}
+black = "^22"
+click = "<8.1.0"  # https://github.com/psf/black/issues/2964
+{% endif -%}
+isort = "^5"
+pre-commit = "2"
+flake8 = "^4"
+mypy = "^0.931"
+cookiecutter = "^1.7.3"
+pytest-cov = "^3.0.0"
+{%- if cookiecutter.documentation_engine == 'mkdocs' %}
+Jinja2 = "<3.1.0"
+mkdocs = ">=1.2.3,<2"
+mkdocs-exclude = ">=1.0.2,<2"
+mkdocs-jupyter = ">=0.20.0,<1"
+mkdocs-literate-nav = ">=0.4.1,<1"
+mkdocs-macros-plugin = ">=0.6.3,<1"
+mkdocs-material = ">=8.2.1,<9"
+mkdocstrings = ">=0.17.0,<0.18.0"
+{%- elif cookiecutter.documentation_engine == 'sphinx' %}
+Sphinx = "^5.0.0"
+sphinx-rtd-theme = "^1.1.1"
+importlib-metadata = "^5.0.0"
+myst-parser = "^0.18.1"
+{%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
+jupyter-book = "^0.12.3"
+myst-parser = "^0.15.0"
+{%+ endif %}
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+{% endif %}
+
 [tool.isort]
 ensure_newline_before_comments = true
 line_length = 79
 multi_line_output = 3
 include_trailing_comma = true
 skip_glob = ["docs/*", "*.egg-info"]
-
-[tool.pytest.ini_options]
-testpaths = [
-    "tests",
-]
