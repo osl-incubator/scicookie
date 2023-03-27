@@ -8,3 +8,5 @@ dependencies:
   - poetry
   - nodejs
   - compilers
+  - pip:
+    - makim==1.6.4
