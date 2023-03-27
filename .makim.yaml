@@ -25,7 +25,7 @@ groups:
         help: Build documentation
         run: |
           rm -rf docs/_build
-	        jupyter-book build docs
+          jupyter-book build docs
 
       preview:
         help: Preview documentation page locally
