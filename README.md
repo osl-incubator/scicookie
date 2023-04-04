@@ -1,6 +1,6 @@
 # Cookiecutter Python Package
 
-**Cookiecutter** is a command-line utility developed by [Open Science Labs](https://opensciencelabs.org/) that creates projects from project templates. It serves as a boilerplate which can be used by beginners as well as full fledged developers to simplify the project creation process and save considerable amount of time.
+**Cookiecutter-python** is a template developed by [Open Science Labs](https://opensciencelabs.org/) that creates projects from project templates and is based on [Cookiecutter](https://github.com/cookiecutter/cookiecutter) command-line utility  . It serves as a boilerplate which can be used by beginners as well as full fledged developers to simplify the project creation process and save considerable amount of time.
 Cookiecutter enables projects with an initial layout that includes recommended tools, workflows, and project structure. 
 
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template
