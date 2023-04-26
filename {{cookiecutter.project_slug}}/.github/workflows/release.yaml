@@ -34,10 +34,10 @@ jobs:
         run: poetry install
 
       - name: Run semantic release (for tests)
-      if: ${{ github.event_name != 'workflow_dispatch' }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: make release-dry
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make release-dry
 
       - name: Release
         if: ${{ github.event_name == 'workflow_dispatch' }}
@@ -46,8 +46,8 @@ jobs:
         run: make release-ci
 
       - name: Generate documentation with changes from semantic-release
-      if: ${{ github.event_name == 'workflow_dispatch' }}
-      run: make docs-build
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: make docs-build
 
       - name: GitHub Pages action
         if: ${{ github.event_name == 'workflow_dispatch' }}
