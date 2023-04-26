@@ -7,6 +7,7 @@ Why does this file exist, and why __main__? For more info, read:
 """
 {%- if cookiecutter.command_line_interface == 'Click' or cookiecutter.command_line_inteface == 'Argparse' %}
 import sys
+
 {% endif %}
 from {{cookiecutter.project_name}}.cli import main
 
