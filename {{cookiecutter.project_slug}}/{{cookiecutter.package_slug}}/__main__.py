@@ -9,7 +9,7 @@ Why does this file exist, and why __main__? For more info, read:
 import sys
 
 {% endif %}
-from {{cookiecutter.project_slug}}.cli import main
+from {{cookiecutter.package_slug}}.cli import main
 
 if __name__ == "__main__":
  {%- if cookiecutter.command_line_interface is in ["Click", "Argparse"] %}
