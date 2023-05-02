@@ -63,6 +63,7 @@ jobs:
           - black.sh
           - blue.sh
           - coc.sh
+          - governance.sh
 
     defaults:
       run:
