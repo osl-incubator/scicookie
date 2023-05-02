@@ -47,7 +47,7 @@ GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'numpy_governance.md'
 {%- elif cookiecutter.code_of_conduct == "SciML governance document" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'sciml_governance.md'
 {% else %}
-COC_PATH = None
+GOVERNANCE_PATH = None
 {% endif %}
 
 
