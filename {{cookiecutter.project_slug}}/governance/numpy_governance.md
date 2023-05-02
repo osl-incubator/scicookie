@@ -77,21 +77,20 @@ motivated from the start to find some solution that everyone can live
 with -- thus accomplishing our goal of ensuring that all interested
 perspectives are taken into account.
 
-How do we know when consensus has been achieved? In principle, this is
-rather difficult, since consensus is defined by the absence of vetos,
-which requires us to somehow prove a negative. In practice, we use a
-combination of our best judgement (e.g., a simple and uncontroversial
-bug fix posted on GitHub and reviewed by a core developer is probably
-fine) and best efforts (e.g., all substantive API changes must be posted
-to the mailing list in order to give the broader community a chance to
-catch any problems and suggest improvements; we assume that anyone who
-cares enough about NumPy to invoke their veto right should be on the
-mailing list). If no-one bothers to comment on the mailing list after a
-few days, then it's probably fine. And worst case, if a change is more
-controversial than expected, or a crucial critique is delayed because
-someone was on vacation, then it's no big deal: we apologize for
-misjudging the situation, `back up, and sort things
-out <http://producingoss.com/en/producingoss.html#version-control-relaxation>`_.
+How do we know when consensus has been achieved? In principle, this is rather
+difficult, since consensus is defined by the absence of vetos, which requires us
+to somehow prove a negative. In practice, we use a combination of our best
+judgement (e.g., a simple and uncontroversial bug fix posted on GitHub and
+reviewed by a core developer is probably fine) and best efforts (e.g., all
+substantive API changes must be posted to the mailing list in order to give the
+broader community a chance to catch any problems and suggest improvements; we
+assume that anyone who cares enough about {{ cookiecutter.project_name }} to
+invoke their veto right should be on the mailing list). If no-one bothers to
+comment on the mailing list after a few days, then it's probably fine. And worst
+case, if a change is more controversial than expected, or a crucial critique is
+delayed because someone was on vacation, then it's no big deal: we apologize for
+misjudging the situation, `back up, and sort things out
+<http://producingoss.com/en/producingoss.html#version-control-relaxation>`_.
 
 If one does need to invoke a formal veto, then it should consist of:
 
@@ -318,7 +317,7 @@ Institutional Partner benefits are:
 ## Acknowledgements
 
 Substantial portions of this document were adapted from the
-`NumPy project governance and decision-making <https://numpy.org/doc/stable/dev/governance/governance.html>`_
+[NumPy project governance and decision-making](https://numpy.org/doc/stable/dev/governance/governance.html)
 
 License
 =======

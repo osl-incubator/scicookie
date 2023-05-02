@@ -128,3 +128,8 @@ All members of the Council and Committee shall disclose any conflict of
 interest they may have. Members with a conflict of interest in a
 particular issue may participate in Council discussions on that issue,
 but must recuse themselves from voting on the issue.
+
+## Acknowledgements
+
+Substantial portions of this document were adapted from the [SciML Scientific
+Machine Learning Governance](https://sciml.ai/governance/)
