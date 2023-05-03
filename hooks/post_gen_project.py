@@ -92,6 +92,7 @@ def post_gen():
     remove_dirs(UNUSED_DOCS_DIRS)
     move_selected_doc_dir()
     code_of_conduct_clean_up()
+    governance_clean_up()
 
     subprocess.call(["git", "init"])
 
