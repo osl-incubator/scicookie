@@ -16,7 +16,7 @@ OUTPUT_DIR="/tmp/osl"
 rm -rf "${OUTPUT_DIR}"
 mkdir -p "${OUTPUT_DIR}"
 
-cookieninja --no-input \
+cookiecutter --no-input \
   --output-dir "${OUTPUT_DIR}" \
   "${PROJECT_PATH}" \
   ${1}="${2}"
