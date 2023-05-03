@@ -33,6 +33,11 @@
     "Citizen Code of Conduct (communities and events)",
     "None"
   ],
+  "governance": [
+    "NumPy governance document",
+    "SciML governance document",
+    "None"
+  ],
   "auto_format_tool": [
     "blue",
     "black"
