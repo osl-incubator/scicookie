@@ -14,4 +14,4 @@
 
 ## Credits
 
-This package was created with Cookiecutter and the `osl-incubator/cookiecutter-python` project template.
+This package was created with Cookieninja and the `osl-incubator/cookiecutter-python` project template.
