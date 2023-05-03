@@ -1,5 +1,5 @@
 * Date you used Cookiecutter Python Package:
-* Cookiecutter version used, if any:
+* Cookieninja version used, if any:
 * Python version, if any:
 * Operating System:
 
