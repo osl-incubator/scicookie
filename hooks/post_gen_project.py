@@ -42,6 +42,22 @@ def code_of_conduct_clean_up():
         )
     remove_dir("coc")
 
+{% if cookiecutter.governance == "NumPy governance document" -%}
+GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'numpy_governance.md'
+{%- elif cookiecutter.code_of_conduct == "SciML governance document" -%}
+GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'sciml_governance.md'
+{% else %}
+GOVERNANCE_PATH = None
+{% endif %}
+
+
+def governance_clean_up():
+    if GOVERNANCE_PATH:
+        shutil.move(
+            GOVERNANCE_PATH,
+            PROJECT_DIRECTORY / 'governance.md'
+        )
+    remove_dir("governance")
 
 def remove_dirs(dirs: list):
     for dirs in dirs:
@@ -76,6 +92,7 @@ def post_gen():
     remove_dirs(UNUSED_DOCS_DIRS)
     move_selected_doc_dir()
     code_of_conduct_clean_up()
+    governance_clean_up()
 
     subprocess.call(["git", "init"])
 
