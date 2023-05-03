@@ -107,7 +107,7 @@ tests = ["pytest"]
 name = "arrow"
 version = "1.2.3"
 description = "Better dates & times for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -219,7 +219,7 @@ lxml = ["lxml"]
 name = "binaryornot"
 version = "0.4.4"
 description = "Ultra-lightweight pure Python package to check if a file is binary or text."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -399,7 +399,7 @@ files = [
 name = "chardet"
 version = "5.1.0"
 description = "Universal encoding detector for Python 3"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -426,7 +426,7 @@ unicode-backport = ["unicodedata2"]
 name = "click"
 version = "8.1.3"
 description = "Composable command line interface toolkit"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -492,7 +492,7 @@ requests = ">=2.23.0"
 name = "cookieninja"
 version = "1.0.0"
 description = "A command-line utility that creates projects from project templates, e.g. creating a Python package project from a Python package project template."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -1099,7 +1099,7 @@ i18n = ["Babel (>=2.7)"]
 name = "jinja2-time"
 version = "0.2.0"
 description = "Jinja2 Extension for Dates and Times"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -2455,7 +2455,7 @@ six = ">=1.5"
 name = "python-slugify"
 version = "7.0.0"
 description = "A Python slugify application that also handles Unicode"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -2525,7 +2525,7 @@ files = [
 name = "pyyaml"
 version = "6.0"
 description = "YAML parser and emitter for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -3233,7 +3233,7 @@ test = ["pre-commit", "pytest (>=7.0)", "pytest-timeout"]
 name = "text-unidecode"
 version = "1.3"
 description = "The most basic Text::Unidecode port"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -3476,4 +3476,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "1a73f5510d49671cef21a32ce98d25edf97730956e2805e653e3e4cc30df0dc9"
+content-hash = "e2a849db023246307d16bcec1b1bcf9b138057e69f25045ffc86fa5481617390"
