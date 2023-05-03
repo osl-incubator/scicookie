@@ -32,7 +32,7 @@ it.
 ### Write Documentation
 
 **Cookiecutter Python** could always use more documentation,
-whether as part of the official **Cookiecutter Python** docs,
+whether as part of the official **Cookieninja** docs,
 in docstrings, or even on the web in blog posts, articles, and such.
 
 ### Submit Feedback

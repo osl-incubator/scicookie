@@ -27,7 +27,7 @@ DOCUMENTATION_ENGINE = "jupyter-book"
 
 {% if cookiecutter.code_of_conduct == "Contributor Covenant (projects of all sizes)" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
-{%- elif cookiecutter.code_of_conduct == "Citizen Code of Conduct (large communities and events)" -%}
+{%- elif cookiecutter.code_of_conduct == "Citizen Code of Conduct (communities and events)" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CITIZEN.md'
 {% else %}
 COC_PATH = None
