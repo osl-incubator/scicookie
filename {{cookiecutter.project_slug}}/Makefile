@@ -99,4 +99,4 @@ release-ci:
 
 .PHONY:release-dry
 release-dry:
-    $(RELEASE_APP) --dry-run
+	$(RELEASE_APP) --dry-run
