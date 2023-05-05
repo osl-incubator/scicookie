@@ -64,6 +64,7 @@ jobs:
           - blue.sh
           - coc.sh
           - governance.sh
+          - roadmap.sh
 
     defaults:
       run:
