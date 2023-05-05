@@ -59,6 +59,21 @@ def governance_clean_up():
         )
     remove_dir("governance")
 
+{% if cookiecutter.roadmap == "PyTorch-Ignite roadmap document" -%}
+ROADMAP_PATH = PROJECT_DIRECTORY / 'roadmap' / 'ignite_roadmap.md'
+{% else %}
+ROADMAP_PATH = None
+{% endif %}
+
+
+def roadmap_clean_up():
+    if ROADMAP_PATH:
+        shutil.move(
+            ROADMAP_PATH,
+            PROJECT_DIRECTORY / 'roadmap.md'
+        )
+    remove_dir("roadmap")
+
 def remove_dirs(dirs: list):
     for dirs in dirs:
         shutil.rmtree(dirs)
@@ -93,6 +108,7 @@ def post_gen():
     move_selected_doc_dir()
     code_of_conduct_clean_up()
     governance_clean_up()
+    roadmap_clean_up()
 
     subprocess.call(["git", "init"])
 

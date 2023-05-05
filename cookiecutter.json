@@ -38,6 +38,10 @@
     "SciML governance document",
     "None"
   ],
+  "roadmap": [
+    "PyTorch-Ignite roadmap document",
+    "None"
+  ],
   "auto_format_tool": [
     "blue",
     "black"
