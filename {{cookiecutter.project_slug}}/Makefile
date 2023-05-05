@@ -1,5 +1,17 @@
 .DEFAULT_GOAL := help
 
+RELEASE_APP=npx --yes \
+	-p semantic-release \
+	-p "@semantic-release/commit-analyzer" \
+	-p "@semantic-release/release-notes-generator" \
+	-p "@semantic-release/changelog" \
+	-p "@semantic-release/exec" \
+	-p "@semantic-release/github" \
+	-p "@semantic-release/git" \
+	-p "@google/semantic-release-replace-plugin" \
+	semantic-release
+
+ 		
 {%- if cookiecutter.documentation_engine == 'sphinx' %}
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
@@ -80,3 +92,11 @@ docs-preview: docs-build
 .PHONY:build
 build:
 	poetry build
+
+.PHONY:release-ci
+release-ci:
+	$(RELEASE_APP) --ci
+
+.PHONY:release-dry
+release-dry:
+	$(RELEASE_APP) --dry-run
