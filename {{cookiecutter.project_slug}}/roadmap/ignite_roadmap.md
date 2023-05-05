@@ -4,60 +4,52 @@ This document lists general directions that core team is interested to see devel
 
 ## Principal goals
 
-<<DESCRIBE THE PRINCIPALS GOALS OF THE PROJECT?>> For example:
+<<DESCRIBE THE PRINCIPALS GOALS OF THE PROJECT?>>
 
-<<continue maintaining high-quality, well-tested and documented modules>>
-<<provide distributed framework>>
-<<provide new higher-level API>>
-<<provide helper on data management>>
-<<provide more integrations with other tools>>
-<<visibility and communications>>
-
+- <<add your item here>>
 ### Codebase maintenance
 
-<<DESCRIBE SOME SUGGESTIONS OR TASKS FOR THE CODEBASE MAINTENANCE?>> For example:
+<<DESCRIBE SOME SUGGESTIONS OR TASKS FOR THE CODEBASE MAINTENANCE?>> 
 
-<<add typing to the whole package>>
-<<adapt the code and add checks>>
+- <<add your item here>>
 
 ### Framework support
 
 <<Describe the frameworks supported by the project {{ cookiecutter.project_name }} and adds relevant features>> 
 
+- <<add your item here>>
 
 ### Metrics
 
 <<Add the types of metrics and what they are used for, if necessary>> 
 
+- <<add your item here>>
 
 ### Resolving conflicts or tasks
 
 <<Indicates possible problems encountered in {{ cookiecutter.project_name }} and how they can be solved by potential contributors>>
 
-<<It also describes possible functions or modules that can be added to the {{ cookiecutter.project_name }} to improve its functioning. You can do this in sections>>
+    NOTE: 
 
-<<If necessary, you can place code for better understanding>>
-
+    It also describes possible functions or modules that can be added to the {{ cookiecutter.project_name }} to improve its functioning. You can do this in sections. If necessary, you can place code for better understanding.
 
 ### Helper on data management
 
-<<better and simple coverage of multi-dataloaders use-cases>>
+<<Indicate ways in which you want the project data management to improve>>
 
-<<Indicate other ways in which you want the project data management to improve>>
-
+- <<add your item here>>
 
 ### Integrations
 
 <<Verify compatibilities and integrations with other tecnologies>>
 
+- <<add your item here>>
 
 ### Communications
 
-<<Indicate how you want the project to have more impact or visibility>> For example:
+<<Indicate how you want the project to have more impact or visibility>> 
 
-<<More applications and successful stories with {{ cookiecutter.project_name }}>>
-<<More experiments with {{ cookiecutter.project_name }} from our users>>
-
+- <<add your item here>>
 
 ## Attribution
 
