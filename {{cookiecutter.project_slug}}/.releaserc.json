@@ -9,8 +9,8 @@
         "replacements": [
           {
             "files": ["{{ cookiecutter.package_slug }}/__init__.py"],
-            "from": "return \".*\"  # semantic-release",
-            "to": "return \"${nextRelease.version}\"  # semantic-release",
+            "from": "__version__ = '.*'  # semantic-release",
+            "to": "__version__ = '${nextRelease.version}'  # semantic-release",
             "results": [
               {
                 "file": "{{ cookiecutter.package_slug }}/__init__.py",
