@@ -1,3 +1,11 @@
+{%- if cookiecutter.auto_format_tool == 'blue' %}
+  {%- set QUOTE = "'" -%}
+{%- elif cookiecutter.auto_format_tool == 'black' %}
+  {%- set QUOTE = '"' -%}
+{%- else %}
+  {%- set QUOTE = "'" -%}
+{%- endif %}
+
 {
   "branches": ["main"],
   "tagFormat": "${version}",
@@ -9,8 +17,8 @@
         "replacements": [
           {
             "files": ["{{ cookiecutter.package_slug }}/__init__.py"],
-            "from": "__version__ = '.*'  # semantic-release",
-            "to": "__version__ = '${nextRelease.version}'  # semantic-release",
+            "from": "__version__ = {{ QUOTE }}.*{{ QUOTE }}  # semantic-release",
+            "to": "__version__ = {{ QUOTE }}${nextRelease.version}{{ QUOTE }}  # semantic-release",
             "results": [
               {
                 "file": "{{ cookiecutter.package_slug }}/__init__.py",

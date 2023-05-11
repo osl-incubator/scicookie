@@ -11,4 +11,4 @@
 
 __author__ = {{ QUOTE }}{{ cookiecutter.author_full_name }}{{ QUOTE }}
 __email__ = {{ QUOTE }}{{ cookiecutter.author_email }}{{ QUOTE }}
-__version__ = {{ QUOTE }}{{ cookiecutter.project_version }}{{ QUOTE }}
+__version__ = {{ QUOTE }}{{ cookiecutter.project_version }}{{ QUOTE }}  # semantic-release
