@@ -2,14 +2,14 @@
 blank_issues_enabled: true
 contact_links:
 - name: 🙋  Usage Questions
-  url: https://github.com/osl-incubator/cookiecutter-python/discussions
+  url: https://github.com/{{cookiecutter.project_slug}}/discussions
   about: |
     Use {{ cookiecutter.project_name }}'s GitHub Discussions to ask "How do I do X with Cookiecutter?".
 - name: 📖  Tutorial
-  url: https://github.com/osl-incubator/cookiecutter-python
+  url: https://github.com/{{cookiecutter.project_slug}}
   about: |
     The {{ cookiecutter.project_name }} tutorial is continually updated and provides an in depth walkthrough
     of how to use the latest release of Cookiecutter.
 - name: 📝  {{ cookiecutter.project_name }} Code of Conduct
-  url: https://github.com/scikit-hep/Cookiecutter/blob/main/CODE_OF_CONDUCT.md
+  url: https://github.com/{{cookiecutter.project_slug}}/coc/CODE_OF_CONDUCT.md
   about: Expectations for how people will interact with each other on Cookiecutter's GitHub.

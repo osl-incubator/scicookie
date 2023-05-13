@@ -15,14 +15,14 @@ body:
       GitHub][issue search].
 
 
-      [issue search]: https://github.com/osl-incubator/cookiecutter-python/issues?q=is%3Aopen+is%3Aissue+label%3Abug
+      [issue search]: https://github.com/{{ cookiecutter.project_name }}/issues?q=is%3Aopen+is%3Aissue+label%3Abug
 
 - type: textarea
   attributes:
     label: Summary
     description: Explain the problem briefly below.
     placeholder: >-
-      When I try to do X with {{ cookiecutter.project_name }} and the following workspace, Y breaks or
+      When I try to do X with {{ '{{' }} cookiecutter.project_name {{ '}}' }} and the following workspace, Y breaks or
       Z happens in an unexpected manner.
       Here are all the details I know about this problem.
   validations:
@@ -131,7 +131,7 @@ body:
       turned into a code snippet automatically.
     render: console
     placeholder: |
-      $ {{ cookiecutter.project_name }} --version
+      python -m pip show {{ cookiecutter.project_name }}
   validations:
     required: true
 
@@ -141,7 +141,7 @@ body:
     description: |
       Read the [`{{ cookiecutter.project_name }}` Code of Conduct][CoC] first.
 
-      [CoC]: https://github.com/scikit-hep/Cookiecutter/blob/main/CODE_OF_CONDUCT.md
+      [CoC]: https://github.com/{{cookiecutter.project_slug}}/coc/CODE_OF_CONDUCT.md
     options:
     - label: I agree to follow the Code of Conduct
       required: true

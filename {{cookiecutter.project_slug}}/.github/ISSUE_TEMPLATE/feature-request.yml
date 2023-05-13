@@ -17,7 +17,7 @@ body:
       already be implemented in a development release.
 
 
-      [issue search]: https://github.com/osl-incubator/cookiecutter-python/{{ cookiecutter.project_name }}/issues?q=is%3Aopen+is%3Aissue+label%3Afeat%2Fenhancement
+      [issue search]: https://github.com/{{ cookiecutter.project_name }}/issues?q=is%3Aopen+is%3Aissue+label%3Afeat%2Fenhancement
 
 
 - type: textarea
@@ -73,7 +73,7 @@ body:
     description: |
       Read the [`{{ cookiecutter.project_name }}` Code of Conduct][CoC] first.
 
-      [CoC]: https://github.com/osl-incubator/cookiecutter-python/blob/main/CODE_OF_CONDUCT.md
+      [CoC]: https://github.com/{{cookiecutter.project_slug}}/coc/CODE_OF_CONDUCT.md
     options:
     - label: I agree to follow the Code of Conduct
       required: true

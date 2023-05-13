@@ -141,7 +141,7 @@ body:
     description: |
       Read the [`Cookiecutter` Code of Conduct][CoC] first.
 
-      [CoC]: https://github.com/scikit-hep/Cookiecutter/blob/main/CODE_OF_CONDUCT.md
+      [CoC]: https://github.com/osl-incubator/cookiecutter-python/blob/main/CODE_OF_CONDUCT.md
     options:
     - label: I agree to follow the Code of Conduct
       required: true

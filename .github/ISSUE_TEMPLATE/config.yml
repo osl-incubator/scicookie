@@ -11,5 +11,5 @@ contact_links:
     The Cookiecutter tutorial is continually updated and provides an in depth walkthrough
     of how to use the latest release of Cookiecutter.
 - name: 📝  Cookiecutter Code of Conduct
-  url: https://github.com/scikit-hep/Cookiecutter/blob/main/CODE_OF_CONDUCT.md
+  url: https://github.com/osl-incubator/cookiecutter-python/blob/main/CODE_OF_CONDUCT.md
   about: Expectations for how people will interact with each other on Cookiecutter's GitHub.
