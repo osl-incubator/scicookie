@@ -43,7 +43,10 @@ jobs:
         if: ${{ "{{ github.event_name == 'workflow_dispatch' }}" }}
         env:
           GITHUB_TOKEN: ${{ "{{ secrets.GITHUB_TOKEN }}" }}
-        run: make release-ci
+          PYPI_TOKEN: ${{ "{{ secrets.PYPI_TOKEN }}" }}
+        run: |
+          poetry config pypi-token.pypi ${PYPI_TOKEN}
+          make release-ci
 
       - name: Generate documentation with changes from semantic-release
         if: ${{ "{{ github.event_name == 'workflow_dispatch' }}" }}
