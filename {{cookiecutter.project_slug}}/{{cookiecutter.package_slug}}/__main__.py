@@ -7,6 +7,7 @@ Why does this file exist, and why __main__? For more info, read:
 """
 {%- if cookiecutter.command_line_interface is in ["Click", "Argparse"] %}
 import sys
+
 {% endif %}
 from {{cookiecutter.package_slug}}.cli import main  # type: ignore
 
