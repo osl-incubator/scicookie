@@ -11,7 +11,7 @@ import sys
 {% endif -%}
 from {{cookiecutter.package_slug}}.cli import main  # type: ignore
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 {%- if cookiecutter.command_line_interface is in ["Click", "Argparse"] %}
     sys.exit(main())
 {%- else %}
