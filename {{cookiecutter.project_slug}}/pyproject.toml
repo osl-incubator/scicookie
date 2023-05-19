@@ -90,7 +90,10 @@ myst-parser = "^0.18.1"
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
 jupyter-book = "^0.12.3"
 myst-parser = "^0.15.0"
-{%+ endif %}
+{% endif %}
+{%- if cookiecutter.code_security == 'bandit' %}
+bandit = "1.7.5"
+{%- endif %}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

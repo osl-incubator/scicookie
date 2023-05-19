@@ -46,6 +46,10 @@
     "blue",
     "black"
   ],
+  "code_security": [
+    "bandit",
+    "None"
+  ],
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",
