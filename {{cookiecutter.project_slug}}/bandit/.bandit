@@ -1,4 +1,3 @@
 [bandit]
 exclude = tests/*
-tests = B201,B301
-skips = B101,B601
+targets= {{cookiecutter.project_slug}}/
