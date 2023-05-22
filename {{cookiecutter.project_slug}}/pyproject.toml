@@ -92,7 +92,7 @@ jupyter-book = "^0.12.3"
 myst-parser = "^0.15.0"
 {% endif -%}
 
-{%- if cookiecutter.code_security == 'bandit' %}
+{%- if cookiecutter.use_bandit in ["yes", "y"] %}
 bandit = "1.7.5"
 {%- endif %}
 

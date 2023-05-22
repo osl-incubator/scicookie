@@ -25,19 +25,13 @@ DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(2)
 DOCUMENTATION_ENGINE = "jupyter-book"
 {% endif %}
 
-{% if cookiecutter.code_security == 'bandit' -%}
-CS_PATH = PROJECT_DIRECTORY / 'bandit' / '.bandit'
-{% else %}
-CS_PATH = None
+
+{% if cookiecutter.use_bandit not in ["yes", "y"] -%}
+def bandit_clean_up():
+    CS_PATH = PROJECT_DIRECTORY / '.bandit'
+    remove_file(CS_PATH)
 {% endif %}
 
-def code_security_clean_up():
-    if CS_PATH:
-        shutil.move(
-            CS_PATH,
-            PROJECT_DIRECTORY / '.bandit'
-        )
-    remove_dir("bandit")
 
 {% if cookiecutter.code_of_conduct == "Contributor Covenant (projects of all sizes)" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
@@ -120,7 +114,9 @@ def http2ssh(url):
 def post_gen():
     remove_dirs(UNUSED_DOCS_DIRS)
     move_selected_doc_dir()
-    code_security_clean_up()
+    {% if cookiecutter.use_bandit not in ["yes", "y"] -%}
+    bandit_clean_up()
+    {% endif %}
     code_of_conduct_clean_up()
     governance_clean_up()
     roadmap_clean_up()

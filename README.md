@@ -26,6 +26,7 @@ for a Python package.
   - Support to pre-commit
   - CI with github actions
   - Release workflow with semantic release and github actions
+  - Finding common security problems in Python code using [bandit](https://bandit.readthedocs.io/en/latest/)
 
 ## Quickstart
 
