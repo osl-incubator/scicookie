@@ -65,3 +65,17 @@ repos:
         - commit
       types:
         - python
+
+    {% if cookiecutter.use_pydocstyle == 'yes' -%}  
+    - entry: pydocstyle
+      exclude: ^$
+      files: "{{ cookiecutter.package_slug }}/"
+      id: pydocstyle
+      language: python
+      name: pydocstyle
+      pass_filenames: true
+      stages:
+        - commit
+      types:
+        - python
+    {%- endif %}
