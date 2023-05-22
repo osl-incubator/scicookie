@@ -92,7 +92,7 @@ jupyter-book = "^0.12.3"
 myst-parser = "^0.15.0"
 {%- endif %}
 {%- if cookiecutter.use_pydocstyle == 'yes' +%}
-pydocstyle = "6.3.0"
+pydocstyle = "^6.3.0"
 {%- endif %}
 
 [build-system]
