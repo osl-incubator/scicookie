@@ -12,6 +12,9 @@
 
 ## Features
 
+- This package uses [pydocstyle](http://www.pydocstyle.org/en/stable/)
+  for checking compliance with Python documentation conventions.
+
 * TODO
 
 ## Credits
