@@ -93,7 +93,7 @@ myst-parser = "^0.15.0"
 {% endif -%}
 
 {%- if cookiecutter.use_bandit in ['yes', 'y'] %}
-bandit = "1.7.5"
+bandit = "^1.7.5"
 {%- endif %}
 {%- if cookiecutter.use_pydocstyle == 'yes' +%}
 pydocstyle = "^6.3.0"
