@@ -65,7 +65,8 @@ repos:
         - commit
       types:
         - python
-    {%+ if cookiecutter.use_bandit in ['yes', 'y'] +%}
+
+    {% if cookiecutter.use_bandit in ['yes', 'y'] -%}
     - entry: bandit
       id: bandit
       language: python
@@ -76,9 +77,9 @@ repos:
         - commit
       types:
         - python
-    {% endif %}
+    {%- endif %}
 
-    {% if cookiecutter.use_pydocstyle == 'yes' -%}  
+    {% if cookiecutter.use_pydocstyle == 'yes' -%}
     - entry: pydocstyle
       exclude: ^$
       files: "{{ cookiecutter.package_slug }}/"
