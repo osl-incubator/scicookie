@@ -26,9 +26,10 @@ for a Python package.
   - Support to pre-commit
   - CI with github actions
   - Release workflow with semantic release and github actions
-  - Offers the option to use
-  [pydocstyle](http://www.pydocstyle.org/en/stable/) for checking
-  compliance with Python documentation conventions.
+  - Finding common security problems in Python code using
+    [bandit](https://bandit.readthedocs.io/en/latest/)
+  - Offers the option to use [pydocstyle](http://www.pydocstyle.org/en/stable/)
+  for checking compliance with Python documentation conventions.
 
 ## Quickstart
 
