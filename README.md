@@ -26,7 +26,10 @@ for a Python package.
   - Support to pre-commit
   - CI with github actions
   - Release workflow with semantic release and github actions
-  - Finding common security problems in Python code using [bandit](https://bandit.readthedocs.io/en/latest/)
+  - Finding common security problems in Python code using
+    [bandit](https://bandit.readthedocs.io/en/latest/)
+  - Offers the option to use [pydocstyle](http://www.pydocstyle.org/en/stable/)
+  for checking compliance with Python documentation conventions.
 
 ## Quickstart
 
@@ -53,13 +56,13 @@ cd ~/dev/my-python-projects
 Generate a Python package project:
 
 ```bash
-cookieninja https://github.com/osl-incubator/cookiecutter-python.git
+cookiecutter https://github.com/osl-incubator/cookiecutter-python.git
 ```
 
 or, using ssh:
 
 ```bash
-cookieninja git@github.com:osl-incubator/cookiecutter-python.git
+cookiecutter git@github.com:osl-incubator/cookiecutter-python.git
 ```
 
 ## Development
