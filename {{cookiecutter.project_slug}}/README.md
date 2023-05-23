@@ -19,8 +19,10 @@
   [documentation](https://bandit.readthedocs.io/en/latest/).
 {%- endif %}
 
+{% if cookiecutter.use_pydocstyle == 'yes' %}
 - This package uses [pydocstyle](http://www.pydocstyle.org/en/stable/)
   for checking compliance with Python documentation conventions.
+{% endif %}
 
 * TODO
 
