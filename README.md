@@ -55,13 +55,13 @@ cd ~/dev/my-python-projects
 Generate a Python package project:
 
 ```bash
-cookiecutter https://github.com/osl-incubator/cookiecutter-python.git
+cookieninja https://github.com/osl-incubator/cookiecutter-python.git
 ```
 
 or, using ssh:
 
 ```bash
-cookiecutter git@github.com:osl-incubator/cookiecutter-python.git
+cookieninja git@github.com:osl-incubator/cookiecutter-python.git
 ```
 
 ## Development
@@ -69,5 +69,6 @@ cookiecutter git@github.com:osl-incubator/cookiecutter-python.git
 For testing your changes locally, you can run:
 
 ```bash
-make test-template
+make lint
+make test
 ```
