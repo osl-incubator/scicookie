@@ -27,10 +27,17 @@ DOCUMENTATION_ENGINE = "jupyter-book"
 
 
 {% if cookiecutter.use_bandit not in ["yes", "y"] -%}
+USE_BANDIT = True
+{% else %}
+USE_BANDIT = False
+{% endif %}
+
+
 def bandit_clean_up():
+    if not USE_BANDIT:
+        return
     CS_PATH = PROJECT_DIRECTORY / '.bandit'
     remove_file(CS_PATH)
-{% endif %}
 
 
 {% if cookiecutter.code_of_conduct == "Contributor Covenant (projects of all sizes)" -%}
@@ -50,6 +57,7 @@ def code_of_conduct_clean_up():
         )
     remove_dir("coc")
 
+
 {% if cookiecutter.governance == "NumPy governance document" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'numpy_governance.md'
 {%- elif cookiecutter.code_of_conduct == "SciML governance document" -%}
@@ -66,6 +74,7 @@ def governance_clean_up():
             PROJECT_DIRECTORY / 'governance.md'
         )
     remove_dir("governance")
+
 
 {% if cookiecutter.roadmap == "PyTorch-Ignite roadmap document" -%}
 ROADMAP_PATH = PROJECT_DIRECTORY / 'roadmap' / 'ignite_roadmap.md'
@@ -114,9 +123,7 @@ def http2ssh(url):
 def post_gen():
     remove_dirs(UNUSED_DOCS_DIRS)
     move_selected_doc_dir()
-    {% if cookiecutter.use_bandit not in ["yes", "y"] -%}
     bandit_clean_up()
-    {% endif %}
     code_of_conduct_clean_up()
     governance_clean_up()
     roadmap_clean_up()
