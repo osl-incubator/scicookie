@@ -30,6 +30,8 @@ for a Python package.
     [bandit](https://bandit.readthedocs.io/en/latest/)
   - Offers the option to use [pydocstyle](http://www.pydocstyle.org/en/stable/)
   for checking compliance with Python documentation conventions.
+  - Finds unused code in Python programs using
+    [vulture](https://github.com/jendrikseipp/vulture).
 
 ## Quickstart
 

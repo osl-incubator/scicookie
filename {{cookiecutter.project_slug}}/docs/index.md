@@ -26,6 +26,12 @@
   for checking compliance with Python documentation conventions.
 {% endif %}
 
+{% if cookiecutter.use_vulture == 'yes' %}
+* Finds unused code: [Vulture](https://github.com/jendrikseipp/vulture)
+  is useful for cleaning up and finding errors in large code bases in
+  Python.
+{%- endif %}
+
 * TODO
 
 ## Credits
