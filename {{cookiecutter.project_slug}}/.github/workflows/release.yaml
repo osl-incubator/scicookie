@@ -58,16 +58,3 @@ jobs:
         with:
           github_token: ${{ "{{ secrets.GITHUB_TOKEN }}" }}
           publish_dir: ./docs/_build/html
-
-      - name: Run semantic release command
-        run: |
-          npx --yes \
-          -p semantic-release \
-          -p "@semantic-release/commit-analyzer" \
-          -p "@semantic-release/release-notes-generator" \
-          -p "@semantic-release/changelog" \
-          -p "@semantic-release/exec" \
-          -p "@semantic-release/github" \
-          -p "@semantic-release/git" \
-          -p "@google/semantic-release-replace-plugin" \
-          semantic-release --ci
