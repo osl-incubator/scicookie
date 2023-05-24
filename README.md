@@ -20,12 +20,14 @@ for a Python package.
   - Licenses supported: MIT, BSD 3 Clause, ISC License, Apache Software License 2.0, and GPL 3
   - Documentation engines: mkdocs, sphinx, jupyter-boook
   - Test library: pytest
-  - Auto format code tool: blue, and black
+  - Auto format code tool: blue and black
   - Initial integration with git
   - Support to conda (as base environment) and poetry as packaging and dependency management
   - Support to pre-commit
   - CI with github actions
   - Release workflow with semantic release and github actions
+  - The structure of the package can use the *src layout*. This is what
+    the vast majority of Python packages and developers use.
   - Finding common security problems in Python code using
     [bandit](https://bandit.readthedocs.io/en/latest/)
   - Offers the option to use [pydocstyle](http://www.pydocstyle.org/en/stable/)

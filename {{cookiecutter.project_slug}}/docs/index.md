@@ -12,6 +12,14 @@
 
 ## Features
 
+{% if cookiecutter.include_src_folder in ["yes", "y"] -%}
+* src layout: Is a good practice moving the Python code that is
+  intended to be importable of your package in a *src* directory. This
+  package structure is technically called a “regular package” in Python,
+  and it is what the vast majority of Python packages and developers
+  use.
+{% endif -%}
+
 {%- if cookiecutter.use_bandit in ["yes", "y"] %}
 * The security of our code: Bandit is a powerful tool that we use in our Python
   project to ensure its security. This tool analyzes the code and detects
