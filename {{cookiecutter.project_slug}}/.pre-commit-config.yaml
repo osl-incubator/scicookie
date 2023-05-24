@@ -92,3 +92,18 @@ repos:
       types:
         - python
     {%- endif %}
+
+    {% if cookiecutter.use_vulture == 'yes' -%}
+    - entry: vulture
+      files: "{{ cookiecutter.package_slug }}/"
+      id: vulture
+      language: python
+      name: vulture
+      description: Find unused Python code.
+      types: [python]
+      pass_filenames: true
+      stages:
+        - commit
+      types:
+        - python
+    {%- endif %}

@@ -48,6 +48,7 @@
   ],
   "use_bandit": "yes",
   "use_pydocstyle": "yes",
+  "use_vulture": "yes",
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",
