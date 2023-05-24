@@ -26,10 +26,24 @@ DOCUMENTATION_ENGINE = "jupyter-book"
 {% endif %}
 
 
+{% if cookiecutter.include_src_folder not in ["yes", "y"] -%}
+USE_SRC = True
+{% else %}
+USE_SRC = False
+{% endif %}
+
+def move_to_src():
+    if not USE_SRC:
+        if not os.path.exists("src"):
+            os.mkdir("src")
+            shutil.move('./{{cookiecutter.package_slug}}', './src')
+
+
 {% if cookiecutter.use_bandit not in ["yes", "y"] -%}
 USE_BANDIT = True
 {% else %}
 USE_BANDIT = False
+
 {% endif %}
 
 
@@ -123,6 +137,7 @@ def http2ssh(url):
 def post_gen():
     remove_dirs(UNUSED_DOCS_DIRS)
     move_selected_doc_dir()
+    move_to_src()
     bandit_clean_up()
     code_of_conduct_clean_up()
     governance_clean_up()
