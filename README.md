@@ -33,8 +33,9 @@ for a Python package.
   - Finds unused code in Python programs using
     [vulture](https://github.com/jendrikseipp/vulture).
   - To automatically detect overly complex code based on cyclomatic complexity,
-  the template gives you the option of using the
-  [McCabe](https://github.com/PyCQA/mccabe) library.
+    the template gives you the option to use the
+    [McCabe](https://github.com/PyCQA/mccabe) library, which is included via
+    flake8.
 
 ## Quickstart
 
