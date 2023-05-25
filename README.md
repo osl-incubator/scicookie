@@ -32,6 +32,9 @@ for a Python package.
   for checking compliance with Python documentation conventions.
   - Finds unused code in Python programs using
     [vulture](https://github.com/jendrikseipp/vulture).
+  - To automatically detect overly complex code based on cyclomatic complexity,
+  the template gives you the option of using the
+  [McCabe](https://github.com/PyCQA/mccabe) library.
 
 ## Quickstart
 
