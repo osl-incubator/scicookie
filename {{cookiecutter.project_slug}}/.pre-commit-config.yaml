@@ -106,3 +106,16 @@ repos:
       types:
         - python
     {%- endif %}
+
+    {% if cookiecutter.use_mccabe in ['yes', 'y'] -%}
+    -   id: mccabe
+        name: mccabe
+        entry: flake8 --max-complexity 10
+        language: python
+        files: "{{ cookiecutter.package_slug }}/"
+        pass_filenames: true
+        stages:
+          - commit
+        types:
+          - python
+    {%- endif %}

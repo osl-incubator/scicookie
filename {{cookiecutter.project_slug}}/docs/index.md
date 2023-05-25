@@ -32,6 +32,18 @@
   Python.
 {%- endif %}
 
+{% if cookiecutter.use_mccabe in ['yes', 'y'] -%}
+* Complexity of functions and modules: We use
+[McCabe](https://github.com/PyCQA/mccabe) to identify the complexity in our
+Python code that may be difficult to maintain or understand. By identifying
+complex code at the outset, we as developers can refactor it to make it easier
+to maintain and understand. In summary, McCabe helps us to improve the quality
+of our code and make it easier to maintain. If you would like to learn more
+about McCabe and code complexity, you can visit [McCabe - Code Complexity
+Checker](https://here-be-pythons.readthedocs.io/en/latest/python/mccabe.html).
+This tool is included with [Flake8](https://flake8.pycqa.org/en/latest/).
+{%- endif %}
+
 * TODO
 
 ## Credits
