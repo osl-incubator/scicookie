@@ -7,7 +7,7 @@ body:
 - type: markdown
   attributes:
     value: >
-      **Thank you for wanting to report a problem with Cookiecutter's documentation!**
+      **Thank you for wanting to report a problem with cookiecutter-python's documentation!**
 
 
       ⚠
@@ -25,7 +25,7 @@ body:
       If there are external references that are related please link them here
       as well.
     placeholder: >-
-      I was reading the Cookiecutter documentation for Cookiecutter version X and I'm having
+      I was reading cookiecutter-python's documentation for cookiecutter-python version X and I'm having
       problems understanding Y.
       It would be very helpful if that got rephrased as Z.
   validations:
@@ -43,11 +43,11 @@ body:
   attributes:
     label: Code of Conduct
     description: |
-      Read the [`Cookiecutter` Code of Conduct][CoC] first.
+      Read [`cookiecutter-python's` Code of Conduct][CoC] first.
 
       [CoC]: https://github.com/osl-incubator/cookiecutter-python/blob/main/CODE_OF_CONDUCT.md
     options:
     - label: I agree to follow the Code of Conduct
       required: true
 ...
-Thanks [Pyhf](https://github.com/scikit-hep/pyhf/tree/main/.github/ISSUE_TEMPLATE) for  for coming up with such detailed and great templates slightly_smiling_face
+This template has been adopted from [pyhf](https://github.com/scikit-hep/pyhf/tree/main/.github/ISSUE_TEMPLATE)'s excellent bug report template.

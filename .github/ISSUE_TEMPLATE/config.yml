@@ -13,5 +13,3 @@ contact_links:
 - name: 📝  Cookiecutter Code of Conduct
   url: https://github.com/osl-incubator/cookiecutter-python/blob/main/CODE_OF_CONDUCT.md
   about: Expectations for how people will interact with each other on Cookiecutter's GitHub.
-
-Thanks [Pyhf](https://github.com/scikit-hep/pyhf/tree/main/.github/ISSUE_TEMPLATE) for  for coming up with such detailed and great templates slightly_smiling_face

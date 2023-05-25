@@ -78,4 +78,6 @@ body:
     - label: I agree to follow the Code of Conduct
       required: true
 ...
-Thanks [Pyhf](https://github.com/scikit-hep/pyhf/tree/main/.github/ISSUE_TEMPLATE) for  for coming up with such detailed and great templates slightly_smiling_face
+
+
+This template has been adopted from [pyhf](https://github.com/scikit-hep/pyhf/tree/main/.github/ISSUE_TEMPLATE)'s excellent bug report template.

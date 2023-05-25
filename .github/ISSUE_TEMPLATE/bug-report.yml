@@ -7,7 +7,7 @@ body:
 - type: markdown
   attributes:
     value: >
-      **Thank you for wanting to report a bug in Cookiecutter!**
+      **Thank you for wanting to report a bug in Open Science Lab's cookiecutter!**
 
 
       ⚠
@@ -22,7 +22,7 @@ body:
     label: Summary
     description: Explain the problem briefly below.
     placeholder: >-
-      When I try to do X with Cookiecutter and the following workspace, Y breaks or
+      When I try to do X with cookiecutter-python and the following workspace, Y breaks or
       Z happens in an unexpected manner.
       Here are all the details I know about this problem.
   validations:
@@ -131,7 +131,7 @@ body:
       turned into a code snippet automatically.
     render: console
     placeholder: |
-      $ Cookiecutter --version
+      $ cookieninja --version
   validations:
     required: true
 
@@ -139,11 +139,11 @@ body:
   attributes:
     label: Code of Conduct
     description: |
-      Read the [`Cookiecutter` Code of Conduct][CoC] first.
+      Read the [`cookiecutter-python`'s Code of Conduct][CoC] first.
 
       [CoC]: https://github.com/osl-incubator/cookiecutter-python/blob/main/CODE_OF_CONDUCT.md
     options:
     - label: I agree to follow the Code of Conduct
       required: true
 ...
-Thanks [Pyhf](https://github.com/scikit-hep/pyhf/tree/main/.github/ISSUE_TEMPLATE) for  for coming up with such detailed and great templates slightly_smiling_face
+This template has been adopted from [pyhf](https://github.com/scikit-hep/pyhf/tree/main/.github/ISSUE_TEMPLATE)'s excellent bug report template.

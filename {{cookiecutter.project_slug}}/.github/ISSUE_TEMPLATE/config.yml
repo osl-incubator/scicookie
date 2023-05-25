@@ -13,4 +13,3 @@ contact_links:
 - name: 📝  {{ cookiecutter.project_name }} Code of Conduct
   url: https://github.com/{{cookiecutter.project_slug}}/coc/CODE_OF_CONDUCT.md
   about: Expectations for how people will interact with each other on Cookiecutter's GitHub.
-Thanks [Pyhf](https://github.com/scikit-hep/pyhf/tree/main/.github/ISSUE_TEMPLATE) for  for coming up with such detailed and great templates slightly_smiling_face
