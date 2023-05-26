@@ -20,10 +20,10 @@
 import os
 import sys
 
+if os.path.exists('src'):
+    sys.path.insert(0, os.path.abspath('src'))
+
 import {{ cookiecutter.package_slug }}
-
-sys.path.insert(0, os.path.abspath(".."))
-
 
 # -- General configuration ---------------------------------------------
 

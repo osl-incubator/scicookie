@@ -72,7 +72,11 @@ docs-preview: docs-build
 {%- elif cookiecutter.documentation_engine == 'sphinx' -%}
 .PHONY:docs-build
 docs-build:
-	sphinx-apidoc -o docs/_build {{ cookiecutter.package_slug }}
+	{% if cookiecutter.project_layout == "src" -%}
+	sphinx-apidoc -o docs/_build src/{{cookiecutter.package_slug}}
+	{% else %}
+	sphinx-apidoc -o docs/_build {{cookiecutter.package_slug}}
+	{% endif -%}
 	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .PHONY: docs-preview
