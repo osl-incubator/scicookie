@@ -15,7 +15,10 @@
     "GNU General Public License v3",
     "Other"
   ],
-  "include_src_folder": "yes",
+  "project_layout": [
+    "src",
+    "flat"
+  ],
   "command_line_interface": [
     "Click",
     "Argparse",
