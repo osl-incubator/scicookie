@@ -26,8 +26,13 @@ for a Python package.
   - Support to pre-commit
   - CI with github actions
   - Release workflow with semantic release and github actions
-  - The structure of the package can use the *src layout*. This is what
-    the vast majority of Python packages and developers use.
+  - The structure of the project can use the *src layout* or *flat
+  layout*. The “src layout” moving the code that is intended to be
+  importable into a subdirectory. This subdirectory is typically named
+  src. "Flat layout" refers to organising a project's files in a folder
+  or repository so that the various configuration files and import
+  packages are all in the top-level directory. You can read about their differences at
+  https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/ 
   - Finding common security problems in Python code using
     [bandit](https://bandit.readthedocs.io/en/latest/)
   - Offers the option to use [pydocstyle](http://www.pydocstyle.org/en/stable/)
