@@ -17,11 +17,6 @@
 # relative to the documentation root, use os.path.abspath to make it
 # absolute, like shown here.
 #
-import os
-import sys
-
-if os.path.exists('src'):
-    sys.path.insert(0, os.path.abspath('src'))
 
 import {{ cookiecutter.package_slug }}
 

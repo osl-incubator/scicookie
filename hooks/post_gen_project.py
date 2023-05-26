@@ -27,13 +27,13 @@ DOCUMENTATION_ENGINE = "jupyter-book"
 
 
 {% if cookiecutter.project_layout == "src" -%}
-USE_SRC = False
-{% else %}
 USE_SRC = True
+{% else %}
+USE_SRC = False
 {% endif %}
 
 def update_project_layout():
-    if not USE_SRC:
+    if USE_SRC:
         if not os.path.exists("src"):
             os.mkdir("src")
             shutil.move('./{{cookiecutter.package_slug}}', './src')

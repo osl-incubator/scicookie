@@ -11,6 +11,12 @@ RELEASE_APP=npx --yes \
 	-p "@google/semantic-release-replace-plugin" \
 	semantic-release
 
+{% if cookiecutter.project_layout == "src" -%}
+PACKAGE_PATH="src/{{cookiecutter.package_slug}}"
+{% else %}
+PACKAGE_PATH="{{cookiecutter.package_slug}}"
+{% endif -%}
+
  		
 {%- if cookiecutter.documentation_engine == 'sphinx' %}
 SPHINXOPTS    =
@@ -72,11 +78,7 @@ docs-preview: docs-build
 {%- elif cookiecutter.documentation_engine == 'sphinx' -%}
 .PHONY:docs-build
 docs-build:
-	{% if cookiecutter.project_layout == "src" -%}
-	sphinx-apidoc -o docs/_build src/{{cookiecutter.package_slug}}
-	{% else %}
-	sphinx-apidoc -o docs/_build {{cookiecutter.package_slug}}
-	{% endif -%}
+	sphinx-apidoc -o docs/_build ${PACKAGE_PATH}
 	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .PHONY: docs-preview
