@@ -41,18 +41,7 @@ body:
       $ cat /etc/os-release
       NAME="Ubuntu"
       VERSION="20.04.2 LTS (Focal Fossa)"
-      ID=ubuntu
-      ID_LIKE=debian
-      PRETTY_NAME="Ubuntu 20.04.2 LTS"
-      VERSION_ID="20.04"
-      HOME_URL="https://www.ubuntu.com/"
-      SUPPORT_URL="https://help.ubuntu.com/"
-      BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-      PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-      VERSION_CODENAME=focal
-      UBUNTU_CODENAME=focal
-
-      # macOS
+     # macOS
       $ system_profiler -detailLevel mini SPSoftwareDataType | head -n 6
       Software:
 
@@ -124,9 +113,9 @@ body:
 
 - type: textarea
   attributes:
-    label: Cookiecutter Version
+    label: cookieninja version
     description: >-
-      Paste verbatim output from `Cookiecutter --version` below, under the prompt line.
+      Paste verbatim output from `cookieninja --version` below, under the prompt line.
       Don't wrap it with triple backticks &mdash; your whole input will be
       turned into a code snippet automatically.
     render: console
