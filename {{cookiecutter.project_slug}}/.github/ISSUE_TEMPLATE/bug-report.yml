@@ -124,11 +124,11 @@ body:
 
 - type: textarea
   attributes:
-    label: {{ cookiecutter.project_name }} Version
-    description: >-
-      Paste verbatim output from `{{ cookiecutter.project_name }} --version` below, under the prompt line.
-      Don't wrap it with triple backticks &mdash; your whole input will be
-      turned into a code snippet automatically.
+    # label: {{ cookiecutter.project_name }} version
+    # description: >-
+     # Paste verbatim output from `{{ cookiecutter.project_name }} --version` below, under the prompt line.
+     # Don't wrap it with triple backticks &mdash; your whole input will be
+     # turned into a code snippet automatically.
     render: console
     placeholder: |
       python -m pip show {{ cookiecutter.project_name }}
