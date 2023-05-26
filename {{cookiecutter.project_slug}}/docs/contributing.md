@@ -1,5 +1,17 @@
 # Contributing
 
+In order to be able to contribute, it is important that you understand
+the project layout.
+{% if cookiecutter.project_layout == "src" -%}
+This project uses the *src layout*, which means that the code you want
+to import is placed in a subdirectory, usually called src.
+{% else %}
+This project uses the *flat layout*, which refers to the organisation of
+a project's files into one folder or repository, so that the various
+configuration files and import packages are all in the top-level
+directory.
+{% endif -%}
+
 Contributions are welcome, and they are greatly appreciated! Every
 little bit helps, and credit will always be given.
 
