@@ -12,18 +12,6 @@
 
 ## Features
 
-{% if cookiecutter.project_layout == "src" -%}
-* src layout: Is a good practice moving the Python code that is
-  intended to be importable of your package in a *src* directory. This
-  package structure is technically called a “regular package” in Python,
-  and it is what the vast majority of Python packages and developers
-  use.
-{% else %}
-* flat layout: refers to organising a project's files in a folder
-  or repository so that the various configuration files and import
-  packages are all in the top-level directory.
-{% endif -%}
-
 {%- if cookiecutter.use_bandit in ["yes", "y"] %}
 * The security of our code: Bandit is a powerful tool that we use in our Python
   project to ensure its security. This tool analyzes the code and detects
