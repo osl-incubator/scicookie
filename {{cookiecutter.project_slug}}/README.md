@@ -4,8 +4,8 @@
 {{ cookiecutter.project_short_description }}
 
 {% if is_open_source -%}
-* License: {{ cookiecutter.project_license }}
-* Documentation: https://{{ cookiecutter.project_slug }}.github.io
+* Free software: {{ cookiecutter.project_license }}
+* Documentation: https://{{ cookiecutter.project_slug }}.readthedocs.io.
 {%- endif %}
 
 ## Features
