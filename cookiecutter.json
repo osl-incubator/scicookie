@@ -15,6 +15,10 @@
     "GNU General Public License v3",
     "Other"
   ],
+  "project_layout": [
+    "src",
+    "flat"
+  ],
   "command_line_interface": [
     "Click",
     "Argparse",
