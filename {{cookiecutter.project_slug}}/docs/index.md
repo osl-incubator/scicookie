@@ -38,6 +38,27 @@ of our code and make it easier to maintain. If you would like to learn more
 about McCabe and code complexity, you can visit [McCabe - Code Complexity
 Checker](https://here-be-pythons.readthedocs.io/en/latest/python/mccabe.html).
 This tool is included with [Flake8](https://flake8.pycqa.org/en/latest/).
+{%+ endif -%}
+{%- if cookiecutter.add_containers == 'Docker' %}
+* Integration with DevOps tools: We use Docker because it allows us to create an
+  isolated environment for our application that includes all the necessary
+  dependencies, libraries and configurations. This makes it easier to manage and
+  reproduce our development and production environments without any conflicts or
+  inconsistencies.
+
+  With Docker, we can easily share our application with others and deploy it to
+  different environments. This streamlines our development, testing, deployment,
+  and collaboration workflows, making the entire process more efficient.
+{%- elif cookiecutter.add_containers == 'Podman' %}
+  * Integration with DevOps tools: Podman in your Python project helps us
+  achieve a more secure, efficient, and flexible containerization strategy, and
+  give us more control over application's dependencies and configurations.
+  Podman allows us to manage containers without the need for a daemon, providing a
+  more secure and lightweight solution.
+  
+  With Podman, we can easily create and run containers, as well as manage their
+  lifecycle and resources. This integration has improved our development and
+  deployment processes, making them more efficient and streamlined.
 {%+ endif %}
 * TODO
 

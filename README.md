@@ -36,6 +36,9 @@ for a Python package.
     the template gives you the option to use the
     [McCabe](https://github.com/PyCQA/mccabe) library, which is included via
     flake8.
+  - Provides the option to add initial files that allow you to run and
+    orchestrate containers using [Docker](https://docs.docker.com/) or
+    [Podman](https://podman.io/) in your project.
 
 ## Quickstart
 

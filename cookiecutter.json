@@ -50,6 +50,11 @@
   "use_pydocstyle": "yes",
   "use_vulture": "yes",
   "use_mccabe": "yes",
+  "add_containers": [
+    "None",
+    "Docker",
+    "Podman"
+  ],
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",
