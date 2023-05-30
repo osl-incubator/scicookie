@@ -1,7 +1,7 @@
 # ref: https://github.com/mamba-org/micromamba-docker/blob/main/Dockerfile
 {% if cookiecutter.add_containers == "Docker" %}
 FROM condaforge/mambaforge:latest
-{% else %}
+{% elif cookiecutter.add_containers == "Podman" %}
 FROM docker.io/condaforge/mambaforge:latest
 {% endif %}
 LABEL maintainer="{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"
