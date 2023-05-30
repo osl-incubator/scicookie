@@ -11,7 +11,7 @@ services:
     postgres-db:
     image: postgres
     environment:
-      POSTGRES_USER: root
+      POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: password
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
