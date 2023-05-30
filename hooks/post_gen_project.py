@@ -105,6 +105,19 @@ def roadmap_clean_up():
         )
     remove_dir("roadmap")
 
+
+{% if cookiecutter.add_containers in ['Docker', 'Podman'] %}
+USE_CONTAINERS = True
+{% else %}
+USE_CONTAINERS = False
+{% endif %}
+
+
+def containers_clean_up():
+    if not USE_CONTAINERS:
+        remove_dir("containers")
+
+
 def remove_dirs(dirs: list):
     for dirs in dirs:
         shutil.rmtree(dirs)
@@ -142,6 +155,7 @@ def post_gen():
     code_of_conduct_clean_up()
     governance_clean_up()
     roadmap_clean_up()
+    containers_clean_up()
 
     subprocess.call(["git", "init"])
 

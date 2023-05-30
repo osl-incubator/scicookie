@@ -104,6 +104,9 @@ vulture = "^2.7"
 {%- if cookiecutter.use_mccabe in ['yes', 'y'] %}
 mccabe = "^0.6.1"
 {%- endif %}
+{%- if cookiecutter.add_containers in ['Docker', 'Podman'] %}
+compose-go = "^1.0.4" # if you want to use docker-compose from your system, remove compose-go here
+{%- endif %} 
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
