@@ -6,3 +6,4 @@ dependencies:
   - python <3.11
   - poetry
   - nodejs  # used by semantic-release
+  - shellcheck
