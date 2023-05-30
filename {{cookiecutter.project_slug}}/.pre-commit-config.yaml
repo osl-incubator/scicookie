@@ -65,6 +65,23 @@ repos:
         - commit
       types:
         - python
+      
+    - entry: shellcheck
+      id: shellcheck
+      language: system
+      name: shellcheck
+      files: .sh$
+      types:
+          - shell
+      types_or:
+          - file
+          - sh
+          - ash
+          - bash
+          - bats
+          - dash
+          - ksh
+
 {% if cookiecutter.use_bandit in ['yes', 'y'] %}
     - entry: bandit
       id: bandit

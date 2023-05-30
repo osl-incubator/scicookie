@@ -50,6 +50,10 @@
     "blue",
     "black"
   ],
+  "use_shell_linter": [
+    "shellcheck",
+    "None"
+  ],
   "use_bandit": "yes",
   "use_pydocstyle": "yes",
   "use_vulture": "yes",
