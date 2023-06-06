@@ -176,6 +176,3 @@ def main():
     print(Fore.GREEN + "\nYour answers:" + Style.RESET_ALL)
     for key, value in answers.items():
         print(f"{key}: {value}")
-
-
-
