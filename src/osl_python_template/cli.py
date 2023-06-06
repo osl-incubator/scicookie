@@ -19,13 +19,6 @@ def parse_arguments():
 
 def prompt_questions():
     questions = [
-        inquirer.Confirm(
-            "delete",
-            message="You've downloaded /home/xmn/"
-            + ".cookiecutters/cookiecutter-python before."
-            "Is it okay to delete and re-download it?",
-            default=True,
-        ),
         inquirer.Text(
             "author_name", message="Author's name", default="Roronoa Zoro"
         ),
