@@ -185,5 +185,4 @@ def main():
         print(f"{key}: {value}")
 
 
-if __name__ == "__main__":
-    main()
+
