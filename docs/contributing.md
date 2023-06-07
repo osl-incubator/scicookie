@@ -31,7 +31,7 @@ it.
 
 ### Write Documentation
 
-**Cookiecutter Python** could always use more documentation,
+**OSL Python Package Template** could always use more documentation,
 whether as part of the official **Cookieninja** docs,
 in docstrings, or even on the web in blog posts, articles, and such.
 

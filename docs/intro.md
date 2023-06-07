@@ -1,4 +1,4 @@
-# Cookiecutter Python Package
+# OSL Python Package Template
 
 [Cookieninja](https://github.com/cookieninja-generator/cookieninja) template
 for a Python package.

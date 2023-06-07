@@ -1,4 +1,4 @@
-* Date you used Cookiecutter Python Package:
+* Date you used OSL Python Package Template:
 * Cookieninja version used, if any:
 * Python version, if any:
 * Operating System:
