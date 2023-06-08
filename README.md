@@ -11,7 +11,7 @@ Open Science Labs Scientific Python Package template is primarily based on the *
 [Cookieninja](https://github.com/cookieninja-generator/cookieninja) template
 for a Python package.
 
-  - GitHub repo: <https://github.com/osl-incubator/cookiecutter-python/>
+  - GitHub repo: <https://github.com/osl-incubator/osl-python-template/>
   - Free software: BSD license
 
 ## Features

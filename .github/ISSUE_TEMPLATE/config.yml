@@ -2,14 +2,16 @@
 blank_issues_enabled: true
 contact_links:
 - name: 🙋  Usage Questions
-  url: https://github.com/osl-incubator/cookiecutter-python/discussions
+  url: https://github.com/osl-incubator/osl-python-template/discussions
   about: |
-    Use Cookiecutter's GitHub Discussions to ask "How do I do X with Cookiecutter?".
+    Use OSL Python Package Template GitHub Discussions to ask "How do I do X
+    with the OSL Python Package Template?".
 - name: 📖  Tutorial
-  url: https://github.com/osl-incubator/cookiecutter-python
+  url: https://github.com/osl-incubator/osl-python-template
   about: |
-    The Cookiecutter tutorial is continually updated and provides an in depth walkthrough
-    of how to use the latest release of Cookiecutter.
-- name: 📝  Cookiecutter Code of Conduct
-  url: https://github.com/osl-incubator/cookiecutter-python/blob/main/CODE_OF_CONDUCT.md
-  about: Expectations for how people will interact with each other on Cookiecutter's GitHub.
+    The OSL Python Package Template tutorial is continually updated and provides
+    an in depth walkthrough of how to use the latest release of OSL Python Package Template.
+- name: 📝  OSL Python Package Template Code of Conduct
+  url: https://github.com/osl-incubator/osl-python-template/blob/main/CODE_OF_CONDUCT.md
+  about: Expectations for how people will interact with each other on OSL Python
+  Package Template GitHub.
