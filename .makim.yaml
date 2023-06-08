@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 1.0
 groups:
   default:
     targets:
@@ -60,3 +60,15 @@ groups:
       unittest:
         help: Run tests
         run: pytest -s -vv tests
+
+      smoke:
+        help: Run smoke tests
+        run: |
+          ./tests/smoke/jupyter-book.sh
+          ./tests/smoke/mkdocs.sh
+          ./tests/smoke/sphinx.sh
+          ./tests/smoke/black.sh
+          ./tests/smoke/blue.sh
+          ./tests/smoke/coc.sh
+          ./tests/smoke/governance.sh
+          ./tests/smoke/roadmap.sh

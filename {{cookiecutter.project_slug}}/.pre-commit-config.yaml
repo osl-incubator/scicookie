@@ -6,11 +6,11 @@ repos:
 
   - repo: local
     hooks:
-    {%- if cookiecutter.auto_format_tool == 'blue' +%}
+    {%- if cookiecutter.use_blue +%}
     - entry: blue
       id: blue
       name: blue
-    {%- elif cookiecutter.auto_format_tool == 'black' +%}
+    {%- elif cookiecutter.use_black +%}
     - entry: black
       id: black
       name: black
@@ -65,7 +65,7 @@ repos:
         - commit
       types:
         - python
-      
+
     - entry: shellcheck
       id: shellcheck
       language: system

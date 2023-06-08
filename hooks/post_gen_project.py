@@ -12,123 +12,58 @@ UNUSED_DOCS_DIRS = [
     PROJECT_DIRECTORY / 'docs-jupyter-book'
 ]
 
-DOCUMENTATION_ENGINE = ""
+DOCUMENTATION_ENGINE = "{{ cookiecutter.documentation_engine }}"
+DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(
+    PROJECT_DIRECTORY / f'docs-{DOCUMENTATION_ENGINE}'
+)
 
-{% if cookiecutter.documentation_engine == 'mkdocs' -%}
-DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(0)
-DOCUMENTATION_ENGINE = "mkdocs"
-{%- elif cookiecutter.documentation_engine == 'sphinx' -%}
-DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(1)
-DOCUMENTATION_ENGINE = "sphinx"
-{%- elif cookiecutter.documentation_engine == 'jupyter-book' -%}
-DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(2)
-DOCUMENTATION_ENGINE = "jupyter-book"
-{% endif %}
+USE_SRC_LAYOUT = {{ cookiecutter.project_layout == "src" }}
+if USE_SRC_LAYOUT:
+    PACKAGE_PATH = PROJECT_DIRECTORY / "src" / "{{ cookiecutter.package_slug}}"
+else:
+    PACKAGE_PATH = PROJECT_DIRECTORY / "{{ cookiecutter.package_slug}}"
 
-
-{% if cookiecutter.project_layout == "src" -%}
-USE_SRC = True
-{% else %}
-USE_SRC = False
-{% endif %}
-
-def update_project_layout():
-    if USE_SRC:
-        if not os.path.exists("src"):
-            os.mkdir("src")
-            shutil.move('./{{cookiecutter.package_slug}}', './src')
-
-
-{% if cookiecutter.use_bandit not in ["yes", "y"] -%}
-USE_BANDIT = True
-{% else %}
-USE_BANDIT = False
-
-{% endif %}
-
-
-def bandit_clean_up():
-    if not USE_BANDIT:
-        return
-    CS_PATH = PROJECT_DIRECTORY / '.bandit'
-    remove_file(CS_PATH)
-
-
+USE_BANDIT = {{ cookiecutter.use_bandit }}
+USE_CONTAINERS = {{ cookiecutter.add_containers in ['Docker', 'Podman'] }}
+USE_CLI = {{ cookiecutter.command_line_interface != "No command-line interface" }}
+USE_CONDA = {{ cookiecutter.use_conda }}
 {% if cookiecutter.code_of_conduct == "Contributor Covenant (projects of all sizes)" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "Citizen Code of Conduct (communities and events)" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CITIZEN.md'
 {% else %}
 COC_PATH = None
-{% endif %}
-
-
-def code_of_conduct_clean_up():
-    if COC_PATH:
-        shutil.move(
-            COC_PATH,
-            PROJECT_DIRECTORY / 'CODE_OF_CONDUCT.md'
-        )
-    remove_dir("coc")
-
-
+{% endif -%}
 {% if cookiecutter.governance == "NumPy governance document" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'numpy_governance.md'
 {%- elif cookiecutter.code_of_conduct == "SciML governance document" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'sciml_governance.md'
-{% else %}
+{%- else %}
 GOVERNANCE_PATH = None
-{% endif %}
-
-
-def governance_clean_up():
-    if GOVERNANCE_PATH:
-        shutil.move(
-            GOVERNANCE_PATH,
-            PROJECT_DIRECTORY / 'governance.md'
-        )
-    remove_dir("governance")
-
-
-{% if cookiecutter.roadmap == "PyTorch-Ignite roadmap document" -%}
+{%- endif %}
+{%- if cookiecutter.roadmap == "PyTorch-Ignite roadmap document" -%}
 ROADMAP_PATH = PROJECT_DIRECTORY / 'roadmap' / 'ignite_roadmap.md'
-{% else %}
+{%- else %}
 ROADMAP_PATH = None
-{% endif %}
-
-
-def roadmap_clean_up():
-    if ROADMAP_PATH:
-        shutil.move(
-            ROADMAP_PATH,
-            PROJECT_DIRECTORY / 'roadmap.md'
-        )
-    remove_dir("roadmap")
-
-
-{% if cookiecutter.add_containers in ['Docker', 'Podman'] %}
-USE_CONTAINERS = True
-{% else %}
-USE_CONTAINERS = False
-{% endif %}
-
-
-def containers_clean_up():
-    if not USE_CONTAINERS:
-        remove_dir("containers")
+{%- endif %}
 
 
 def remove_dirs(dirs: list):
     for dirs in dirs:
         shutil.rmtree(dirs)
 
+
 def remove_dir(dir_path):
     """Remove a directory located at PROJECT_DIRECTORY/dir_path"""
     shutil.rmtree(PROJECT_DIRECTORY/dir_path)
 
 
-def remove_file(filepath: str):
+def remove_project_file(filepath: str):
     os.remove(PROJECT_DIRECTORY / filepath)
+
+
+def remove_package_file(filepath: str):
+    os.remove(PACKAGE_PATH / filepath)
 
 
 def move_selected_doc_dir():
@@ -137,9 +72,67 @@ def move_selected_doc_dir():
         shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 
     if DOCUMENTATION_ENGINE == "sphinx":
-        remove_file("docs/index.md")
+        remove_project_file(Path("docs") / "index.md")
 
     shutil.rmtree(DOCS_SPEC_DIR)
+
+def clean_up_docs():
+    remove_dirs(UNUSED_DOCS_DIRS)
+    move_selected_doc_dir()
+
+
+def clean_up_project_layout():
+    if USE_SRC_LAYOUT:
+        if not os.path.exists("src"):
+            os.mkdir("src")
+            shutil.move('{{cookiecutter.package_slug}}', 'src')
+
+
+def clean_up_bandit():
+    if USE_BANDIT:
+        remove_project_file(PROJECT_DIRECTORY / '.bandit')
+
+
+def clean_up_code_of_conduct():
+    if COC_PATH:
+        shutil.move(
+            COC_PATH,
+            PROJECT_DIRECTORY / 'CODE_OF_CONDUCT.md'
+        )
+    remove_dir("coc")
+
+
+def clean_up_conda():
+    if not USE_CONDA:
+        remove_dir("conda")
+
+
+def clean_up_governance():
+    if GOVERNANCE_PATH:
+        shutil.move(
+            GOVERNANCE_PATH,
+            PROJECT_DIRECTORY / 'governance.md'
+        )
+    remove_dir("governance")
+
+
+def clean_up_roadmap():
+    if ROADMAP_PATH:
+        shutil.move(
+            ROADMAP_PATH,
+            PROJECT_DIRECTORY / 'roadmap.md'
+        )
+    remove_dir("roadmap")
+
+
+def clean_up_containers():
+    if not USE_CONTAINERS:
+        remove_dir("containers")
+
+
+def clean_up_cli():
+    if not USE_CLI:
+        remove_package_file("__main__")
 
 
 def http2ssh(url):
@@ -147,16 +140,7 @@ def http2ssh(url):
     return url.replace("/", ":", 1)
 
 
-def post_gen():
-    remove_dirs(UNUSED_DOCS_DIRS)
-    move_selected_doc_dir()
-    update_project_layout()
-    bandit_clean_up()
-    code_of_conduct_clean_up()
-    governance_clean_up()
-    roadmap_clean_up()
-    containers_clean_up()
-
+def prepare_git():
     subprocess.call(["git", "init"])
 
     git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
@@ -185,6 +169,24 @@ def post_gen():
     subprocess.call(["git", "checkout", "-b", git_new_branch])
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit"])
+    print("NOTE: Run `git rebase -i upstream/{{ cookiecutter.git_main_branch }}`")
+
+
+def post_gen():
+    # keep this one first, because it changes the package folder
+    clean_up_project_layout()
+
+    clean_up_bandit()
+    clean_up_cli()
+    clean_up_code_of_conduct()
+    clean_up_conda()
+    clean_up_containers()
+    clean_up_docs()
+    clean_up_governance()
+    clean_up_roadmap()
+
+    # keep it at the end, because it will create a new git commit
+    prepare_git()
 
 
 if __name__ == "__main__":

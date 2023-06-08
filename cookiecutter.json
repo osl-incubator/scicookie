@@ -29,9 +29,6 @@
     "sphinx",
     "jupyter-book"
   ],
-  "test_library": [
-    "pytest"
-  ],
   "code_of_conduct": [
     "Contributor Covenant (projects of all sizes)",
     "Citizen Code of Conduct (communities and events)",
@@ -46,18 +43,23 @@
     "PyTorch-Ignite roadmap document",
     "None"
   ],
-  "auto_format_tool": [
-    "blue",
-    "black"
+  "use_bandit": true,
+  "use_black": false,
+  "use_blue": true,
+  "use_conda": true,
+  "use_coverage": true,
+  "use_flake8": true,
+  "use_isort": true,
+  "use_mccabe": true,
+  "use_mypy": true,
+  "use_pre_commit": true,
+  "use_pydocstyle": true,
+  "use_pytest": true,
+  "use_shellcheck": true,
+  "use_vulture": true,
+  "build_system": [
+    "poetry"
   ],
-  "use_shell_linter": [
-    "shellcheck",
-    "None"
-  ],
-  "use_bandit": "yes",
-  "use_pydocstyle": "yes",
-  "use_vulture": "yes",
-  "use_mccabe": "yes",
   "add_containers": [
     "None",
     "Docker",

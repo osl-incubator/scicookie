@@ -127,7 +127,7 @@ def prompt_questions():
                 "vulture",
                 "mccabe",
             ],
-            default=["blue", "black", "shellcheck"],
+            default=["blue", "shellcheck"],
         ),
         inquirer.List(
             "container_tech",
