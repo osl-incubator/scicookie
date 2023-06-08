@@ -1,18 +1,12 @@
-"""Top-level package for {{ cookiecutter.project_name }}."""
-
-{%- if cookiecutter.auto_format_tool == 'blue' %}
+# type: ignore[attr-defined]
+"""{{ cookiecutter.project_name }}"""
+{%- if cookiecutter.use_blue %}
   {%- set QUOTE = "'" -%}
-{%- elif cookiecutter.auto_format_tool == 'black' %}
+{%- elif cookiecutter.use_black %}
   {%- set QUOTE = '"' -%}
 {%- else %}
   {%- set QUOTE = "'" -%}
 {%- endif %}
-
-
-# type: ignore[attr-defined]
-"""Epigraphhub Python package"""
-
-import sys
 from importlib import metadata as importlib_metadata
 
 

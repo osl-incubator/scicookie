@@ -17,7 +17,7 @@ PACKAGE_PATH="src/{{cookiecutter.package_slug}}"
 PACKAGE_PATH="{{cookiecutter.package_slug}}"
 {% endif -%}
 
- 		
+
 {%- if cookiecutter.documentation_engine == 'sphinx' %}
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
@@ -60,7 +60,7 @@ clean: ## remove build artifacts, compiled files, and cache
 lint:
 	pre-commit run --all-files
 
-{% if cookiecutter.test_library == 'pytest' %}
+{% if cookiecutter.use_pytest %}
 .PHONY:test
 test: ## run tests quickly with the default Python
 	pytest

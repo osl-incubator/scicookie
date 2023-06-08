@@ -1,4 +1,4 @@
-{% if build_system == "poetry" -%}
+{% if cookiecutter.build_system == "poetry" -%}
 [tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.project_version }}"  # semantic-release

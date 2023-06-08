@@ -14,7 +14,9 @@ UNUSED_DOCS_DIRS = [
 
 DOCUMENTATION_ENGINE = "{{ cookiecutter.documentation_engine }}"
 DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(
-    PROJECT_DIRECTORY / f'docs-{DOCUMENTATION_ENGINE}'
+    UNUSED_DOCS_DIRS.index(
+        PROJECT_DIRECTORY / f'docs-{DOCUMENTATION_ENGINE}'
+    )
 )
 
 USE_SRC_LAYOUT = {{ cookiecutter.project_layout == "src" }}
@@ -33,12 +35,12 @@ COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CITIZEN.md'
 {% else %}
 COC_PATH = None
-{% endif -%}
+{%- endif %}
 {% if cookiecutter.governance == "NumPy governance document" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'numpy_governance.md'
-{%- elif cookiecutter.code_of_conduct == "SciML governance document" -%}
+{% elif cookiecutter.code_of_conduct == "SciML governance document" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'sciml_governance.md'
-{%- else %}
+{% else -%}
 GOVERNANCE_PATH = None
 {%- endif %}
 {%- if cookiecutter.roadmap == "PyTorch-Ignite roadmap document" -%}

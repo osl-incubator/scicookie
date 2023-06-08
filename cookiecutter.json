@@ -60,9 +60,6 @@
   "use_pytest": true,
   "use_shellcheck": true,
   "use_vulture": true,
-  "build_system": [
-    "poetry"
-  ],
   "add_containers": [
     "None",
     "Docker",

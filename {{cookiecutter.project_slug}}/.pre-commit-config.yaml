@@ -131,4 +131,5 @@ repos:
         - commit
       types:
         - python
+
 {%+ endif -%}
