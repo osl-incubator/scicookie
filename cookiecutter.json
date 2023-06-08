@@ -43,6 +43,9 @@
     "PyTorch-Ignite roadmap document",
     "None"
   ],
+  "build_system": [
+    "poetry"
+  ],
   "use_bandit": true,
   "use_black": false,
   "use_blue": true,

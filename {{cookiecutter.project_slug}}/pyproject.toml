@@ -128,7 +128,7 @@ force-exclude = """
 """
 {% endif -%}
 
-{% elif cookiecutter.use_isort -%}
+{% if cookiecutter.use_isort -%}
 [tool.isort]
 ensure_newline_before_comments = true
 line_length = 79
