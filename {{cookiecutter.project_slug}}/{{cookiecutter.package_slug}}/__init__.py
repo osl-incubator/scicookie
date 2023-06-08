@@ -1,5 +1,5 @@
 # type: ignore[attr-defined]
-"""{{ cookiecutter.project_name }}"""
+"""{{ cookiecutter.project_name }}."""
 {%- if cookiecutter.use_blue %}
   {%- set QUOTE = "'" -%}
 {%- elif cookiecutter.use_black %}
@@ -11,6 +11,7 @@ from importlib import metadata as importlib_metadata
 
 
 def get_version() -> str:
+    """Return the program version."""
     try:
         return importlib_metadata.version(__name__)
     except importlib_metadata.PackageNotFoundError:  # pragma: no cover

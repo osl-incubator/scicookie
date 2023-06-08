@@ -170,8 +170,10 @@ def prepare_git():
 
     subprocess.call(["git", "checkout", "-b", git_new_branch])
     subprocess.call(["git", "add", "."])
-    subprocess.call(["git", "commit", "-m", "Initial commit"])
+    subprocess.call(["git", "commit", "-m", "Initial commit", "--no-verify"])
+    print("=" * 80)
     print("NOTE: Run `git rebase -i upstream/{{ cookiecutter.git_main_branch }}`")
+    print("=" * 80)
 
 
 def post_gen():

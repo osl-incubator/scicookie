@@ -14,7 +14,7 @@ Why does this file exist, and why __main__? For more info, read:
   {%- set QUOTE = "'" -%}
 {%- endif %}
 
-from {{cookiecutter.package_slug}}.cli import main  # type: ignore, noqa: E402
+from {{cookiecutter.package_slug}}.cli import main  # type: ignore
 
 if __name__ == {{ QUOTE }}__main__{{ QUOTE }}:
     main()

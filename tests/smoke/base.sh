@@ -4,7 +4,7 @@ set -ex
 
 PATH_ORI=${PATH}
 PWD_ORI=$(pwd)
-CONDA_PATH=$(cd $(dirname $(which conda)) && cd .. && pwd)
+CONDA_PATH=$(cd "$(dirname ${CONDA_PYTHON_EXE})" && cd .. && pwd)
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
 if [ "${CONDA_PATH}" == ""]; then
@@ -38,8 +38,6 @@ poetry install
 
 ipython kernel install --name "python3" --user
 
-pwd
-exit 1
 pre-commit install
 pre-commit run --all-files --verbose
 

@@ -6,15 +6,10 @@ repos:
 
   - repo: local
     hooks:
-    {%- if cookiecutter.use_blue +%}
+{% if cookiecutter.use_blue %}
     - entry: blue
       id: blue
       name: blue
-    {%- elif cookiecutter.use_black +%}
-    - entry: black
-      id: black
-      name: black
-    {%- endif +%}
       exclude: |
         (?x)(
           docs
@@ -28,7 +23,26 @@ repos:
         - python
         - file
         - python
-
+{% endif -%}
+{% if cookiecutter.use_black %}
+    - entry: black
+      id: black
+      name: black
+      exclude: |
+        (?x)(
+          docs
+        )
+      files: ""
+      language: system
+      pass_filenames: true
+      stages:
+        - commit
+      types:
+        - python
+        - file
+        - python
+{% endif -%}
+{% if cookiecutter.use_flake8 %}
     - entry: flake8
       exclude: ^$
       files: ""
@@ -40,7 +54,8 @@ repos:
         - commit
       types:
         - python
-
+{% endif -%}
+{% if cookiecutter.use_isort %}
     - entry: isort
       exclude: "^.*/js/.*$"
       files: ""
@@ -52,7 +67,8 @@ repos:
         - commit
       types:
         - python
-
+{% endif -%}
+{% if cookiecutter.use_mypy %}
     - entry: mypy
       exclude: ^$
       # note: it would be good to extend this to other apps as well
@@ -65,7 +81,8 @@ repos:
         - commit
       types:
         - python
-
+{% endif -%}
+{% if cookiecutter.use_shellcheck %}
     - entry: shellcheck
       id: shellcheck
       language: system
@@ -81,8 +98,8 @@ repos:
           - bats
           - dash
           - ksh
-
-{% if cookiecutter.use_bandit in ['yes', 'y'] %}
+{% endif -%}
+{%- if cookiecutter.use_bandit %}
     - entry: bandit
       id: bandit
       language: python
@@ -93,8 +110,8 @@ repos:
         - commit
       types:
         - python
-{%+ endif -%}
-{%- if cookiecutter.use_pydocstyle == 'yes' %}
+{% endif %}
+{%- if cookiecutter.use_pydocstyle %}
     - entry: pydocstyle
       exclude: ^$
       files: "{{ cookiecutter.package_slug }}/"
@@ -106,8 +123,8 @@ repos:
         - commit
       types:
         - python
-{%+ endif -%}
-{%- if cookiecutter.use_vulture == 'yes' %}
+{% endif %}
+{%- if cookiecutter.use_vulture %}
     - entry: vulture
       files: "{{ cookiecutter.package_slug }}/"
       id: vulture
@@ -119,8 +136,8 @@ repos:
         - commit
       types:
         - python
-{%+ endif -%}
-{%- if cookiecutter.use_mccabe in ['yes', 'y'] %}
+{% endif %}
+{%- if cookiecutter.use_mccabe %}
     - id: mccabe
       name: mccabe
       entry: flake8 --max-complexity 10
@@ -131,5 +148,5 @@ repos:
         - commit
       types:
         - python
-
-{%+ endif -%}
+{% endif %}
+{#- keep this at the end of the file -#}
