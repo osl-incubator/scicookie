@@ -30,17 +30,17 @@
     "jupyter-book"
   ],
   "code_of_conduct": [
-    "Contributor Covenant (projects of all sizes)",
-    "Citizen Code of Conduct (communities and events)",
+    "contributor-covenant",
+    "citizen-code-of-conduct",
     "None"
   ],
   "governance": [
-    "NumPy governance document",
-    "SciML governance document",
+    "numpy-governance",
+    "sciml-governance",
     "None"
   ],
   "roadmap": [
-    "PyTorch-Ignite roadmap document",
+    "pytorch-ignite-roadmap",
     "None"
   ],
   "build_system": [

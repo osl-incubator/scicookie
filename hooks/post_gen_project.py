@@ -31,21 +31,21 @@ USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.add_containers in ['Docker', 'Podman'] }}
 USE_CLI = {{ cookiecutter.command_line_interface != "No command-line interface" }}
 USE_CONDA = {{ cookiecutter.use_conda == "yes" }}
-{% if cookiecutter.code_of_conduct == "Contributor Covenant (projects of all sizes)" -%}
+{% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
-{%- elif cookiecutter.code_of_conduct == "Citizen Code of Conduct (communities and events)" -%}
+{%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CITIZEN.md'
 {% else %}
 COC_PATH = None
 {%- endif %}
-{% if cookiecutter.governance == "NumPy governance document" -%}
+{% if cookiecutter.governance == "numpy-governance" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'numpy_governance.md'
-{% elif cookiecutter.code_of_conduct == "SciML governance document" -%}
+{% elif cookiecutter.code_of_conduct == "sciml-governance" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'sciml_governance.md'
 {% else -%}
 GOVERNANCE_PATH = None
 {%- endif %}
-{%- if cookiecutter.roadmap == "PyTorch-Ignite roadmap document" -%}
+{%- if cookiecutter.roadmap == "pytorch-ignite-roadmap" -%}
 ROADMAP_PATH = PROJECT_DIRECTORY / 'roadmap' / 'ignite_roadmap.md'
 {%- else %}
 ROADMAP_PATH = None
