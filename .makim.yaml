@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 1.0
 groups:
   default:
     targets:
@@ -19,7 +19,6 @@ groups:
           rm -fr .pytest_cache
 
   docs:
-    env-file: .env
     targets:
       build:
         help: Build documentation
@@ -32,7 +31,6 @@ groups:
         run: echo "[EE] Not implemented yet!"
 
   release:
-    env-file: .env
     vars:
       app: |
         npx --yes \
@@ -49,7 +47,10 @@ groups:
     targets:
       dry:
         help: Run semantic release in dry-run mode
-        run: {{ app }} '--dry-run'
+        run: {{ vars.app }} --dry-run
+      ci:
+        help: Run semantic release in dry-run mode
+        run: {{ vars.app }} --ci
 
   tests:
     targets:
@@ -60,3 +61,15 @@ groups:
       unittest:
         help: Run tests
         run: pytest -s -vv tests
+
+      smoke:
+        help: Run smoke tests
+        run: |
+          ./tests/smoke/jupyter-book.sh
+          ./tests/smoke/mkdocs.sh
+          ./tests/smoke/sphinx.sh
+          ./tests/smoke/black.sh
+          ./tests/smoke/blue.sh
+          ./tests/smoke/coc.sh
+          ./tests/smoke/governance.sh
+          ./tests/smoke/roadmap.sh

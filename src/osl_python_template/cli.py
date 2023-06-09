@@ -96,8 +96,8 @@ def prompt_questions():
             "code_of_conduct",
             message="Select Code of Conduct",
             choices=[
-                "Contributor Covenant (projects of all sizes)",
-                "Citizen Code of Conduct (communities and events)",
+                "contributor-covenant",
+                "citizen-code-of-conduct",
                 "None",
             ],
         ),
@@ -105,15 +105,15 @@ def prompt_questions():
             "governance_document",
             message="Select a governance document template",
             choices=[
-                "NumPy governance document",
-                "SciML governance document",
+                "numpy-governance",
+                "sciml-governance",
                 "None",
             ],
         ),
         inquirer.List(
             "roadmap_document",
             message="Select a Roadmap document template",
-            choices=["PyTorch-Ignite roadmap document", "None"],
+            choices=["pytorch-ignite-roadmap", "None"],
         ),
         inquirer.Checkbox(
             "initial_tools",
@@ -127,7 +127,7 @@ def prompt_questions():
                 "vulture",
                 "mccabe",
             ],
-            default=["blue", "black", "shellcheck"],
+            default=["blue", "shellcheck"],
         ),
         inquirer.List(
             "container_tech",
