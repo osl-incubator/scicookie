@@ -1,3 +1,36 @@
+[tool.poetry]
+name = "osl-python-template"
+version = "1.0.0"
+description = "Cookiecutter template for a Python package"
+authors = ["Ivan Ogasawara <ivan.ogasawara@gmail.com>"]
+license = "BSD"
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+jupyterlab = "^3.5.1"
+cookieninja = "1.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7"
+black = "^22"
+isort = "^5"
+pre-commit = "^2"
+flake8 = "^4"
+mypy = "^0.931"
+pytest-cov = "^3.0.0"
+pytest-cookies = "^0.6.1"
+Sphinx = "^4.4.0"
+Flake8-pyproject = "^0.9.0"
+jupyter-book = "^0.12.3"
+myst-parser = "^0.15"
+
+[tool.poetry.group.dev.dependencies]
+makim = "1.8.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.black]
 line-length = 79
 # note: for support "py39", we need to update black using poetry
@@ -6,7 +39,7 @@ target-version = ["py38"]
 force-exclude = '''
 /(
   |  docs/*
-  |  hooks/* 
+  |  hooks/*
   |  {{cookiecutter.project_slug}}/*
   |.*\\.egg-info
 )/
@@ -30,35 +63,6 @@ multi_line_output = 3
 include_trailing_comma = true
 skip_glob = ["docs/*", "*.egg-info"]
 
-[tool.poetry]
-name = "cookiecutter-python"
-version = "1.0.0"
-description = "Cookiecutter template for a Python package"
-authors = ["Ivan Ogasawara <ivan.ogasawara@gmail.com>"]
-license = "BSD"
-
-[tool.poetry.dependencies]
-python = "^3.10"
-jupyterlab = "^3.5.1"
-cookieninja = "1.0.0"
-
-[tool.poetry.dev-dependencies]
-pytest = "^7"
-black = "^22"
-isort = "^5"
-pre-commit = "2"
-flake8 = "^4"
-mypy = "^0.931"
-pytest-cov = "^3.0.0"
-pytest-cookies = "^0.6.1"
-Sphinx = "^4.4.0"
-Flake8-pyproject = "^0.9.0"
-jupyter-book = "^0.12.3"
-myst-parser = "^0.15"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 testpaths = [

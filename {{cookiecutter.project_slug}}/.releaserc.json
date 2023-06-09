@@ -1,9 +1,14 @@
-{%- if cookiecutter.auto_format_tool == 'blue' %}
+{%- if cookiecutter.use_blue %}
   {%- set QUOTE = "'" -%}
-{%- elif cookiecutter.auto_format_tool == 'black' %}
-  {%- set QUOTE = '"' -%}
+{%- elif cookiecutter.use_black %}
+  {%- set QUOTE = '\\"' -%}
 {%- else %}
   {%- set QUOTE = "'" -%}
+{%- endif %}
+{%- if cookiecutter.project_layout == "src" %}
+  {%- set PROJECT_PATH = "{{ cookiecutter.package_slug }}/src" -%}
+{%- else %}
+  {%- set PROJECT_PATH = "{{ cookiecutter.package_slug }}" -%}
 {%- endif %}
 
 {
@@ -16,12 +21,12 @@
       {
         "replacements": [
           {
-            "files": ["{{ cookiecutter.package_slug }}/__init__.py"],
-            "from": "__version__ = {{ QUOTE }}.*{{ QUOTE }}  # semantic-release",
-            "to": "__version__ = {{ QUOTE }}${nextRelease.version}{{ QUOTE }}  # semantic-release",
+            "files": ["{{ PROJECT_PATH }}/__init__.py"],
+            "from": "return {{ QUOTE }}.*{{ QUOTE }}  # semantic-release",
+            "to": "return {{ QUOTE }}${nextRelease.version}{{ QUOTE }}  # semantic-release",
             "results": [
               {
-                "file": "{{ cookiecutter.package_slug }}/__init__.py",
+                "file": "{{ PROJECT_PATH }}/__init__.py",
                 "hasChanged": true,
                 "numMatches": 1,
                 "numReplacements": 1
@@ -59,7 +64,7 @@
       {
         "prepareCmd": "poetry build",
         "publishCmd": "poetry publish"
-        
+
       }
     ],
     [
@@ -74,7 +79,7 @@
         "assets": [
           "pyproject.toml",
           "docs/changelog.md",
-          "{{ cookiecutter.package_slug }}/__init__.py"
+          "{{ PROJECT_PATH }}/__init__.py"
         ],
         "message": "chore(release): ${nextRelease.version}"
       }

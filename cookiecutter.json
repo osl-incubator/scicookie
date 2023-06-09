@@ -5,7 +5,7 @@
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "package_slug": "{{ cookiecutter.project_slug.lower().replace('-', '_') }}",
   "project_short_description": "OSL Python Package contains all the boilerplate you need to create a Python package.",
-  "project_version": "1.0.0",
+  "project_version": "0.1.0",
   "project_url": "https://{{ cookiecutter.project_slug }}.com",
   "project_license": [
     "MIT",
@@ -29,35 +29,37 @@
     "sphinx",
     "jupyter-book"
   ],
-  "test_library": [
-    "pytest"
-  ],
   "code_of_conduct": [
-    "Contributor Covenant (projects of all sizes)",
-    "Citizen Code of Conduct (communities and events)",
+    "contributor-covenant",
+    "citizen-code-of-conduct",
     "None"
   ],
   "governance": [
-    "NumPy governance document",
-    "SciML governance document",
+    "numpy-governance",
+    "sciml-governance",
     "None"
   ],
   "roadmap": [
-    "PyTorch-Ignite roadmap document",
+    "pytorch-ignite-roadmap",
     "None"
   ],
-  "auto_format_tool": [
-    "blue",
-    "black"
-  ],
-  "use_shell_linter": [
-    "shellcheck",
-    "None"
+  "build_system": [
+    "poetry"
   ],
   "use_bandit": "yes",
-  "use_pydocstyle": "yes",
-  "use_vulture": "yes",
+  "use_black": "no",
+  "use_blue": "yes",
+  "use_conda": "yes",
+  "use_coverage": "yes",
+  "use_flake8": "yes",
+  "use_isort": "yes",
   "use_mccabe": "yes",
+  "use_mypy": "yes",
+  "use_pre_commit": "yes",
+  "use_pydocstyle": "yes",
+  "use_pytest": "yes",
+  "use_shellcheck": "yes",
+  "use_vulture": "yes",
   "add_containers": [
     "None",
     "Docker",
