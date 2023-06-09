@@ -45,7 +45,7 @@ GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'sciml_governance.md'
 {% else -%}
 GOVERNANCE_PATH = None
 {%- endif %}
-{%- if cookiecutter.roadmap == "pytorch-ignite-roadmap" -%}
+{% if cookiecutter.roadmap == "pytorch-ignite-roadmap" -%}
 ROADMAP_PATH = PROJECT_DIRECTORY / 'roadmap' / 'ignite_roadmap.md'
 {%- else %}
 ROADMAP_PATH = None
