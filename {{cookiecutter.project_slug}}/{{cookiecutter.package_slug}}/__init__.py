@@ -1,8 +1,8 @@
 # type: ignore[attr-defined]
 """{{ cookiecutter.project_name }}."""
-{%- if cookiecutter.use_blue %}
+{%- if cookiecutter.use_blue == "yes" %}
   {%- set QUOTE = "'" -%}
-{%- elif cookiecutter.use_black %}
+{%- elif cookiecutter.use_black == "yes" %}
   {%- set QUOTE = '"' -%}
 {%- else %}
   {%- set QUOTE = "'" -%}
