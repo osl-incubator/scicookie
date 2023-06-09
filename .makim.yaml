@@ -19,7 +19,6 @@ groups:
           rm -fr .pytest_cache
 
   docs:
-    env-file: .env
     targets:
       build:
         help: Build documentation
@@ -32,7 +31,6 @@ groups:
         run: echo "[EE] Not implemented yet!"
 
   release:
-    env-file: .env
     vars:
       app: |
         npx --yes \

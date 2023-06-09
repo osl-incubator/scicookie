@@ -147,7 +147,7 @@ def http2ssh(url):
 def validation():
     if USE_BLUE and USE_BLACK:
         raise Exception(
-            "The libs Blue and Black were selected, but you need to chose "
+            "The libs Blue and Black were selected, but you need to choose "
             "just one of them."
         )
 
