@@ -25,10 +25,12 @@ if USE_SRC_LAYOUT:
 else:
     PACKAGE_PATH = PROJECT_DIRECTORY / "{{ cookiecutter.package_slug}}"
 
-USE_BANDIT = {{ cookiecutter.use_bandit }}
+USE_BLACK = {{ cookiecutter.use_black == "yes" }}
+USE_BLUE = {{ cookiecutter.use_blue == "yes" }}
+USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.add_containers in ['Docker', 'Podman'] }}
 USE_CLI = {{ cookiecutter.command_line_interface != "No command-line interface" }}
-USE_CONDA = {{ cookiecutter.use_conda }}
+USE_CONDA = {{ cookiecutter.use_conda == "yes" }}
 {% if cookiecutter.code_of_conduct == "Contributor Covenant (projects of all sizes)" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "Citizen Code of Conduct (communities and events)" -%}
@@ -134,12 +136,20 @@ def clean_up_containers():
 
 def clean_up_cli():
     if not USE_CLI:
-        remove_package_file("__main__")
+        remove_package_file("__main__.py")
 
 
 def http2ssh(url):
     url = url.replace("https://", "git@")
     return url.replace("/", ":", 1)
+
+
+def validation():
+    if USE_BLUE and USE_BLACK:
+        raise Exception(
+            "The libs Blue and Black were selected, but you need to chose "
+            "just one of them."
+        )
 
 
 def prepare_git():
@@ -177,6 +187,8 @@ def prepare_git():
 
 
 def post_gen():
+    validation()
+
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
 

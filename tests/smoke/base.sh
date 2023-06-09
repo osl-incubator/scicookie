@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "-------------------- Smoke test for ${1}=${2} -------------------"
+echo "-------------------- Smoke test for ${1} -------------------"
 set -ex
 
 PATH_ORI=${PATH}
@@ -24,7 +24,7 @@ mkdir -p "${OUTPUT_DIR}"
 cookieninja --no-input \
   --output-dir "${OUTPUT_DIR}" \
   "${PROJECT_PATH}" \
-  ${1}="${2}"
+  ${1}
 
 cd "${OUTPUT_DIR}/${ENV_NAME}"
 

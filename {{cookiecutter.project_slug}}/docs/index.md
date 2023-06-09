@@ -11,7 +11,7 @@
 {%- endif %}
 
 ## Features
-{% if cookiecutter.use_bandit in ["yes", "y"] %}
+{% if cookiecutter.use_bandit == "yes" %}
 * The security of our code: Bandit is a powerful tool that we use in our Python
   project to ensure its security. This tool analyzes the code and detects
   potential vulnerabilities. Some of the key features of Bandit are its ease of
@@ -19,16 +19,16 @@
   Python versions. If you want to know about bandit you can check its
   [documentation](https://bandit.readthedocs.io/en/latest/).
 {%+ endif -%}
-{%- if cookiecutter.use_pydocstyle == 'yes' %}
+{%- if cookiecutter.use_pydocstyle == "yes" %}
 * This package uses [pydocstyle](http://www.pydocstyle.org/en/stable/)
   for checking compliance with Python documentation conventions.
 {%+ endif -%}
-{%- if cookiecutter.use_vulture == 'yes' %}
+{%- if cookiecutter.use_vulture == "yes" %}
 * Finds unused code: [Vulture](https://github.com/jendrikseipp/vulture)
   is useful for cleaning up and finding errors in large code bases in
   Python.
 {%+ endif -%}
-{%- if cookiecutter.use_mccabe in ['yes', 'y'] %}
+{%- if cookiecutter.use_mccabe == "yes" %}
 * Complexity of functions and modules: We use
 [McCabe](https://github.com/PyCQA/mccabe) to identify the complexity in our
 Python code that may be difficult to maintain or understand. By identifying
@@ -55,7 +55,7 @@ This tool is included with [Flake8](https://flake8.pycqa.org/en/latest/).
   give us more control over application's dependencies and configurations.
   Podman allows us to manage containers without the need for a daemon, providing a
   more secure and lightweight solution.
-  
+
   With Podman, we can easily create and run containers, as well as manage their
   lifecycle and resources. This integration has improved our development and
   deployment processes, making them more efficient and streamlined.
