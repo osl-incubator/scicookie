@@ -5,7 +5,7 @@ set -ex
 PATH_ORI=${PATH}
 PWD_ORI=$(pwd)
 CONDA_PATH=$(cd "$(dirname ${CONDA_PYTHON_EXE})" && cd .. && pwd)
-PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" && cd ../src/scicookie && pwd )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
 if [ "${CONDA_PATH}" == ""]; then
   echo "INVALID 'CONDA_PATH' environment variable."
@@ -23,7 +23,7 @@ mkdir -p "${OUTPUT_DIR}"
 
 cookieninja --no-input \
   --output-dir "${OUTPUT_DIR}" \
-  "${PROJECT_PATH}" \
+  "${PROJECT_PATH}/src/scicookie" \
   ${1}
 
 cd "${OUTPUT_DIR}/${ENV_NAME}"
