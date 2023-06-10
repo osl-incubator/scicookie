@@ -38,13 +38,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: makim release.dry
 
-      # - name: Run semantic release
-      #   if: ${{ github.event_name == 'workflow_dispatch' }}
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     poetry config pypi-token.pypi ${PYPI_TOKEN}
-      #     makim release.ci
+      - name: Run semantic release
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          poetry config pypi-token.pypi ${PYPI_TOKEN}
+          makim release.ci
 
       - name: Generate documentation with changes from semantic-release
         run: makim docs.build
