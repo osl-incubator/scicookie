@@ -1,0 +1,65 @@
+author_name:
+  enabled: true
+
+author_email:
+  enabled: true
+
+project_name:
+  enabled: true
+
+project_description:
+  enabled: true
+
+project_slug:
+  enabled: true
+
+package_slug:
+  enabled: true
+
+project_version:
+  enabled: true
+
+project_url:
+  enabled: true
+
+project_license:
+  enabled: true
+
+project_layout:
+  enabled: true
+
+command_line_interface:
+  enabled: true
+
+documentation_engine:
+  enabled: true
+
+code_of_conduct:
+  enabled: true
+
+governance_document:
+  enabled: true
+
+roadmap_document:
+  enabled: true
+
+use_tools:
+  enabled: true
+
+use_containers:
+  enabled: true
+
+# use_git:
+#     enabled: true
+
+git_username:
+  enabled: true
+
+git_https_origin:
+  enabled: true
+
+git_https_upstream:
+  enabled: true
+
+git_main_branch:
+  enabled: true

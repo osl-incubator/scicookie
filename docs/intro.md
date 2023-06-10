@@ -3,7 +3,7 @@
 [Cookieninja](https://github.com/cookieninja-generator/cookieninja) template
 for a Python package.
 
-- GitHub repo: <https://github.com/osl-incubator/cookiecutter-python/>
+- GitHub repo: <https://github.com/osl-incubator/scicookie/>
 - Free software: BSD license
 
 ## Features
