@@ -53,14 +53,7 @@ Install the latest Cookieninja if you haven't installed it yet (this
 requires Cookieninja 1.0.0):
 
 ```bash
-pip install cookieninja
-```
-
-or, using conda/mamba:
-
-```bash
-mamba create -n cookiecutter cookieninja
-conda activate cookiecutter
+pip install scicookie
 ```
 
 Go to a desired folder to create your new project, for example:
@@ -72,13 +65,7 @@ cd ~/dev/my-python-projects
 Generate a Python package project:
 
 ```bash
-cookieninja https://github.com/osl-incubator/scicookie.git
-```
-
-or, using ssh:
-
-```bash
-cookieninja git@github.com:osl-incubator/scicookie.git
+scicookie
 ```
 
 ## Development
@@ -86,6 +73,7 @@ cookieninja git@github.com:osl-incubator/scicookie.git
 For testing your changes locally, you can run:
 
 ```bash
-make lint
-make test
+makim tests.lint
+makim tests.unittest
+makim tests.smoke
 ```
