@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Union
 
 import sh
+
 from scicookie.logs import SciCookieErrorType, SciCookieLogs
 from scicookie.profile import Profile
 from scicookie.ui import make_questions
