@@ -28,7 +28,7 @@ else:
 USE_BLACK = {{ cookiecutter.use_black == "yes" }}
 USE_BLUE = {{ cookiecutter.use_blue == "yes" }}
 USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
-USE_CONTAINERS = {{ cookiecutter.add_containers in ['Docker', 'Podman'] }}
+USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
 USE_CLI = {{ cookiecutter.command_line_interface != "No command-line interface" }}
 USE_CONDA = {{ cookiecutter.use_conda == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
@@ -38,14 +38,14 @@ COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CITIZEN.md'
 {% else %}
 COC_PATH = None
 {%- endif %}
-{% if cookiecutter.governance == "numpy-governance" -%}
+{% if cookiecutter.governance_document == "numpy-governance" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'numpy_governance.md'
 {% elif cookiecutter.code_of_conduct == "sciml-governance" -%}
 GOVERNANCE_PATH = PROJECT_DIRECTORY / 'governance' / 'sciml_governance.md'
 {% else -%}
 GOVERNANCE_PATH = None
 {%- endif %}
-{% if cookiecutter.roadmap == "pytorch-ignite-roadmap" -%}
+{% if cookiecutter.roadmap_document == "pytorch-ignite-roadmap" -%}
 ROADMAP_PATH = PROJECT_DIRECTORY / 'roadmap' / 'ignite_roadmap.md'
 {%- else %}
 ROADMAP_PATH = None

@@ -60,7 +60,7 @@ groups:
 
       unittest:
         help: Run tests
-        run: pytest -s -vv tests
+        run: pytest -s -vv --template src/scicookie tests
 
       smoke:
         help: Run smoke tests

@@ -15,14 +15,14 @@ body:
       GitHub][issue search].
 
 
-      [issue search]: https://github.com/osl-incubator/cookiecutter-python/issues?q=is%3Aopen+is%3Aissue+label%3Abug
+      [issue search]: https://github.com/osl-incubator/scicookie/issues?q=is%3Aopen+is%3Aissue+label%3Abug
 
 - type: textarea
   attributes:
     label: Summary
     description: Explain the problem briefly below.
     placeholder: >-
-      When I try to do X with cookiecutter-python and the following workspace, Y breaks or
+      When I try to do X with scicookie and the following workspace, Y breaks or
       Z happens in an unexpected manner.
       Here are all the details I know about this problem.
   validations:
@@ -128,9 +128,9 @@ body:
   attributes:
     label: Code of Conduct
     description: |
-      Read the [`cookiecutter-python`'s Code of Conduct][CoC] first.
+      Read the [`scicookie`'s Code of Conduct][CoC] first.
 
-      [CoC]: https://github.com/osl-incubator/cookiecutter-python/blob/main/CODE_OF_CONDUCT.md
+      [CoC]: https://github.com/osl-incubator/scicookie/blob/main/CODE_OF_CONDUCT.md
     options:
     - label: I agree to follow the Code of Conduct
       required: true

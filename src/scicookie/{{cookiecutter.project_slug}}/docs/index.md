@@ -1,11 +1,13 @@
+![LOGO](/images/logo.png)
+
 {% set is_open_source = cookiecutter.project_license != 'Other' -%}
 # {{ cookiecutter.project_name }}
 
 {{ cookiecutter.project_short_description }}
 
 {% if is_open_source -%}
-* Free software: {{ cookiecutter.project_license }}
-* Documentation: https://{{ cookiecutter.project_slug }}.readthedocs.io.
+* License: {{ cookiecutter.project_license }}
+* Documentation: https://{{ cookiecutter.project_slug }}.github.io
 {%- endif %}
 
 ## Features
@@ -37,7 +39,7 @@ about McCabe and code complexity, you can visit [McCabe - Code Complexity
 Checker](https://here-be-pythons.readthedocs.io/en/latest/python/mccabe.html).
 This tool is included with [Flake8](https://flake8.pycqa.org/en/latest/).
 {%+ endif -%}
-{%- if cookiecutter.add_containers == 'Docker' %}
+{%- if cookiecutter.use_containers == 'Docker' %}
 * Integration with DevOps tools: We use Docker because it allows us to create an
   isolated environment for our application that includes all the necessary
   dependencies, libraries and configurations. This makes it easier to manage and
@@ -47,8 +49,8 @@ This tool is included with [Flake8](https://flake8.pycqa.org/en/latest/).
   With Docker, we can easily share our application with others and deploy it to
   different environments. This streamlines our development, testing, deployment,
   and collaboration workflows, making the entire process more efficient.
-{%- elif cookiecutter.add_containers == 'Podman' %}
-* Integration with DevOps tools: Podman in your Python project helps us
+{%- elif cookiecutter.use_containers == 'Podman' %}
+  * Integration with DevOps tools: Podman in your Python project helps us
   achieve a more secure, efficient, and flexible containerization strategy, and
   give us more control over application's dependencies and configurations.
   Podman allows us to manage containers without the need for a daemon, providing a
@@ -62,4 +64,6 @@ This tool is included with [Flake8](https://flake8.pycqa.org/en/latest/).
 
 ## Credits
 
-This package was created with Cookieninja and the `osl-incubator/cookiecutter-python` project template.
+This package was created with Cookieninja and the
+[osl-incubator/scicookie](https://github.com/osl-incubator/scicookie)
+project template.

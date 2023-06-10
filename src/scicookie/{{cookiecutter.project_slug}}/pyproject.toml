@@ -79,7 +79,7 @@ vulture = "^2.7"
 {%- if cookiecutter.use_mccabe == "yes" -%}
 mccabe = "^0.6.1"
 {% endif %}
-{%- if cookiecutter.add_containers in ['Docker', 'Podman'] -%}
+{%- if cookiecutter.use_containers in ['Docker', 'Podman'] -%}
 # if you want to use docker-compose from your system, remove compose-go here
 compose-go = "^2.18.0"
 {% endif %}

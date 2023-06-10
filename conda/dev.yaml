@@ -1,4 +1,4 @@
-name: osl-pypkg
+name: scicookie
 channels:
   - nodefaults
   - conda-forge

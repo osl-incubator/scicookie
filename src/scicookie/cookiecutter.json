@@ -20,9 +20,9 @@
     "flat"
   ],
   "command_line_interface": [
+    "No command-line interface",
     "Click",
-    "Argparse",
-    "No command-line interface"
+    "Argparse"
   ],
   "documentation_engine":[
     "mkdocs",
@@ -30,18 +30,18 @@
     "jupyter-book"
   ],
   "code_of_conduct": [
+    "None",
     "contributor-covenant",
-    "citizen-code-of-conduct",
-    "None"
+    "citizen-code-of-conduct"
   ],
-  "governance": [
+  "governance_document": [
+    "None",
     "numpy-governance",
-    "sciml-governance",
-    "None"
+    "sciml-governance"
   ],
-  "roadmap": [
-    "pytorch-ignite-roadmap",
-    "None"
+  "roadmap_document": [
+    "None",
+    "pytorch-ignite-roadmap"
   ],
   "build_system": [
     "poetry"
@@ -60,7 +60,7 @@
   "use_pytest": "yes",
   "use_shellcheck": "yes",
   "use_vulture": "yes",
-  "add_containers": [
+  "use_containers": [
     "None",
     "Docker",
     "Podman"
@@ -68,6 +68,5 @@
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",
-  "git_main_branch": "main",
-  "pypi_username": "{{ cookiecutter.git_username }}"
+  "git_main_branch": "main"
 }

@@ -1,0 +1,212 @@
+author_name:
+  message: Author's name
+  help: See more at https://
+  type: text
+  default: Roronoa Zoro
+  enabled: true
+
+author_email:
+  message: Author's email
+  help: ""
+  type: text
+  default: zoro@one.piece
+  enabled: true
+
+project_name:
+  message: Project name the title of the project
+  help: ""
+  type: text
+  default: OSL Python package
+  enabled: true
+
+project_description:
+  message: Project short description
+  help: ""
+  type: text
+  default: This Project aims to ...
+  enabled: true
+
+project_slug:
+  message: Project slug the code name for your project
+  help: ""
+  type: text
+  default: osl-template
+  enabled: true
+
+package_slug:
+  message: Package slug the code name for your package
+  help: ""
+  type: text
+  default: osl_template
+  enabled: true
+
+project_version:
+  message: Project version
+  help: ""
+  type: text
+  default: 0.1.0
+  enabled: true
+
+project_url:
+  message: Project URL
+  help: ""
+  type: text
+  default: https://osl-template.com
+  enabled: true
+
+project_license:
+  message: Select the project license
+  help: ""
+  type: single-choice
+  choices:
+    - MIT
+    - BSD 3 Clause
+    - ISC license
+    - Apache Software License 2.0
+    - GNU General Public License v3
+    - Other
+  enabled: true
+
+project_layout:
+  message: Select the project layout
+  help: ""
+  type: single-choice
+  choices:
+    - src
+    - flat
+  enabled: false
+
+command_line_interface:
+  message: Select the Command Line Interface (CLI)
+  help: ""
+  type: single-choice
+  choices:
+    - No command-line interface
+    - Click
+    - Argparse
+  enabled: false
+
+documentation_engine:
+  message: Select the Documentation Engine
+  help: ""
+  type: single-choice
+  choices:
+    - mkdocs
+    - argparse
+    - jupyter-book
+  enabled: false
+
+use_tools:
+  message: Select the initial tools you want to add to your project
+  help: ""
+  type: multiple-choices
+  choices:
+    - bandit
+    - black
+    - blue
+    - conda
+    - coverage
+    - flake8
+    - isort
+    - mccabe
+    - pre-commit
+    - pydocstyle
+    - pytest
+    - shellcheck
+    - vulture
+  enabled: false
+
+use_containers:
+  message: Select the container technology for this project
+  help: ""
+  type: single-choice
+  choices:
+    - None
+    - Docker
+    - Podman
+    - kubernetes
+  enabled: false
+
+# doc_template:
+#   message: Select the template for the Documentation Engine
+#   help: ""
+#   default: Material
+
+code_of_conduct:
+  message: Select Code of Conduct
+  help: ""
+  type: single-choice
+  choices:
+    - None
+    - contributor-covenant
+    - citizen-code-of-conduct
+  enabled: true
+
+governance_document:
+  message: Select a governance document template
+  help: ""
+  type: single-choice
+  choices:
+    - None
+    - numpy-governance
+    - sciml-governance
+  enabled: false
+
+roadmap_document:
+  message: Select a Roadmap document template
+  help: ""
+  type: single-choice
+  choices:
+    - None
+    - pytorch-ignite-roadmap
+  enabled: false
+
+# use_git:
+#   message: Configure the local git repository?
+#   control_flow: True
+#   help: ""
+#   type: "confirm"
+#   default: True
+#   enabled: false
+
+git_username:
+  message: Git username
+  help: ""
+  type: "text"
+  default: zoro_roronoa
+  depends_on:
+    option: use_git
+    values:
+      - True
+  enabled: false
+
+git_https_origin:
+  message: Git https origin URL
+  help: ""
+  type: "text"
+  depends_on:
+    option: use_git
+    values:
+      - True
+  enabled: false
+
+git_https_upstream:
+  message: Git https upstream URL
+  help: ""
+  type: "text"
+  depends_on:
+    option: use_git
+    values:
+      - True
+  enabled: false
+
+git_main_branch:
+  message: Git main branch
+  help: ""
+  type: "text"
+  default: main
+  depends_on:
+    option: use_git
+    values:
+      - True
+  enabled: false

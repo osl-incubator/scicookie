@@ -1,6 +1,6 @@
 # Cookiecutter Python Package
 
-**Cookiecutter-python** is a template developed by [Open Science Labs](https://opensciencelabs.org/) that creates projects from project templates and is based on [Cookieninja](https://github.com/cookieninja-generator/cookieninja) **A Cookiecutter Fork** command-line utility. It serves as a boilerplate which can be used by beginners as well as full fledged developers to simplify the project creation process and save considerable amount of time.
+**SciCookie** is a template developed by [Open Science Labs](https://opensciencelabs.org/) that creates projects from project templates and is based on [Cookieninja](https://github.com/cookieninja-generator/cookieninja) **A Cookiecutter Fork** command-line utility. It serves as a boilerplate which can be used by beginners as well as full fledged developers to simplify the project creation process and save considerable amount of time.
 Cookieninja enables projects with an initial layout that includes recommended tools, workflows, and project structure.
 
 Cookieninja also offers other features that can enhance the workflow of the development process. Features such as *automatic documentation generation, automated testing,* and *project-specific configuration* are part of this. Overall, Cookieninja is an efficient tool that gives users the ability to effortlessly create consistent, high-quality projects.
@@ -11,7 +11,7 @@ Open Science Labs Scientific Python cookiecutter template is primarily based on 
 [Cookieninja](https://github.com/cookieninja-generator/cookieninja) template
 for a Python package.
 
-  - GitHub repo: <https://github.com/osl-incubator/cookiecutter-python/>
+  - GitHub repo: <https://github.com/osl-incubator/scicookie/>
   - Free software: BSD license
 
 ## Features
@@ -32,7 +32,7 @@ for a Python package.
   src. "Flat layout" refers to organising a project's files in a folder
   or repository so that the various configuration files and import
   packages are all in the top-level directory. You can read about their differences at
-  https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/ 
+  https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/
   - Finding common security problems in Python code using
     [bandit](https://bandit.readthedocs.io/en/latest/)
   - Offers the option to use [pydocstyle](http://www.pydocstyle.org/en/stable/)
@@ -53,14 +53,7 @@ Install the latest Cookieninja if you haven't installed it yet (this
 requires Cookieninja 1.0.0):
 
 ```bash
-pip install cookieninja
-```
-
-or, using conda/mamba:
-
-```bash
-mamba create -n cookiecutter cookieninja
-conda activate cookiecutter
+pip install scicookie
 ```
 
 Go to a desired folder to create your new project, for example:
@@ -72,13 +65,7 @@ cd ~/dev/my-python-projects
 Generate a Python package project:
 
 ```bash
-cookieninja https://github.com/osl-incubator/cookiecutter-python.git
-```
-
-or, using ssh:
-
-```bash
-cookieninja git@github.com:osl-incubator/cookiecutter-python.git
+scicookie
 ```
 
 ## Development
@@ -86,6 +73,7 @@ cookieninja git@github.com:osl-incubator/cookiecutter-python.git
 For testing your changes locally, you can run:
 
 ```bash
-make lint
-make test
+makim tests.lint
+makim tests.unittest
+makim tests.smoke
 ```
