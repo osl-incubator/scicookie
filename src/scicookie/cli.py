@@ -67,7 +67,7 @@ def call_cookiecutter(profile: Profile, answers: dict):
             answers_profile[choice_id] = "yes"
 
     for question_id, answer in answers_profile.items():
-        cookie_args.append(f'{question_id}="{answer}"')
+        cookie_args.append(f"{question_id}={answer}")
 
     sh_extras = {
         "_in": sys.stdin,
@@ -79,9 +79,7 @@ def call_cookiecutter(profile: Profile, answers: dict):
         "_bg_exc": False,
     }
 
-    p = sh.cookieninja(
-        "--no-input", PACKAGE_PATH, *[" ".join(cookie_args)], **sh_extras
-    )
+    p = sh.cookieninja("--no-input", PACKAGE_PATH, *cookie_args, **sh_extras)
 
     try:
         p.wait()
