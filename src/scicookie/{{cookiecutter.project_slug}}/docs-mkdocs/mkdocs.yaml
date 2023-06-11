@@ -1,10 +1,18 @@
 site_name: {{ cookiecutter.project_name}}
 site_url: {{ cookiecutter.project_url}}
 repo_url: {{ cookiecutter.git_https_upstream}}
-docs_dir: ./
-site_dir: ../build
+docs_dir: ./docs/
+site_dir: ./build/
 # extra_css:
 #   - stylesheets/extra.css
+# Page tree
+nav:
+  - index.md
+  - Installation: installation.md
+  - Changelog: changelog.md
+  - Contributing: contributing.md
+  - API: api/references.md
+  - Notebook page: example.ipynb
 theme:
   name: material
   features:
@@ -38,7 +46,7 @@ plugins:
         python:
           import:
             - https://docs.python.org/3/objects.inv
-          selection:
+          options:
             docstring_style: numpy
             filters:
               - "!^Bounds"
@@ -71,12 +79,12 @@ plugins:
               - "!^table_expr_class"
               - "!^translator_class"
               - "!^Options$"
-          rendering:
             show_category_heading: true
             show_root_full_path: false
             show_root_heading: true
             show_root_toc_entry: true
             show_source: false
+            show_modules: true
   - mkdocs-jupyter:
       execute: true
       ignore:
