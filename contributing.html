@@ -56,6 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Guide" href="guide.html" />
     <link rel="prev" title="Cookiecutter Python Package" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -104,6 +105,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Contributing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="guide.html">
+   Guide
   </a>
  </li>
 </ul>
@@ -329,7 +335,7 @@ little bit helps, and credit will always be given.</p>
 <h2>Types of Contributions<a class="headerlink" href="#types-of-contributions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="report-bugs">
 <h3>Report Bugs<a class="headerlink" href="#report-bugs" title="Permalink to this headline">¶</a></h3>
-<p>Report bugs at <a class="reference external" href="https://github.com/osl-incubator/cookiecutter-python/issues">https://github.com/osl-incubator/cookiecutter-python/issues</a>.</p>
+<p>Report bugs at <a class="reference external" href="https://github.com/osl-incubator/scicookie/issues">https://github.com/osl-incubator/scicookie/issues</a>.</p>
 <p>If you are reporting a bug, please include:</p>
 <ul class="simple">
 <li><p>Your operating system name and version.</p></li>
@@ -352,13 +358,13 @@ it.</p>
 <div class="section" id="write-documentation">
 <h3>Write Documentation<a class="headerlink" href="#write-documentation" title="Permalink to this headline">¶</a></h3>
 <p><strong>Cookiecutter Python</strong> could always use more documentation,
-whether as part of the official <strong>Cookiecutter Python</strong> docs,
+whether as part of the official <strong>Cookieninja</strong> docs,
 in docstrings, or even on the web in blog posts, articles, and such.</p>
 </div>
 <div class="section" id="submit-feedback">
 <h3>Submit Feedback<a class="headerlink" href="#submit-feedback" title="Permalink to this headline">¶</a></h3>
 <p>The best way to send feedback is to file an issue at
-<a class="reference external" href="https://github.com/osl-incubator/cookiecutter-python/issues">https://github.com/osl-incubator/cookiecutter-python/issues</a>.</p>
+<a class="reference external" href="https://github.com/osl-incubator/scicookie/issues">https://github.com/osl-incubator/scicookie/issues</a>.</p>
 <p>If you are proposing a feature:</p>
 <ul class="simple">
 <li><p>Explain in detail how it would work.</p></li>
@@ -371,17 +377,17 @@ contributions are welcome :)</p></li>
 </div>
 <div class="section" id="get-started">
 <h2>Get Started!<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h2>
-<p>Ready to contribute? Here’s how to set up <code class="docutils literal notranslate"><span class="pre">cookiecutter-python</span></code> for local development.</p>
+<p>Ready to contribute? Here’s how to set up <code class="docutils literal notranslate"><span class="pre">scicookie</span></code> for local development.</p>
 <ol>
-<li><p>Fork the <code class="docutils literal notranslate"><span class="pre">cookiecutter-python</span></code> repo on GitHub.</p></li>
+<li><p>Fork the <code class="docutils literal notranslate"><span class="pre">scicookie</span></code> repo on GitHub.</p></li>
 <li><p>Clone your fork locally::</p>
-<p>$ git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:your_name_here/cookiecutter-python.git</p>
+<p>$ git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:your_name_here/scicookie.git</p>
 </li>
 <li><p>Install your local copy into a virtualenv. Assuming you have
 virtualenvwrapper installed, this is how you set up your fork for
 local development::</p>
-<p><span class="math notranslate nohighlight">\( mkvirtualenv cookiecutter-python
-\)</span> cd cookiecutter-python/
+<p><span class="math notranslate nohighlight">\( mkvirtualenv scicookie
+\)</span> cd scicookie/
 $ python <a class="reference external" href="http://setup.py">setup.py</a> develop</p>
 </li>
 <li><p>Create a branch for local development::</p>
@@ -390,7 +396,7 @@ $ python <a class="reference external" href="http://setup.py">setup.py</a> devel
 </li>
 <li><p>When you’re done making changes, check that your changes pass flake8
 and the tests, including testing other Python versions with tox::</p>
-<p><span class="math notranslate nohighlight">\( flake8 cookiecutter-python tests \)</span> python <a class="reference external" href="http://setup.py">setup.py</a>
+<p><span class="math notranslate nohighlight">\( flake8 scicookie tests \)</span> python <a class="reference external" href="http://setup.py">setup.py</a>
 test or pytest $ tox</p>
 <p>To get flake8 and tox, just pip install them into your virtualenv.</p>
 </li>
@@ -415,7 +421,7 @@ the feature to the list in README.rst.</p></li>
 <div class="section" id="tips">
 <h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
 <p>To run a subset of tests::</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest tests.test_cookiecutter-python
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest tests.test_scicookie
 </pre></div>
 </div>
 </div>
@@ -503,6 +509,13 @@ the commit message format to the PR’s title.</p>
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Cookiecutter Python Package</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="guide.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Guide</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             

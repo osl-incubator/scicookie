@@ -1,22 +1,22 @@
 # Cookiecutter Python Package
 
-[Cookiecutter](https://github.com/cookiecutter/cookiecutter) template
+[Cookieninja](https://github.com/cookieninja-generator/cookieninja) template
 for a Python package.
 
-  - GitHub repo: <https://github.com/osl-incubator/cookiecutter-python/>
-  - Free software: BSD license
+- GitHub repo: <https://github.com/osl-incubator/scicookie/>
+- Free software: BSD license
 
 ## Features
 
-  - TBD
+- TBD
 
 ## Quickstart
 
-Install the latest Cookiecutter if you haven't installed it yet (this
-requires Cookiecutter 1.4.0 or higher):
+Install the latest Cookieninja if you haven't installed it yet (this
+requires Cookieninja 1.0.0):
 
-    pip install -U cookiecutter
+    pip install cookieninja
 
 Generate a Python package project:
 
-    cookiecutter https://github.com/audreyfeldroy/cookiecutter-python.git
+    cookieninja https://github.com/cookieninja-generator/cookieninja
