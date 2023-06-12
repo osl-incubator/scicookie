@@ -77,6 +77,7 @@ def move_selected_doc_dir():
 
     if DOCUMENTATION_ENGINE == "sphinx":
         remove_project_file(Path("docs") / "index.md")
+        remove_project_file(Path("docs/api") / "references.md")
 
     shutil.rmtree(DOCS_SPEC_DIR)
 
