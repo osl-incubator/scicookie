@@ -92,7 +92,7 @@ documentation_engine:
   type: single-choice
   choices:
     - mkdocs
-    - argparse
+    - sphinx
     - jupyter-book
   enabled: false
 
