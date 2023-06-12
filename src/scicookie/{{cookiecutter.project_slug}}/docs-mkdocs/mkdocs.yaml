@@ -1,8 +1,8 @@
 site_name: {{ cookiecutter.project_name}}
 site_url: {{ cookiecutter.project_url}}
 repo_url: {{ cookiecutter.git_https_upstream}}
-docs_dir: ./docs/
-site_dir: ./build/
+docs_dir: ./
+site_dir: ../build
 # extra_css:
 #   - stylesheets/extra.css
 # Page tree
