@@ -39,7 +39,6 @@ repos:
         types:
           - python
     
-
       - entry: mypy
         exclude: ^$
         # note: it would be good to extend this to other apps as well

@@ -64,8 +64,8 @@
     "Docker",
     "Podman"
   ],
-  "use_flake8": "yes",
   "use_ruff": "yes",
+  "use_flake8": "yes",
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",
