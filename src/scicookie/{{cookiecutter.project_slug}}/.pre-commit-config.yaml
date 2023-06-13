@@ -40,6 +40,18 @@ repos:
       types:
         - python
 {% endif %}
+{%- if cookiecutter.use_ruff == 'ruff' %}
+    - entry: ruff
+      files: ""
+      id: ruff
+      language: python
+      name: ruff
+      pass_filenames: true
+      stages:
+        - commit
+      types:
+        - python
+{%- endif %}
 {%- if cookiecutter.use_isort == "yes" %}
     - id: isort
       name: isort
