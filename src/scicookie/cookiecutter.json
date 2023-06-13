@@ -46,12 +46,15 @@
   "build_system": [
     "poetry"
   ],
+  "linter": [
+    "flake8",
+    "ruff"
+  ],
   "use_bandit": "yes",
   "use_black": "no",
   "use_blue": "yes",
   "use_conda": "yes",
   "use_coverage": "yes",
-  "use_flake8": "yes",
   "use_isort": "yes",
   "use_mccabe": "yes",
   "use_mypy": "yes",

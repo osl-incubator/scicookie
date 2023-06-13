@@ -42,7 +42,17 @@ repos:
         - file
         - python
 {% endif %}
-{%- if cookiecutter.use_flake8 == "yes" %}
+
+{%- elif cookiecutter.auto_format_tool == 'ruff' +%}
+  - entry: ruff
+    id: ruff
+    name: ruff
+    exclude: |
+      ^{{cookiecutter.package_slug}}/scicookie/src/scicookie{{cookiecutter.project_slug}}/
+      ^{{cookiecutter.package_slug}}/scicookie/src/scicookie/hooks/
+  {%- endif +%}
+
+{%- if cookiecutter.linter == "yes" %}
     - entry: flake8
       exclude: ^$
       files: ""
@@ -55,6 +65,23 @@ repos:
       types:
         - python
 {% endif %}
+{%- if cookiecutter.linter == 'ruff' %}
+    - entry: ruff
+      exclude: ^$
+      files: ""
+      id: ruff
+      language: python
+      name: ruff
+      exclude: |
+        ^{{cookiecutter.package_slug}}/scicookie/src/scicookie{{cookiecutter.project_slug}}/
+        ^{{cookiecutter.package_slug}}/scicookie/src/scicookie/hooks/
+      pass_filenames: true
+      stages:
+        - commit
+      types:
+        - python
+    {%- endif %}
+
 {%- if cookiecutter.use_isort == "yes" %}
     - entry: isort
       exclude: "^.*/js/.*$"

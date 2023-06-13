@@ -6,11 +6,6 @@ repos:
 
   # Flake8-pyproject is a fork from Flake8 that solves incompability
   # with flake8 and pyproject.toml.
-  - repo: https://github.com/john-hen/Flake8-pyproject
-    rev: 1.2.1
-    hooks:
-      - id: Flake8-pyproject
-
   - repo: local
     hooks:
     - entry: black
@@ -30,17 +25,19 @@ repos:
         - file
         - python
 
-    - entry: isort
-      exclude: "^.*/js/.*$"
-      files: ""
-      id: isort
-      language: python
-      name: isort
-      pass_filenames: true
-      stages:
-        - commit
-      types:
-        - python
+    - id: ruff
+        entry: ruff
+        exclude: |
+          {{cookiecutter.project_slug}}/src/scicookie{{cookiecutter.project_slug}}/
+          {{cookiecutter.project_slug}}
+        files: ""
+        language: python
+        name: ruff
+        pass_filenames: true
+        stages:
+          - commit
+        types:
+          - python
 
     - entry: mypy
       exclude: ^$

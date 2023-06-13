@@ -66,6 +66,14 @@ exclude = [
   'src/scicookie/{{cookiecutter.project_slug}}/*'
 ]
 
+[tool.ruff]
+exclude = [
+  '.git/*',
+  '__pycache__/*',
+  'docs/*',
+  'hooks/*',
+  '{{cookiecutter.project_slug}}/*'
+
 [tool.isort]
 ensure_newline_before_comments = true
 line_length = 79
