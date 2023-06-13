@@ -67,12 +67,13 @@ exclude = [
 ]
 
 [tool.ruff]
+max-line-length = 79
 exclude = [
   '.git/*',
   '__pycache__/*',
   'docs/*',
   'hooks/*',
-  '{{cookiecutter.project_slug}}/*'
+  '{{cookiecutter.project_slug}}/*']
 
 [tool.isort]
 ensure_newline_before_comments = true
