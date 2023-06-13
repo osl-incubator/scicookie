@@ -69,7 +69,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-# This patterns also effect to html_static_path and html_extra_path
+# This patterns also affect html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
@@ -128,7 +128,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass
 # [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, '{{ cookiecutter.project_slug }}.tex',
+    (master_doc, '{{ cookiecutter.package_slug }}.tex',
      '{{ cookiecutter.project_name }} Documentation',
      '{{ cookiecutter.author_full_name }}', 'manual'),
 ]

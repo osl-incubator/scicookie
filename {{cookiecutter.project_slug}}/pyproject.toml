@@ -14,7 +14,9 @@ force-exclude = """
 )
 """
 {% endif -%}
-
+{% if cookiecutter.auto_format_tool == 'ruff' -%}
+[tool.ruff]
+line-length = 79  # this is the default
 [tool.isort]
 ensure_newline_before_comments = true
 line_length = 79
@@ -69,7 +71,11 @@ click = "<8.1.0"  # https://github.com/psf/black/issues/2964
 {% endif %}
 isort = "^5"
 pre-commit = "2"
+{% if cookiecutter.auto_format_tool == 'flake8' -%}
 flake8 = "^4"
+{% elif cookiecutter.auto_format_tool == 'ruff' -%}
+ruff = "^1.0.0"
+{% endif %}
 mypy = "^0.931"
 cookiecutter = "^1.7.3"
 pytest-cov = "^3.0.0"

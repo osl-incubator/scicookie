@@ -47,8 +47,13 @@
     "None"
   ],
   "auto_format_tool": [
+    "ruff",
     "blue",
     "black"
+  ],
+  "linter":[
+    "flake8", 
+    "ruff"
   ],
   "use_shell_linter": [
     "shellcheck",

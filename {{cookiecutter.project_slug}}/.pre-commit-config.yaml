@@ -14,6 +14,13 @@ repos:
     - entry: black
       id: black
       name: black
+    {%- elif cookiecutter.auto_format_tool == 'ruff' +%}
+    - entry: ruff
+      id: ruff
+      name: ruff
+      exclude: |
+        ^{{cookiecutter.package_slug}}/scicookie/src/scicookie{{cookiecutter.project_slug}}/
+        ^{{cookiecutter.package_slug}}/scicookie/src/scicookie/hooks/
     {%- endif +%}
       exclude: |
         (?x)(
@@ -29,6 +36,7 @@ repos:
         - file
         - python
 
+   {%- if cookiecutter.linter == 'flake8' %}
     - entry: flake8
       exclude: ^$
       files: ""
@@ -40,18 +48,24 @@ repos:
         - commit
       types:
         - python
+    {%- endif %}
 
-    - entry: isort
-      exclude: "^.*/js/.*$"
+    {%- if cookiecutter.linter == 'ruff' %}
+    - entry: ruff
+      exclude: ^$
       files: ""
-      id: isort
+      id: ruff
       language: python
-      name: isort
+      name: ruff
+      exclude: |
+        ^{{cookiecutter.package_slug}}/scicookie/src/scicookie{{cookiecutter.project_slug}}/
+        ^{{cookiecutter.package_slug}}/scicookie/src/scicookie/hooks/
       pass_filenames: true
       stages:
         - commit
       types:
         - python
+    {%- endif %}
 
     - entry: mypy
       exclude: ^$
