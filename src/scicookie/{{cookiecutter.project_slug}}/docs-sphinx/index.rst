@@ -1,5 +1,5 @@
 Welcome to {{ cookiecutter.project_name }}'s documentation!
-===========================================================
+{{ "=" * ((cookiecutter.project_name|length) + 28) }}
 
 .. include:: ../README.md
 
