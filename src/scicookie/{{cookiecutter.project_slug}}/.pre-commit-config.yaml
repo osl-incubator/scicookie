@@ -21,8 +21,6 @@ repos:
       pass_filenames: true
       types:
         - python
-        - file
-        - python
 {% endif -%}
 {%- if cookiecutter.use_black == "yes" %}
     - id: black
@@ -31,8 +29,6 @@ repos:
       language: system
       pass_filenames: true
       types:
-        - python
-        - file
         - python
 {% endif %}
 {%- if cookiecutter.use_flake8 == "yes" %}
