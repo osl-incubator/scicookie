@@ -142,16 +142,4 @@ multi_line_output = 3
 include_trailing_comma = true
 skip_glob = ["docs/*", "*.egg-info"]
 {% endif %}
-{%- if cookiecutter.use_isort == "yes" %}
-# Example Config to Vulture
-[tool.vulture]
-exclude = ["*file*.py", "dir/"]
-ignore_decorators = ["@app.route", "@require_*"]
-ignore_names = ["visit_*", "do_*"]
-make_whitelist = true
-min_confidence = 60
-paths = ["myscript.py", "mydir"]
-sort_by_size = true
-verbose = false
-{% endif %}
 {#- keep this line at the end of the file -#}
