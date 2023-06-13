@@ -72,8 +72,9 @@ exclude = [
   '.git/*',
   '__pycache__/*',
   'docs/*',
-  'hooks/*',
-  '{{cookiecutter.project_slug}}/*']
+  'src/scicookie/hooks/*',
+  'src/scicookie/{{cookiecutter.project_slug}}/*'
+]
 
 [tool.isort]
 ensure_newline_before_comments = true
