@@ -46,10 +46,6 @@
   "build_system": [
     "poetry"
   ],
-  "linter": [
-    "flake8",
-    "ruff"
-  ],
   "use_bandit": "yes",
   "use_black": "no",
   "use_blue": "yes",
@@ -68,6 +64,8 @@
     "Docker",
     "Podman"
   ],
+  "use_flake8": "yes",
+  "use_ruff": "yes",
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",

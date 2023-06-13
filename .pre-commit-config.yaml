@@ -4,8 +4,6 @@ repos:
     hooks:
       - id: end-of-file-fixer
 
-  # Flake8-pyproject is a fork from Flake8 that solves incompability
-  # with flake8 and pyproject.toml.
   - repo: local
     hooks:
     - entry: black
@@ -25,29 +23,32 @@ repos:
         - file
         - python
 
-    - id: ruff
-        entry: ruff
-        exclude: |
-          {{cookiecutter.project_slug}}/src/scicookie{{cookiecutter.project_slug}}/
-          {{cookiecutter.project_slug}}
-        files: ""
-        language: python
+  - repo: local
+    hooks:
+      - id: ruff
         name: ruff
+        entry: ruff
+        language: python
+        pass_filenames: true
+        exclude: |
+          tests
+          src/scicookie
+          docs
+        stages:
+          - commit
+        types:
+          - python
+    
+
+      - entry: mypy
+        exclude: ^$
+        # note: it would be good to extend this to other apps as well
+        files: "{{ cookiecutter.package_slug }}/"
+        id: mypy
+        language: python
+        name: mypy
         pass_filenames: true
         stages:
           - commit
         types:
           - python
-
-    - entry: mypy
-      exclude: ^$
-      # note: it would be good to extend this to other apps as well
-      files: "{{ cookiecutter.package_slug }}/"
-      id: mypy
-      language: python
-      name: mypy
-      pass_filenames: true
-      stages:
-        - commit
-      types:
-        - python

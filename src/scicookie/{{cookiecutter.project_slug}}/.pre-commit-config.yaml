@@ -1,3 +1,10 @@
+{% if cookiecutter.project_layout == "src" -%}
+{% set package_path = "src/" + cookiecutter.package_slug -%}
+{% else -%}
+{% set package_path = cookiecutter.package_slug -%}
+{% endif -%}
+default_stages:
+  - commit
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
@@ -7,172 +14,115 @@ repos:
   - repo: local
     hooks:
 {%- if cookiecutter.use_blue == "yes" %}
-    - entry: blue
-      id: blue
+    - id: blue
       name: blue
-      exclude: |
-        (?x)(
-          docs
-        )
-      files: ""
+      entry: blue
       language: system
       pass_filenames: true
-      stages:
-        - commit
       types:
-        - python
-        - file
         - python
 {% endif -%}
 {%- if cookiecutter.use_black == "yes" %}
-    - entry: black
-      id: black
+    - id: black
       name: black
-      exclude: |
-        (?x)(
-          docs
-        )
-      files: ""
+      entry: black
       language: system
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
-        - file
-        - python
 {% endif %}
-
-{%- elif cookiecutter.auto_format_tool == 'ruff' +%}
-  - entry: ruff
-    id: ruff
-    name: ruff
-    exclude: |
-      ^{{cookiecutter.package_slug}}/scicookie/src/scicookie{{cookiecutter.project_slug}}/
-      ^{{cookiecutter.package_slug}}/scicookie/src/scicookie/hooks/
-  {%- endif +%}
-
-{%- if cookiecutter.linter == "yes" %}
-    - entry: flake8
-      exclude: ^$
-      files: ""
-      id: flake8
-      language: python
+{%- if cookiecutter.use_flake8 == "yes" %}
+    - id: flake8
       name: flake8
+      entry: flake8
+      language: system
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
 {% endif %}
-{%- if cookiecutter.linter == 'ruff' %}
+{%- if cookiecutter.use_ruff == 'ruff' %}
     - entry: ruff
-      exclude: ^$
       files: ""
       id: ruff
       language: python
       name: ruff
-      exclude: |
-        ^{{cookiecutter.package_slug}}/scicookie/src/scicookie{{cookiecutter.project_slug}}/
-        ^{{cookiecutter.package_slug}}/scicookie/src/scicookie/hooks/
       pass_filenames: true
       stages:
         - commit
       types:
         - python
-    {%- endif %}
-
+{%- endif %}
 {%- if cookiecutter.use_isort == "yes" %}
-    - entry: isort
-      exclude: "^.*/js/.*$"
-      files: ""
-      id: isort
-      language: python
+    - id: isort
       name: isort
+      entry: isort
+      language: system
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
 {% endif %}
 {%- if cookiecutter.use_mypy == "yes" %}
-    - entry: mypy
-      exclude: ^$
-      # note: it would be good to extend this to other apps as well
-      files: "{{ cookiecutter.package_slug }}/"
-      id: mypy
-      language: python
+    - id: mypy
       name: mypy
+      entry: mypy
+      language: system
+      files: "{{ package_path }}"
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
 {% endif %}
 {%- if cookiecutter.use_shellcheck == "yes" %}
-    - entry: shellcheck
-      id: shellcheck
-      language: system
+    - id: shellcheck
       name: shellcheck
-      files: .sh$
-      types:
-          - shell
+      entry: shellcheck
+      language: system
       types_or:
-          - file
-          - sh
-          - ash
-          - bash
-          - bats
-          - dash
-          - ksh
+        - sh
+        - shell
+        - ash
+        - bash
+        - bats
+        - dash
+        - ksh
 {% endif %}
 {%- if cookiecutter.use_bandit == "yes" %}
-    - entry: bandit
-      id: bandit
-      language: python
+    - id: bandit
       name: bandit
-      args: ['-iii', '-ll', .bandit]
+      entry: bandit
+      language: system
+      args: ['--configfile', 'pyproject.toml', '-iii', '-lll']
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
 {% endif %}
 {%- if cookiecutter.use_pydocstyle == "yes" %}
-    - entry: pydocstyle
-      exclude: ^$
-      files: "{{ cookiecutter.package_slug }}/"
-      id: pydocstyle
-      language: python
+    - id: pydocstyle
       name: pydocstyle
+      entry: pydocstyle
+      language: system
+      files: "{{ package_path }}"
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
 {% endif %}
 {%- if cookiecutter.use_vulture == "yes" %}
-    - entry: vulture
-      files: "{{ cookiecutter.package_slug }}/"
-      id: vulture
-      language: python
+    - id: vulture
       name: vulture
+      entry: vulture
+      language: system
+      files: "{{ package_path }}"
       description: Find unused Python code.
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
 {% endif %}
 {%- if cookiecutter.use_mccabe == "yes" %}
     - id: mccabe
       name: mccabe
-      entry: flake8 --max-complexity 10
-      language: python
-      files: "{{ cookiecutter.package_slug }}/"
+      entry: python -m mccabe --min 10
+      language: system
+      files: "{{ package_path }}"
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
 {% endif %}
