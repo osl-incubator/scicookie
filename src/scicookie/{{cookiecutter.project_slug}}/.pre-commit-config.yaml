@@ -47,8 +47,6 @@ repos:
       language: python
       name: ruff
       pass_filenames: true
-      stages:
-        - commit
       types:
         - python
 {%- endif %}
