@@ -1,24 +1,11 @@
+---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
     hooks:
       - id: end-of-file-fixer
-
   - repo: local
     hooks:
-      - id: ruff
-        name: ruff
-        entry: ruff
-        language: python
-        pass_filenames: true
-        exclude: |
-          tests
-          src/scicookie
-          docs
-        stages:
-          - commit
-        types:
-          - python
     - entry: black
       exclude: |
         (?x)(
@@ -35,10 +22,8 @@ repos:
         - python
         - file
         - python
-
     - entry: mypy
       exclude: ^$
-      # note: it would be good to extend this to other apps as well
       files: "{{ cookiecutter.package_slug }}/"
       id: mypy
       language: python
@@ -48,4 +33,16 @@ repos:
         - commit
       types:
         - python
-        
+    - id: ruff
+      name: ruff
+      entry: ruff
+      language: python
+      pass_filenames: true
+      exclude: |
+        tests
+        src/scicookie
+        docs
+      stages:
+        - commit
+      types:
+        - python
