@@ -67,7 +67,6 @@ exclude = [
 ]
 
 [tool.ruff]
-max-line-length = 79
 exclude = [
   '.git/*',
   '__pycache__/*',
