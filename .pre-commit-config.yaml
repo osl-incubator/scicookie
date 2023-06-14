@@ -19,14 +19,11 @@ repos:
           - commit
         types:
           - python
-
-  - repo: local
-    hooks:
     - entry: black
       exclude: |
-            (?x)(
-                ^{{cookiecutter.project_slug}}/
-            )
+        (?x)(
+            ^{{cookiecutter.project_slug}}/
+        )
       files: ""
       id: black
       language: system
