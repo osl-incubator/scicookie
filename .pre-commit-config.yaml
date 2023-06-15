@@ -39,9 +39,11 @@ repos:
       language: python
       pass_filenames: true
       exclude: |
+       (?x)^(
         tests
         src/scicookie
-        docs
+        docs 
+         )$
       stages:
         - commit
       types:
