@@ -107,6 +107,7 @@ use_tools:
     - conda
     - coverage
     - flake8
+    - ruff
     - isort
     - mccabe
     - pre-commit

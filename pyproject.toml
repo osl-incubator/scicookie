@@ -27,6 +27,7 @@ black = "^22"
 isort = "^5"
 pre-commit = "^2"
 flake8 = "^4"
+ruff = "^0.0.272"
 mypy = "^0.931"
 pytest-cov = "^3.0.0"
 pytest-cookies = "^0.6.1"
@@ -58,6 +59,15 @@ force-exclude = '''
 [tool.flake8]
 max-line-length = 79
 # Ignoring these erros will prevent conflicts with Flake8 and Jinja2 syntax.
+exclude = [
+  '.git/*',
+  '__pycache__/*',
+  'docs/*',
+  'src/scicookie/hooks/*',
+  'src/scicookie/{{cookiecutter.project_slug}}/*'
+]
+
+[tool.ruff]
 exclude = [
   '.git/*',
   '__pycache__/*',

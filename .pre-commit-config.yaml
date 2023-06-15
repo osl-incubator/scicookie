@@ -1,23 +1,16 @@
+---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
     hooks:
       - id: end-of-file-fixer
-
-  # Flake8-pyproject is a fork from Flake8 that solves incompability
-  # with flake8 and pyproject.toml.
-  - repo: https://github.com/john-hen/Flake8-pyproject
-    rev: 1.2.1
-    hooks:
-      - id: Flake8-pyproject
-
   - repo: local
     hooks:
     - entry: black
       exclude: |
-            (?x)(
-                ^{{cookiecutter.project_slug}}/
-            )
+       (?x)(
+           ^{{cookiecutter.project_slug}}/
+       )
       files: ""
       id: black
       language: system
@@ -29,27 +22,28 @@ repos:
         - python
         - file
         - python
-
-    - entry: isort
-      exclude: "^.*/js/.*$"
-      files: ""
-      id: isort
-      language: python
-      name: isort
-      pass_filenames: true
-      stages:
-        - commit
-      types:
-        - python
-
     - entry: mypy
       exclude: ^$
-      # note: it would be good to extend this to other apps as well
       files: "{{ cookiecutter.package_slug }}/"
       id: mypy
       language: python
       name: mypy
       pass_filenames: true
+      stages:
+        - commit
+      types:
+        - python
+    - id: ruff
+      name: ruff
+      entry: ruff
+      language: python
+      pass_filenames: true
+      exclude: |
+       (?x)^(
+        tests/.*|
+        src/scicookie/.*|
+        docs/.*|
+        )$
       stages:
         - commit
       types:
