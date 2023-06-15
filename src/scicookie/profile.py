@@ -1,3 +1,4 @@
+"""Profile handles "profiles" defined in the .yaml files."""
 from pathlib import Path
 
 import yaml
@@ -9,9 +10,11 @@ PROFILE_DIR_PATH = PACKAGE_PATH / "profiles"
 
 
 class Profile:
+    """Profile class that handles profiles defined in the .yaml files."""
+
     profile_name: str = ""
     config: dict = {}
-    profiles_available = []
+    profiles_available: list = []
 
     def __init__(self, profile_name: str):
         self._load_profiles_available()
@@ -30,6 +33,7 @@ class Profile:
         self.profiles_available = ["osl"]
 
     def read_config(self):
+        """Read the config file."""
         config = {}
         with open(PROFILE_DIR_PATH / "base.yaml") as f:
             config = yaml.safe_load(f)

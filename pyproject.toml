@@ -47,42 +47,51 @@ line-length = 79
 # note: for support "py39", we need to update black using poetry
 #       currently, it has conflicts with typing-extensions.
 target-version = ["py38"]
-force-exclude = '''
-/(
-  |  docs/*
-  |  hooks/*
-  |  {{cookiecutter.project_slug}}/*
+force-exclude = '''(?x)(
+    docs/*
+  | src/scicookie/{{cookiecutter.project_slug}}/*
+  | src/scicookie/hooks/*
   |.*\\.egg-info
-)/
-'''
+)'''  # TOML's single-quoted strings do not require escaping backslashes
 
-[tool.flake8]
-max-line-length = 79
-# Ignoring these erros will prevent conflicts with Flake8 and Jinja2 syntax.
-exclude = [
-  '.git/*',
-  '__pycache__/*',
-  'docs/*',
-  'src/scicookie/hooks/*',
-  'src/scicookie/{{cookiecutter.project_slug}}/*'
+[tool.mypy]
+no_strict_optional = false
+exclude = '''(?x)(
+      src/scicookie/{{cookiecutter.project_slug}}/
+    | src/scicookie/hooks/*
+)'''  # TOML's single-quoted strings do not require escaping backslashes
+
+[[tool.mypy.overrides]]
+module = [
+  "colorama",
+  "inquirer",
+  "sh",
+  "yaml",
 ]
+ignore_missing_imports = true
 
 [tool.ruff]
+line-length = 79
+force-exclude = true
+src = ["src/scicookie"]
 exclude = [
-  '.git/*',
-  '__pycache__/*',
-  'docs/*',
-  'src/scicookie/hooks/*',
-  'src/scicookie/{{cookiecutter.project_slug}}/*'
+   '.git',
+   '__pycache__',
+   'docs',
+   'src/scicookie/\{\{cookiecutter.project_slug\}\}',
+   'src/scicookie/hooks',
+ ]
+ select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "D",   # pydocstyle
+  "YTT", # flake8-2020
+  "PL",  # PL
+  "RUF", # Ruff-specific rules
 ]
 
-[tool.isort]
-ensure_newline_before_comments = true
-line_length = 79
-multi_line_output = 3
-include_trailing_comma = true
-skip_glob = ["docs/*", "*.egg-info"]
-
+[tool.ruff.pydocstyle]
+convention = "numpy"
 
 [tool.pytest.ini_options]
 testpaths = [
