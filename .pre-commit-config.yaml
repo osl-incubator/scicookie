@@ -8,9 +8,9 @@ repos:
     hooks:
     - entry: black
       exclude: |
-        (?x)(
-            ^{{cookiecutter.project_slug}}/
-        )
+       (?x)(
+           ^{{cookiecutter.project_slug}}/
+       )
       files: ""
       id: black
       language: system
@@ -40,10 +40,10 @@ repos:
       pass_filenames: true
       exclude: |
        (?x)^(
-        tests
-        src/scicookie
-        docs 
-         )$
+        tests/*|
+        src/scicookie/ *|
+        docs/ *|
+        )$
       stages:
         - commit
       types:
