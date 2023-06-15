@@ -40,9 +40,9 @@ repos:
       pass_filenames: true
       exclude: |
        (?x)^(
-        tests/*|
-        src/scicookie/ *|
-        docs/ *|
+        tests/.*|
+        src/scicookie/.*|
+        docs/.*|
         )$
       stages:
         - commit
