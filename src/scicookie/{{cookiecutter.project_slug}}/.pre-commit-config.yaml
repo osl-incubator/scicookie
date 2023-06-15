@@ -44,8 +44,7 @@ repos:
     - id: ruff
       name: ruff
       entry: ruff
-      language: python
-      files: ""
+      language: system
       pass_filenames: true
       types:
         - python
