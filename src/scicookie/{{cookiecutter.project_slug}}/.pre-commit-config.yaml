@@ -41,11 +41,11 @@ repos:
         - python
 {% endif %}
 {%- if cookiecutter.use_ruff == 'ruff' %}
-    - entry: ruff
-      files: ""
-      id: ruff
-      language: python
+    - id: ruff
       name: ruff
+      entry: ruff
+      language: python
+      files: ""
       pass_filenames: true
       types:
         - python
