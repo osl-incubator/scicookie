@@ -120,27 +120,19 @@ testpaths = [
 [tool.blue]
 line-length = 79
 target-version = ["py38"]
-force-exclude = """
-(
-  /(
-      docs/*
-    |.*\\.egg-info
-  )/
-)
-"""
+force-exclude = '''(?x)(
+    docs/*
+  | .*\\.egg-info
+)'''  # TOML's single-quoted strings do not require escaping backslashes
 {% endif %}
 {%- if cookiecutter.use_black == "yes" %}
 [tool.black]
 line-length = 79
 target-version = ["py38"]
-force-exclude = """
-(
-  /(
-      docs/*
-    |.*\\.egg-info
-  )/
-)
-"""
+force-exclude = '''(?x)(
+    docs/*
+  | .*\\.egg-info
+)'''  # TOML's single-quoted strings do not require escaping backslashes
 {% endif %}
 {%- if cookiecutter.use_isort == "yes" %}
 [tool.isort]
