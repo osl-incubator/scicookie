@@ -30,13 +30,10 @@ import {{ cookiecutter.package_slug }}
 # extensions coming with Sphinx (named "sphinx.ext.*") or your custom ones.
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.viewcode",
     "sphinx.ext.napoleon",
     "myst_parser",
     "nbsphinx"
 ]
-
-nbsphinx_allow_errors = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -44,7 +41,7 @@ templates_path = ["_templates"]
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-source_suffix = [".rst", ".md", ".ipynb"]
+source_suffix = [".rst", ".md"]
 
 # The master toctree document.
 master_doc = "index"

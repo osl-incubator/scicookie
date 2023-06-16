@@ -1,14 +1,13 @@
 Welcome to {{ cookiecutter.project_name }}'s documentation!
 {{ "=" * ((cookiecutter.project_name|length) + 28) }}
 
-.. include:: ../README.md
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
 
-   readme
+   Introduction <readme>
    installation
    api/references
    example
