@@ -46,6 +46,7 @@ repos:
       entry: ruff
       language: system
       pass_filenames: true
+      files: "{{ package_path }}"
       types:
         - python
 {%- endif %}

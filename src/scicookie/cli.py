@@ -1,3 +1,4 @@
+"""Module with CLI functions."""
 import json
 import os
 import sys
@@ -30,6 +31,7 @@ def _get_cookiecutter_default_answer(
 
 
 def call_cookiecutter(profile: Profile, answers: dict):
+    """Call coociecutter/cookieninja with the parameters from the TUI."""
     answers_profile = {}
     cookie_args = []
     questions = profile.config
@@ -96,8 +98,7 @@ def call_cookiecutter(profile: Profile, answers: dict):
 
 
 def app():
-    """CLI main function."""
-
+    """Run SciCookie."""
     # note: this parameter should be provided by a CLI argument
     profile = Profile("osl")
 
