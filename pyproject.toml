@@ -75,13 +75,10 @@ line-length = 79
 force-exclude = true
 src = ["src/scicookie"]
 exclude = [
-   '.git',
-   '__pycache__',
-   'docs',
    'src/scicookie/\{\{cookiecutter.project_slug\}\}',
    'src/scicookie/hooks',
- ]
- select = [
+]
+select = [
   "E",   # pycodestyle
   "F",   # pyflakes
   "D",   # pydocstyle
