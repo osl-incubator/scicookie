@@ -7,3 +7,4 @@ dependencies:
   - poetry
   - nodejs  # used by semantic-release
   - shellcheck
+  - pandoc
