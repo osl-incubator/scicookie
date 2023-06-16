@@ -1,4 +1,4 @@
-# type: ignore[attr-defined]
+# mypy: disable-error-code="attr-defined"
 """{{ cookiecutter.project_name }}."""
 {%- if cookiecutter.use_blue == "yes" %}
   {%- set QUOTE = "'" -%}

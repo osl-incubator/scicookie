@@ -94,7 +94,7 @@ def clean_up_project_layout():
 
 
 def clean_up_bandit():
-    if USE_BANDIT:
+    if not USE_BANDIT:
         remove_project_file(PROJECT_DIRECTORY / '.bandit')
 
 
