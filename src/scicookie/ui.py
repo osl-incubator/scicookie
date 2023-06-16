@@ -1,17 +1,20 @@
+"""Define functions for the interface with the user."""
+from typing import Optional, Type, Dict
 import inquirer
-
 from scicookie.logs import SciCookieErrorType, SciCookieLogs
 
 
-def _create_question(question_id: str, question: dict):
+def _create_question(
+    question_id: str, question: dict
+) -> Optional[inquirer.questions.Question]:
     # validation
     if not question.get("enabled", False):
-        return
+        return None
 
     # config required
-    default_answer = question.get("default")
-    question_message = question.get("message")
-    question_type = question.get("type")
+    default_answer = question.get("default", "")
+    question_message = question.get("message", "")
+    question_type = question.get("type", "")
     # todo: implement help text int he prompt
     # question_help = question.get("help")
     # todo: implement depends on workflow, it needs refactoring the code
@@ -43,7 +46,7 @@ def _create_question(question_id: str, question: dict):
     if question.get("choices"):
         content["choices"] = question.get("choices")
 
-    fn_questions = {
+    fn_questions: Dict[str, Type[inquirer.questions.Question]] = {
         "text": inquirer.Text,
         "single-choice": inquirer.List,
         "multiple-choices": inquirer.Checkbox,
@@ -57,6 +60,7 @@ def _create_question(question_id: str, question: dict):
 
 
 def make_questions(questions: dict):
+    """Generate all the enabled questions."""
     questions_ui = []
 
     for question_id, question in questions.items():
