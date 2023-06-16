@@ -21,7 +21,7 @@ repos:
     - id: mypy
       name: mypy
       entry: mypy
-      files: "src\/scicookie\/.*"
+      files: "src/scicookie/.*"
       language: system
       pass_filenames: true
       # pre-commit + mypy doesn't honor the exclusion defined in the config
