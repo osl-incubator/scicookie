@@ -31,5 +31,5 @@ class SciCookieLogs:
 
     @staticmethod
     def warning(message: str):
-        """Print an warning message."""
+        """Print a warning message."""
         print(Fore.YELLOW, message, Fore.RESET)
