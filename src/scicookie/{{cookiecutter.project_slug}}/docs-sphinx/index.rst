@@ -1,15 +1,19 @@
 Welcome to {{ cookiecutter.project_name }}'s documentation!
-======================================
+{{ "=" * ((cookiecutter.project_name|length) + 28) }}
+
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+
+   Introduction <readme>
    installation
-   modules
-   example
+   api/references
+   Example <example>
    contributing
    changelog
+   
 
 Indices and tables
 ==================

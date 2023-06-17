@@ -7,3 +7,6 @@ dependencies:
   - poetry
   - nodejs  # used by semantic-release
   - shellcheck
+{%- if cookiecutter.documentation_engine == 'sphinx' %}
+  - pandoc
+{%- endif %}
