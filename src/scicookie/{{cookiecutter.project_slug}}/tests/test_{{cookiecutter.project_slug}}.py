@@ -33,3 +33,4 @@ def test_content(response, hypothesis_argument):
     """Sample pytest test function with the pytest fixture and hypothesis as arguments."""
     # Test code using the response fixture and hypothesis_argument
 {% endif %}
+
