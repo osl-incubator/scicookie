@@ -71,6 +71,7 @@ test:
 	python -m unittest discover
 {% endif %}
 
+
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs-build
 docs-build:
