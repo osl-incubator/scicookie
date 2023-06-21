@@ -24,7 +24,7 @@ SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = {{ cookiecutter.project_slug }}
 SOURCEDIR     = docs/
 BUILDDIR      = docs/_build
-{%- endif +%}
+{%- endif -%}
 
 define PRINT_HELP_PYSCRIPT
 import re, sys
@@ -102,7 +102,7 @@ docs-build:
 .PHONY: docs-preview
 docs-preview: docs-build
 	cd docs/_build/html/ && python -m http.server
-{%- endif +%}
+{%- endif -%}
 
 .PHONY:build
 build:
