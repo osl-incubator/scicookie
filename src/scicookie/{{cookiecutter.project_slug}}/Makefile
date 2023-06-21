@@ -60,18 +60,17 @@ clean: ## remove build artifacts, compiled files, and cache
 lint:
 	pre-commit run --all-files
 
-.PHONY:test
-{%- if cookiecutter.use_pytest  == "yes" %}
+.PHONY: test
 test: ## run tests quickly with the default Python
+	{%- if cookiecutter.use_pytest  == "yes" %}
 	pytest
-{%- elif cookiecutter.use_hypothesis  == "yes" %}
-test: ## run tests quickly with the default Python
-    python -m unittest discover
-{% else %}
-test:
-   pytest
-   python -m unittest discover
-{%- endif %}
+	{%- elif cookiecutter.use_hypothesis  == "yes" %}
+	python -m unittest discover
+	{%- else %}
+	pytest
+	python -m unittest discover
+	{%- endif %}
+
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs-build
