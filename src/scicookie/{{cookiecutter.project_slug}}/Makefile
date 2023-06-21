@@ -69,13 +69,6 @@ test: pytest
 {%- elif cookiecutter.use_hypothesis == "yes" -%}
 test: hypothesis
 {% endif %}
-.PHONY: pytest
-pytest: ## run tests quickly with pytest
-	pytest
-
-.PHONY: hypothesis
-hypothesis: ## run hypothesis tests
-	python -m unittest discover
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs-build
@@ -117,4 +110,3 @@ release-ci:
 .PHONY:release-dry
 release-dry:
 	$(RELEASE_APP) --dry-run
-	
