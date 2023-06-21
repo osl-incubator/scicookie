@@ -24,7 +24,7 @@ SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = {{ cookiecutter.project_slug }}
 SOURCEDIR     = docs/
 BUILDDIR      = docs/_build
-{%- endif -%}
+{%- endif +%}
 
 define PRINT_HELP_PYSCRIPT
 import re, sys
@@ -60,20 +60,18 @@ clean: ## remove build artifacts, compiled files, and cache
 lint:
 	pre-commit run --all-files
 
-{% if cookiecutter.use_pytest  == "yes" %}
 .PHONY:test
+{%- if cookiecutter.use_pytest  == "yes" %}
 test: ## run tests quickly with the default Python
 	pytest
-{% endif %}
-{% if cookiecutter.use_hypothesis  == "yes" %}
-.PHONY:test
+{%- elif cookiecutter.use_hypothesis  == "yes" %}
 test: ## run tests quickly with the default Python
-	python -m unittest discover
-{% endif %}
-{% if cookiecutter.use_pytest == "yes" and cookiecutter.use_hypothesis == "yes" -%}
-test: pytest hypothesis
-	python -m unittest discover
-{% endif %}
+    python -m unittest discover
+{% else %}
+test:
+   pytest
+   python -m unittest discover
+{%- endif %}
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs-build
@@ -102,7 +100,7 @@ docs-build:
 .PHONY: docs-preview
 docs-preview: docs-build
 	cd docs/_build/html/ && python -m http.server
-{%- endif -%}
+{%- endif +%}
 
 .PHONY:build
 build:
