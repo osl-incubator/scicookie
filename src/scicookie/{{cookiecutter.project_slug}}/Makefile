@@ -62,14 +62,15 @@ lint:
 
 .PHONY: test
 test: ## run tests quickly with the default Python
-	{%- if cookiecutter.use_pytest  == "yes" %}
-	pytest
-	{%- elif cookiecutter.use_hypothesis  == "yes" %}
+	{%- if cookiecutter.use_pytest == "yes" and cookiecutter.use_hypothesis == "yes" %}
+	pytest hypothesis
 	python -m unittest discover
-	{%- else %}
+	{%- elif cookiecutter.use_pytest == "yes" %}
 	pytest
+	{%- elif cookiecutter.use_hypothesis == "yes" %}
 	python -m unittest discover
 	{%- endif %}
+
 
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
