@@ -1,39 +1,9 @@
-{% if cookiecutter.project_layout == "src" -%}
-{% set package_path = "src/" + cookiecutter.package_slug -%}
-{% else -%}
-{% set package_path = cookiecutter.package_slug -%}
-{% endif -%}
 [tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.project_version }}"  # semantic-release
 description = "{{ cookiecutter.project_short_description }}"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
 license = "{{ cookiecutter.project_license }}"
-include = [
-  "*.cfg",
-  "*.ini",
-  "*.js",
-  "*.json",
-  "*.lock",
-  "*.md",
-  "*.py",
-  "*.sh",
-  "*.rst",
-  "*.txt",
-  "*.toml",
-  "*.yml",
-  "*.yaml",
-  ".github",
-  "conda",
-  "docker",
-  "docs",
-  ".dockerignore",
-  ".env.tpl",
-  ".makim.yaml",
-  ".containers-sugar.yaml",
-  ".gitignore",
-  "Makefile",
-]
 exclude = [
   ".git/*",
   ".env*",
@@ -112,71 +82,6 @@ pandoc = "^2.3"
 jupyter-book = "^0.15.1"
 myst-parser = "^0.18.1"
 {% endif %}
-{%- if cookiecutter.use_pytest == "yes" %}
-[tool.pytest.ini_options]
-testpaths = [
-    "tests",
-]
-{% endif %}
-{%- if cookiecutter.use_blue == "yes" %}
-[tool.blue]
-line-length = 79
-target-version = ["py38"]
-force-exclude = '''(?x)(
-    docs/*
-  | .*\\.egg-info
-)'''  # TOML's single-quoted strings do not require escaping backslashes
-{% endif %}
-{%- if cookiecutter.use_black == "yes" %}
-[tool.black]
-line-length = 79
-target-version = ["py38"]
-force-exclude = '''(?x)(
-    docs/*
-  | .*\\.egg-info
-)'''  # TOML's single-quoted strings do not require escaping backslashes
-{% endif %}
-{%- if cookiecutter.use_isort == "yes" %}
-[tool.isort]
-ensure_newline_before_comments = true
-line_length = 79
-multi_line_output = 3
-include_trailing_comma = true
-skip_glob = ["docs/*", "*.egg-info"]
-{% endif %}
-{%- if cookiecutter.use_bandit == "yes" %}
-[tool.bandit]
-exclude_dirs = ["tests"]
-targets = "{{ package_path }}"
-{% endif %}
-{%- if cookiecutter.use_vulture == "yes" %}
-[tool.vulture]
-exclude = ["tests"]
-ignore_decorators = []
-ignore_names = []
-make_whitelist = true
-min_confidence = 80
-paths = ["{{ package_path }}"]
-sort_by_size = true
-verbose = false
-{% endif %}
-{%- if cookiecutter.use_ruff == "yes" %}
-[tool.ruff]
-line-length = 79
-force-exclude = true
-src = ["{{ package_path }}"]
-exclude = [
-  'docs',
-]
-select = [
-  "F",   # pyflakes
-]
 
-[tool.ruff.pydocstyle]
-convention = "numpy"
-{% endif %}
-{%- if cookiecutter.use_mypy == "yes" %}
-[tool.mypy]
-no_strict_optional = false
-{% endif %}
+{% include "build-system/base-pyproject.toml" %}
 {#- keep this line at the end of the file -#}

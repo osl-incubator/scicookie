@@ -50,6 +50,11 @@ ROADMAP_PATH = PROJECT_DIRECTORY / 'roadmap' / 'ignite_roadmap.md'
 {%- else %}
 ROADMAP_PATH = None
 {%- endif %}
+{% if cookiecutter.build_system == "poetry" -%}
+BUILD_SYSTEM = "poetry"
+{%- else %}
+BUILD_SYSTEM = None
+{%- endif %}
 
 
 def remove_dirs(dirs: list):
@@ -135,6 +140,21 @@ def clean_up_cli():
         remove_package_file("__main__.py")
 
 
+def clean_up_build_system():
+    build_system_dir = PROJECT_DIRECTORY / "build-system"
+
+    if BUILD_SYSTEM == "poetry":
+        shutil.move(
+            build_system_dir / "poetry-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+    else:
+        shutil.move(
+            build_system_dir / "base-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+    remove_dir("build-system")
+
 def http2ssh(url):
     url = url.replace("https://", "git@")
     return url.replace("/", ":", 1)
@@ -195,6 +215,7 @@ def post_gen():
     clean_up_docs()
     clean_up_governance()
     clean_up_roadmap()
+    clean_up_build_system()
 
     # keep it at the end, because it will create a new git commit
     prepare_git()
