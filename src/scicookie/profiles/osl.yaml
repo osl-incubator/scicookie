@@ -43,6 +43,9 @@ governance_document:
 roadmap_document:
   enabled: true
 
+build_system:
+  enabled: true
+
 use_tools:
   enabled: true
 
