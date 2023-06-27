@@ -76,6 +76,15 @@ project_layout:
     - flat
   enabled: false
 
+build_system:
+  message: Select the build system
+  help: ""
+  type: single-choice
+  choices:
+    - poetry
+    - flit
+  enabled: false
+
 command_line_interface:
   message: Select the Command Line Interface (CLI)
   help: ""
