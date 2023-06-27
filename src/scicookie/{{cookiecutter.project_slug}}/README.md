@@ -9,23 +9,7 @@
 {%- endif %}
 
 ## Features
-{% if cookiecutter.build_system == "poetry" %}
-* Build system: We use [Poetry](https://python-poetry.org/), it's a Python
-package management tool that simplifies the process of building and publishing
-Python packages. It allows us to easily manage dependencies, virtual
-environments and package versions. Poetry also includes features such as
-dependency resolution, lock files and publishing to PyPI. Overall, Poetry
-streamlines the process of managing Python packages, making it easier for us to
-create and share our code with others.
-{%- elif cookiecutter.build_system == "flit" %}
-* Build system: We use [Flit](https://flit.pypa.io), it's a Python package that
-simplifies the process of publishing Python packages. It allows us to easily
-create and publish our packages to PyPI. Flit handles the packaging,
-distribution, and installation of Python packages, making it easier for us to
-share our code with others. It also includes features such as dependency
-management, versioning, and metadata management.
-{%+ endif -%}
-{%- if cookiecutter.use_bandit == "yes" %}
+{% if cookiecutter.use_bandit == "yes" %}
 * The security of our code: Bandit is a powerful tool that we use in our Python
   project to ensure its security. This tool analyzes the code and detects
   potential vulnerabilities. Some of the key features of Bandit are its ease of
