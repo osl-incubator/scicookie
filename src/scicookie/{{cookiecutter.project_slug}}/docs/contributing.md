@@ -12,24 +12,24 @@ at `./{{ cookiecutter.package_slug }}`.
 For my information, check the official documentation:
 https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/
 
-{% if cookiecutter.build_system == "poetry" %}
-In addition, you should know that to compile the system of our package we use
+{% if cookiecutter.build_system == "poetry" -%}
+In addition, you should know that to build our package we use
 [Poetry](https://python-poetry.org/), it's a Python package management tool that
 simplifies the process of building and publishing Python packages. It allows us
 to easily manage dependencies, virtual environments and package versions. Poetry
 also includes features such as dependency resolution, lock files and publishing
 to PyPI. Overall, Poetry streamlines the process of managing Python packages,
 making it easier for us to create and share our code with others.
-
-{%- elif cookiecutter.build_system == "flit" %}
-In addition, you should know that to compile the system of our package we use
+{%- elif cookiecutter.build_system == "flit" -%}
+In addition, you should know that to build our package we use
 [Flit](https://flit.pypa.io), it's a Python package that simplifies the process
 of publishing Python packages. It allows us to easily create and publish our
 packages to PyPI. Flit handles the packaging, distribution, and installation of
 Python packages, making it easier for us to share our code with others. It also
 includes features such as dependency management, versioning, and metadata
 management.
-{%+ endif -%}
+
+{%- endif %}
 
 Contributions are welcome, and they are greatly appreciated! Every little bit
 helps, and credit will always be given.

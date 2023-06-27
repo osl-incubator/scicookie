@@ -26,8 +26,9 @@ for a Python package.
   - Support to pre-commit
   - CI with github actions
   - Release workflow with semantic release and github actions
-  - You can choose the build system for your package, scicookie currently
-    supports poetry and flit.
+  - Flexible build system selection: Choose between popular build systems like
+      [Poetry](https://python-poetry.org/) or [Flit](https://flit.pypa.io) based
+      on your preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be
   importable into a subdirectory. This subdirectory is typically named

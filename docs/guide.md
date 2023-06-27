@@ -3,7 +3,7 @@
 ## Build System
 
 There are several build system options available to development of Python
-packages. Scicookie support the following:
+packages. SciCookie support the following:
 
 - [**Poetry**](https://python-poetry.org/) (default): It's a Python package
   manager that streamlines dependency management and package distribution. It
@@ -24,7 +24,7 @@ packages. Scicookie support the following:
   few  commands, you can use Flit to quickly create source distributions and
   wheel packages and submit them to PyPI.
 
-The idea behind the options in Scicookie is that you can choose from some of the
+The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your
 suggestion as a issue at
