@@ -36,7 +36,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 dynamic = ["version"]
-requires-python = "=3.8.1"
+requires-python = ">=3.8.1"
 dependencies = [
     "urllib3 =< 2",
 {# keep this line here #}
