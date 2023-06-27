@@ -10,7 +10,6 @@ authors = [
 ]
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
-requires-python = ">=3.7"
 classifiers = [
   "Development Status :: 1 - Planning",
   "Intended Audience :: Science/Research",
