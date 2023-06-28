@@ -38,7 +38,6 @@ classifiers = [
 dynamic = ["version"]
 requires-python = ">=3.8.1"
 dependencies = [
-    "urllib3 =< 2",
 {# keep this line here #}
 {%- if cookiecutter.use_pytest == "yes" -%}
     "pytest >= 7.3.2",
@@ -86,7 +85,9 @@ dependencies = [
 # if you want to use docker-compose from your system, remove compose-go here
     "compose-go >= 2.18.1",
 {% endif %}
-{%- if cookiecutter.documentation_engine == 'mkdocs' -%}
+    "ipython < 8",
+    "ipykernel >=6.0.0",
+{%- if cookiecutter.documentation_engine == 'mkdocs' %}
     "Jinja2 >= 3.1.2",
     "mkdocs >= 1.4.3",
     "mkdocs-exclude >= 1.0.2",

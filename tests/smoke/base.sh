@@ -31,10 +31,20 @@ cd "${OUTPUT_DIR}/${ENV_NAME}"
 mamba env create --file conda/dev.yaml --force
 
 CONDA_PREFIX="${CONDA_PATH}/envs/${ENV_NAME}"
+
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/mambaforge\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/conda\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
 export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
 echo "[II] included env conda to the PATH"
 
-poetry install
+if command -v poetry &> /dev/null; then
+  poetry install
+elif command -v flit &> /dev/null; then
+  flit install
+fi
 
 ipython kernel install --name "python3" --user
 
