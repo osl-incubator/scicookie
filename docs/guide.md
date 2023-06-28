@@ -35,6 +35,7 @@ https://github.com/osl-incubator/scicookie/issues/new/choose.
 There are several test library options available to development of Python packages. SciCookie support the following:
 
 
-  -  [**Pytest**](https://docs.pytest.org/en/7.3.x/contents.html): is a powerful property-based testing library for Python. It generates test cases based on properties, uncovering bugs and corner cases. Learn more in the Hypothesis documentation.
+
+-  [**Pytest**](https://docs.pytest.org/en/7.3.x/contents.html): is a powerful property-based testing library for Python. It generates test cases based on properties, uncovering bugs and corner cases. Learn more in the Hypothesis documentation.
 
 - [**Hypothesis**](https://hypothesis.readthedocs.io/): is a powerful property-based testing library for Python. It generates test cases based on properties, uncovering bugs and corner cases. Learn more in the Hypothesis documentation.
