@@ -28,6 +28,7 @@ def response_hypothesis():
     https://hypothesis.readthedocs.io/en/latest/quickstart.html
     """
 {% endif -%}
+
 {%- if cookiecutter.use_pytest == "yes" and 
 cookiecutter.use_hypothesis == "yes" %}
 
