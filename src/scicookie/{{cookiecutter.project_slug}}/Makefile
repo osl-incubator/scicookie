@@ -97,7 +97,11 @@ docs-preview: docs-build
 
 .PHONY:build
 build:
+{%- if cookiecutter.build_system == 'poetry' %}
 	poetry build
+{%- elif cookiecutter.build_system == 'poetry' %}
+	flit build
+{%- endif %}
 
 .PHONY:release-ci
 release-ci:
