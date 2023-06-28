@@ -60,8 +60,10 @@ mccabe = "^0.6.1"
 {%- if cookiecutter.use_containers in ['Docker', 'Podman'] -%}
 # if you want to use docker-compose from your system, remove compose-go here
 compose-go = "^2.18.1"
-{% endif %}
-{%- if cookiecutter.documentation_engine == 'mkdocs' -%}
+{% endif -%}
+ipython = "<8"
+ipykernel = ">=6.0.0"
+{% if cookiecutter.documentation_engine == 'mkdocs' -%}
 Jinja2 = "^3.1.2"
 mkdocs = "^1.4.3"
 mkdocs-exclude = "^1.0.2"

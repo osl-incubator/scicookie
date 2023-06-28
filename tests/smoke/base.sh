@@ -46,9 +46,7 @@ elif command -v flit &> /dev/null; then
   flit install
 fi
 
-if command -v mkdocs &> /dev/null; then
-  ipython kernel install --name "python3" --user
-fi
+ipython kernel install --name "python3" --user
 
 pre-commit install
 pre-commit run --all-files --verbose
