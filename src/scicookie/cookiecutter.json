@@ -44,7 +44,8 @@
     "pytorch-ignite-roadmap"
   ],
   "build_system": [
-    "poetry"
+    "poetry",
+    "flit"
   ],
   "use_bandit": "yes",
   "use_black": "no",
