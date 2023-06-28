@@ -34,7 +34,12 @@ CONDA_PREFIX="${CONDA_PATH}/envs/${ENV_NAME}"
 export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
 echo "[II] included env conda to the PATH"
 
-poetry install
+if command -v poetry &> /dev/null; then
+  poetry install
+elif command -v flit &> /dev/null; then
+  flit install
+fi
+
 
 ipython kernel install --name "python3" --user
 
