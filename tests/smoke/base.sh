@@ -30,13 +30,14 @@ cd "${OUTPUT_DIR}/${ENV_NAME}"
 
 mamba env create --file conda/dev.yaml --force
 
-# note: keep it for history, we need to check if the current
-#   approach would work anywhere, otherwise we need to revisit
-#   this previous approach and maybe use sed to remove the previous
-#   conda_prefix from the path.
-#   CONDA_PREFIX="${CONDA_PATH}/envs/${ENV_NAME}"
-#   export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
-source activate ${ENV_NAME}
+CONDA_PREFIX="${CONDA_PATH}/envs/${ENV_NAME}"
+
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/mambaforge\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/conda\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
+export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
 echo "[II] included env conda to the PATH"
 
 if command -v poetry &> /dev/null; then
