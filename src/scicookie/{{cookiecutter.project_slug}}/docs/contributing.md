@@ -131,10 +131,16 @@ Before you submit a pull request, check that it meets these guidelines:
 ## Tips
 
 To run a subset of tests::
-
+{% if cookiecutter.use_pytest == "yes" -%}
 ```
 $ pytest tests.test_{{ cookiecutter.package_slug }}
 ```
+{%- endif %}
+{% if cookiecutter.use_hypothesis == "yes" -%}
+```
+python -m unittest discover
+```
+{%- endif %}
 
 ## Release
 

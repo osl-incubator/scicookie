@@ -19,16 +19,13 @@ for a Python package.
   - Allows package slug (use `_` instead of `-`)
   - Licenses supported: MIT, BSD 3 Clause, ISC License, Apache Software License 2.0, and GPL 3
   - Documentation engines: mkdocs, sphinx, jupyter-boook
-  - Test library: pytest
+  - Test library: pytest, Hypothesis 
   - Auto format code tool: blue and black
   - Initial integration with git
   - Support to conda (as base environment) and poetry as packaging and dependency management
   - Support to pre-commit
   - CI with github actions
   - Release workflow with semantic release and github actions
-  - Flexible build system selection: Choose between popular build systems like
-      [Poetry](https://python-poetry.org/) or [Flit](https://flit.pypa.io) based
-      on your preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be
   importable into a subdirectory. This subdirectory is typically named
