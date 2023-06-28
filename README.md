@@ -25,6 +25,9 @@ for a Python package.
   - Support to conda (as base environment) and poetry as packaging and dependency management
   - Support to pre-commit
   - CI with github actions
+  - Flexible build system selection: Choose between popular build systems like
+      [Poetry](https://python-poetry.org/) or [Flit](https://flit.pypa.io) based
+      on your preference.
   - Release workflow with semantic release and github actions
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be
