@@ -29,3 +29,11 @@ most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your
 suggestion as a issue at
 https://github.com/osl-incubator/scicookie/issues/new/choose.
+ 
+## Test Library
+
+There are several test library options available to development of Python packages. SciCookie support the following:
+
+-  [**Pytest**](https://docs.pytest.org/en/): is a popular testing framework for Python. It simplifies the process of writing and running tests by providing a concise syntax and powerful features. With Pytest, you can automatically discover and collect test cases, use fixtures for test setup and resource management, and write test functions with assert statements to check expected outcomes. It offers various options for test execution, including running specific tests, parallel execution, and generating test reports. Pytest also has a thriving ecosystem of plugins that extend its capabilities, such as code coverage analysis and test parameterization. Overall, Pytest is widely adopted for its simplicity, flexibility, and community support, making it an effective tool for ensuring the quality and reliability of Python code. You can check documentation [here](https://docs.pytest.org/en/)
+
+- [**Hypothesis**](https://hypothesis.readthedocs.io/): is a property-based testing library for Python. It focuses on generating diverse input data and exploring different scenarios to thoroughly test code. Instead of relying on specific examples, Hypothesis allows you to define general properties that your code should satisfy. It automatically generates random inputs, including edge cases, to uncover potential bugs and unexpected behaviors. Hypothesis integrates well with popular testing frameworks like Pytest and promotes comprehensive testing to improve code reliability. You can check documentation [here](https://hypothesis.readthedocs.io/)

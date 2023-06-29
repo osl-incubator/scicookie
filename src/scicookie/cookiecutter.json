@@ -58,6 +58,7 @@
   "use_pre_commit": "yes",
   "use_pydocstyle": "yes",
   "use_pytest": "yes",
+  "use_hypothesis": "yes",
   "use_shellcheck": "yes",
   "use_vulture": "yes",
   "use_containers": [

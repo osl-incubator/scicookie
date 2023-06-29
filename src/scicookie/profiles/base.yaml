@@ -122,6 +122,7 @@ use_tools:
     - pre-commit
     - pydocstyle
     - pytest
+    - hypothesis
     - shellcheck
     - vulture
   enabled: false
