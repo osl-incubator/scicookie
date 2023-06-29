@@ -48,7 +48,7 @@ dependencies = [
 {% endif %}
 {%- endif -%}{#- end of use_pytest -#}
 {%- if cookiecutter.use_hypothesis == "yes" -%}
-    "hypothesis>=6.0"
+    "hypothesis>=6.0",
 {% endif %}
 {%- if cookiecutter.use_coverage == "yes" -%}
     "coverage>=7.2.7",
