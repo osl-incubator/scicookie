@@ -103,8 +103,10 @@ docs-preview: docs-build
 build:
 {%- if cookiecutter.build_system == 'poetry' %}
 	poetry build
-{%- elif cookiecutter.build_system == 'poetry' %}
+{%- elif cookiecutter.build_system == 'flit' %}
 	flit build
+{%- elif cookiecutter.build_system == 'mesonpy' %}
+	meson build
 {%- endif %}
 
 .PHONY:release-ci

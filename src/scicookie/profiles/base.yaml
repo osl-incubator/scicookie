@@ -83,6 +83,7 @@ build_system:
   choices:
     - poetry
     - flit
+    - mesonpy
   enabled: false
 
 command_line_interface:

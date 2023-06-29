@@ -28,6 +28,15 @@ packages to PyPI. Flit handles the packaging, distribution, and installation of
 Python packages, making it easier for us to share our code with others. It also
 includes features such as dependency management, versioning, and metadata
 management.
+{%- elif cookiecutter.build_system == "mesonpy" -%}
+In addition, you should know that to build our package we use
+[meson-python](https://meson-python.readthedocs.io/en/latest/index.html),
+it's a tool for automating and simplifying the construction of software
+projects written in the Python programming language. It is based on the
+*Meson* build system, which allows you to efficiently configure and manage
+the build process of a project. It allows you to easily define project
+dependencies, specify build options, generate configuration files and
+build scripts, among other tasks related to building software.
 
 {%- endif %}
 

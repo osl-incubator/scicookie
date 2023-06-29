@@ -24,6 +24,15 @@ packages. SciCookie support the following:
   few  commands, you can use Flit to quickly create source distributions and
   wheel packages and submit them to PyPI.
 
+- [**meson-python**](https://meson-python.readthedocs.io/en/latest/index.html):
+  It's a Python build backend built on top of the *Meson* build-system.
+  It enables you to use Meson for your Python packages. With
+  meson-python, you can easily define project dependencies, specify
+  build options, generate configuration files and build scripts, among
+  other things. Meson-python is primarily focused on improving speed and
+  ease of use compared to other build systems. It is designed to be fast
+  and scalable, making it suitable for both small and large projects.
+
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your
