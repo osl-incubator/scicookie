@@ -35,6 +35,7 @@ CONDA_PREFIX="${CONDA_PATH}/envs/${ENV_NAME}"
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/mambaforge\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/conda\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda3\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
 export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
