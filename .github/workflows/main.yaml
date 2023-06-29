@@ -65,6 +65,7 @@ jobs:
           - coc.sh
           - governance.sh
           - roadmap.sh
+          - build-system.sh
 
     defaults:
       run:
