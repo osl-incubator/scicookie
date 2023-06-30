@@ -45,8 +45,8 @@ if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then
   flit install
-elif command -v mesonpy &> /dev/null; then
-  meson install
+elif command -v meson &> /dev/null; then
+  pip install .
 fi
 
 ipython kernel install --name "python3" --user
