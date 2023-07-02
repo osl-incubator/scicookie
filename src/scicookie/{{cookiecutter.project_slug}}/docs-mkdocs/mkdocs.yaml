@@ -44,7 +44,11 @@ plugins:
       enable_inventory: true
       handlers:
         python:
-          paths: [src]
+          {% if cookiecutter.project_layout == "src" -%}
+          paths: [../src]
+          {% else %}
+          paths: [..]
+          {%- endif %}
           import:
             - https://docs.python.org/3/objects.inv
           options:
