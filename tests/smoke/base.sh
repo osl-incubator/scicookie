@@ -35,6 +35,7 @@ CONDA_PREFIX="${CONDA_PATH}/envs/${ENV_NAME}"
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/mambaforge\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/conda\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda\/[^:]+//g")
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda3\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
 export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
@@ -44,6 +45,8 @@ if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then
   flit install
+elif command -v meson &> /dev/null; then
+  pip install -e .
 fi
 
 ipython kernel install --name "python3" --user

@@ -45,7 +45,8 @@
   ],
   "build_system": [
     "poetry",
-    "flit"
+    "flit",
+    "mesonpy"
   ],
   "use_bandit": "yes",
   "use_black": "no",

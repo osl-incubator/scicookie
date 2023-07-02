@@ -6,8 +6,10 @@ dependencies:
   - python <3.11
 {%- if cookiecutter.build_system == 'poetry' %}
   - poetry
-{%- else %}
+{%- elif cookiecutter.build_system == 'flit' %}
   - flit
+{%- elif cookiecutter.build_system == 'mesonpy' %}
+  - meson-python
 {%- endif %}
   - nodejs  # used by semantic-release
   - shellcheck

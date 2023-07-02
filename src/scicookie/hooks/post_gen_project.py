@@ -54,6 +54,8 @@ ROADMAP_PATH = None
 BUILD_SYSTEM = "poetry"
 {% elif cookiecutter.build_system == "flit" -%}
 BUILD_SYSTEM = "flit"
+{% elif cookiecutter.build_system == "mesonpy" -%}
+BUILD_SYSTEM = "mesonpy"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -154,6 +156,15 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "flit-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+    elif BUILD_SYSTEM == "mesonpy":
+        shutil.move(
+            build_system_dir / "mesonpy-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+        shutil.move(
+            build_system_dir / "meson.build",
+            PROJECT_DIRECTORY / 'meson.build'
         )
     else:
         shutil.move(
