@@ -4,18 +4,18 @@ channels:
   - conda-forge
 dependencies:
   - python <3.11
-{%- if cookiecutter.build_system == 'poetry' %}
+{%- if cookiecutter.build_system == "poetry" %}
   - poetry
-{%- elif cookiecutter.build_system == 'flit' %}
+{%- elif cookiecutter.build_system == "flit" %}
   - flit
-{%- elif cookiecutter.build_system == 'mesonpy' %}
+{%- elif cookiecutter.build_system == "mesonpy" %}
   - meson-python
-{%- elif cookiecutter.build_system == 'setuptools' %}
+{%- elif cookiecutter.build_system == "setuptools" %}
   - setuptools
   - build
 {%- endif %}
   - nodejs  # used by semantic-release
   - shellcheck
-{%- if cookiecutter.documentation_engine == 'sphinx' %}
+{%- if cookiecutter.documentation_engine == "sphinx" %}
   - pandoc
 {%- endif %}
