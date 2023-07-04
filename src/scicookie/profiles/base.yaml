@@ -84,6 +84,7 @@ build_system:
     - poetry
     - flit
     - mesonpy
+    - setuptools
   enabled: false
 
 command_line_interface:

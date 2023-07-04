@@ -47,6 +47,8 @@ elif command -v flit &> /dev/null; then
   flit install
 elif command -v meson &> /dev/null; then
   pip install -e .
+elif  command -v setuptools &> /dev/null; then
+  pip install --editable .
 fi
 
 ipython kernel install --name "python3" --user

@@ -10,6 +10,9 @@ dependencies:
   - flit
 {%- elif cookiecutter.build_system == 'mesonpy' %}
   - meson-python
+{%- elif cookiecutter.build_system == 'setuptools' %}
+  - setuptools
+  - build
 {%- endif %}
   - nodejs  # used by semantic-release
   - shellcheck

@@ -56,6 +56,8 @@ BUILD_SYSTEM = "poetry"
 BUILD_SYSTEM = "flit"
 {% elif cookiecutter.build_system == "mesonpy" -%}
 BUILD_SYSTEM = "mesonpy"
+{% elif cookiecutter.build_system == "setuptools" -%}
+BUILD_SYSTEM = "setuptools"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -165,6 +167,11 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "meson.build",
             PROJECT_DIRECTORY / 'meson.build'
+        )
+    elif BUILD_SYSTEM == "setuptools":
+        shutil.move(
+            build_system_dir / "setuptools-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
         )
     else:
         shutil.move(
