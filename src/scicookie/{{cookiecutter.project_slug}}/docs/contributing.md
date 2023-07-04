@@ -37,6 +37,12 @@ projects written in the Python programming language. It is based on the
 the build process of a project. It allows you to easily define project
 dependencies, specify build options, generate configuration files and
 build scripts, among other tasks related to building software.
+{%- elif cookiecutter.build_system == "setuptools" -%}
+In addition, you should know that to build our package we use
+[Setuptools](https://setuptools.pypa.io/en/latest/), it's a package to easily
+define the package structure, manage dependencies and convert our project into a
+distributable package. Also, setuptools automates tasks such as packaging
+and installation, saving time and effort for both our team and end-users.
 
 {%- endif %}
 

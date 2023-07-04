@@ -26,11 +26,11 @@ for a Python package.
   - Support to pre-commit
   - CI with github actions
   - Release workflow with semantic release and github actions
-  - Flexible build system selection: Choose between popular build
-    systems like [Poetry](https://python-poetry.org/),
-    [Flit](https://flit.pypa.io) or
-    [meson-python](https://meson-python.readthedocs.io/en/latest/index.html)
-    based on your preference.
+  - Flexible build system selection: Choose between popular build systems like
+    [Poetry](https://python-poetry.org/), [Flit](https://flit.pypa.io),
+    [meson-python](https://meson-python.readthedocs.io/en/latest/index.html) or
+    [Setuptools](https://setuptools.pypa.io/en/latest/) based on your
+    preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be
   importable into a subdirectory. This subdirectory is typically named
