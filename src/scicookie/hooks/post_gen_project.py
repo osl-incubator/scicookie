@@ -58,6 +58,8 @@ BUILD_SYSTEM = "flit"
 BUILD_SYSTEM = "mesonpy"
 {% elif cookiecutter.build_system == "setuptools" -%}
 BUILD_SYSTEM = "setuptools"
+{% elif cookiecutter.build_system == "pdm" -%}
+BUILD_SYSTEM = "pdm"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -171,6 +173,11 @@ def clean_up_build_system():
     elif BUILD_SYSTEM == "setuptools":
         shutil.move(
             build_system_dir / "setuptools-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+    elif BUILD_SYSTEM == "pdm":
+        shutil.move(
+            build_system_dir / "pdm-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     else:

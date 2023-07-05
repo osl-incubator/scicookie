@@ -47,6 +47,8 @@ elif command -v flit &> /dev/null; then
   flit install
 elif command -v meson &> /dev/null; then
   pip install -e .
+elif command -v pdm &> /dev/null; then
+  pdm install
 else
     # use setuptools
   pip install --editable .
