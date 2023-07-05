@@ -47,7 +47,8 @@
     "poetry",
     "flit",
     "mesonpy",
-    "setuptools"
+    "setuptools",
+    "pdm"
   ],
   "use_bandit": "yes",
   "use_black": "no",

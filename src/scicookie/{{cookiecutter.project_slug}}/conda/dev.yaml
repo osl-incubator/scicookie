@@ -13,6 +13,8 @@ dependencies:
 {%- elif cookiecutter.build_system == "setuptools" %}
   - setuptools
   - build
+{%- elif cookiecutter.build_system == "pdm" %}
+  - pdm
 {%- endif %}
   - nodejs  # used by semantic-release
   - shellcheck

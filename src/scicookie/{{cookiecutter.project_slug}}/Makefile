@@ -109,6 +109,8 @@ build:
 	meson build
 {%- elif cookiecutter.build_system == "setuptools" %}
 	python -m build
+{%- elif cookiecutter.build_system == "pdm" %}
+	pdm build
 {%- endif %}
 
 .PHONY:release-ci
