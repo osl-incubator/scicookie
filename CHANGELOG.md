@@ -1,6 +1,21 @@
 # Release Notes
 ---
 
+# [0.3.0](https://github.com/osl-incubator/scicookie/compare/0.2.0...0.3.0) (2023-07-05)
+
+
+### Bug Fixes
+
+* Fix package's name ([#137](https://github.com/osl-incubator/scicookie/issues/137)) ([4066549](https://github.com/osl-incubator/scicookie/commit/406654935b34e1b9f9a36d66f4020343594f65af))
+
+
+### Features
+
+* **hypothesis:** Added hypothesis as an option  ([#134](https://github.com/osl-incubator/scicookie/issues/134)) ([791ca16](https://github.com/osl-incubator/scicookie/commit/791ca163838e42437790aac20d625c41df3b497b))
+* **template:** Adding flit as a build-system option ([#136](https://github.com/osl-incubator/scicookie/issues/136)) ([44ecccf](https://github.com/osl-incubator/scicookie/commit/44ecccf03f4c7f04f37044b4fd1a4bb3d6e0e75c))
+* **template:** adding meson-python as a build-system option ([#139](https://github.com/osl-incubator/scicookie/issues/139)) ([c05dc79](https://github.com/osl-incubator/scicookie/commit/c05dc79643272b22040769bbadbcebd0813244e2))
+* **template:** Adding setuptools as a build-system option ([#140](https://github.com/osl-incubator/scicookie/issues/140)) ([4cd11c0](https://github.com/osl-incubator/scicookie/commit/4cd11c0ec7189ef2756f728a40c3c780c5bc9535)), closes [#53](https://github.com/osl-incubator/scicookie/issues/53)
+
 # [0.2.0](https://github.com/osl-incubator/scicookie/compare/0.1.1...0.2.0) (2023-06-17)
 
 
