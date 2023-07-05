@@ -33,7 +33,7 @@ packages. SciCookie support the following:
   ease of use compared to other build systems. It is designed to be fast
   and scalable, making it suitable for both small and large projects.
 
-- [Setuptools](https://setuptools.pypa.io/en/latest/): It's a package that
+- [**Setuptools**](https://setuptools.pypa.io/en/latest/): It's a package that
   facilitates the distribution and installation of Python packages. Setuptools
   provides a way to define metadata about your project, such as its name,
   version, dependencies, and other details. It also provides functionality for
@@ -42,6 +42,15 @@ packages. SciCookie support the following:
   share reusable code (in the form of a library) and programs (e.g., CLI/GUI
   tools implemented in Python), that can be installed with pip and uploaded to
   PyPI."_
+
+- [**PDM**](https://pdm.fming.dev/): It's a modern Python package and
+  dependency manager supporting the latest PEP standards. But it is more
+  than a package manager. It boosts your development workflow in various
+  aspects. It has very powerful features, including easy and fast
+  dependency resolution, especially for large binary distributions, a
+  PEP 517 compilation backend, PEP 621 project metadata, a flexible and
+  powerful plugin system. It also offers, among other things, versatile
+  user scripting, PyPI integration and version management.
 
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
