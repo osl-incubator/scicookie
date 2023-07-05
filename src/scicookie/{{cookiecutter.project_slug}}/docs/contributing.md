@@ -43,6 +43,13 @@ In addition, you should know that to build our package we use
 define the package structure, manage dependencies and convert our project into a
 distributable package. Also, setuptools automates tasks such as packaging
 and installation, saving time and effort for both our team and end-users.
+{%- elif cookiecutter.build_system == "pdm" -%}
+In addition, you should know that to build our package we use
+[PDM](https://pdm.fming.dev/), it's a build system for Python projects.
+It provides an efficient and fast way to manage project dependencies, as
+well as build and distribute code. It is fast to install, has built-in
+virtualenv, offers support for different package sources, and provides
+an easy way to distribute code.
 
 {%- endif %}
 
