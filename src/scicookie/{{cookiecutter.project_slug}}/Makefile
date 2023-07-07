@@ -111,6 +111,8 @@ build:
 	python -m build
 {%- elif cookiecutter.build_system == "pdm" %}
 	pdm build
+{%- elif cookiecutter.build_system == "hatchling" %}
+	hatchling build
 {%- endif %}
 
 .PHONY:release-ci
