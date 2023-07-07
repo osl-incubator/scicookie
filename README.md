@@ -30,8 +30,9 @@ for a Python package.
     systems like [Poetry](https://python-poetry.org/),
     [Flit](https://flit.pypa.io),
     [meson-python](https://meson-python.readthedocs.io/en/latest/index.html),
-    [Setuptools](https://setuptools.pypa.io/en/latest/) or
-    [PDM](https://pdm.fming.dev/) 
+    [Setuptools](https://setuptools.pypa.io/en/latest/),
+    [PDM](https://pdm.fming.dev/) or
+    [Hatchling](https://hatch.pypa.io)
     based on your preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be
