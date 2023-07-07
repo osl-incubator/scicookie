@@ -60,6 +60,8 @@ BUILD_SYSTEM = "mesonpy"
 BUILD_SYSTEM = "setuptools"
 {% elif cookiecutter.build_system == "pdm" -%}
 BUILD_SYSTEM = "pdm"
+{% elif cookiecutter.build_system == "hatchling" -%}
+BUILD_SYSTEM = "hatchling"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
