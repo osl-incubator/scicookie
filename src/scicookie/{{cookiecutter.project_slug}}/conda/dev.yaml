@@ -15,7 +15,7 @@ dependencies:
   - build
 {%- elif cookiecutter.build_system == "pdm" %}
   - pdm
-{%- elif cookiecutter.build_system == "mesonpy" %}
+{%- elif cookiecutter.build_system == "hatchling" %}
   - hatchling  
 {%- endif %}
   - nodejs  # used by semantic-release
