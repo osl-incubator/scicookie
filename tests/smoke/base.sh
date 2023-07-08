@@ -50,7 +50,6 @@ elif command -v meson &> /dev/null; then
 elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatchling &> /dev/null; then
-  pip install hatch 
   pip install hatchling
 else
     # use setuptools
