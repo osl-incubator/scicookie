@@ -32,7 +32,7 @@ for a Python package.
     [meson-python](https://meson-python.readthedocs.io/en/latest/index.html),
     [Setuptools](https://setuptools.pypa.io/en/latest/),
     [PDM](https://pdm.fming.dev/) or
-    [Hatchling](https://hatch.pypa.io)
+    [Hatch](https://hatch.pypa.io)
     based on your preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be
