@@ -52,7 +52,7 @@ packages. SciCookie support the following:
   powerful plugin system. It also offers, among other things, versatile
   user scripting, PyPI integration and version management.
   
-- [**Hatchling**](https://hatch.pypa.io): It's a PEP 517/PEP 660 compatible
+- [**Hatch**](https://hatch.pypa.io): It's a PEP 517/PEP 660 compatible
   build backend used by Hatch, a modern, extensible Python project manager.
   It provides a standardized build system with reproducible builds by default,
   robust environment management with support for custom scripts, easy publishing
