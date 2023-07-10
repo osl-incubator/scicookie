@@ -184,7 +184,7 @@ def clean_up_build_system():
         )
     elif BUILD_SYSTEM == "hatch":
         shutil.move(
-            build_system_dir / "hatchling-pyproject.toml",
+            build_system_dir / "hatch-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )     
     else:
