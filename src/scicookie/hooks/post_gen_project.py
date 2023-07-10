@@ -61,7 +61,7 @@ BUILD_SYSTEM = "setuptools"
 {% elif cookiecutter.build_system == "pdm" -%}
 BUILD_SYSTEM = "pdm"
 {% elif cookiecutter.build_system == "hatchling" -%}
-BUILD_SYSTEM = "hatchling"
+BUILD_SYSTEM = "hatch"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
