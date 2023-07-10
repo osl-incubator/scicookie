@@ -49,7 +49,7 @@ elif command -v meson &> /dev/null; then
   pip install -e .
 elif command -v pdm &> /dev/null; then
   pdm install
-elif command -v hatchling &> /dev/null; then
+elif command -v hatch &> /dev/null; then
   hatch install
 else
     # use setuptools
