@@ -50,7 +50,7 @@ elif command -v meson &> /dev/null; then
 elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatch &> /dev/null; then
-  hatch shell
+  pip install hatch
 else
     # use setuptools
   pip install --editable .
