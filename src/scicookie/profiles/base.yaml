@@ -86,7 +86,7 @@ build_system:
     - mesonpy
     - setuptools
     - pdm
-    - hatchling
+    - hatch
   enabled: false
 
 command_line_interface:
