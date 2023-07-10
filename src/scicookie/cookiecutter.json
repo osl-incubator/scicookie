@@ -49,7 +49,7 @@
     "mesonpy",
     "setuptools",
     "pdm",
-    "hatchling"
+    "hatch"
   ],
   "use_bandit": "yes",
   "use_black": "no",
