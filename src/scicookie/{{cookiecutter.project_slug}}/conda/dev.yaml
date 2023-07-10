@@ -16,7 +16,7 @@ dependencies:
 {%- elif cookiecutter.build_system == "pdm" %}
   - pdm
 {%- elif cookiecutter.build_system == "hatchling" %}
-  - hatchling  
+  - hatch
 {%- endif %}
   - nodejs  # used by semantic-release
   - shellcheck
