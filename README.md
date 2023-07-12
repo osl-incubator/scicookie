@@ -84,3 +84,10 @@ makim tests.lint
 makim tests.unittest
 makim tests.smoke
 ```
+
+## Maintainers
+
+- Anavelyz Perez - [@Anavelyz](https://github.com/Anavelyz)
+- Ever Vino - [@EverVino](https://github.com/EverVino)
+- Ivan Ogasawara - [@xmnlab](https://github.com/xmnlab)
+- Yurely Camacho - [@YurelyCamacho](https://github.com/YurelyCamacho)
