@@ -26,6 +26,7 @@ jobs:
         mamba-version: "1.*"
         environment-file: conda/dev.yaml
         channels: conda-forge,nodefaults
+        channel-priority: true
         activate-environment: {{ cookiecutter.project_slug }}
         use-mamba: true
         miniforge-variant: Mambaforge
