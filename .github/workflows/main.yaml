@@ -23,7 +23,7 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           miniconda-version: "latest"
-          mamba-version: "1.*"
+          mamba-version: "1.4.*"
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
           activate-environment: pypkg
