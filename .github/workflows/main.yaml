@@ -23,9 +23,10 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           miniconda-version: "latest"
-          mamba-version: "1.4.*"
+          mamba-version: "1.*"
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
+          channel-priority: true
           activate-environment: pypkg
           use-mamba: true
           miniforge-variant: Mambaforge
@@ -77,9 +78,10 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           miniconda-version: "latest"
-          mamba-version: "1.1.0"
+          mamba-version: "1.*"
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
+          channel-priority: true
           activate-environment: pypkg
           use-mamba: true
           miniforge-variant: Mambaforge
