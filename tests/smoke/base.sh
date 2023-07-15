@@ -50,16 +50,17 @@ elif command -v meson &> /dev/null; then
 elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatch &> /dev/null; then
-  $COMMAND_PREFIX pip install -e .
+  $COMMAND_PREFIX pytest
+  $COMMAND_PREFIX ipython kernel install --name "python3" --user
 else
     # use setuptools
   pip install --editable .
 fi
 
-$COMMAND_PREFIX ipython kernel install --name "python3" --user
+ipython kernel install --name "python3" --user
 
-$COMMAND_PREFIX pre-commit install
-$COMMAND_PREFIX pre-commit run --all-files --verbose
+pre-commit install
+pre-commit run --all-files --verbose
 
 make docs-build
 make build
