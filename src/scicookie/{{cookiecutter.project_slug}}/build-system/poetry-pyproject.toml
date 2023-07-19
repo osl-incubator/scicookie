@@ -3,6 +3,15 @@ name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.project_version }}"  # semantic-release
 description = "{{ cookiecutter.project_short_description }}"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
+{% if cookiecutter.project_layout == "src" -%}
+packages = [
+  {include = "{{ cookiecutter.package_slug }}", from="src"},
+]
+{% else -%}
+packages = [
+  {include = "{{ cookiecutter.package_slug }}"},
+]
+{% endif -%}
 license = "{{ cookiecutter.project_license }}"
 exclude = [
   ".git/*",

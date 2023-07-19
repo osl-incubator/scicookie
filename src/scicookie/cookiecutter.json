@@ -4,7 +4,7 @@
   "project_name": "OSL Python package",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "package_slug": "{{ cookiecutter.project_slug.lower().replace('-', '_') }}",
-  "project_short_description": "OSL Python Package contains all the boilerplate you need to create a Python package.",
+  "project_short_description": "This Project aims to ...",
   "project_version": "0.1.0",
   "project_url": "https://{{ cookiecutter.project_slug }}.com",
   "project_license": [
