@@ -50,8 +50,9 @@ elif command -v meson &> /dev/null; then
 elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatch &> /dev/null; then
-  $COMMAND_PREFIX pytest
+  $COMMAND_PREFIX pytest .
   $COMMAND_PREFIX ipython kernel install --name "python3" --user
+  
 else
     # use setuptools
   pip install --editable .

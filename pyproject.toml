@@ -34,7 +34,7 @@ Sphinx = ">=4.4"
 jupyterlab = ">=3.5.1"
 jupyter-book = ">=0.12.3"
 myst-parser = ">=0.15"
-makim = "1.8.1"
+makim = "1.8.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
