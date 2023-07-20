@@ -34,7 +34,7 @@ classifiers = [
   "Topic :: Scientific/Engineering",
   "Typing :: Typed",
 ]
-version = "{{ cookiecutter.project_version }}"
+dynamic = ["version"]
 requires-python = ">=3.8.1"
 dependencies = [
 {# keep this line here #}
@@ -115,6 +115,13 @@ Homepage = "{{ cookiecutter.project_url }}"
 "Bug Tracker" = "{{ cookiecutter.project_url }}/issues"
 Discussions = "{{ cookiecutter.project_url }}/discussions"
 Changelog = "{{ cookiecutter.project_url }}/releases"
+
+[tool.hatch.version]
+{# keep this line here #}
+{%- if cookiecutter.project_layout == 'flat' -%}
+path = "{{ cookiecutter.package_slug }}/__init__.py"
+{% elif cookiecutter.project_layout == 'src' -%}
+path = "src/{{ cookiecutter.package_slug }}/__init__.py"
 {% endif %}
 
 {% include "build-system/base-pyproject.toml" %}
