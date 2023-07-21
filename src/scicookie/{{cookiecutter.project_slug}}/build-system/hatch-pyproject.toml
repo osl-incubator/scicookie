@@ -34,7 +34,7 @@ classifiers = [
   "Topic :: Scientific/Engineering",
   "Typing :: Typed",
 ]
-dynamic = ["version"]
+version = "{{ cookiecutter.project_version }}"
 requires-python = ">=3.8.1"
 dependencies = [
 {# keep this line here #}
