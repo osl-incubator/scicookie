@@ -60,6 +60,7 @@ fi
 $COMMAND_PREFIX ipython kernel install --name "python3" --user
 
 $COMMAND_PREFIX pre-commit install
+
 $COMMAND_PREFIX pre-commit run --all-files --verbose
 
 $COMMAND_PREFIX make docs-build
