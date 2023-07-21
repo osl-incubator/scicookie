@@ -48,7 +48,8 @@
     "flit",
     "mesonpy",
     "setuptools",
-    "pdm"
+    "pdm",
+    "hatch"
   ],
   "use_bandit": "yes",
   "use_black": "no",

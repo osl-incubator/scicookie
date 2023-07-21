@@ -51,7 +51,17 @@ packages. SciCookie support the following:
   PEP 517 compilation backend, PEP 621 project metadata, a flexible and
   powerful plugin system. It also offers, among other things, versatile
   user scripting, PyPI integration and version management.
-
+  
+- [**Hatch**](https://hatch.pypa.io): It's a PEP 517/PEP 660 compatible
+  build backend used by Hatch, a modern, extensible Python project manager.
+  It provides a standardized build system with reproducible builds by default,
+  robust environment management with support for custom scripts, easy publishing
+  to PyPI or other indexes, version management, and configurable project generation
+  with sane defaults. Hatchling ensures that your builds are reproducible, so you
+  can be confident that they will always produce the same results. It also helps
+  you manage your Python environments, so you can be sure that your projects have
+  the correct dependencies.
+  
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your

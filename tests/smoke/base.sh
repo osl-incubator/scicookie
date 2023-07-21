@@ -40,7 +40,7 @@ export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
 export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
 echo "[II] included env conda to the PATH"
-
+COMMAND_PREFIX= 
 if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then
@@ -49,17 +49,21 @@ elif command -v meson &> /dev/null; then
   pip install -e .
 elif command -v pdm &> /dev/null; then
   pdm install
+elif command -v hatch &> /dev/null; then
+  COMMAND_PREFIX="hatch run"
+  
 else
     # use setuptools
   pip install --editable .
 fi
 
-ipython kernel install --name "python3" --user
+$COMMAND_PREFIX ipython kernel install --name "python3" --user
 
-pre-commit install
-pre-commit run --all-files --verbose
+$COMMAND_PREFIX pre-commit install
 
-make docs-build
+$COMMAND_PREFIX pre-commit run --all-files --verbose
+
+$COMMAND_PREFIX make docs-build
 make build
 
 export PATH=${PATH_ORI}

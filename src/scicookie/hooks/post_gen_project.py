@@ -60,6 +60,8 @@ BUILD_SYSTEM = "mesonpy"
 BUILD_SYSTEM = "setuptools"
 {% elif cookiecutter.build_system == "pdm" -%}
 BUILD_SYSTEM = "pdm"
+{% elif cookiecutter.build_system == "hatch" -%}
+BUILD_SYSTEM = "hatch"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -180,6 +182,11 @@ def clean_up_build_system():
             build_system_dir / "pdm-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
+    elif BUILD_SYSTEM == "hatch":
+        shutil.move(
+            build_system_dir / "hatch-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )     
     else:
         shutil.move(
             build_system_dir / "base-pyproject.toml",
