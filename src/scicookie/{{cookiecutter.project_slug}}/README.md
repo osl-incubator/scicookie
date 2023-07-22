@@ -48,7 +48,7 @@ This tool is included with [Flake8](https://flake8.pycqa.org/en/latest/).
   different environments. This streamlines our development, testing, deployment,
   and collaboration workflows, making the entire process more efficient.
 {%- elif cookiecutter.use_containers == 'Podman' %}
-* Integration with DevOps tools: Podman in your Python project helps us
+* Integration with DevOps tools: Podman in our Python project helps us
   achieve a more secure, efficient, and flexible containerization strategy, and
   give us more control over application's dependencies and configurations.
   Podman allows us to manage containers without the need for a daemon, providing a
