@@ -127,7 +127,7 @@ two alternatives: *src* and *flat*.
   understand and maintain as the project grows larger. It also allows for better
   separation of concerns and promotes modularity.
 
-- **Flat structure**: The flat layout involves placing all the project's source
+- **Flat layout**: The flat layout involves placing all the project's source
   code files directly in the project's root directory without any
   subdirectories. This means that all modules and packages are at the same level
   and there is no explicit separation between different aspects of the project.
