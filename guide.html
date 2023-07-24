@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Guide &#8212; Cookiecutter Python Package</title>
+    <title>SciCookie user guide &#8212; Cookiecutter Python Package</title>
   
   
   
@@ -158,7 +158,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Guide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SciCookie user guide</a></li>
 </ul>
 
     </div>
@@ -295,7 +295,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Guide</h1>
+    <h1>SciCookie user guide</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -305,8 +305,35 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-system">Build System</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-library">Test Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-about-the-text-based-user-interface-tui">Notes about the text-based user interface (TUI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-author-of-project">The author of project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-about-the-project">Information about the project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-settings">Project settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-layout">Project layout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-system">Build system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-interfaces-clis">Command-line interfaces (CLIs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-engine">Documentation engine</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-tools">Project tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environment">Virtual Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-formatter">Code formatter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-security-vulnerabilities">Code Security Vulnerabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-coverage-testing">Code coverage testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style-and-logic-code-quality">Code style and logic (code quality)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-framework">Testing framework</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-commit-verification">Pre-commit verification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-analysis-of-shell-scripts">Static analysis of shell scripts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-devops-tools">Integration with DevOps tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-team">Project team</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of conduct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#governance-document">Governance document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roadmap-document">Roadmap document</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-version">Control Version</a></li>
 </ul>
             </nav>
         </div>
@@ -318,10 +345,183 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="guide">
-<h1>Guide<a class="headerlink" href="#guide" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="scicookie-user-guide">
+<h1>SciCookie user guide<a class="headerlink" href="#scicookie-user-guide" title="Permalink to this heading">#</a></h1>
+<p>SciCookie allows you to create a template for your Python project. The team has
+created this guide to help you understand every option and its functionality.</p>
+<p>The structure of the guide is as follows:</p>
+<ul class="simple">
+<li><p><span class="xref myst">SciCookie user guide</span></p>
+<ul>
+<li><p><span class="xref myst">Notes about the text-based user interface (TUI)</span></p></li>
+<li><p><span class="xref myst">The author of project</span></p></li>
+<li><p><span class="xref myst">Information about the project</span></p></li>
+<li><p><span class="xref myst">Project settings</span></p>
+<ul>
+<li><p><span class="xref myst">Project layout</span></p></li>
+<li><p><span class="xref myst">Build system</span></p></li>
+<li><p><span class="xref myst">Command-line interfaces (CLIs)</span></p></li>
+<li><p><span class="xref myst">Documentation engine</span></p></li>
+</ul>
+</li>
+<li><p><span class="xref myst">Project tools</span></p>
+<ul>
+<li><p><span class="xref myst">Virtual Environment</span></p></li>
+<li><p><span class="xref myst">Code formatter</span></p></li>
+<li><p><span class="xref myst">Code Security Vulnerabilities</span></p></li>
+<li><p><span class="xref myst">Code coverage testing</span></p></li>
+<li><p><span class="xref myst">Code style and logic (code quality)</span></p></li>
+<li><p><span class="xref myst">Testing framework</span></p></li>
+<li><p><span class="xref myst">Pre-commit verification</span></p></li>
+<li><p><span class="xref myst">Static analysis of shell scripts</span></p></li>
+</ul>
+</li>
+<li><p><span class="xref myst">Integration with DevOps tools</span></p></li>
+<li><p><span class="xref myst">Project team</span></p>
+<ul>
+<li><p><span class="xref myst">Code of conduct</span></p></li>
+<li><p><span class="xref myst">Governance document</span></p></li>
+<li><p><span class="xref myst">Roadmap document</span></p></li>
+</ul>
+</li>
+<li><p><span class="xref myst">Control Version</span></p></li>
+</ul>
+</li>
+</ul>
+<section id="notes-about-the-text-based-user-interface-tui">
+<h2>Notes about the text-based user interface (TUI)<a class="headerlink" href="#notes-about-the-text-based-user-interface-tui" title="Permalink to this heading">#</a></h2>
+<p>A TUI, or text-based user interface, is a type of user interface that uses text
+and keyboard input to display and interact with information on a computer
+screen.</p>
+<p>When you run the <code class="docutils literal notranslate"><span class="pre">scicookie</span></code> command in your terminal, a text-based user
+interface (TUI) is displayed where you can provide information about the author
+or the project itself. You can also choose from several options that are
+presented to you, with default values in all cases. To switch from one option to
+another, simply press “Enter”.</p>
+<p>In some cases, you may see a list of sub-options within a main option. Use the
+arrow keys to move up and down between the sub-options and the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> symbol will
+appear before the sub-option you have selected. Make sure you press “Enter” to
+confirm your selection when the required sub-option has been selected.</p>
+<p>You will also see a list of options for the project tools, this is presented in
+the following way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="o">&gt;</span> <span class="p">[</span> <span class="p">]</span> <span class="n">bandit</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">black</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">blue</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">conda</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">coverage</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">flake8</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">ruff</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">isort</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">mccabe</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">pre</span><span class="o">-</span><span class="n">commit</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">pydocstyle</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">pytest</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p>Use the right arrow key to select the tools you want, and use the up and down
+arrow keys to navigate through the list. If you accidentally select an option
+you don’t want, simply use the left arrow key to deselect it.</p>
+<p>The following is a description of the options in the TUI.</p>
+</section>
+<section id="the-author-of-project">
+<h2>The author of project<a class="headerlink" href="#the-author-of-project" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>author_name</strong></p></li>
+<li><p><strong>author_email</strong></p></li>
+</ul>
+</section>
+<section id="information-about-the-project">
+<h2>Information about the project<a class="headerlink" href="#information-about-the-project" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>project_name</p></li>
+<li><p>project_slug</p></li>
+<li><p>package_slug
+&lt;mencionar la diferencia entre project y package, muy importante&gt;</p></li>
+<li><p>project_version</p></li>
+<li><p>project_url</p></li>
+<li><p>project_license</p></li>
+</ul>
+</section>
+<section id="project-settings">
+<h2>Project settings<a class="headerlink" href="#project-settings" title="Permalink to this heading">#</a></h2>
+<p>Setting up some configurations in the project structure is important because it
+allows you to get an orderly workflow. With SciCookie you can configure elements
+such as project layout, build system, command-line interface and documentation
+engine. This can help streamline the development process by providing a
+consistent and standardized framework for the project.</p>
+<section id="project-layout">
+<h3>Project layout<a class="headerlink" href="#project-layout" title="Permalink to this heading">#</a></h3>
+<p>The organization of your code is important, which is why at SciCookie we offer
+two alternatives: <em>src</em> and <em>flat</em>.</p>
+<ul>
+<li><p><strong>src (Source) layout</strong>: The src layout is a common approach where the source
+code files are organized within a dedicated “src” directory. This directory
+serves as the root of the project’s source code and typically contains
+subdirectories that represent different modules or packages. Each module or
+package within the “src” directory focuses on a specific aspect of the
+project’s functionality.</p>
+<p>For example, a project following the src structure might have the following
+layout:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>project_slug/
+├─ src/
+│  └─ package_slug/
+│     ├─ __init__.py
+|     ├─ __main__.py
+│     ├─ module.py
+│     └─ ...
+├─ tests
+│  └─ ...
+├── pyproject.toml
+└── README.md
+</pre></div>
+</div>
+<p>The src structure helps in organizing the codebase and makes it easier to
+understand and maintain as the project grows larger. It also allows for better
+separation of concerns and promotes modularity.</p>
+</li>
+<li><p><strong>Flat layout</strong>: The flat layout involves placing all the project’s source
+code files directly in the project’s root directory without any
+subdirectories. This means that all modules and packages are at the same level
+and there is no explicit separation between different aspects of the project.</p>
+<p>Here’s an example of a flat structure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>project_slug/
+│ └─ package_slug/
+│ __init__.py
+| __main__.py
+│ module.py
+│ ...
+├─ tests
+│  └─ ...
+├── pyproject.toml
+└── README.md
+</pre></div>
+</div>
+<p>Because all source files are on the same level in this layout, they are easy to
+find and access. However, as the project becomes larger and more complex, it can
+become more difficult to maintain and navigate the codebase.</p>
+<p>The flat structure is simpler and may be suitable for smaller projects or
+scripts where the codebase is relatively small and does not require extensive
+organization or separation of concerns.</p>
+</li>
+</ul>
+<p>Both <strong>src</strong> and <strong>flat</strong> layouts have their own advantages and disadvantages.
+The choice between them depends on your specific requirements and the complexity
+of your project, as well as your personal preferences and team conventions.</p>
+<p>If you want to find more information about it you can visit:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/">Python Packaging User Guide » Discussions » src layout vs flat
+layout</a></p></li>
+<li><p><a class="reference external" href="https://py-pkgs.org/04-package-structure.html#the-source-layout">The source
+layout</a> in
+the book <a class="reference external" href="https://py-pkgs.org/">Python Packages</a> by <a class="reference external" href="https://www.tomasbeuzen.com/">Tomas
+Beuzen</a> &amp; <a class="reference external" href="https://www.tiffanytimbers.com/">Tiffany
+Timbers</a>.</p></li>
+<li><p><a class="reference external" href="https://blog.ionelmc.ro/2014/05/25/python-packaging/">Packaging a python library</a></p></li>
+</ul>
+</section>
 <section id="build-system">
-<h2>Build System<a class="headerlink" href="#build-system" title="Permalink to this heading">#</a></h2>
+<h3>Build system<a class="headerlink" href="#build-system" title="Permalink to this heading">#</a></h3>
 <p>There are several build system options available to development of Python
 packages. SciCookie support the following:</p>
 <ul class="simple">
@@ -367,6 +567,15 @@ dependency resolution, especially for large binary distributions, a
 PEP 517 compilation backend, PEP 621 project metadata, a flexible and
 powerful plugin system. It also offers, among other things, versatile
 user scripting, PyPI integration and version management.</p></li>
+<li><p><a class="reference external" href="https://hatch.pypa.io"><strong>Hatch</strong></a>: It’s a PEP 517/PEP 660 compatible
+build backend used by Hatch, a modern, extensible Python project manager.
+It provides a standardized build system with reproducible builds by default,
+robust environment management with support for custom scripts, easy publishing
+to PyPI or other indexes, version management, and configurable project generation
+with sane defaults. Hatchling ensures that your builds are reproducible, so you
+can be confident that they will always produce the same results. It also helps
+you manage your Python environments, so you can be sure that your projects have
+the correct dependencies.</p></li>
 </ul>
 <p>The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
@@ -374,13 +583,376 @@ Python packages. If you think we should add more options, you can submit your
 suggestion as a issue at
 <a class="github reference external" href="https://github.com/osl-incubator/scicookie/issues/new/choose">osl-incubator/scicookie#choose</a>.</p>
 </section>
-<section id="test-library">
-<h2>Test Library<a class="headerlink" href="#test-library" title="Permalink to this heading">#</a></h2>
-<p>There are several test library options available to development of Python packages. SciCookie support the following:</p>
+<section id="command-line-interfaces-clis">
+<h3>Command-line interfaces (CLIs)<a class="headerlink" href="#command-line-interfaces-clis" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.pytest.org/en/"><strong>Pytest</strong></a>: is a popular testing framework for Python. It simplifies the process of writing and running tests by providing a concise syntax and powerful features. With Pytest, you can automatically discover and collect test cases, use fixtures for test setup and resource management, and write test functions with assert statements to check expected outcomes. It offers various options for test execution, including running specific tests, parallel execution, and generating test reports. Pytest also has a thriving ecosystem of plugins that extend its capabilities, such as code coverage analysis and test parameterization. Overall, Pytest is widely adopted for its simplicity, flexibility, and community support, making it an effective tool for ensuring the quality and reliability of Python code. You can check documentation <a class="reference external" href="https://docs.pytest.org/en/">here</a></p></li>
-<li><p><a class="reference external" href="https://hypothesis.readthedocs.io/"><strong>Hypothesis</strong></a>: is a property-based testing library for Python. It focuses on generating diverse input data and exploring different scenarios to thoroughly test code. Instead of relying on specific examples, Hypothesis allows you to define general properties that your code should satisfy. It automatically generates random inputs, including edge cases, to uncover potential bugs and unexpected behaviors. Hypothesis integrates well with popular testing frameworks like Pytest and promotes comprehensive testing to improve code reliability. You can check documentation <a class="reference external" href="https://hypothesis.readthedocs.io/">here</a></p></li>
+<li><p>Click</p></li>
+<li><p>Argparse</p></li>
 </ul>
+</section>
+<section id="documentation-engine">
+<h3>Documentation engine<a class="headerlink" href="#documentation-engine" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>mkdocs</p></li>
+<li><p>sphinx</p></li>
+<li><p>jupyter-book</p></li>
+</ul>
+</section>
+</section>
+<section id="project-tools">
+<h2>Project tools<a class="headerlink" href="#project-tools" title="Permalink to this heading">#</a></h2>
+<p>SciCookie allows you to choose between several tools that can improve your
+project in different ways. Some of these tools can help you automate tasks,
+others allow you to format your code consistently, and others can help you find
+errors and vulnerabilities in your code, and much more.</p>
+<p>The tools are described below according to their functionality.</p>
+<section id="virtual-environment">
+<h3>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Permalink to this heading">#</a></h3>
+<p>-<strong>Conda</strong></p>
+</section>
+<section id="code-formatter">
+<h3>Code formatter<a class="headerlink" href="#code-formatter" title="Permalink to this heading">#</a></h3>
+<p>A code formatter is a tool that automatically reformats code to conform to a set
+of coding standards, such as PEP 8 guidelines. It helps us ensure consistency in
+our code, saves time by automating the formatting process, reduces errors by
+enforcing coding standards, and facilitates collaboration by making it easier
+for multiple developers to work on the same code base. In the options of
+SciCookie, you will find two choices: Black and Blue.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://black.readthedocs.io"><strong>Black</strong></a>: It is a popular code formatter tool
+for Python that automatically formats code to conform to PEP 8 guidelines. It
+provides a simple and opinionated way to format code, making it easy to use. The
+advantages of using Black include its ability to ensure consistent formatting,
+save time by automating the process, and reduce errors by enforcing coding
+standards.</p></li>
+</ul>
+<p>You can read the <a class="reference external" href="https://black.readthedocs.io"><em>black documentation</em></a> if you
+want to know more about it.</p>
+<ul class="simple">
+<li><p><strong>Blue</strong></p></li>
+</ul>
+<p>If you select both Blue and Black libraries in the TUI (Terminal User
+Interface), you will see the following message: “The libs Blue and Black were
+selected, but you need to choose just one of them.” and the template generation
+process will be stopped.</p>
+<p>Using code formatters such as black or blue in your project helps ensure
+consistent and readable code, making it easier to maintain and collaborate on.</p>
+</section>
+<section id="code-security-vulnerabilities">
+<h3>Code Security Vulnerabilities<a class="headerlink" href="#code-security-vulnerabilities" title="Permalink to this heading">#</a></h3>
+<p>The code security vulnerabilities are errors or weaknesses in code that can be
+exploited by attackers to gain unauthorized access, steal data, or cause damage
+to a system.</p>
+<p>To verify and prevent these vulnerabilities, there are several tools available
+in Python. One such tool available in SciCookie is <em>Bandit</em>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bandit.readthedocs.io"><strong>Bandit</strong></a>: It is a tool specifically designed to
+identify security issues in Python code. It scans code for common security
+problems such as hard-coded passwords and insecure file permissions. Some of the
+key features of Bandit are its ease of use, its ability to integrate with other
+tools and support for multiple versions of Python. To learn more about Bandit,
+you can read its <a class="reference external" href="https://bandit.readthedocs.io/en/latest/">documentation</a>.</p></li>
+</ul>
+<p>It is important to use code vulnerability detection tools because they can help
+identify security vulnerabilities in software and fix them before they can be
+exploited by attackers. This helps to ensure the security and reliability of the
+project.</p>
+</section>
+<section id="code-coverage-testing">
+<h3>Code coverage testing<a class="headerlink" href="#code-coverage-testing" title="Permalink to this heading">#</a></h3>
+<p>Code coverage testing is a software testing method that measures the percentage
+of code that is executed during a test run. This can be used to identify areas
+of code that are not being tested and to improve the overall quality of the
+software.</p>
+<p>There are a number of different code coverage tools available in Python. In
+SciCookie you have <em>coverage</em> available.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://coverage.readthedocs.io/"><strong>Coverage</strong></a>: It is an open source tool
+for measuring the code coverage of a program. This means that it measures what
+percentage of the program code was executed when the tests were run. Coverage
+can be useful for identifying parts of the code that are not being tested and
+may be vulnerable to bugs. This will show you the percentage of code covered by
+your tests, as well as detailed information about which lines were executed and
+which were not. If you want to know more about how it works, you can read the
+<a class="reference external" href="https://coverage.readthedocs.io/">Coverge documentation</a>.</p></li>
+</ul>
+<p>By using code coverage testing in Python, you can ensure that your code has been
+thoroughly tested and is free of bugs.</p>
+</section>
+<section id="code-style-and-logic-code-quality">
+<h3>Code style and logic (code quality)<a class="headerlink" href="#code-style-and-logic-code-quality" title="Permalink to this heading">#</a></h3>
+<p>Code style refers to the way in which your code is written. It includes things
+like indentation, line breaks, and variable names. Code logic refers to the way
+in which your code works. It includes things like the flow of your code, the use
+of data structures, and the implementation of algorithms.</p>
+<p>There are a number of tools that can help you to improve the code style and
+logic of your Python code; analyzing and verification of the code. In SciCookie
+you can choose and include in your project <em>flake8</em>, <em>Ruff</em>, <em>isort</em>, <em>mccabe</em>,
+<em>pydocstyle</em> and/or <em>vulture</em>.</p>
+<ul>
+<li><p><a class="reference external" href="https://flake8.pycqa.org/"><strong>Flake8</strong></a>: A tool that helps you find potential
+performance issues in your code. Flake8 can detect errors in syntax,
+indentation, naming conventions, and other types of style errors. It can be
+useful for improving the quality of Python code. Flake8 enforces coding style
+conventions defined in the Python Enhancement Proposal 8 (PEP 8).
+Additionally, flake8 integrates well with popular code editors like Visual
+Studio Code, PyCharm, and Sublime Text. It can highlight style violations
+directly in your editor, making it easy to spot and fix issues as you write
+code. Flake8 can also be integrated into continuous integration and deployment
+(CI/CD) pipelines to ensure code quality standards are met before merging
+changes.</p></li>
+<li><p><a class="reference external" href="https://beta.ruff.rs/docs/"><strong>Ruff</strong></a>: This is an extremely fast Python
+linter written in Rust. Linting is the process of inspect code for potential
+bugs or style issues, and Ruff is designed to perform this analysis quickly
+and efficiently. It is particularly useful for large codebases where
+traditional Python linters can be slow and resource intensive.</p>
+<p>Ruff is designed to be easy to use and can be integrated into existing Python
+development workflows. It can be used as a standalone command line tool, or
+integrated into editors and IDEs using plugins or extensions. It is also able to
+detect a wide range of potential errors and style issues, and provides clear and
+detailed error messages to help developers resolve these issues quickly.</p>
+</li>
+<li><p><strong>Isort</strong></p></li>
+<li><p><strong>McCabe</strong></p></li>
+<li><p><strong>pydocstyle</strong></p></li>
+<li><p><strong>Vulture</strong></p></li>
+</ul>
+<p>When writing your code, you should always try to make it as clear and concise as
+possible. This will make it easier for other developers to understand your code
+and make changes if necessary. It is also important to use data structures and
+algorithms that are appropriate for the task at hand. This will help ensure that
+your code is efficient and scalable.</p>
+</section>
+<section id="testing-framework">
+<h3>Testing framework<a class="headerlink" href="#testing-framework" title="Permalink to this heading">#</a></h3>
+<p>A test framework is a software tool that provides a set of guidelines,
+conventions, and utilities for writing and executing automated tests. It
+provides a structure for organizing tests, and typically includes features for
+test discovery, test execution, and test reporting.</p>
+<p>Test frameworks help to ensure the quality of software by automating the testing
+process. They allow developers to write tests that can be easily executed and
+repeated, and provide feedback on the success or failure of the tests. There are
+several options available for developing Python packages. SciCookie supports
+<em>pytest</em> and <em>hypothesis</em>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.pytest.org/en/"><strong>Pytest</strong></a>: It is a popular testing framework
+for Python. It simplifies the process of writing and running tests by providing
+a concise syntax and powerful features. With Pytest, you can automatically
+discover and collect test cases, use fixtures for test setup and resource
+management, and write test functions with assert statements to check expected
+outcomes. It offers various options for test execution, including running
+specific tests, parallel execution, and generating test reports. Pytest also has
+a thriving ecosystem of plugins that extend its capabilities, such as code
+coverage analysis and test parameterization. Overall, Pytest is widely adopted
+for its simplicity, flexibility, and community support, making it an effective
+tool for ensuring the quality and reliability of Python code. You can know more
+about it in its <a class="reference external" href="https://docs.pytest.org/en/">documentation</a>.</p></li>
+<li><p><a class="reference external" href="https://hypothesis.readthedocs.io/"><strong>Hypothesis</strong></a>: is a property-based
+testing library for Python. It focuses on generating diverse input data and
+exploring different scenarios to thoroughly test code. Instead of relying on
+specific examples, Hypothesis allows you to define general properties that your
+code should satisfy. It automatically generates random inputs, including edge
+cases, to uncover potential bugs and unexpected behaviors. Hypothesis integrates
+well with popular testing frameworks like Pytest and promotes comprehensive
+testing to improve code reliability. f you want to know more, check out the
+documentation <a class="reference external" href="https://hypothesis.readthedocs.io/">here</a>.</p></li>
+</ul>
+</section>
+<section id="pre-commit-verification">
+<h3>Pre-commit verification<a class="headerlink" href="#pre-commit-verification" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>pre-commit</strong></p></li>
+</ul>
+</section>
+<section id="static-analysis-of-shell-scripts">
+<h3>Static analysis of shell scripts<a class="headerlink" href="#static-analysis-of-shell-scripts" title="Permalink to this heading">#</a></h3>
+<p>This is the process of analyzing the code of a shell script without actually
+executing it. This is done by using specialized software tools that can scan the
+script and identify potential issues such as syntax errors, coding standards
+violations, security vulnerabilities, and performance problems. In SciCookie you
+have <em>ShellCheck</em> available.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/koalaman/shellcheck"><strong>ShellCheck</strong></a>: This is a static
+analysis tool for shell scripts. It checks shell scripts for common errors and
+potential bugs, such as syntax errors, variable misuse, and command
+substitution issues. Shellcheck supports various shells, including Bash, Dash,
+and Zsh, and it can be integrated into various text editors and IDEs. Some
+advantages of using Shellcheck may include its ability to catch potential bugs
+before they cause issues, its support for multiple shells, and its ease of
+integration with various development environments. For more information, you
+can visit its <a class="reference external" href="https://www.shellcheck.net/">website</a> or its repository on
+<a class="reference external" href="https://github.com/koalaman/shellcheck.net">GitHub</a>.</p></li>
+</ul>
+<p>The static analysis of shell scripts is an important tool in your project, it
+ensure that your code is of high quality, secure, and efficient.</p>
+<p>Each tool has its own purpose and can be useful in different situations. When
+choosing among these tools, it’s important to consider your specific needs and
+which tools may be most useful for your project.</p>
+</section>
+</section>
+<section id="integration-with-devops-tools">
+<h2>Integration with DevOps tools<a class="headerlink" href="#integration-with-devops-tools" title="Permalink to this heading">#</a></h2>
+<p>Integrating your Python project with DevOps tools can bring a number of benefits
+to the development and deployment process. DevOps tools are designed to automate
+and streamline the development pipeline, from code development to deployment and
+maintenance, and can help you improve the speed, quality and reliability of the
+development process. In SciCookie</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.docker.com/"><strong>Docker</strong></a>: This is a containerization platform
+that allows developers to package their applications and dependencies into a
+portable container. Containers are lightweight, efficient, and provide a
+consistent runtime environment, making it easier to deploy and run applications
+across different environments. In Python projects, Docker can be used to package
+and deploy Python applications and dependencies, providing a consistent runtime
+environment and making it easier to manage dependencies and configurations. You
+can read more about this on the <a class="reference external" href="https://www.docker.com/">Docker website</a> and in
+the <a class="reference external" href="https://docs.docker.com/">Docker documentation</a>.</p></li>
+<li><p><a class="reference external" href="https://podman.io/"><strong>Podman</strong></a>: It is a container engine without the need
+for a daemon running as root. With Podman, you can easily create and run
+containers, as well as manage their lifecycle and resources. This integration
+improves development and deployment processes, making them more efficient and
+streamlined. Podman in Python project helps to achieve a more secure, efficient
+and flexible containerization strategy and gives more control over application
+dependencies and configurations. As Podman allows containers to be managed
+without the need for a daemon, it provides a more secure and lightweight
+solution. You can read more about this on the <a class="reference external" href="https://podman.io/">Podman
+website</a> and in the <a class="reference external" href="https://docs.podman.io/">Podman
+documentation</a>.</p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/"><strong>Kubernetes</strong></a>: It is a container orchestration
+platform that automates the deployment, scaling, and management of containerized
+applications. It provides a platform for managing and scaling containerized
+applications across multiple hosts and environments, and offers advanced
+features such as automatic scaling, rolling updates, and self-healing. In Python
+projects, Kubernetes can be used to manage and orchestrate containerized Python
+applications, providing a scalable and reliable platform for running and
+deploying applications. You can read more about this on the <a class="reference external" href="https://kubernetes.io/">Kubernetes
+website</a> and in the <a class="reference external" href="https://kubernetes.io/docs/">Kubernetes
+documentation</a>.</p></li>
+</ul>
+<p>Overall, Docker, Podman, and Kubernetes are powerful tools for managing and
+deploying containerized applications, and can provide a streamlined and
+efficient platform for running Python projects.</p>
+</section>
+<section id="project-team">
+<h2>Project team<a class="headerlink" href="#project-team" title="Permalink to this heading">#</a></h2>
+<p>The project team refers to the group of people responsible for developing and
+maintaining the project. This includes developers, designers, testers and other
+stakeholders involved in the project. It is important that they are governed by
+some rules and regulations so that they become a friendly group with standards
+that others can follow and form a wider community. In SciCookie, we have some
+options that are linked to the <em>code of conduct</em>, the <em>governance document</em> and
+the <em>roadmap</em>.</p>
+<section id="code-of-conduct">
+<h3>Code of conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this heading">#</a></h3>
+<p>A code of conduct is a set of guidelines that outlines the expected behavior of
+individuals participating in a community or organization. It typically specifies
+the types of behavior that are considered acceptable and unacceptable, as well
+as the consequences for violating the code of conduct. In SciCookie you can find
+and choose between two adaptations of well-known codes of conduct accepted by a
+large part of the community, <em>A Code of Conduct for Open Source Communities by
+Contributors Covenant</em> and <em>The Citizen Code of Conduct</em>.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">contributor-covenant</span></code> option</strong>: The Contributor Covenant aims to create a
+safe and inclusive environment for all contributors to open source projects. By
+promoting inclusive language, respectful communication, and a zero-tolerance
+policy for harassment and discrimination, it helps to ensure that everyone can
+participate in open source communities without fear of discrimination or
+mistreatment. If you want to know more about this, you can visit the full text
+of this <a class="reference external" href="https://www.contributor-covenant.org/">code of conduct</a>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">citizen-code-of-conduct</span></code> option</strong>: The Citizen Code of Conduct is intended
+to create a safe and welcoming environment for all members of the community. By
+promoting respectful communication, inclusive behavior, and collaboration, it
+helps to ensure that everyone can participate in the community without fear of
+discrimination or mistreatment. If you would like to know more, you can read the
+full text of this <a class="reference external" href="https://github.com/stumpsyn/policies/blob/7caa4699ba74e341a46b3266d4610af477ba2c3d/citizen_code_of_conduct.md#citizen-code-of-conduct">code of
+conduct</a>.</p></li>
+</ul>
+<p>In case you do not want to include this file in your project, you can do so by
+selecting the option <code class="docutils literal notranslate"><span class="pre">None</span></code> (this is the default option).</p>
+</section>
+<section id="governance-document">
+<h3>Governance document<a class="headerlink" href="#governance-document" title="Permalink to this heading">#</a></h3>
+<p>A governance document is a formal document that outlines the structure,
+policies, and procedures of an organization or community. It typically describes
+how decisions are made, how resources are allocated, and how conflicts are
+resolved. This can take many different forms, depending on the needs and goals
+of the organization or community. SciCookie offers two adaptations for your
+project governance document: <em>NumPy Governance</em> and <em>SciML Scientific Machine
+Learning Governance</em>.</p>
+<p><strong>numpy-governance</strong> option: NumPy is a widely used open source project for
+scientific computing in Python. Its governance document outlines how the project
+is managed and how decisions are made. <a class="reference external" href="https://numpy.org/doc/stable/dev/governance/index.html"><em>The NumPy governance
+document</em></a> describes the
+roles and responsibilities of the project’s contributors, maintainers, and
+steering council, as well as the decision-making processes and procedures for
+contributing to the project. It emphasizes the importance of transparency,
+inclusivity, and participation in the development of the project. The <strong>NumPy
+Governance Document</strong> provides a clear framework for the management of the
+project and helps to ensure that it remains a vibrant and sustainable
+community-driven project. If you want to read the full text of Numpy’s
+governance document, click
+<a class="reference external" href="https://numpy.org/doc/stable/dev/governance/index.html">here</a>.</p>
+<p><strong>sciml-governance</strong> option: <a class="reference external" href="https://sciml.ai/governance/"><em>SciML Scientific Machine Learning
+Governance</em></a> is a governance document that outlines
+the structure and decision-making processes of the SciML community, which
+focuses on the development of scientific machine learning tools and methods. The
+document describes the roles and responsibilities of community members,
+including the Steering Committee and Technical Leaders. It also outlines the
+community’s decision-making processes, including how new projects are proposed
+and accepted, and how conflicts and disputes are handled. The governance
+document emphasizes the importance of collaboration, inclusivity and
+transparency in the development of scientific machine learning tools and
+methods. It also provides a clear framework for the governance of the community,
+helping to ensure that it remains a vibrant and effective force in the
+development of scientific machine learning. If you want to read the full text of
+SciML Scientific Machine Learning Governance, click
+<a class="reference external" href="https://sciml.ai/governance/">here</a>.</p>
+<p>In case you do not want to include this file in your project, you can do so by
+selecting the option <code class="docutils literal notranslate"><span class="pre">None</span></code> (this is the default option).</p>
+</section>
+<section id="roadmap-document">
+<h3>Roadmap document<a class="headerlink" href="#roadmap-document" title="Permalink to this heading">#</a></h3>
+<p>A roadmap is a strategic plan that outlines the objectives, milestones and
+actions required to achieve a specific goal or vision. It is typically used in
+business, project management and product development to provide a high-level
+overview of the steps required to achieve a desired outcome. A roadmap can
+include timelines, budgets, resource requirements and key performance indicators
+to track progress and measure success. The purpose is to provide a clear and
+actionable plan for achieving a goal and to communicate that plan to
+stakeholders and team members. SciCookie offers an adaptation for your project
+roadmap document, PyTorch-Ignite roadmap.</p>
+<p><strong>pytorch-ignite-roadmap</strong> option: PyTorch Ignite is an open-source library for
+high-level training and evaluation of neural networks in PyTorch. The PyTorch
+Ignite roadmap outlines the development plans for the library, including new
+features, bug fixes, and performance improvements. The roadmap may include
+timelines for releasing new versions, as well as details on specific features
+that are planned for each release. If you want to read the full text of PyTorch
+Ignite Roadmap, click <a class="reference external" href="https://github.com/pytorch/ignite/wiki/Roadmap">here</a>.</p>
+<p>In case you do not want to include this file in your project, you can do so by
+selecting the option <code class="docutils literal notranslate"><span class="pre">None</span></code> (this is the default option).</p>
+</section>
+</section>
+<section id="control-version">
+<h2>Control Version<a class="headerlink" href="#control-version" title="Permalink to this heading">#</a></h2>
+<p>Version control is essential for any project because it enables us to track and
+store all versions and changes made to our codebase. With this in mind, we have
+added some functionalities to SciCookie that allow you to easily add your Git
+account information and project URLs.</p>
+<p>By filling in the following fields, you can integrate your codebase with Git and
+take advantage of its powerful version control features:</p>
+<p><strong>git_username</strong>: This is where you can enter your Git username, which will be
+used only in the text of the documentation.</p>
+<p><strong>git_https_origin</strong>: This is the Git https origin URL, which is used for
+configuring your repository in your local environment.</p>
+<p><strong>git_https_upstream</strong>: This is the Git https upstream URL, which is used for
+adding on text of documentation installation and the contributing file, as well
+as configuring your repository in your local environment.</p>
+<p><strong>git_main_branch</strong>: This field allows you to specify the name of your main
+branch. By default, it is named “main”.</p>
+<p>By providing this information, you can easily integrate your codebase with
+GitHub and take advantage of its powerful version control features. These
+functionalities in SciCookie make it easy to manage your project and collaborate
+with others, while ensuring that your code is properly versioned and tracked.</p>
 </section>
 </section>
 
@@ -442,8 +1014,35 @@ suggestion as a issue at
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-system">Build System</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-library">Test Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-about-the-text-based-user-interface-tui">Notes about the text-based user interface (TUI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-author-of-project">The author of project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-about-the-project">Information about the project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-settings">Project settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-layout">Project layout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-system">Build system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-interfaces-clis">Command-line interfaces (CLIs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-engine">Documentation engine</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-tools">Project tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environment">Virtual Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-formatter">Code formatter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-security-vulnerabilities">Code Security Vulnerabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-coverage-testing">Code coverage testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style-and-logic-code-quality">Code style and logic (code quality)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-framework">Testing framework</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-commit-verification">Pre-commit verification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-analysis-of-shell-scripts">Static analysis of shell scripts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-devops-tools">Integration with DevOps tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-team">Project team</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of conduct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#governance-document">Governance document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roadmap-document">Roadmap document</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-version">Control Version</a></li>
 </ul>
   </nav></div>
 
