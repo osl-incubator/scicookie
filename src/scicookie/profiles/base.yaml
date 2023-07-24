@@ -1,4 +1,4 @@
-author_name:
+author_full_name:
   message: Author's name
   help: See more at https://
   type: text
@@ -19,7 +19,7 @@ project_name:
   default: OSL Python package
   enabled: true
 
-project_description:
+project_short_description:
   message: Project short description
   help: ""
   type: text

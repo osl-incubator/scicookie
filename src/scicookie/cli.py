@@ -31,13 +31,13 @@ def _get_cookiecutter_default_answer(
 
 
 def call_cookiecutter(profile: Profile, answers: dict):
-    """Call coociecutter/cookieninja with the parameters from the TUI."""
+    """Call cookiecutter/cookieninja with the parameters from the TUI."""
     answers_profile = {}
     cookie_args = []
     questions = profile.config
 
     with open(COOKIECUTTER_FILE_PATH) as f:
-        coockiecutter_config = json.load(f)
+        cookiecutter_config = json.load(f)
 
     # fill the answers with default value
     for question_id, question in questions.items():
@@ -52,9 +52,7 @@ def call_cookiecutter(profile: Profile, answers: dict):
 
         answers_profile[question_id] = question.get(
             "default"
-        ) or _get_cookiecutter_default_answer(
-            coockiecutter_config[question_id]
-        )
+        ) or _get_cookiecutter_default_answer(cookiecutter_config[question_id])
 
     for question_id, answer in answers.items():
         if answer in [None, ""] or questions[question_id].get("control_flow"):
