@@ -1,6 +1,25 @@
 # Release Notes
 ---
 
+# [0.4.0](https://github.com/osl-incubator/scicookie/compare/0.3.0...0.4.0) (2023-07-24)
+
+
+### Bug Fixes
+
+* **template:** Solve missing information ([#151](https://github.com/osl-incubator/scicookie/issues/151)) ([8811b22](https://github.com/osl-incubator/scicookie/commit/8811b22427fd8f719b478cd1ba1d67cab66e1fa7))
+
+
+### Features
+
+* **template:** Added hatchling as an option for build-system ([#144](https://github.com/osl-incubator/scicookie/issues/144)) ([32704a5](https://github.com/osl-incubator/scicookie/commit/32704a5fba35869f5a67c6b7db76f933e9abd211))
+
+
+### Performance Improvements
+
+* **documentation:** Adding structure and content to guide.md ([#150](https://github.com/osl-incubator/scicookie/issues/150)) ([fe9ce87](https://github.com/osl-incubator/scicookie/commit/fe9ce872f311c04d0791dfb64dce9961e645c7c0))
+* **project information:** adding missing information ([#149](https://github.com/osl-incubator/scicookie/issues/149)) ([76ee498](https://github.com/osl-incubator/scicookie/commit/76ee4983539e5b807525c3834c6a736bce9eb193))
+* **project information:** Adding the maintainer section to readme ([#145](https://github.com/osl-incubator/scicookie/issues/145)) ([321417b](https://github.com/osl-incubator/scicookie/commit/321417b3ad2a08f0a452fa12821fd5c2543d2e4b))
+
 # [0.3.0](https://github.com/osl-incubator/scicookie/compare/0.2.0...0.3.0) (2023-07-05)
 
 
