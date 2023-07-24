@@ -52,9 +52,7 @@ def call_cookiecutter(profile: Profile, answers: dict):
 
         answers_profile[question_id] = question.get(
             "default"
-        ) or _get_cookiecutter_default_answer(
-            cookiecutter_config[question_id]
-        )
+        ) or _get_cookiecutter_default_answer(cookiecutter_config[question_id])
 
     for question_id, answer in answers.items():
         if answer in [None, ""] or questions[question_id].get("control_flow"):
