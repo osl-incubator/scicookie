@@ -193,6 +193,10 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "maturin-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+        shutil.move(
+            build_system_dir / "Cargo.toml",
+            PROJECT_DIRECTORY / 'Cargo.toml'
         )         
     else:
         shutil.move(
