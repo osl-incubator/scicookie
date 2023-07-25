@@ -231,7 +231,7 @@ packages. SciCookie support the following:
   can be confident that they will always produce the same results. It also helps
   you manage your Python environments, so you can be sure that your projects have
   the correct dependencies.
-  
+- [**Maturin**](https://pypi.org/project/maturin/0.8.2/):It's build system designed to create Python bindings from Rust projects. It allows Rust code to be seamlessly integrated into Python applications, providing efficient builds and cross-platform support for various Python versions. Maturin automates the generation of Python modules that directly access Rust functions, harnessing Rust's high performance and low-level capabilities within Python. Its user-friendly interface and compatibility with setuptools and Cargo make it an easy-to-use tool, offering developers a simple solution to combine the strengths of Python and Rust within a unified project.
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your

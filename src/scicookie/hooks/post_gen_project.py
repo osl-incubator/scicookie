@@ -62,6 +62,8 @@ BUILD_SYSTEM = "setuptools"
 BUILD_SYSTEM = "pdm"
 {% elif cookiecutter.build_system == "hatch" -%}
 BUILD_SYSTEM = "hatch"
+{% elif cookiecutter.build_system == "maturin" -%}
+BUILD_SYSTEM = "maturin"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -186,7 +188,12 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "hatch-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
-        )     
+        )
+    elif BUILD_SYSTEM == "maturin":
+        shutil.move(
+            build_system_dir / "maturin-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )         
     else:
         shutil.move(
             build_system_dir / "base-pyproject.toml",

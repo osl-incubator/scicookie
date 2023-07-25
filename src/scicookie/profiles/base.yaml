@@ -87,6 +87,7 @@ build_system:
     - setuptools
     - pdm
     - hatch
+    - maturin
   enabled: false
 
 command_line_interface:
