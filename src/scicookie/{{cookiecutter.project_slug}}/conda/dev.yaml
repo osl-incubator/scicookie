@@ -17,8 +17,8 @@ dependencies:
   - pdm
 {%- elif cookiecutter.build_system == "hatch" %}
   - hatch
-{%- elif cookiecutter.build_system == "pdm" %}
-  - pdm  
+{%- elif cookiecutter.build_system == "maturin" %}
+  - maturin 
 {%- endif %}
   - nodejs  # used by semantic-release
   - shellcheck
