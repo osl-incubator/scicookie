@@ -1,8 +1,7 @@
 [package]
 name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
-authors = 
-["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
+authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
 
 [lib]
 name = "{{ cookiecutter.project_slug }}"
