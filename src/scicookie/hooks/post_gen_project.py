@@ -250,14 +250,24 @@ def prepare_git():
     print("=" * 80)
     print("NOTE: Run `git rebase -i upstream/{{ cookiecutter.git_main_branch }}`")
     print("=" * 80)
-
+def keep_src():
+    if BUILD_SYSTEM == "maturin":
+        build_system_dir = PROJECT_DIRECTORY / "build-system"
+        src_system_dir = PROJECT_DIRECTORY/ "src"
+        if USE_SRC_LAYOUT :
+            shutil.move(build_system_dir/"lib.rs",'src')
+        else:
+            os.makedir(src_system_dir)
+            shutil.move(build_system_dir/"lib.rs",src_system_dir)
+    else :
+        pass   
 
 def post_gen():
     validation()
 
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
-
+    keep_src()
     clean_up_cli()
     clean_up_code_of_conduct()
     clean_up_conda()
