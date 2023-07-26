@@ -88,5 +88,5 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Run Smoke Test ${{ matrix.smoke_file }}
+      - name: Run Smoke Test (${{ matrix.smoke_file }})
         run: bash ./tests/smoke/${{ matrix.smoke_file }}
