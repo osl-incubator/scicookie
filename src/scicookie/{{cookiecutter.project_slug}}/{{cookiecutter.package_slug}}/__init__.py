@@ -10,6 +10,9 @@
 from importlib import metadata as importlib_metadata
 
 
+{% if cookiecutter.build_system == "hatch" -%}
+__version__ = "0.0.1"
+{%- else %}
 def get_version() -> str:
     """Return the program version."""
     try:
@@ -20,6 +23,7 @@ def get_version() -> str:
 
 version: str = get_version()
 
+__version__: str = version
+{%- endif %}
 __author__ = {{ QUOTE }}{{ cookiecutter.author_full_name }}{{ QUOTE }}
 __email__ = {{ QUOTE }}{{ cookiecutter.author_email }}{{ QUOTE }}
-__version__: str = version
