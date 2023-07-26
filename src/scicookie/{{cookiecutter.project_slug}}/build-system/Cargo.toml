@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
 
 [lib]
-name = "{{ cookiecutter.package_slug }}"
+name = "_core"
 # "cdylib" is necessary to produce a shared library for Python to import from.
 crate-type = ["cdylib"]
 
