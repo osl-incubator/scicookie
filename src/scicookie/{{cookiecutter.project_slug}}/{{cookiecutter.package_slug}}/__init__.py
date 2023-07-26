@@ -7,12 +7,12 @@
 {%- else %}
   {%- set QUOTE = "'" -%}
 {%- endif %}
+{% if cookiecutter.build_system == "hatch" -%}
+__version__ = {{ QUOTE }}0.0.1{{ QUOTE }}
+{%- else %}
 from importlib import metadata as importlib_metadata
 
 
-{% if cookiecutter.build_system == "hatch" -%}
-__version__ = "0.0.1"
-{%- else %}
 def get_version() -> str:
     """Return the program version."""
     try:
