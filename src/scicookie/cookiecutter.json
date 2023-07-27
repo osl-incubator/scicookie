@@ -49,7 +49,8 @@
     "mesonpy",
     "setuptools",
     "pdm",
-    "hatch"
+    "hatch",
+    "maturin"
   ],
   "use_bandit": "yes",
   "use_black": "no",

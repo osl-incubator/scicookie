@@ -51,7 +51,8 @@ elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatch &> /dev/null; then
   COMMAND_PREFIX="hatch run"
-  
+elif command -v maturin &> /dev/null; then
+  pip install .  
 else
     # use setuptools
   pip install --editable .

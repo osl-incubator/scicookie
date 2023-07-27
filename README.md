@@ -33,6 +33,7 @@ for a Python package.
     [Setuptools](https://setuptools.pypa.io/en/latest/),
     [PDM](https://pdm.fming.dev/) or
     [Hatch](https://hatch.pypa.io)
+    [Maturin](https://pypi.org/project/maturin/0.8.2/)
     based on your preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be

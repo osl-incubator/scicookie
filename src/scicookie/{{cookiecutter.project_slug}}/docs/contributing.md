@@ -50,8 +50,12 @@ It provides an efficient and fast way to manage project dependencies, as
 well as build and distribute code. It is fast to install, has built-in
 virtualenv, offers support for different package sources, and provides
 an easy way to distribute code.
+{%- elif cookiecutter.build_system == "hatch" -%}
+In addition, you should know that to build our package we use
 [Hatch](https://hatch.pypa.io): It's a Python Package that is compatible build backend used by Hatch, a modern, extensible Python project manager. It provides a standardized build system with reproducible builds by default, robust environment management with support for custom scripts, easy publishing to PyPI or other indexes, version management, and configurable project generation with sane defaults. Hatchling might support multiple programming languages and offer language-specific options for building projects in different languages. It could also provide customization and extensibility options, allowing you to incorporate plugins or scripts for tailored build processes.
-
+{%- elif cookiecutter.build_system == "maturin" -%}
+In addition, you should know that to build our package we use
+[Maturin](https://pypi.org/project/maturin/0.8.2/):It's a Python packaging tool and build system for creating Python bindings from Rust projects. It enables seamless integration of Rust code into Python applications, offering efficient builds, cross-platform support, and compatibility with different Python versions. Maturin automates the process of generating Python modules that directly call Rust functions, leveraging Rust's performance and low-level capabilities in Python. With its easy-to-use interface and integration with setuptools and Cargo, Maturin provides a straightforward solution for developers seeking to combine the strengths of Python and Rust in a single project.
 {%- endif %}
 
 Contributions are welcome, and they are greatly appreciated! Every little bit
