@@ -257,7 +257,7 @@ def add_binding_source_files():
         build_system_dir = PROJECT_DIRECTORY / "build-system"
         src_system_dir = PROJECT_DIRECTORY/ "src"
         if USE_SRC_LAYOUT :
-            shutil.move(build_system_dir/"lib.rs", "src")
+            shutil.move(build_system_dir / "lib.rs", "src")
         else:
             os.makedir(src_system_dir)
             shutil.move(build_system_dir / "lib.rs", src_system_dir)
