@@ -269,7 +269,7 @@ def post_gen():
 
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
-    keep_src()
+    add_binding_source_files()
     clean_up_cli()
     clean_up_code_of_conduct()
     clean_up_conda()
