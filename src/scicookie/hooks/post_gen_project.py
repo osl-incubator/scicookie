@@ -31,6 +31,7 @@ USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
 USE_CLI = {{ cookiecutter.command_line_interface != "No command-line interface" }}
 USE_CONDA = {{ cookiecutter.use_conda == "yes" }}
+USE_MYPY = {{ cookiecutter.use_mypy == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
@@ -97,6 +98,7 @@ def move_selected_doc_dir():
         remove_project_file(Path("docs/api") / "references.md")
 
     shutil.rmtree(DOCS_SPEC_DIR)
+
 
 def clean_up_docs():
     remove_dirs(UNUSED_DOCS_DIRS)
@@ -205,6 +207,7 @@ def clean_up_build_system():
         )
     remove_dir("build-system")
 
+
 def http2ssh(url):
     url = url.replace("https://", "git@")
     return url.replace("/", ":", 1)
@@ -262,7 +265,12 @@ def add_binding_source_files():
             os.makedir(src_system_dir)
             shutil.move(build_system_dir / "lib.rs", src_system_dir)
     else:
-        pass   
+        pass
+
+
+def clean_up_mypy():
+    if not USE_MYPY: remove_package_file("py.typed")
+
 
 def post_gen():
     validation()
@@ -271,6 +279,7 @@ def post_gen():
     clean_up_project_layout()
     add_binding_source_files()
     clean_up_cli()
+    clean_up_mypy()
     clean_up_code_of_conduct()
     clean_up_conda()
     clean_up_containers()
