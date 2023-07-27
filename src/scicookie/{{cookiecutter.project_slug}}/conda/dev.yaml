@@ -26,3 +26,6 @@ dependencies:
 {%- if cookiecutter.documentation_engine == "sphinx" %}
   - pandoc
 {%- endif %}
+{%- if cookiecutter.use_mypy == "yes" %}
+  - mypy
+{%- endif %}

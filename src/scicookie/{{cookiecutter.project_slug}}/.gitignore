@@ -98,8 +98,10 @@ docs/_build/
 docs/_templates/
 {%+ endif %}
 
+{%- if cookiecutter.use_mypy == "yes" %}
 # mypy
 .mypy_cache/
+{%- endif %}
 
 # IDE settings
 .vscode/
