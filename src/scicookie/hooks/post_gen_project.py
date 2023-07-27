@@ -250,6 +250,8 @@ def prepare_git():
     print("=" * 80)
     print("NOTE: Run `git rebase -i upstream/{{ cookiecutter.git_main_branch }}`")
     print("=" * 80)
+
+
 def keep_src():
     if BUILD_SYSTEM == "maturin":
         build_system_dir = PROJECT_DIRECTORY / "build-system"
