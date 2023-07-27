@@ -252,7 +252,7 @@ def prepare_git():
     print("=" * 80)
 
 
-def keep_src():
+def add_binding_source_files():
     if BUILD_SYSTEM == "maturin":
         build_system_dir = PROJECT_DIRECTORY / "build-system"
         src_system_dir = PROJECT_DIRECTORY/ "src"
