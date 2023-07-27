@@ -1,7 +1,7 @@
+"""{{ cookiecutter.project_name }}."""
 {%- if cookiecutter.use_mypy == "yes" %}
 # mypy: disable-error-code="attr-defined"
 {%- endif %}
-"""{{ cookiecutter.project_name }}."""
 {%- if cookiecutter.use_blue == "yes" %}
   {%- set QUOTE = "'" -%}
 {%- elif cookiecutter.use_black == "yes" %}
