@@ -261,7 +261,7 @@ def add_binding_source_files():
         else:
             os.makedir(src_system_dir)
             shutil.move(build_system_dir / "lib.rs", src_system_dir)
-    else :
+    else:
         pass   
 
 def post_gen():
