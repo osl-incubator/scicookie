@@ -260,7 +260,7 @@ def keep_src():
             shutil.move(build_system_dir/"lib.rs", "src")
         else:
             os.makedir(src_system_dir)
-            shutil.move(build_system_dir/"lib.rs",src_system_dir)
+            shutil.move(build_system_dir / "lib.rs", src_system_dir)
     else :
         pass   
 
