@@ -113,6 +113,8 @@ build:
 	pdm build
 {%- elif cookiecutter.build_system == "hatch" %}
 	hatch build
+{%- elif cookiecutter.build_system == "maturin" %}
+	maturin build	
 {%- endif %}
 
 .PHONY:release-ci

@@ -87,6 +87,7 @@ build_system:
     - setuptools
     - pdm
     - hatch
+    - maturin
   enabled: false
 
 command_line_interface:
@@ -123,6 +124,7 @@ use_tools:
     - ruff
     - isort
     - mccabe
+    - mypy
     - pre-commit
     - pydocstyle
     - pytest

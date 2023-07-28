@@ -31,6 +31,7 @@ USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
 USE_CLI = {{ cookiecutter.command_line_interface != "No command-line interface" }}
 USE_CONDA = {{ cookiecutter.use_conda == "yes" }}
+USE_MYPY = {{ cookiecutter.use_mypy == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
@@ -62,6 +63,8 @@ BUILD_SYSTEM = "setuptools"
 BUILD_SYSTEM = "pdm"
 {% elif cookiecutter.build_system == "hatch" -%}
 BUILD_SYSTEM = "hatch"
+{% elif cookiecutter.build_system == "maturin" -%}
+BUILD_SYSTEM = "maturin"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -95,6 +98,7 @@ def move_selected_doc_dir():
         remove_project_file(Path("docs/api") / "references.md")
 
     shutil.rmtree(DOCS_SPEC_DIR)
+
 
 def clean_up_docs():
     remove_dirs(UNUSED_DOCS_DIRS)
@@ -186,13 +190,23 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "hatch-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
-        )     
+        )
+    elif BUILD_SYSTEM == "maturin":
+        shutil.move(
+            build_system_dir / "maturin-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+        shutil.move(
+            build_system_dir / "Cargo.toml",
+            PROJECT_DIRECTORY / 'Cargo.toml'
+        )         
     else:
         shutil.move(
             build_system_dir / "base-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     remove_dir("build-system")
+
 
 def http2ssh(url):
     url = url.replace("https://", "git@")
@@ -241,13 +255,32 @@ def prepare_git():
     print("=" * 80)
 
 
+def add_binding_source_files():
+    if BUILD_SYSTEM == "maturin":
+        build_system_dir = PROJECT_DIRECTORY / "build-system"
+        src_system_dir = PROJECT_DIRECTORY/ "src"
+        if USE_SRC_LAYOUT :
+            shutil.move(build_system_dir / "lib.rs", "src")
+        else:
+            os.makedir(src_system_dir)
+            shutil.move(build_system_dir / "lib.rs", src_system_dir)
+    else:
+        pass
+
+
+def clean_up_mypy():
+    if not USE_MYPY:
+        remove_package_file("py.typed")
+
+
 def post_gen():
     validation()
 
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
-
+    add_binding_source_files()
     clean_up_cli()
+    clean_up_mypy()
     clean_up_code_of_conduct()
     clean_up_conda()
     clean_up_containers()
