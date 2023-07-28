@@ -10,7 +10,7 @@
   {%- set QUOTE = "'" -%}
 {%- endif %}
 {% if cookiecutter.build_system == "hatch" -%}
-__version__ = {{ QUOTE }}0.0.1{{ QUOTE }}
+__version__ = {{ QUOTE }}{{ cookiecutter.project_version }}{{ QUOTE }}
 {%- else %}
 from importlib import metadata as importlib_metadata
 
@@ -27,5 +27,5 @@ version = get_version()
 
 __version__ = version
 {%- endif %}
-__author__ = {{ QUOTE }}{{ cookiecutter.author_full_name }}{{ QUOTE }}
+__author__ = {{ QUOTE }}{{ cookiecutter.project_version }}{{ QUOTE }}
 __email__ = {{ QUOTE }}{{ cookiecutter.author_email }}{{ QUOTE }}
