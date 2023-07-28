@@ -124,6 +124,7 @@ use_tools:
     - ruff
     - isort
     - mccabe
+    - mypy
     - pre-commit
     - pydocstyle
     - pytest

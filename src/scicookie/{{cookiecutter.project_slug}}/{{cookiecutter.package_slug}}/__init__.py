@@ -1,5 +1,7 @@
-# mypy: disable-error-code="attr-defined"
 """{{ cookiecutter.project_name }}."""
+{%- if cookiecutter.use_mypy == "yes" %}
+# mypy: disable-error-code="attr-defined"
+{%- endif %}
 {%- if cookiecutter.use_blue == "yes" %}
   {%- set QUOTE = "'" -%}
 {%- elif cookiecutter.use_black == "yes" %}
@@ -10,7 +12,7 @@
 from importlib import metadata as importlib_metadata
 
 
-def get_version() -> str:
+def get_version():
     """Return the program version."""
     try:
         return importlib_metadata.version(__name__)
@@ -18,8 +20,8 @@ def get_version() -> str:
         return {{ QUOTE }}{{ cookiecutter.project_version }}{{ QUOTE }}  # semantic-release
 
 
-version: str = get_version()
+version = get_version()
 
 __author__ = {{ QUOTE }}{{ cookiecutter.author_full_name }}{{ QUOTE }}
 __email__ = {{ QUOTE }}{{ cookiecutter.author_email }}{{ QUOTE }}
-__version__: str = version
+__version__ = version
