@@ -269,7 +269,8 @@ def add_binding_source_files():
 
 
 def clean_up_mypy():
-    if not USE_MYPY: remove_package_file("py.typed")
+    if not USE_MYPY:
+        remove_package_file("py.typed")
 
 
 def post_gen():
