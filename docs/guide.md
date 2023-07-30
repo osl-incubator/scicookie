@@ -379,7 +379,7 @@ information from source code, comments and project metadata.
 Depending on your taste and the needs of your project, you should choose
 the documentation engine that best suits your needs. SciCookie offers
 you three documentation engine options for your Python package:
-*mkdocs*, *sphinx* y *jupyter-book*.
+*mkdocs*, *sphinx* and *jupyter-book*.
 
 - [**mkdocs**](https://www.mkdocs.org/): is a fast, simple, and
   downright gorgeous static site generator for creating project
@@ -674,14 +674,13 @@ which tools may be most useful for your project.
 ### Pre-commit verification
 
 It is a code quality control tool that runs automatically before commits
-are made to a runs automatically before commits are made to a version
-control repository. When a commit is made, pre-commit executes the
-configured hooks. When you select the pre-commit option offered by
-SciCookie, we have configured the following hooks for you:
-*end-of-file-fixer*, *blue*, *black*, *flake8*, *ruff*, *isort*, *mypy*,
-*shellcheck*, *bandit*, *pydocstyle*, *vulture* and *mccabe* (will be
-available in your project according to the tools you have selected in
-TUI).
+are made to a version control repository. When a commit is made,
+pre-commit executes the configured hooks. When you select the pre-commit
+option offered by SciCookie, we have configured the following hooks for
+you: *end-of-file-fixer*, *blue*, *black*, *flake8*, *ruff*, *isort*,
+*mypy*, *shellcheck*, *bandit*, *pydocstyle*, *vulture* and *mccabe*
+(will be available in your project according to the tools you have
+selected in TUI).
 
 - [**pre-commit**](https://pre-commit.com/): It is a framework for
   managing and maintaining multi-language pre-commit hooks. A list of
@@ -743,9 +742,8 @@ Overall, Docker, Podman, and Kubernetes are powerful tools for managing and
 deploying containerized applications, and can provide a streamlined and
 efficient platform for running Python projects.
 
-In case you do not want to include alguna de estas opciones in your
-project, you can do so by selecting the option `None` (this is the
-default option).
+In case you do not want to include DevOps in your project, you can do so
+by selecting the option `None` (this is the default option).
 
 ## Project team
 
