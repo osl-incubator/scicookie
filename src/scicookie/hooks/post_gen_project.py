@@ -65,6 +65,8 @@ BUILD_SYSTEM = "pdm"
 BUILD_SYSTEM = "hatch"
 {% elif cookiecutter.build_system == "maturin" -%}
 BUILD_SYSTEM = "maturin"
+{% elif cookiecutter.build_system == "scikit" -%}
+BUILD_SYSTEM = "scikit"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -199,7 +201,20 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "Cargo.toml",
             PROJECT_DIRECTORY / 'Cargo.toml'
-        )         
+        ) 
+    elif BUILD_SYSTEM == "scikit":
+        shutil.move(
+            build_system_dir / "scikit-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+        shutil.move(
+            build_system_dir / "CMakeLists.txt",
+            PROJECT_DIRECTORY / 'CMakeLists.txt'
+        )
+        shutil.move(
+            build_system_dir / "skcdemo.cpp",
+            PROJECT_DIRECTORY / 'skcdemo.cpp'
+        )            
     else:
         shutil.move(
             build_system_dir / "base-pyproject.toml",

@@ -52,7 +52,9 @@ elif command -v pdm &> /dev/null; then
 elif command -v hatch &> /dev/null; then
   COMMAND_PREFIX="hatch run"
 elif command -v maturin &> /dev/null; then
-  pip install .  
+  pip install . 
+elif command -v scikit &> /dev/null; then
+  pip install .    
 else
     # use setuptools
   pip install --editable .

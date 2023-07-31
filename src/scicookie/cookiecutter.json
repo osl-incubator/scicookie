@@ -50,7 +50,8 @@
     "setuptools",
     "pdm",
     "hatch",
-    "maturin"
+    "maturin",
+    "scikit"
   ],
   "use_bandit": "yes",
   "use_black": "no",
