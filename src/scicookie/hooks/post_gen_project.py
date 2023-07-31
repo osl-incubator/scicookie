@@ -202,7 +202,7 @@ def clean_up_build_system():
             build_system_dir / "Cargo.toml",
             PROJECT_DIRECTORY / 'Cargo.toml'
         ) 
-    elif BUILD_SYSTEM == "scikit":
+    elif BUILD_SYSTEM == "scikit-build":
         shutil.move(
             build_system_dir / "scikit-pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
