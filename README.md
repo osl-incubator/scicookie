@@ -34,7 +34,7 @@ for a Python package.
     [PDM](https://pdm.fming.dev/) or
     [Hatch](https://hatch.pypa.io)
     [Maturin](https://pypi.org/project/maturin/0.8.2/)
-    [scikit-hep](https://scikit-hep.org)
+    [scikit-build](https://scikit-build.readthedocs.io)
     based on your preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be
