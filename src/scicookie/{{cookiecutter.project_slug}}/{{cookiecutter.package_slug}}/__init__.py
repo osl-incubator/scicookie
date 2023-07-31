@@ -27,5 +27,5 @@ version = get_version()
 
 __version__ = version
 {%- endif %}
-__author__ = {{ QUOTE }}{{ cookiecutter.project_version }}{{ QUOTE }}
+__author__ = {{ QUOTE }}{{ cookiecutter.author_full_name }}{{ QUOTE }}
 __email__ = {{ QUOTE }}{{ cookiecutter.author_email }}{{ QUOTE }}
