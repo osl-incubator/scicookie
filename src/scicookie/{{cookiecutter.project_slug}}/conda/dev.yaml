@@ -20,7 +20,7 @@ dependencies:
 {%- elif cookiecutter.build_system == "maturin" %}
   - maturin
   - rust
-{%- elif cookiecutter.build_system == "scikit" %}
+{%- elif cookiecutter.build_system == "scikit-build" %}
   - scikit-build
   - cmake  
 {%- endif %}
