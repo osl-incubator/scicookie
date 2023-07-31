@@ -76,7 +76,7 @@ The following is a description of the options in the TUI.
 
 With SciCookie, you can easily add information about the author of the
 project by filling in the **author_full_name** and **author_email** fields,
-which refer to the name and email address of the person or organisation
+which refer to the name and email address of the person or organization
 that authored the project.
 
 The default values give you an idea of what you can enter in these
@@ -126,10 +126,10 @@ Below are the fields within the TUI that relate to project information:
   well-known open source software licenses: *MIT*, *BSD 3 Clauses*, *ISC
   license*, *Apache Software License 2.0* and *GNU General Public License v3*.
 
-  - **`MIT` option**: is a free software licence that allows users to use,
+  - **`MIT` option**: is a free software license that allows users to use,
     modify and redistribute the software without significant restrictions.
-    It is a permissive licence that allows users to do whatever they want
-    with the software, as long as a copy of the licence is included and
+    It is a permissive license that allows users to do whatever they want
+    with the software, as long as a copy of the license is included and
     the original authorship of the software is acknowledged. In SciCookie
     this is the license type for default. If you want to know the content
     of this license, you can visit https://mit-license.org/.
@@ -138,7 +138,7 @@ Below are the fields within the TUI that relate to project information:
     redistribute the software without significant restrictions. It is
     similar to the MIT license in terms of permissibility, but includes
     three additional clauses that require you to include a copy of the
-    licence, acknowledge original authorship of the software, and
+    license, acknowledge original authorship of the software, and
     release the author from any liability for damages. For more
     information, see https://opensource.org/license/bsd-3-clause/.
 
@@ -160,7 +160,7 @@ Below are the fields within the TUI that relate to project information:
 
   - **`GNU General Public License v3` option**: includes the freedom to
     use, modify and redistribute the software in accordance with the
-    terms of the licence. Compared to previous versions, it addresses
+    terms of the license. Compared to previous versions, it addresses
     concerns about interoperability with other systems and the use of
     technological protection measures. If you modify or distribute the
     software under the GPL v3, you must make the source code available
@@ -370,7 +370,7 @@ therefore not use your package.
 
 To generate documentation for any project, tools have been developed
 that include functions such as content creation and editing,
-organisation and classification of information, generation of output
+organization and classification of information, generation of output
 formats and integration with other development and project management
 tools, known as a **documentation engine**. This tool automates the
 creation of technical documentation for software projects by extracting
@@ -383,29 +383,29 @@ you three documentation engine options for your Python package:
 
 - [**mkdocs**](https://www.mkdocs.org/): is a fast, simple, and
   downright gorgeous static site generator for creating project
-  documentation. Documentation source files are written in Markdown and
-  configured with a single YAML configuration file. It is designed to
-  allow users to quickly create clear and well-structured documentation
-  without requiring advanced programming skills. MkDocs can be easily
-  integrated with version control systems such as Git. MkDocs supports a
-  variety of predefined themes that allow you to customise the visual
-  appearance of your documentation. In SciCookie, so far, we use the
-  *material* theme to generate documentation with mkdocs.
+  documentation. Documentation source files are written in *Markdown*
+  and configured with a single `YAML` configuration file. It is designed
+  to allow users to quickly create clear and well-structured
+  documentation without requiring advanced programming skills. *mkdocs*
+  can be easily integrated with version control systems such as Git,
+  supports a variety of predefined themes that allow you to customise
+  the visual appearance of your documentation. In SciCookie, so far, we
+  use the *material* theme to generate documentation with *mkdocs*.
 
-- [**sphinx**](https://www.sphinx-doc.org/en/master/): Sphinx makes it
+- [**Sphinx**](https://www.sphinx-doc.org/en/master/): *Sphinx* makes it
   easy to create intelligent and attractive documentation. It provides
   various output formats such as HTML, LaTeX, ePub, Texinfo, manual
   pages, plain text. It also generates automatic links to functions,
   classes, citations, glossary terms and similar information. It allows
   the use of built-in extensions for automatic code snippet checking,
   the inclusion of docstrings from Python modules, and third-party
-  extensions to include many more features. Sphinx uses the
-  reStructuredText markup language by default and can read MyST markdown
+  extensions to include many more features. *Sphinx* uses the
+  *reStructuredText* markup language by default and can read *MyST* markdown
   through third-party extensions.
 
-- [**jupyter-book**](https://jupyterbook.org/en/stable/intro.html):
+- [**Jupyter Book**](https://jupyterbook.org/en/stable/intro.html):
   allows you to create engaging, publication-quality books and documents
-  from computational content. Jupyter Book uses Jupyter notebooks as the
+  from computational content. *Jupyter Book* uses Jupyter notebooks as the
   basis for creating interactive content. It allows you to structure and
   organise the notebooks into a cohesive, navigable book. It also offers
   customisation options to adapt the look and feel of the book to your
@@ -479,12 +479,12 @@ want to know more about it.
   right-justified comments. It also supports multiple configuration
   files: `pyproject.toml`, `setup.cfg`, `tox.ini` and `.blue`.
 
-If you select both Blue and Black libraries in the TUI (Terminal User
+If you select both *Blue* and *Black* libraries in the TUI (Terminal User
 Interface), you will see the following message: "The libs Blue and Black were
 selected, but you need to choose just one of them." and the template generation
 process will be stopped.
 
-Using code formatters such as black or blue in your project helps ensure
+Using code formatters such as *Black* or *Blue* in your project helps ensure
 consistent and readable code, making it easier to maintain and collaborate on.
 
 ### Code Security Vulnerabilities
@@ -581,17 +581,17 @@ you can choose and include in your project *flake8*, *Ruff*, *isort*, *mccabe*,
   one plus the number of loops and if statements. Simply put, it
   provides an upper bound on the number of test cases needed to obtain
   branch coverage of the code. It is recommended to run it during the
-  git hook precommit.
+  git hook pre-commit.
 
 - [**Vulture**](https://github.com/jendrikseipp/vulture): finds unused
   code in Python programs. This is useful for cleaning up and finding
   bugs in large code bases. Due to the dynamic nature of Python, static
-  code analysers such as Vulture are likely to miss some dead code.
+  code analysers such as *Vulture* are likely to miss some dead code.
   However, it can be a very useful tool for improving code quality. It
   uses static code analysis, it is self-testing and has full test
   coverage, it complements pyflakes and has the same output syntax, it
   sorts classes and functions by size and it supports Python >= 3.6,
-  these are some of the main features of *vulture*.
+  these are some of the main features of *Vulture*.
 
 - [**pydocstyle**](http://www.pydocstyle.org/en/stable/): is a static
   analysis tool for checking compliance with Python docstring
@@ -675,7 +675,7 @@ which tools may be most useful for your project.
 
 It is a code quality control tool that runs automatically before commits
 are made to a version control repository. When a commit is made,
-pre-commit executes the configured hooks. When you select the pre-commit
+pre-commit executes the configured hooks. If you select the pre-commit
 option offered by SciCookie, we have configured the following hooks for
 you: *end-of-file-fixer*, *blue*, *black*, *flake8*, *ruff*, *isort*,
 *mypy*, *shellcheck*, *bandit*, *pydocstyle*, *vulture* and *mccabe*
@@ -689,7 +689,7 @@ selected in TUI).
   each commit. You will be notified before the end of the commit if
   validation fails, as configured.
 
-This is configured using a `.pre-commit-config.yaml' file in the
+This is configured using a `.pre-commit-config.yaml` file in the
 repository, which sets the hooks to be executed before each commit. You
 can check the supported hooks using this link
 https://pre-commit.com/hooks.html.
