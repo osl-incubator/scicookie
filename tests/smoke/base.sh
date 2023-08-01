@@ -53,7 +53,7 @@ elif command -v hatch &> /dev/null; then
   COMMAND_PREFIX="hatch run"
 elif command -v maturin &> /dev/null; then
   pip install -e .
-elif command -v scikit-build-core &> /dev/null; then
+elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
   pip install -e .
 else
     # use setuptools
