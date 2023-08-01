@@ -325,7 +325,7 @@ packages. SciCookie support the following:
   compatibility with setuptools and Cargo make it an easy-to-use tool, offering
   developers a simple solution to combine the strengths of Python and Rust within
   a unified project.
-- [**scikit-build**](https://scikit-build.readthedocs.io/en/latest/):It's build system designed for Python
+- [**scikit-build-core**](https://scikit-build-core.readthedocs.io/en/latest/):It's build system designed for Python
   packaging tool, serving as an enhanced build system generator for CPython
   C extensions greatly improves package management within the scientific Python
   ecosystem. It offers superior support for diverse compilers, build systems,
