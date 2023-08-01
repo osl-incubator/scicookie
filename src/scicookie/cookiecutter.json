@@ -51,7 +51,7 @@
     "pdm",
     "hatch",
     "maturin",
-    "scikit-build"
+    "scikit-build-core"
   ],
   "use_bandit": "yes",
   "use_black": "no",
