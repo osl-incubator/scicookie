@@ -54,7 +54,7 @@ elif command -v hatch &> /dev/null; then
 elif command -v maturin &> /dev/null; then
   pip install . 
 elif command -v scikit &> /dev/null; then
-  pip install .    
+  pip install -e .
 else
     # use setuptools
   pip install --editable .
