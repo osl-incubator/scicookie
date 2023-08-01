@@ -88,6 +88,7 @@ build_system:
     - pdm
     - hatch
     - maturin
+    - scikit-build-core
   enabled: false
 
 command_line_interface:

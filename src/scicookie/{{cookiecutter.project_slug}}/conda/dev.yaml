@@ -20,6 +20,9 @@ dependencies:
 {%- elif cookiecutter.build_system == "maturin" %}
   - maturin
   - rust
+{%- elif cookiecutter.build_system == "scikit-build-core" %}
+  - scikit-build-core
+  - cmake  
 {%- endif %}
   - nodejs  # used by semantic-release
   - shellcheck

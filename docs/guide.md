@@ -326,6 +326,15 @@ packages. SciCookie support the following:
   developers a simple solution to combine the strengths of Python and Rust within
   a unified project.
 
+- [**scikit-build-core**](https://scikit-build-core.readthedocs.io/en/latest/): It's build system designed for Python
+  packaging tool, serving as an enhanced build system generator for CPython
+  C extensions greatly improves package management within the scientific Python
+  ecosystem. It offers superior support for diverse compilers, build systems,
+  cross-compilation, and efficient dependency locating with their associated
+  build requirements. With its capabilities, it facilitates cross-platform
+  builds using CMake and effortless integration with C/C++ libraries, making
+  it a valuable asset for research software engineers. 
+  
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your

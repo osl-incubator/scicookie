@@ -52,7 +52,9 @@ elif command -v pdm &> /dev/null; then
 elif command -v hatch &> /dev/null; then
   COMMAND_PREFIX="hatch run"
 elif command -v maturin &> /dev/null; then
-  pip install .  
+  pip install -e .
+elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
+  pip install -e .
 else
     # use setuptools
   pip install --editable .
