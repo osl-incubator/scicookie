@@ -21,7 +21,7 @@ dependencies:
   - maturin
   - rust
 {%- elif cookiecutter.build_system == "scikit-build" %}
-  - scikit-build
+  - scikit-build-core
   - cmake  
 {%- endif %}
   - nodejs  # used by semantic-release
