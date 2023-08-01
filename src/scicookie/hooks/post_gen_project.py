@@ -65,7 +65,7 @@ BUILD_SYSTEM = "pdm"
 BUILD_SYSTEM = "hatch"
 {% elif cookiecutter.build_system == "maturin" -%}
 BUILD_SYSTEM = "maturin"
-{% elif cookiecutter.build_system == "scikit-build" -%}
+{% elif cookiecutter.build_system == "scikit-build-core" -%}
 BUILD_SYSTEM = "scikit-build-core"
 {%- else %}
 BUILD_SYSTEM = None
