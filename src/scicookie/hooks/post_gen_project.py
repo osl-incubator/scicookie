@@ -67,6 +67,8 @@ BUILD_SYSTEM = "hatch"
 BUILD_SYSTEM = "maturin"
 {% elif cookiecutter.build_system == "scikit-build-core" -%}
 BUILD_SYSTEM = "scikit-build-core"
+{% elif cookiecutter.build_system == "pybind11" -%}
+BUILD_SYSTEM = "pybind11"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -214,7 +216,20 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "skcdemo.cpp",
             PROJECT_DIRECTORY / 'skcdemo.cpp'
-        )            
+        )
+    elif BUILD_SYSTEM == "pybind11":
+        shutil.move(
+            build_system_dir / "pybind11-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+        shutil.move(
+            build_system_dir / "CMakeLists.txt",
+            PROJECT_DIRECTORY / 'CMakeLists.txt'
+        )
+        shutil.move(
+            build_system_dir / "skcdemo.cpp",
+            PROJECT_DIRECTORY / 'skcdemo.cpp'
+        )                         
     else:
         shutil.move(
             build_system_dir / "base-pyproject.toml",

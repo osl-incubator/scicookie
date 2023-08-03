@@ -51,7 +51,8 @@
     "pdm",
     "hatch",
     "maturin",
-    "scikit-build-core"
+    "scikit-build-core",
+    "pybind11"
   ],
   "use_bandit": "yes",
   "use_black": "no",

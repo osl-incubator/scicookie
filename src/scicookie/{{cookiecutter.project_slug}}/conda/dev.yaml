@@ -23,6 +23,9 @@ dependencies:
 {%- elif cookiecutter.build_system == "scikit-build-core" %}
   - scikit-build-core
   - cmake  
+{%- elif cookiecutter.build_system == "pybind11" %}
+  - pybind11
+  - cmake    
 {%- endif %}
   - nodejs  # used by semantic-release
   - shellcheck
