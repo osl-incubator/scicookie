@@ -227,9 +227,13 @@ def clean_up_build_system():
             PROJECT_DIRECTORY / 'CMakeLists.txt'
         )
         shutil.move(
-            build_system_dir / "skcdemo.cpp",
-            PROJECT_DIRECTORY / 'skcdemo.cpp'
-        )                         
+            build_system_dir / "setup.py",
+            PROJECT_DIRECTORY / 'setup.py'
+        )
+        shutil.move(
+            build_system_dir / "pybind11.cpp",
+            PROJECT_DIRECTORY / 'pybind11.cpp'
+        )                          
     else:
         shutil.move(
             build_system_dir / "base-pyproject.toml",
