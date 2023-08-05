@@ -336,7 +336,17 @@ packages. SciCookie support the following:
   it a valuable asset for research software engineers. 
 
 - [**Pybind11**](https://pybind11.readthedocs.io/en/stable/): It's build system designed
-   for C++ library that simplifies the creation of Python bindings for C++ code, enabling easy integration of C++ functions and classes into Python scripts. It acts as a bridge between the two languages, allowing C++ algorithms and functionality to be directly called from Python as if they were native Python modules. Pybind11's user-friendly syntax reduces boilerplate code, making binding generation more straightforward, while standard C++ build systems like CMake or Make facilitate the compilation of projects using pybind11. Its efficiency, ease of use, and strong community support have made it a popular choice for projects requiring seamless interoperability between C++ and Python, ranging from scientific computing to game development and automation. Staying up-to-date with the latest pybind11 documentation ensures the best practices are followed. 
+   for C++ library that simplifies the creation of Python bindings for C++ code,
+  enabling easy integration of C++ functions and classes into Python scripts. It
+  acts as a bridge between the two languages, allowing C++ algorithms and functionality
+  to be directly called from Python as if they were native Python modules. Pybind11's
+  user-friendly syntax reduces boilerplate code, making binding generation more
+  straightforward, while standard C++ build systems like CMake or Make facilitate the
+  compilation of projects using pybind11. Its efficiency, ease of use, and strong community
+  support have made it a popular choice for projects requiring seamless interoperability
+   between C++ and Python, ranging from scientific computing to game development and
+  automation. Staying up-to-date with the latest pybind11 documentation ensures the
+  best practices are followed. 
    
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
