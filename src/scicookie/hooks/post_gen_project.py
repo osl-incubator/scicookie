@@ -229,10 +229,6 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "setup.py",
             PROJECT_DIRECTORY / 'setup.py'
-        )
-        shutil.move(
-            build_system_dir / "pybind11.cpp",
-            PROJECT_DIRECTORY / 'pybind11.cpp'
         )                          
     else:
         shutil.move(
@@ -298,6 +294,14 @@ def add_binding_source_files():
         else:
             os.makedir(src_system_dir)
             shutil.move(build_system_dir / "lib.rs", src_system_dir)
+    elif BUILD_SYSTEM == "pybind11" :
+        build_system_dir = PROJECT_DIRECTORY / "build-system"
+        src_system_dir = PROJECT_DIRECTORY/ "src"
+        if USE_SRC_LAYOUT :
+            shutil.move(build_system_dir / "main.cpp", "src")
+        else:
+            os.makedir(src_system_dir)
+            shutil.move(build_system_dir / "main.cpp", src_system_dir)
     else:
         pass
 

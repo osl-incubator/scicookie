@@ -1,17 +1,23 @@
+from __future__ import annotations
+
+from setuptools import setup  # isort:skip
+
 # Available at setup time due to pyproject.toml
-from pybind11.setup_helpers import Pybind11Extension
-from setuptools import setup
+from pybind11.setup_helpers import Pybind11Extension  # isort:skip
+
+# Note:
+#   Sort input source files if you glob sources to ensure bit-for-bit
+#   reproducible builds (https://github.com/pybind/python_example/pull/53)
+
+ext_modules = [
+    Pybind11Extension(
+        "{{ cookiecutter.project_slug }}._core",
+        ["src/main.cpp"],
+        cxx_std=11,
+    ),
+]
 
 
 setup(
-    name="OSL Python package",
-    author="{{cookiecutter.author_full_name}}",
-    author_email="{{cookiecutter.author_email}}",
-    url="https://{{ cookiecutter.project_slug }}.com",
-    description="A test project using pybind11",
-    long_description="",
-    #extras_require={"test": "pytest"},
-    # Currently, build_ext only provides an optional "highest supported C++
-    # level" feature, but in the future it may provide more features.
-    python_requires=">=3.7",
+    ext_modules=ext_modules,
 )
