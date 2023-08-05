@@ -54,8 +54,8 @@
     "scikit-build-core"
   ],
   "use_bandit": "yes",
-  "use_black": "no",
-  "use_blue": "yes",
+  "use_black": "yes",
+  "use_blue": "no",
   "use_conda": "yes",
   "use_coverage": "yes",
   "use_isort": "yes",
