@@ -10,7 +10,7 @@ from pybind11.setup_helpers import Pybind11Extension  # isort:skip
 ext_modules = [
     Pybind11Extension(
         "{{ cookiecutter.project_slug }}._core",
-        ["src/main.cpp"],
+        ["src/{{cookiecutter.project_slug}}/main.cpp"],
         cxx_std=11,
     ),
 ]
