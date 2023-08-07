@@ -57,7 +57,7 @@ elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
   pip install -e .
 elif [ "$(pip list|grep -c pybind11)" -ne "0" ]; then
   # Assuming you are inside the root of the CMake source directory
-  pip install .   
+  pip install -e .   
 else
     # use setuptools
   pip install --editable .
