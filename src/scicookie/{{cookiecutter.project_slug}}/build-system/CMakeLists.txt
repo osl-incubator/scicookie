@@ -14,7 +14,7 @@ install(TARGETS skcdemo DESTINATION .)
 
 find_package(pybind11 CONFIG REQUIRED)
 
-pybind11_add_module(_core MODULE src/main.cpp)
+pybind11_add_module(_core MODULE src/{{cookiecutter.project_slug}}/main.cpp)
 
 install(TARGETS _core DESTINATION .)
 
