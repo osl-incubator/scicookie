@@ -68,6 +68,7 @@ select = [
   "RUF", # Ruff-specific rules
   "I001",  # isort
 ]
+fixable = ["I001"]
 
 [tool.ruff.pydocstyle]
 convention = "numpy"

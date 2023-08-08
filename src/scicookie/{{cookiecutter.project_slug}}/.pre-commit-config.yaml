@@ -49,18 +49,9 @@ repos:
         - python
 {% endif %}
 {%- if cookiecutter.use_ruff == 'yes' %}
-    - id: ruff-isort
-      name: ruff-isort
-      entry: ruff check --select I001 --fix
-      language: system
-      pass_filenames: true
-      files: "./"
-      types:
-        - python
-
     - id: ruff
       name: ruff
-      entry: ruff
+      entry: ruff --fix
       language: system
       pass_filenames: true
       files: "./"

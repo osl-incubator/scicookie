@@ -71,7 +71,7 @@ ignore_missing_imports = true
 [tool.ruff]
 line-length = 79
 force-exclude = true
-src = ["src/scicookie"]
+src = ["./"]
 exclude = [
    'src/scicookie/\{\{cookiecutter.project_slug\}\}',
    'src/scicookie/hooks',

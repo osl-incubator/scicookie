@@ -33,21 +33,12 @@ repos:
       types:
         - python
 
-    - id: ruff-isort
-      name: ruff-isort
-      entry: ruff check --select I001 --fix
+    - id: ruff
+      name: ruff
+      entry: ruff --no-cache --fix
       language: system
       pass_filenames: true
       files: "./"
-      types:
-        - python
-
-    - id: ruff
-      name: ruff
-      entry: ruff --no-cache
-      language: system
-      pass_filenames: true
-      files: "src/scicookie/"
       # pre-commit + ruff doesn't honor the exclusion defined in the config
       exclude: |
         (?x)(
