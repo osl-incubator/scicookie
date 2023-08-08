@@ -14,8 +14,8 @@ class Profile:
     """Profile class that handles profiles defined in the .yaml files."""
 
     profile_name: str = ""
-    config: Dict[str, Any] = {}
-    profiles_available: List[str] = []
+    config: Dict[str, Any] = {}  # noqa: RUF012
+    profiles_available: List[str] = []  # noqa: RUF012
 
     def __init__(self, profile_name: str):
         self._load_profiles_available()
