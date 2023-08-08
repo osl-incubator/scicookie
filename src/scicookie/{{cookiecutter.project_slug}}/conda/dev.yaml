@@ -3,7 +3,7 @@ channels:
   - nodefaults
   - conda-forge
 dependencies:
-  - python <3.11
+  - python >=3.8.1
 {%- if cookiecutter.build_system == "poetry" %}
   - poetry
 {%- elif cookiecutter.build_system == "flit" %}
@@ -22,13 +22,12 @@ dependencies:
   - rust
 {%- elif cookiecutter.build_system == "scikit-build-core" %}
   - scikit-build-core
-  - cmake  
+  - cmake
 {%- endif %}
   - nodejs  # used by semantic-release
+{%- if cookiecutter.use_shellcheck == "yes" %}
   - shellcheck
+{%- endif %}
 {%- if cookiecutter.documentation_engine == "sphinx" %}
   - pandoc
-{%- endif %}
-{%- if cookiecutter.use_mypy == "yes" %}
-  - mypy
 {%- endif %}

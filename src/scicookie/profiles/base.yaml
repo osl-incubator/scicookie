@@ -111,6 +111,13 @@ documentation_engine:
     - jupyter-book
   enabled: false
 
+documentation_url:
+  message: Documentation URL
+  help: ""
+  type: text
+  default: ""
+  enabled: false
+
 use_tools:
   message: Select the initial tools you want to add to your project
   help: ""

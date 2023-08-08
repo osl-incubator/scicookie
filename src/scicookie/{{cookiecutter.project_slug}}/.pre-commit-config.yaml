@@ -40,13 +40,22 @@ repos:
       types:
         - python
 {% endif %}
-{%- if cookiecutter.use_ruff == 'ruff' %}
+{%- if cookiecutter.use_ruff == 'yes' %}
+    - id: ruff-isort
+      name: ruff-isort
+      entry: ruff check --select I001 --fix
+      language: system
+      pass_filenames: true
+      files: "./"
+      types:
+        - python
+
     - id: ruff
       name: ruff
       entry: ruff
       language: system
       pass_filenames: true
-      files: "{{ package_path }}"
+      files: "./"
       types:
         - python
 {%- endif %}

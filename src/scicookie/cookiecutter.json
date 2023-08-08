@@ -29,6 +29,7 @@
     "sphinx",
     "jupyter-book"
   ],
+  "documentation_url": "{{ cookiecutter.project_url }}",
   "code_of_conduct": [
     "None",
     "contributor-covenant",

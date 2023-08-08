@@ -61,7 +61,12 @@ exclude = [
   'docs',
 ]
 select = [
+  "E",   # pycodestyle
   "F",   # pyflakes
+  "D",   # pydocstyle
+  "YTT", # flake8-2020
+  "RUF", # Ruff-specific rules
+  "I001",  # isort
 ]
 
 [tool.ruff.pydocstyle]
