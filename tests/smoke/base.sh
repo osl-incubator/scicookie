@@ -57,7 +57,7 @@ elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
   pip install .
 else
     # use setuptools
-  pip install --editable .
+  pip install .
 fi
 
 $COMMAND_PREFIX ipython kernel install --name "python3" --user
