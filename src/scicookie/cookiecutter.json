@@ -71,7 +71,7 @@
   "use_mypy": "no",
   "use_pre_commit": "yes",
   "use_pydocstyle": "no",
-  "use_pytest": "no",
+  "use_pytest": "yes",
   "use_ruff": "yes",
   "use_shellcheck": "no",
   "use_vulture": "no",
