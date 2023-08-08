@@ -1,5 +1,6 @@
 """Profile handles "profiles" defined in the .yaml files."""
 from pathlib import Path
+from typing import Any, Dict, List
 
 import yaml
 
@@ -13,8 +14,8 @@ class Profile:
     """Profile class that handles profiles defined in the .yaml files."""
 
     profile_name: str = ""
-    config: dict = {}  # noqa: RUF012
-    profiles_available: list = []  # noqa: RUF012
+    config: Dict[str, Any] = {}
+    profiles_available: List[str] = []
 
     def __init__(self, profile_name: str):
         self._load_profiles_available()
