@@ -1,8 +1,8 @@
-{% if cookiecutter.project_layout == "src" -%}
-{% set package_path = "src/" + cookiecutter.package_slug -%}
-{% else -%}
-{% set package_path = cookiecutter.package_slug -%}
-{% endif -%}
+{%- if cookiecutter.project_layout == "src" -%}
+{%- set package_path = "src/" + cookiecutter.package_slug -%}
+{%- else -%}
+{%- set package_path = cookiecutter.package_slug -%}
+{%- endif -%}
 default_stages:
   - commit
 repos:

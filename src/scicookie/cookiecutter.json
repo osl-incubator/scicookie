@@ -55,7 +55,7 @@
     "scikit-build-core"
   ],
   "use_bandit": "no",
-  "use_black": "no",
+  "use_black": "yes",
   "use_blue": "no",
   "use_conda": "yes",
   "use_containers": [
@@ -69,10 +69,10 @@
   "use_isort": "no",
   "use_mccabe": "no",
   "use_mypy": "no",
-  "use_pre_commit": "no",
+  "use_pre_commit": "yes",
   "use_pydocstyle": "no",
   "use_pytest": "no",
-  "use_ruff": "no",
+  "use_ruff": "yes",
   "use_shellcheck": "no",
   "use_vulture": "no",
   "git_username": "zoro_roronoa",
