@@ -58,15 +58,14 @@ jobs:
     strategy:
       matrix:
         smoke_file:
-          - jupyter-book.sh
-          - mkdocs.sh
-          - sphinx.sh
-          - black.sh
-          - blue.sh
-          - coc.sh
-          - governance.sh
-          - roadmap.sh
-          - build-system.sh
+          - auto-format-tools.sh
+          - build-systems.sh
+          - containers.sh
+          - docs.sh
+          - files.sh
+          - linters.sh
+          - tests.sh
+          - virtual-envs.sh
 
     defaults:
       run:

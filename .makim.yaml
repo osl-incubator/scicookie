@@ -65,12 +65,11 @@ groups:
       smoke:
         help: Run smoke tests
         run: |
-          ./tests/smoke/jupyter-book.sh
-          ./tests/smoke/mkdocs.sh
-          ./tests/smoke/sphinx.sh
-          ./tests/smoke/black.sh
-          ./tests/smoke/blue.sh
-          ./tests/smoke/coc.sh
-          ./tests/smoke/governance.sh
-          ./tests/smoke/roadmap.sh
-          ./tests/smoke/build-system.sh
+          ./tests/smoke/auto-format-tools.sh
+          ./tests/smoke/build-systems.sh
+          ./tests/smoke/containers.sh
+          ./tests/smoke/docs.sh
+          ./tests/smoke/files.sh
+          ./tests/smoke/linters.sh
+          ./tests/smoke/tests.sh
+          ./tests/smoke/virtual-envs.sh
