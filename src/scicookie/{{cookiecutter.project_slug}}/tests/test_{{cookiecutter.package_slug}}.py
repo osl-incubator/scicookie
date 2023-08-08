@@ -1,6 +1,4 @@
-"""
-Tests for {{ cookiecutter.package_slug }} package.
-"""
+"""Tests for {{ cookiecutter.package_slug }} package."""
 {% if cookiecutter.use_pytest == "yes" -%}
 import pytest
 {% endif -%}
@@ -12,41 +10,27 @@ from hypothesis import strategies as st
 
 @pytest.fixture
 def response_pytest():
-    """Sample pytest fixture.
+    """Sample pytest fixture."""
+    return True
 
-    See more at:
-    http://doc.pytest.org/en/latest/fixture.html
-    """
-{% endif -%}
 {% if cookiecutter.use_hypothesis == "yes" %}
-
 @pytest.fixture
 def response_hypothesis():
-    """Sample pytest fixture.
-
-    See more at:
-    https://hypothesis.readthedocs.io/en/latest/quickstart.html
-    """
+    """Sample pytest + hypothesis fixture."""
+    return True
 {% endif -%}
 
-{%- if cookiecutter.use_pytest == "yes" and 
-cookiecutter.use_hypothesis == "yes" %}
+{%- if cookiecutter.use_pytest == "yes" %}
+
+def test_content_pytest():
+    """Sample pytest test function."""
+    assert True
+
+{% if cookiecutter.use_hypothesis == "yes" %}
 
 @given(st.text())
-def test_content_hypothesis1():
-    """Sample pytest test function with the
-    pytest fixture and hypothesis as arguments.
-    """
-    # Test code using the response fixture and
-    # hypothesis_argument
-
-
-@given(st.text())
-def test_content_hypothesis2():
-    """Sample pytest test function with the hypothesis
-    fixture as an argument.
-    """
-    # Test code using the response fixture and
-    # hypothesis_argument
+def test_content_hypothesis(response_hypothesis):
+    """Sample pytest + hypothesis"""
+    assert response_hypothesis
 {% endif -%}
 {#- keep this line at the end of the file -#}

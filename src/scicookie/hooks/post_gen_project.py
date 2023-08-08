@@ -250,7 +250,10 @@ def prepare_git():
     git_author_name = "{{cookiecutter.author_full_name}}"
     git_author_email = "{{cookiecutter.author_email}}"
 
-    subprocess.call(["git", "stash"])
+    empty_repo = not (git_https_origin or git_https_upstream)
+
+    if not empty_repo:
+        subprocess.call(["git", "stash"])
 
     if git_https_origin != "":
         subprocess.call(["git", "remote", "add", "origin", git_https_origin])
@@ -262,7 +265,6 @@ def prepare_git():
             ["git", "remote", "add", "upstream", git_https_upstream]
         )
         subprocess.call(["git", "fetch", "--all"])
-        subprocess.call(["git", "checkout", f"upstream/{git_main_branch}"])
 
     subprocess.call(
         ["git", "config", "user.name", git_author_name]
@@ -272,7 +274,10 @@ def prepare_git():
     )
 
     subprocess.call(["git", "checkout", "-b", git_new_branch])
-    subprocess.call(["git", "stash", "pop"])
+
+    if not empty_repo:
+        subprocess.call(["git", "stash", "pop"])
+
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit", "--no-verify"])
 
