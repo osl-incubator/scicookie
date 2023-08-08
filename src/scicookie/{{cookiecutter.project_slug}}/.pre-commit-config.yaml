@@ -13,6 +13,14 @@ repos:
 
   - repo: local
     hooks:
+    # NOTE: This is a total unnecessary check, just used as part of the
+    #       template. Remove this after creating the template.
+    - id: check-python
+      name: check-python
+      entry: python --version
+      language: system
+      pass_filenames: no
+{# keep this comment #}
 {%- if cookiecutter.use_blue == "yes" %}
     - id: blue
       name: blue

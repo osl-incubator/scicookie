@@ -4,6 +4,7 @@ channels:
   - conda-forge
 dependencies:
   - python >=3.8.1
+  - pip
 {%- if cookiecutter.build_system == "poetry" %}
   - poetry
 {%- elif cookiecutter.build_system == "flit" %}
