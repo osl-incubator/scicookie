@@ -58,7 +58,7 @@ repos:
       files: "./"
       types:
         - python
-{%- endif %}
+{% endif %}
 {%- if cookiecutter.use_isort == "yes" %}
     - id: isort
       name: isort
