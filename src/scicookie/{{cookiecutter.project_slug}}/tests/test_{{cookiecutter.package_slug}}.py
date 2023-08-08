@@ -19,18 +19,19 @@ def response_hypothesis():
     """Sample pytest + hypothesis fixture."""
     return True
 {% endif -%}
+{% endif -%}
 
 {%- if cookiecutter.use_pytest == "yes" %}
 
 def test_content_pytest():
-    """Sample pytest test function."""
+    """Test with pytest."""
     assert True
 
 {% if cookiecutter.use_hypothesis == "yes" %}
-
 @given(st.text())
 def test_content_hypothesis(response_hypothesis):
-    """Sample pytest + hypothesis"""
+    """Test with pytest + hypothesis."""
     assert response_hypothesis
+{% endif -%}
 {% endif -%}
 {#- keep this line at the end of the file -#}
