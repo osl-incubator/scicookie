@@ -38,6 +38,7 @@ dynamic = ["version"]
 requires-python = ">=3.8.1"
 dependencies = [
 {# keep this line here #}
+    "build>=0.10.0",
 {%- if cookiecutter.use_pytest == "yes" -%}
     "pytest >= 7.3.2,<8",
 {% if cookiecutter.use_coverage == "yes" -%}
