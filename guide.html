@@ -322,8 +322,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-coverage-testing">Code coverage testing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style-and-logic-code-quality">Code style and logic (code quality)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-framework">Testing framework</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-commit-verification">Pre-commit verification</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-analysis-of-shell-scripts">Static analysis of shell scripts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-commit-verification">Pre-commit verification</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-devops-tools">Integration with DevOps tools</a></li>
@@ -347,7 +347,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="scicookie-user-guide">
 <h1>SciCookie user guide<a class="headerlink" href="#scicookie-user-guide" title="Permalink to this heading">#</a></h1>
-<p>SciCookie allows you to create a template for your Python project. The team has
+<p>SciCookie is a package that offers a template for your Python project. The team has
 created this guide to help you understand every option and its functionality.</p>
 <p>The structure of the guide is as follows:</p>
 <ul class="simple">
@@ -372,8 +372,8 @@ created this guide to help you understand every option and its functionality.</p
 <li><p><span class="xref myst">Code coverage testing</span></p></li>
 <li><p><span class="xref myst">Code style and logic (code quality)</span></p></li>
 <li><p><span class="xref myst">Testing framework</span></p></li>
-<li><p><span class="xref myst">Pre-commit verification</span></p></li>
 <li><p><span class="xref myst">Static analysis of shell scripts</span></p></li>
+<li><p><span class="xref myst">Pre-commit verification</span></p></li>
 </ul>
 </li>
 <li><p><span class="xref myst">Integration with DevOps tools</span></p></li>
@@ -426,21 +426,91 @@ you don’t want, simply use the left arrow key to deselect it.</p>
 </section>
 <section id="the-author-of-project">
 <h2>The author of project<a class="headerlink" href="#the-author-of-project" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>author_name</strong></p></li>
-<li><p><strong>author_email</strong></p></li>
-</ul>
+<p>With SciCookie, you can easily add information about the author of the
+project by filling in the <strong>author_full_name</strong> and <strong>author_email</strong> fields,
+which refer to the name and email address of the person or organization
+that authored the project.</p>
+<p>The default values give you an idea of what you can enter in these
+fields. This information can be found in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file, the
+documentation and the github configuration, to name a few.</p>
 </section>
 <section id="information-about-the-project">
 <h2>Information about the project<a class="headerlink" href="#information-about-the-project" title="Permalink to this heading">#</a></h2>
+<p>Every project needs specific information for both development and
+maintenance. SciCookie allows you to customise this information, which
+is displayed in several parts, such as: documentation, git,
+configuration files, the project repository, PyPI (Python Package Index)
+and more.</p>
+<p>Below are the fields within the TUI that relate to project information:</p>
+<ul>
+<li><p><strong>project_name</strong>: This is the name of the project according to the
+creator, i.e. the main title of the project, as shown on the README
+page, for example.</p></li>
+<li><p><strong>project_slug</strong>: This is the name of the project, probably
+abbreviated using characters suitable for naming a Python package.
+Also, it is the name used for the repository and the one registered
+with PyPI. In simpler terms, it refers to the name of the python
+package to use when you want to install it. In SciCookie, this name
+can include hyphens (-) or underscores (_).</p></li>
+<li><p><strong>package_slug</strong>: This refers to the name used when importing the
+package. This name allows the usage of (_) instead of (-), which is a
+particularity of SciCookie. Consequently, the <em>project_slug</em> and the
+<em>package_slug</em> can match (when both use underscores).</p></li>
+<li><p><strong>project_version</strong>: This is where you can enter the version of your
+python package, most Python packages use semantic versioning.
+SciCookie offers you to manage the release workflow with semantic
+release and github actions. For more information on releasing and
+versioning, please click
+<a class="reference external" href="https://py-pkgs.org/07-releasing-versioning.html">here</a>.</p></li>
+<li><p><strong>project_url</strong>: This is the URL of the project’s website used for
+example, in the documentation and the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file. On this
+website you will generally find information about the project, the
+team, events, the blog, etc. It is used to promote the project.</p></li>
+<li><p><strong>project_license</strong>: This field allows you to specify the license of
+the project. In SciCookie you can find and choose from the following
+well-known open source software licenses: <em>MIT</em>, <em>BSD 3 Clauses</em>, <em>ISC
+license</em>, <em>Apache Software License 2.0</em> and <em>GNU General Public License v3</em>.</p>
 <ul class="simple">
-<li><p>project_name</p></li>
-<li><p>project_slug</p></li>
-<li><p>package_slug
-&lt;mencionar la diferencia entre project y package, muy importante&gt;</p></li>
-<li><p>project_version</p></li>
-<li><p>project_url</p></li>
-<li><p>project_license</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">MIT</span></code> option</strong>: is a free software license that allows users to use,
+modify and redistribute the software without significant restrictions.
+It is a permissive license that allows users to do whatever they want
+with the software, as long as a copy of the license is included and
+the original authorship of the software is acknowledged. In SciCookie
+this is the license type for default. If you want to know the content
+of this license, you can visit <a class="reference external" href="https://mit-license.org/">https://mit-license.org/</a>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">BSD</span> <span class="pre">3</span> <span class="pre">Clauses</span></code> option</strong>: also allows users to use, modify and
+redistribute the software without significant restrictions. It is
+similar to the MIT license in terms of permissibility, but includes
+three additional clauses that require you to include a copy of the
+license, acknowledge original authorship of the software, and
+release the author from any liability for damages. For more
+information, see <a class="reference external" href="https://opensource.org/license/bsd-3-clause/">https://opensource.org/license/bsd-3-clause/</a>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ISC</span> <span class="pre">license</span></code> option</strong>: is mainly used to distribute software
+related to networking and Internet protocols. It is permissive and
+known to be short and easy to understand. The author is not
+responsible for any damage or problems caused by the use of the
+software. You can learn more about the contents of this license at
+<a class="reference external" href="https://opensource.org/license/isc-license-txt/">https://opensource.org/license/isc-license-txt/</a>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Apache</span> <span class="pre">Software</span> <span class="pre">License</span> <span class="pre">2.0</span></code> option</strong>: is a permissive license,
+compatible with the GNU General Public License (GPL). It contains
+special provisions relating to patents. It also requires that
+copyright and attribution notices of the original authors be
+maintained on all copies of the software, and allows users to make
+modifications to the software and distribute modified versions. You
+can find out more about this license at
+<a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0</a>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">GNU</span> <span class="pre">General</span> <span class="pre">Public</span> <span class="pre">License</span> <span class="pre">v3</span></code> option</strong>: includes the freedom to
+use, modify and redistribute the software in accordance with the
+terms of the license. Compared to previous versions, it addresses
+concerns about interoperability with other systems and the use of
+technological protection measures. If you modify or distribute the
+software under the GPL v3, you must make the source code available
+to end users. More information is available at
+<a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0.html">https://www.gnu.org/licenses/gpl-3.0.html</a>.</p></li>
+</ul>
+<p>If you want to include another type of license according to the needs
+of your project, you can do so by selecting the option <code class="docutils literal notranslate"><span class="pre">Other</span></code>.</p>
+</li>
 </ul>
 </section>
 <section id="project-settings">
@@ -576,6 +646,23 @@ with sane defaults. Hatchling ensures that your builds are reproducible, so you
 can be confident that they will always produce the same results. It also helps
 you manage your Python environments, so you can be sure that your projects have
 the correct dependencies.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/maturin/0.8.2/"><strong>Maturin</strong></a>: It’s build system designed
+to create Python bindings from Rust projects. It allows Rust code to be seamlessly
+integrated into Python applications, providing efficient builds and cross-platform
+support for various Python versions. Maturin automates the generation of Python
+modules that directly access Rust functions, harnessing Rust’s high performance
+and low-level capabilities within Python. Its user-friendly interface and
+compatibility with setuptools and Cargo make it an easy-to-use tool, offering
+developers a simple solution to combine the strengths of Python and Rust within
+a unified project.</p></li>
+<li><p><a class="reference external" href="https://scikit-build-core.readthedocs.io/en/latest/"><strong>scikit-build-core</strong></a>: It’s build system designed for Python
+packaging tool, serving as an enhanced build system generator for CPython
+C extensions greatly improves package management within the scientific Python
+ecosystem. It offers superior support for diverse compilers, build systems,
+cross-compilation, and efficient dependency locating with their associated
+build requirements. With its capabilities, it facilitates cross-platform
+builds using CMake and effortless integration with C/C++ libraries, making
+it a valuable asset for research software engineers.</p></li>
 </ul>
 <p>The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
@@ -585,18 +672,81 @@ suggestion as a issue at
 </section>
 <section id="command-line-interfaces-clis">
 <h3>Command-line interfaces (CLIs)<a class="headerlink" href="#command-line-interfaces-clis" title="Permalink to this heading">#</a></h3>
+<p>A command line interface (CLI) is a type of text-based interface that
+allows the user to interact with a program or system using text commands
+rather than a graphical interface. It allows automation of tasks, access
+to advanced functions, and execution of complex commands with additional
+options.</p>
+<p>In addition to the operating system’s native CLI, many programs and
+tools provide their own command line interfaces to facilitate
+interaction with their functionality. With SciCookie you have two CLI
+options: <em>Click</em> and <em>Argparse</em>.</p>
 <ul class="simple">
-<li><p>Click</p></li>
-<li><p>Argparse</p></li>
+<li><p><a class="reference external" href="https://click.palletsprojects.com/en/8.1.x/"><strong>Click</strong></a>: The <em>Command
+Line Interface Creation Kit</em> is a Python package that allows you to
+create beautiful command line interfaces in a composable way with as
+little code as necessary. It is highly configurable, it aims to make
+the process of writing command line tools quick and fun.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/argparse.html"><strong>Argparse</strong></a>: This
+is the recommended command line parsing module in the Python standard
+library, and provides an easy way to create command line interfaces
+with custom arguments and options. It helps you parse user-supplied
+arguments and options, and automatically generate help and usage
+messages.</p></li>
 </ul>
+<p>If you do not want to include a CLI in your project, select <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">command-line</span> <span class="pre">interface</span></code> (this is the default option).</p>
 </section>
 <section id="documentation-engine">
 <h3>Documentation engine<a class="headerlink" href="#documentation-engine" title="Permalink to this heading">#</a></h3>
+<p>One of the most important elements of a package (apart from the
+functionality of the code) is its documentation.  If there is no quality
+documentation, it is very likely that people will not understand and
+therefore not use your package.</p>
+<p>To generate documentation for any project, tools have been developed
+that include functions such as content creation and editing,
+organization and classification of information, generation of output
+formats and integration with other development and project management
+tools, known as a <strong>documentation engine</strong>. This tool automates the
+creation of technical documentation for software projects by extracting
+information from source code, comments and project metadata.</p>
+<p>Depending on your taste and the needs of your project, you should choose
+the documentation engine that best suits your needs. SciCookie offers
+you three documentation engine options for your Python package:
+<em>mkdocs</em>, <em>sphinx</em> and <em>jupyter-book</em>.</p>
 <ul class="simple">
-<li><p>mkdocs</p></li>
-<li><p>sphinx</p></li>
-<li><p>jupyter-book</p></li>
+<li><p><a class="reference external" href="https://www.mkdocs.org/"><strong>mkdocs</strong></a>: is a fast, simple, and
+downright gorgeous static site generator for creating project
+documentation. Documentation source files are written in <em>Markdown</em>
+and configured with a single <code class="docutils literal notranslate"><span class="pre">YAML</span></code> configuration file. It is designed
+to allow users to quickly create clear and well-structured
+documentation without requiring advanced programming skills. <em>mkdocs</em>
+can be easily integrated with version control systems such as Git,
+supports a variety of predefined themes that allow you to customise
+the visual appearance of your documentation. In SciCookie, so far, we
+use the <em>material</em> theme to generate documentation with <em>mkdocs</em>.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/"><strong>Sphinx</strong></a>: <em>Sphinx</em> makes it
+easy to create intelligent and attractive documentation. It provides
+various output formats such as HTML, LaTeX, ePub, Texinfo, manual
+pages, plain text. It also generates automatic links to functions,
+classes, citations, glossary terms and similar information. It allows
+the use of built-in extensions for automatic code snippet checking,
+the inclusion of docstrings from Python modules, and third-party
+extensions to include many more features. <em>Sphinx</em> uses the
+<em>reStructuredText</em> markup language by default and can read <em>MyST</em> markdown
+through third-party extensions.</p></li>
+<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/intro.html"><strong>Jupyter Book</strong></a>:
+allows you to create engaging, publication-quality books and documents
+from computational content. <em>Jupyter Book</em> uses Jupyter notebooks as the
+basis for creating interactive content. It allows you to structure and
+organise the notebooks into a cohesive, navigable book. It also offers
+customisation options to adapt the look and feel of the book to your
+needs and extensions to add additional features. It can generate books
+in a variety of output formats, including HTML, PDF and static web
+pages. It integrates well with version control systems such as Git.</p></li>
 </ul>
+<p>If you think we should add more options of documentation engines or themes, you
+can submit your suggestion as a issue at
+<a class="github reference external" href="https://github.com/osl-incubator/scicookie/issues/new/choose">osl-incubator/scicookie#choose</a>.</p>
 </section>
 </section>
 <section id="project-tools">
@@ -608,7 +758,28 @@ errors and vulnerabilities in your code, and much more.</p>
 <p>The tools are described below according to their functionality.</p>
 <section id="virtual-environment">
 <h3>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Permalink to this heading">#</a></h3>
-<p>-<strong>Conda</strong></p>
+<p>When working with Python, you should always have a virtual environment.
+This is an isolated space where you can install and run applications and
+software packages independently, without interfering with other
+environments or versions on your system. You control which package
+versions are installed and when they are updated. Virtual environments
+are disposable; you can delete and create as many as you like. In Python
+there are many tools to manage virtual environments, in SciCookie we
+offer you the option to use <em>conda</em> as your environment management
+system, which is a very popular option in the Python scientific
+community.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.conda.io/en/latest/"><strong>Conda</strong></a>: is an open source
+package and environment management system that runs on Windows, MacOS
+and Linux. It quickly installs, runs and updates packages and their
+dependencies. It also makes it easy to create, save, load and switch
+between environments on your local machine, which is why we use conda
+as an option in SciCookie. If you want an easy way to choose a
+specific version of Python, and if your project relies on complex
+software libraries that are not easily installed with pip, using conda
+is a good option. It is included in all versions of Anaconda and
+Miniconda.</p></li>
+</ul>
 </section>
 <section id="code-formatter">
 <h3>Code formatter<a class="headerlink" href="#code-formatter" title="Permalink to this heading">#</a></h3>
@@ -617,7 +788,7 @@ of coding standards, such as PEP 8 guidelines. It helps us ensure consistency in
 our code, saves time by automating the formatting process, reduces errors by
 enforcing coding standards, and facilitates collaboration by making it easier
 for multiple developers to work on the same code base. In the options of
-SciCookie, you will find two choices: Black and Blue.</p>
+SciCookie, you will find two choices: <em>Black</em> and <em>Blue</em>.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://black.readthedocs.io"><strong>Black</strong></a>: It is a popular code formatter tool
 for Python that automatically formats code to conform to PEP 8 guidelines. It
@@ -629,13 +800,21 @@ standards.</p></li>
 <p>You can read the <a class="reference external" href="https://black.readthedocs.io"><em>black documentation</em></a> if you
 want to know more about it.</p>
 <ul class="simple">
-<li><p><strong>Blue</strong></p></li>
+<li><p><a class="reference external" href="https://blue.readthedocs.io/en/latest/"><strong>Blue</strong></a>: is a slightly less
+rigid code formatter than <em>black</em>, it contains only a few improvements
+that the maintainers have considered. It is hoped that in time it can
+be merged with the <em>black</em> project. Some differences between <em>blue</em>
+and <em>black</em>: <em>blue</em> defaults to single-quoted strings for everything
+except docstrings and triple-quoted strings (TQS). <em>blue</em> defaults to
+79-character line lengths, preserving whitespace before the pad for
+right-justified comments. It also supports multiple configuration
+files: <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>, <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> and <code class="docutils literal notranslate"><span class="pre">.blue</span></code>.</p></li>
 </ul>
-<p>If you select both Blue and Black libraries in the TUI (Terminal User
+<p>If you select both <em>Blue</em> and <em>Black</em> libraries in the TUI (Terminal User
 Interface), you will see the following message: “The libs Blue and Black were
 selected, but you need to choose just one of them.” and the template generation
 process will be stopped.</p>
-<p>Using code formatters such as black or blue in your project helps ensure
+<p>Using code formatters such as <em>Black</em> or <em>Blue</em> in your project helps ensure
 consistent and readable code, making it easier to maintain and collaborate on.</p>
 </section>
 <section id="code-security-vulnerabilities">
@@ -712,10 +891,39 @@ integrated into editors and IDEs using plugins or extensions. It is also able to
 detect a wide range of potential errors and style issues, and provides clear and
 detailed error messages to help developers resolve these issues quickly.</p>
 </li>
-<li><p><strong>Isort</strong></p></li>
-<li><p><strong>McCabe</strong></p></li>
-<li><p><strong>pydocstyle</strong></p></li>
-<li><p><strong>Vulture</strong></p></li>
+<li><p><a class="reference external" href="https://pycqa.github.io/isort/"><strong>isort</strong></a>: is a Python
+utility/library for automatically sorting imports alphabetically and
+separating them into sections and by type. This can help maintain a
+consistent import style and make the code easier to read. <em>isort</em>
+provides a command-line utility, a Python library and plugins for
+various editors to quickly sort all your imports. It offers a number
+of configuration options to suit each project’s import style
+preferences, has official pre-commit support and is black-compatible.</p></li>
+<li><p><a class="reference external" href="https://here-be-pythons.readthedocs.io/en/latest/python/mccabe.html"><strong>McCabe</strong></a>:
+is a code complexity checker that automatically detects code
+complexity based on cyclomatic complexity, which is roughly equal to
+one plus the number of loops and if statements. Simply put, it
+provides an upper bound on the number of test cases needed to obtain
+branch coverage of the code. It is recommended to run it during the
+git hook pre-commit.</p></li>
+<li><p><a class="reference external" href="https://github.com/jendrikseipp/vulture"><strong>Vulture</strong></a>: finds unused
+code in Python programs. This is useful for cleaning up and finding
+bugs in large code bases. Due to the dynamic nature of Python, static
+code analysers such as <em>Vulture</em> are likely to miss some dead code.
+However, it can be a very useful tool for improving code quality. It
+uses static code analysis, it is self-testing and has full test
+coverage, it complements pyflakes and has the same output syntax, it
+sorts classes and functions by size and it supports Python &gt;= 3.6,
+these are some of the main features of <em>Vulture</em>.</p></li>
+<li><p><a class="reference external" href="http://www.pydocstyle.org/en/stable/"><strong>pydocstyle</strong></a>: is a static
+analysis tool for checking compliance with Python docstring
+conventions. <em>pydocstyle</em> analyses source code for docstrings and
+verifies that they comply with the guidelines set out in PEP 257. This
+includes rules such as the formatting of docstrings, the presence of
+required sections, and the appropriate use of punctuation and
+structure. <em>pydocstyle</em> supports Python 3.7 to 3.11 and can be
+integrated into development workflows as part of code review or
+automated validation processes.</p></li>
 </ul>
 <p>When writing your code, you should always try to make it as clear and concise as
 possible. This will make it easier for other developers to understand your code
@@ -754,14 +962,8 @@ specific examples, Hypothesis allows you to define general properties that your
 code should satisfy. It automatically generates random inputs, including edge
 cases, to uncover potential bugs and unexpected behaviors. Hypothesis integrates
 well with popular testing frameworks like Pytest and promotes comprehensive
-testing to improve code reliability. f you want to know more, check out the
+testing to improve code reliability. If you want to know more, check out the
 documentation <a class="reference external" href="https://hypothesis.readthedocs.io/">here</a>.</p></li>
-</ul>
-</section>
-<section id="pre-commit-verification">
-<h3>Pre-commit verification<a class="headerlink" href="#pre-commit-verification" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>pre-commit</strong></p></li>
 </ul>
 </section>
 <section id="static-analysis-of-shell-scripts">
@@ -789,14 +991,40 @@ ensure that your code is of high quality, secure, and efficient.</p>
 choosing among these tools, it’s important to consider your specific needs and
 which tools may be most useful for your project.</p>
 </section>
+<section id="pre-commit-verification">
+<h3>Pre-commit verification<a class="headerlink" href="#pre-commit-verification" title="Permalink to this heading">#</a></h3>
+<p>It is a code quality control tool that runs automatically before commits
+are made to a version control repository. When a commit is made,
+pre-commit executes the configured hooks. If you select the pre-commit
+option offered by SciCookie, we have configured the following hooks for
+you: <em>end-of-file-fixer</em>, <em>blue</em>, <em>black</em>, <em>flake8</em>, <em>ruff</em>, <em>isort</em>,
+<em>mypy</em>, <em>shellcheck</em>, <em>bandit</em>, <em>pydocstyle</em>, <em>vulture</em> and <em>mccabe</em>
+(will be available in your project according to the tools you have
+selected in TUI).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pre-commit.com/"><strong>pre-commit</strong></a>: It is a framework for
+managing and maintaining multi-language pre-commit hooks. A list of
+desired hooks must be specified, and pre-commit manages the
+installation and execution of all hooks written in any language before
+each commit. You will be notified before the end of the commit if
+validation fails, as configured.</p></li>
+</ul>
+<p>This is configured using a <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file in the
+repository, which sets the hooks to be executed before each commit. You
+can check the supported hooks using this link
+<a class="reference external" href="https://pre-commit.com/hooks.html">https://pre-commit.com/hooks.html</a>.</p>
+</section>
 </section>
 <section id="integration-with-devops-tools">
 <h2>Integration with DevOps tools<a class="headerlink" href="#integration-with-devops-tools" title="Permalink to this heading">#</a></h2>
-<p>Integrating your Python project with DevOps tools can bring a number of benefits
-to the development and deployment process. DevOps tools are designed to automate
-and streamline the development pipeline, from code development to deployment and
-maintenance, and can help you improve the speed, quality and reliability of the
-development process. In SciCookie</p>
+<p>Integrating your Python project with DevOps tools can bring a number of
+benefits to the development and deployment process. DevOps tools are
+designed to automate and streamline the development pipeline, from code
+development to deployment and maintenance, and can help you improve the
+speed, quality and reliability of the development process. In SciCookie
+you can choose between <em>Docker</em>, <em>Podman</em> and <em>Kubernetes</em>. These are
+all containerization technologies used to deploy and manage
+applications.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.docker.com/"><strong>Docker</strong></a>: This is a containerization platform
 that allows developers to package their applications and dependencies into a
@@ -832,6 +1060,8 @@ documentation</a>.</p></li>
 <p>Overall, Docker, Podman, and Kubernetes are powerful tools for managing and
 deploying containerized applications, and can provide a streamlined and
 efficient platform for running Python projects.</p>
+<p>In case you do not want to include DevOps in your project, you can do so
+by selecting the option <code class="docutils literal notranslate"><span class="pre">None</span></code> (this is the default option).</p>
 </section>
 <section id="project-team">
 <h2>Project team<a class="headerlink" href="#project-team" title="Permalink to this heading">#</a></h2>
@@ -849,7 +1079,7 @@ individuals participating in a community or organization. It typically specifies
 the types of behavior that are considered acceptable and unacceptable, as well
 as the consequences for violating the code of conduct. In SciCookie you can find
 and choose between two adaptations of well-known codes of conduct accepted by a
-large part of the community, <em>A Code of Conduct for Open Source Communities by
+large part of the community: <em>A Code of Conduct for Open Source Communities by
 Contributors Covenant</em> and <em>The Citizen Code of Conduct</em>.</p>
 <ul class="simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">contributor-covenant</span></code> option</strong>: The Contributor Covenant aims to create a
@@ -879,7 +1109,8 @@ resolved. This can take many different forms, depending on the needs and goals
 of the organization or community. SciCookie offers two adaptations for your
 project governance document: <em>NumPy Governance</em> and <em>SciML Scientific Machine
 Learning Governance</em>.</p>
-<p><strong>numpy-governance</strong> option: NumPy is a widely used open source project for
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">numpy-governance</span></code> option</strong>: NumPy is a widely used open source project for
 scientific computing in Python. Its governance document outlines how the project
 is managed and how decisions are made. <a class="reference external" href="https://numpy.org/doc/stable/dev/governance/index.html"><em>The NumPy governance
 document</em></a> describes the
@@ -891,8 +1122,8 @@ Governance Document</strong> provides a clear framework for the management of th
 project and helps to ensure that it remains a vibrant and sustainable
 community-driven project. If you want to read the full text of Numpy’s
 governance document, click
-<a class="reference external" href="https://numpy.org/doc/stable/dev/governance/index.html">here</a>.</p>
-<p><strong>sciml-governance</strong> option: <a class="reference external" href="https://sciml.ai/governance/"><em>SciML Scientific Machine Learning
+<a class="reference external" href="https://numpy.org/doc/stable/dev/governance/index.html">here</a>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">sciml-governance</span></code> option</strong>: <a class="reference external" href="https://sciml.ai/governance/"><em>SciML Scientific Machine Learning
 Governance</em></a> is a governance document that outlines
 the structure and decision-making processes of the SciML community, which
 focuses on the development of scientific machine learning tools and methods. The
@@ -906,7 +1137,8 @@ methods. It also provides a clear framework for the governance of the community,
 helping to ensure that it remains a vibrant and effective force in the
 development of scientific machine learning. If you want to read the full text of
 SciML Scientific Machine Learning Governance, click
-<a class="reference external" href="https://sciml.ai/governance/">here</a>.</p>
+<a class="reference external" href="https://sciml.ai/governance/">here</a>.</p></li>
+</ul>
 <p>In case you do not want to include this file in your project, you can do so by
 selecting the option <code class="docutils literal notranslate"><span class="pre">None</span></code> (this is the default option).</p>
 </section>
@@ -920,14 +1152,16 @@ include timelines, budgets, resource requirements and key performance indicators
 to track progress and measure success. The purpose is to provide a clear and
 actionable plan for achieving a goal and to communicate that plan to
 stakeholders and team members. SciCookie offers an adaptation for your project
-roadmap document, PyTorch-Ignite roadmap.</p>
-<p><strong>pytorch-ignite-roadmap</strong> option: PyTorch Ignite is an open-source library for
+roadmap document: <em>PyTorch-Ignite roadmap</em>.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pytorch-ignite-roadmap</span></code> option</strong>: PyTorch Ignite is an open-source library for
 high-level training and evaluation of neural networks in PyTorch. The PyTorch
 Ignite roadmap outlines the development plans for the library, including new
 features, bug fixes, and performance improvements. The roadmap may include
 timelines for releasing new versions, as well as details on specific features
 that are planned for each release. If you want to read the full text of PyTorch
-Ignite Roadmap, click <a class="reference external" href="https://github.com/pytorch/ignite/wiki/Roadmap">here</a>.</p>
+Ignite Roadmap, click <a class="reference external" href="https://github.com/pytorch/ignite/wiki/Roadmap">here</a>.</p></li>
+</ul>
 <p>In case you do not want to include this file in your project, you can do so by
 selecting the option <code class="docutils literal notranslate"><span class="pre">None</span></code> (this is the default option).</p>
 </section>
@@ -1031,8 +1265,8 @@ with others, while ensuring that your code is properly versioned and tracked.</p
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-coverage-testing">Code coverage testing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style-and-logic-code-quality">Code style and logic (code quality)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-framework">Testing framework</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-commit-verification">Pre-commit verification</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-analysis-of-shell-scripts">Static analysis of shell scripts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-commit-verification">Pre-commit verification</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-devops-tools">Integration with DevOps tools</a></li>
