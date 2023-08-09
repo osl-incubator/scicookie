@@ -17,8 +17,5 @@ ext_modules = [
 
 
 setup(
-    name="{{cookiecutter.project_slug}}",
-    version="{{cookiecutter.project_version}}",
-    packages=["{{cookiecutter.project_slug}}"],
     ext_modules=ext_modules,
 )
