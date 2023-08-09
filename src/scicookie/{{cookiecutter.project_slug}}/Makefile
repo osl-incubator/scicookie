@@ -116,7 +116,7 @@ build:
 {%- elif cookiecutter.build_system == "maturin" %}
 	maturin build	
 {%- elif cookiecutter.build_system == "pybind11" %}
-	pybind11 build	
+	python3 -m build	
 
 {%- endif %}
 
