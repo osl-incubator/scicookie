@@ -335,7 +335,7 @@ packages. SciCookie support the following:
   builds using CMake and effortless integration with C/C++ libraries, making
   it a valuable asset for research software engineers. 
 
-- [**Pybind11**](https://pybind11.readthedocs.io/en/stable/): It's build system designed
+- [**setuptools + pybind11**](https://pybind11.readthedocs.io/en/stable/): It's build system designed
    for C++ library that simplifies the creation of Python bindings for C++ code,
   enabling easy integration of C++ functions and classes into Python scripts. It
   acts as a bridge between the two languages, allowing C++ algorithms and functionality
