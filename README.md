@@ -93,4 +93,5 @@ makim tests.smoke
 - Anavelyz Perez - [@Anavelyz](https://github.com/Anavelyz)
 - Ever Vino - [@EverVino](https://github.com/EverVino)
 - Ivan Ogasawara - [@xmnlab](https://github.com/xmnlab)
+- Saransh Chopra - [@Saransh-cpp](https://github.com/Saransh-cpp)
 - Yurely Camacho - [@YurelyCamacho](https://github.com/YurelyCamacho)
