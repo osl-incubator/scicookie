@@ -35,7 +35,7 @@ for a Python package.
     [Hatch](https://hatch.pypa.io),
     [Maturin](https://pypi.org/project/maturin/0.8.2/),
     [scikit-build-core](https://scikit-build-core.readthedocs.io/en/latest/) or
-    [pybind11](https://pybind11.readthedocs.io/en/stable/)
+    [setuptools + pybind11](https://pybind11.readthedocs.io/en/stable/)
     based on your preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be
