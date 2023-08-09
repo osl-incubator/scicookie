@@ -34,6 +34,9 @@ command_line_interface:
 documentation_engine:
   enabled: true
 
+documentation_url:
+  enabled: true
+
 code_of_conduct:
   enabled: true
 

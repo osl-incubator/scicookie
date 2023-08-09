@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+import datetime
 import os
 import shutil
 import subprocess
+
 from pathlib import Path
 
 PROJECT_DIRECTORY = Path(os.path.abspath(os.path.curdir)).resolve()
@@ -203,7 +205,7 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "Cargo.toml",
             PROJECT_DIRECTORY / 'Cargo.toml'
-        ) 
+        )
     elif BUILD_SYSTEM == "scikit-build-core":
         shutil.move(
             build_system_dir / "scikit-build-core-pyproject.toml",
@@ -257,32 +259,42 @@ def prepare_git():
     git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
     git_https_upstream = http2ssh("{{cookiecutter.git_https_upstream}}")
     git_main_branch = http2ssh("{{cookiecutter.git_main_branch}}")
-    git_new_branch = "add-initial-structure"
+    unique_id = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    git_new_branch = f"add-initial-structure-{unique_id}"
+
+    git_author_name = "{{cookiecutter.author_full_name}}"
+    git_author_email = "{{cookiecutter.author_email}}"
+
+    empty_repo = not (git_https_origin or git_https_upstream)
+
+    if not empty_repo:
+        subprocess.call(["git", "stash"])
 
     if git_https_origin != "":
         subprocess.call(["git", "remote", "add", "origin", git_https_origin])
         subprocess.call(["git", "fetch", "--all"])
+        subprocess.call(["git", "checkout", f"origin/{git_main_branch}"])
 
     if git_https_upstream != "":
         subprocess.call(
             ["git", "remote", "add", "upstream", git_https_upstream]
         )
-        subprocess.call(["git", "checkout", f"upstream/{git_main_branch}"])
         subprocess.call(["git", "fetch", "--all"])
 
     subprocess.call(
-        ["git", "config", "user.name", "{{cookiecutter.author_full_name}}"]
+        ["git", "config", "user.name", git_author_name]
     )
     subprocess.call(
-        ["git", "config", "user.email", "{{cookiecutter.author_email}}"]
+        ["git", "config", "user.email", git_author_email]
     )
 
     subprocess.call(["git", "checkout", "-b", git_new_branch])
+
+    if not empty_repo:
+        subprocess.call(["git", "stash", "pop"])
+
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit", "--no-verify"])
-    print("=" * 80)
-    print("NOTE: Run `git rebase -i upstream/{{ cookiecutter.git_main_branch }}`")
-    print("=" * 80)
 
 
 def add_binding_source_files():

@@ -40,27 +40,28 @@ export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
 export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
 echo "[II] included env conda to the PATH"
-COMMAND_PREFIX= 
+COMMAND_PREFIX=
 if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then
   flit install
 elif command -v meson &> /dev/null; then
-  pip install -e .
+  pip install .
 elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatch &> /dev/null; then
   COMMAND_PREFIX="hatch run"
 elif command -v maturin &> /dev/null; then
-  pip install -e .
+  pip install .
 elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
   pip install -e .
 elif [ "$(pip list|grep -c pybind11)" -ne "0" ]; then
   # Assuming you are inside the root of the CMake source directory
   pip install .   
+  
 else
     # use setuptools
-  pip install --editable .
+  pip install .
 fi
 
 $COMMAND_PREFIX ipython kernel install --name "python3" --user

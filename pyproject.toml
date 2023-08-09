@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "scicookie"
-version = "0.4.0"  # semantic-release
+version = "0.5.0"  # semantic-release
 description = "Cookiecutter template for a Python package"
 authors = ["Ivan Ogasawara <ivan.ogasawara@gmail.com>"]
 license = "BSD"
@@ -26,7 +26,7 @@ pytest = ">=7"
 black = ">=22"
 isort = ">=5"
 pre-commit = ">=3"
-ruff = ">=0.0.272"
+ruff = ">=0.0.278"
 mypy = ">=1"
 pytest-cov = ">=3"
 pytest-cookies = ">=0.6.1"
@@ -71,7 +71,7 @@ ignore_missing_imports = true
 [tool.ruff]
 line-length = 79
 force-exclude = true
-src = ["src/scicookie"]
+src = ["./"]
 exclude = [
    'src/scicookie/\{\{cookiecutter.project_slug\}\}',
    'src/scicookie/hooks',
@@ -83,7 +83,9 @@ select = [
   "YTT", # flake8-2020
   "PL",  # PL
   "RUF", # Ruff-specific rules
+  "I001", # isort
 ]
+fixable = ["I001"]
 
 [tool.ruff.pydocstyle]
 convention = "numpy"

@@ -1,6 +1,21 @@
 # Release Notes
 ---
 
+# [0.5.0](https://github.com/osl-incubator/scicookie/compare/0.4.0...0.5.0) (2023-08-09)
+
+
+### Bug Fixes
+
+* Fix error in `__author__` introduced by [#156](https://github.com/osl-incubator/scicookie/issues/156) ([67a40af](https://github.com/osl-incubator/scicookie/commit/67a40afba6d0041b226e1c37ff46f252a36f843d))
+* Make `black` "yes" and `blue` "no" by default ([#164](https://github.com/osl-incubator/scicookie/issues/164)) ([88048e4](https://github.com/osl-incubator/scicookie/commit/88048e43165c5918f4f5e70e9a5b374f9d5d5cf2))
+
+
+### Features
+
+* dynamic versioning for hatch ([#156](https://github.com/osl-incubator/scicookie/issues/156)) ([bea6ad2](https://github.com/osl-incubator/scicookie/commit/bea6ad2742decb4c05ee52478ea37386b870588b))
+* **template:** Added maturin as an option for build-system ([#152](https://github.com/osl-incubator/scicookie/issues/152)) ([4a6bfbd](https://github.com/osl-incubator/scicookie/commit/4a6bfbd9cf50a9f2b4a0d5008f79bde524fcf862))
+* **template:** Added scikit as an option for build system ([#161](https://github.com/osl-incubator/scicookie/issues/161)) ([3dc8562](https://github.com/osl-incubator/scicookie/commit/3dc85623bab0c7fb677750ac296104beee8fb322))
+
 # [0.4.0](https://github.com/osl-incubator/scicookie/compare/0.3.0...0.4.0) (2023-07-24)
 
 

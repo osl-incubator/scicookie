@@ -35,10 +35,10 @@ repos:
 
     - id: ruff
       name: ruff
-      entry: ruff --no-cache
+      entry: ruff --no-cache --fix
       language: system
       pass_filenames: true
-      files: "src/scicookie/"
+      files: "./"
       # pre-commit + ruff doesn't honor the exclusion defined in the config
       exclude: |
         (?x)(

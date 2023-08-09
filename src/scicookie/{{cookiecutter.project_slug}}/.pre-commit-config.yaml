@@ -1,8 +1,8 @@
-{% if cookiecutter.project_layout == "src" -%}
-{% set package_path = "src/" + cookiecutter.package_slug -%}
-{% else -%}
-{% set package_path = cookiecutter.package_slug -%}
-{% endif -%}
+{%- if cookiecutter.project_layout == "src" -%}
+{%- set package_path = "src/" + cookiecutter.package_slug -%}
+{%- else -%}
+{%- set package_path = cookiecutter.package_slug -%}
+{%- endif -%}
 default_stages:
   - commit
 repos:
@@ -13,6 +13,14 @@ repos:
 
   - repo: local
     hooks:
+    # NOTE: This is a total unnecessary check, just used as part of the
+    #       template. Remove this after creating the template.
+    - id: check-python
+      name: check-python
+      entry: python --version
+      language: system
+      pass_filenames: no
+{# keep this comment #}
 {%- if cookiecutter.use_blue == "yes" %}
     - id: blue
       name: blue
@@ -40,16 +48,16 @@ repos:
       types:
         - python
 {% endif %}
-{%- if cookiecutter.use_ruff == 'ruff' %}
+{%- if cookiecutter.use_ruff == 'yes' %}
     - id: ruff
       name: ruff
-      entry: ruff
+      entry: ruff --fix
       language: system
       pass_filenames: true
-      files: "{{ package_path }}"
+      files: "./"
       types:
         - python
-{%- endif %}
+{% endif %}
 {%- if cookiecutter.use_isort == "yes" %}
     - id: isort
       name: isort
