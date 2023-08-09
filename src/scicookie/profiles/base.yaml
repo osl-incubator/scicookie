@@ -89,6 +89,7 @@ build_system:
     - hatch
     - maturin
     - scikit-build-core
+    - pybind11
   enabled: false
 
 command_line_interface:

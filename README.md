@@ -31,10 +31,11 @@ for a Python package.
     [Flit](https://flit.pypa.io),
     [meson-python](https://meson-python.readthedocs.io/en/latest/index.html),
     [Setuptools](https://setuptools.pypa.io/en/latest/),
-    [PDM](https://pdm.fming.dev/) or
-    [Hatch](https://hatch.pypa.io)
-    [Maturin](https://pypi.org/project/maturin/0.8.2/)
-    [scikit-build-core](https://scikit-build-core.readthedocs.io/en/latest/)
+    [PDM](https://pdm.fming.dev/),
+    [Hatch](https://hatch.pypa.io),
+    [Maturin](https://pypi.org/project/maturin/0.8.2/),
+    [scikit-build-core](https://scikit-build-core.readthedocs.io/en/latest/) or
+    [setuptools + pybind11](https://pybind11.readthedocs.io/en/stable/)
     based on your preference.
   - The structure of the project can use the *src layout* or *flat
   layout*. The “src layout” moving the code that is intended to be

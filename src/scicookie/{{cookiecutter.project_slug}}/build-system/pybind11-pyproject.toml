@@ -1,0 +1,124 @@
+[build-system]
+requires = ["setuptools>=65", "wheel", "pybind11~=2.11.1","build>=0.10.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{ cookiecutter.project_slug }}"
+authors = [
+  { name = "{{ cookiecutter.author_full_name }}", email = "{{ cookiecutter.author_email }}" },
+]
+description = "{{ cookiecutter.project_short_description }}"
+readme = "README.md"
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Developers",
+{%- if cookiecutter.project_license == "MIT" %}
+  "License :: OSI Approved :: MIT License",
+{%- elif cookiecutter.project_license == "BSD 3 Clause" %}
+  "License :: OSI Approved :: BSD License",
+{%- elif cookiecutter.project_license == "Apache Software License 2.0" %}
+  "License :: OSI Approved :: Apache Software License",
+{%- elif cookiecutter.project_license == "GNU General Public License v3" %}
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+{%- endif %}
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+  "Typing :: Typed",
+]
+dynamic = ["version"]
+requires-python = ">=3.8.1"
+dependencies = [
+{# keep this line here #}
+    "build>=0.10.0",
+{%- if cookiecutter.use_pytest == "yes" -%}
+    "pytest >= 7.3.2,<8",
+{% if cookiecutter.use_coverage == "yes" -%}
+    "pytest-cov >= 4.1.0,<5",
+{% endif %}
+{%- endif -%}{#- end of use_pytest -#}
+{%- if cookiecutter.use_hypothesis == "yes" -%}
+    "hypothesis >= 6.0,<7",
+{% endif %}
+{%- if cookiecutter.use_coverage == "yes" -%}
+    "coverage >= 7.2.7,<8",
+{% endif %}
+{%- if cookiecutter.use_blue == "yes" -%}
+    "blue >= 0.9.1,<1",
+{% endif %}
+{%- if cookiecutter.use_black == "yes" -%}
+    "black >= 23.3.0,<24",
+{% endif %}
+{%- if cookiecutter.use_isort == "yes" -%}
+    "isort >= 5.12.0,<6",
+{% endif %}
+{%- if cookiecutter.use_pre_commit -%}
+    "pre-commit >= 3.3.2,<4",
+{% endif %}
+{%- if cookiecutter.use_flake8 == "yes" -%}
+    "flake8 >= 4.0.1, < 7",
+{% endif %}
+{%- if cookiecutter.use_ruff == "yes" -%}
+    "ruff >= 0.0.272,<1",
+{% endif %}
+{%- if cookiecutter.use_mypy == "yes" -%}
+    "mypy >= 1.3.0,<2",
+{% endif %}
+{%- if cookiecutter.use_bandit == "yes" -%}
+    "bandit >= 1.7.5,<2",
+{% endif %}
+{%- if cookiecutter.use_pydocstyle == "yes" -%}
+    "pydocstyle >= 6.3.0,<7",
+{% endif %}
+{%- if cookiecutter.use_vulture == "yes" -%}
+    "vulture >= 2.7,<3",
+{% endif %}
+{%- if cookiecutter.use_mccabe == "yes" -%}
+    "mccabe >= 0.6.1,<1",
+{% endif %}
+{%- if cookiecutter.use_containers in ['Docker', 'Podman'] -%}
+# if you want to use docker-compose from your system, remove compose-go here
+    "compose-go >= 2.18.1,<3",
+{% endif %}
+    "ipython < 8",
+    "ipykernel >=6.0.0",
+{%- if cookiecutter.documentation_engine == 'mkdocs' -%}
+    "Jinja2 >=3.1.2,<4",
+    "mkdocs >=1.4.3,<2",
+    "mkdocs-exclude >= 1.0.2,<2",
+    "mkdocs-jupyter >= 0.24.1,<1",
+    "mkdocs-literate-nav >= 0.6.0,<1",
+    "mkdocs-macros-plugin >= 0.7.0, < 1",
+    "mkdocs-material >= 9.1.15,<10",
+    "mkdocstrings >= 0.21.2,< 1",
+    "mkdocstrings-python >= 1.1.2,<2",
+{% elif cookiecutter.documentation_engine == 'sphinx' -%}
+    "Sphinx >= 6.2.1,<7",
+    "sphinx-rtd-theme >= 1.2.2,<2",
+    "importlib-metadata >= 6.5.1,<7",
+    "myst-parser >= 0.19.2,<1",
+    "nbsphinx >= 0.9.2,<1",
+    "pandoc >= 2.3,<3",
+{% elif cookiecutter.documentation_engine == 'jupyter-book' -%}
+    "jupyter-book >= 0.15.1,<1",
+    "myst-parser >= 0.18.1,<1",
+{% endif %}
+]
+
+[project.urls]
+Homepage = "{{ cookiecutter.project_url }}"
+"Bug Tracker" = "{{ cookiecutter.project_url }}/issues"
+Discussions = "{{ cookiecutter.project_url }}/discussions"
+Changelog = "{{ cookiecutter.project_url }}/releases"
+
+
+{% include "build-system/base-pyproject.toml" %}
+{#- keep this line at the end of the file -#}

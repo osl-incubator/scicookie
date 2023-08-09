@@ -69,6 +69,8 @@ BUILD_SYSTEM = "hatch"
 BUILD_SYSTEM = "maturin"
 {% elif cookiecutter.build_system == "scikit-build-core" -%}
 BUILD_SYSTEM = "scikit-build-core"
+{% elif cookiecutter.build_system == "pybind11" -%}
+BUILD_SYSTEM = "pybind11"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -217,6 +219,19 @@ def clean_up_build_system():
             build_system_dir / "skcdemo.cpp",
             PROJECT_DIRECTORY / 'skcdemo.cpp'
         )
+    elif BUILD_SYSTEM == "pybind11":
+        shutil.move(
+            build_system_dir / "pybind11-pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+        shutil.move(
+            build_system_dir / "CMakeLists.txt",
+            PROJECT_DIRECTORY / 'CMakeLists.txt'
+        )
+        shutil.move(
+            build_system_dir / "setup.py",
+            PROJECT_DIRECTORY / 'setup.py'
+        )                          
     else:
         shutil.move(
             build_system_dir / "base-pyproject.toml",
@@ -291,6 +306,14 @@ def add_binding_source_files():
         else:
             os.makedir(src_system_dir)
             shutil.move(build_system_dir / "lib.rs", src_system_dir)
+    elif BUILD_SYSTEM == "pybind11" :
+        build_system_dir = PROJECT_DIRECTORY / "build-system"
+        src_system_dir = PROJECT_DIRECTORY/ "src"
+        if USE_SRC_LAYOUT :
+            shutil.move(build_system_dir / "main.cpp", "src")
+        else:
+            os.makedir(src_system_dir)
+            shutil.move(build_system_dir / "main.cpp", src_system_dir)
     else:
         pass
 
