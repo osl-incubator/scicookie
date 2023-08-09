@@ -117,7 +117,6 @@ build:
 	maturin build	
 {%- elif cookiecutter.build_system == "pybind11" %}
 	python -m build
-
 {%- endif %}
 
 .PHONY:release-ci
