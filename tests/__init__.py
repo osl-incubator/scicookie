@@ -1,1 +1,1 @@
-"""Dunder Init for Pytest Initialization"""
+"""SciCookie Unit tests."""

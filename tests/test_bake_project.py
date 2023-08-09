@@ -1,3 +1,4 @@
+"""Cookiecutter bake test."""
 from pathlib import Path
 
 import pytest
@@ -5,6 +6,7 @@ import pytest
 
 @pytest.fixture
 def context():
+    """Generate initial context for tests."""
     return {
         "author_full_name": "Sir Example",
         "author_email": "example@ex.ex",
@@ -18,6 +20,7 @@ def context():
 
 
 def test_bake_project(cookies):
+    """Run simple test for cookiecutter."""
     result = cookies.bake()
     assert result.exit_code == 0
     assert result.exception is None
@@ -26,6 +29,7 @@ def test_bake_project(cookies):
 
 
 def test_project_generation_with_example_context(cookies, context):
+    """Run tests with input from the fixture context."""
     result = cookies.bake(extra_context={**context})
     assert result.exit_code == 0
     assert result.exception is None
@@ -36,6 +40,7 @@ def test_project_generation_with_example_context(cookies, context):
 def test_if_documentation_engine_is_sphinx_with_example_context(
     cookies, context
 ):
+    """Test if the sphinx config file was correctly stored."""
     result = cookies.bake(extra_context={**context})
     assert result.exit_code == 0
     assert result.exception is None
@@ -45,6 +50,7 @@ def test_if_documentation_engine_is_sphinx_with_example_context(
 
 
 def test_project_name_with_example_context(cookies, context):
+    """Test context title (project name) is used correctly."""
     result = cookies.bake(extra_context={**context})
     assert result.exit_code == 0
     assert result.exception is None

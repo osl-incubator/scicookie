@@ -1,6 +1,8 @@
 """Define functions for the interface with the user."""
-from typing import Optional, Type, Dict
+from typing import Dict, Optional, Type
+
 import inquirer
+
 from scicookie.logs import SciCookieErrorType, SciCookieLogs
 
 
