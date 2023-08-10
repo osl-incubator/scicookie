@@ -1,7 +1,10 @@
 """Define functions for the interface with the user."""
-from typing import Dict, Optional, Type
+from __future__ import annotations
+
+from typing import Optional, Type
 
 import inquirer
+from jinja2 import Template
 
 from scicookie.logs import SciCookieErrorType, SciCookieLogs
 
@@ -14,8 +17,6 @@ def _create_question(
         return None
 
     # config required
-    default_answer = question.get("default", "")
-    question_message = question.get("message", "")
     question_type = question.get("type", "")
     # todo: implement help text int he prompt
     # question_help = question.get("help")
@@ -37,18 +38,12 @@ def _create_question(
             SciCookieErrorType.SCICOOKIE_INVALID_CONFIGURATION,
         )
 
-    content = {
-        "message": (
-            question_message
-            if not default_answer
-            else f"{question_message} (default: {default_answer})"
-        )
-    }
+    content = {"message": ""}
 
     if question.get("choices"):
-        content["choices"] = question.get("choices")
+        content["choices"] = question.get("choices", [])
 
-    fn_questions: Dict[str, Type[inquirer.questions.Question]] = {
+    fn_questions: dict[str, Type[inquirer.questions.Question]] = {
         "text": inquirer.Text,
         "single-choice": inquirer.List,
         "multiple-choices": inquirer.Checkbox,
@@ -63,11 +58,25 @@ def _create_question(
 
 def make_questions(questions: dict):
     """Generate all the enabled questions."""
-    questions_ui = []
+    answers: dict[str, str] = {}
 
     for question_id, question in questions.items():
         question_obj = _create_question(question_id, question)
+        # note: if question_object is None, that means that the question is
+        #       not enabled
         if question_obj:
-            questions_ui.append(question_obj)
+            default_answer = question.get("default", "")
+            default_answer = Template(default_answer).render(answers)
+            message = question.get("message", "")
+            print(f"{message} (default: {default_answer}):")
+            print(">> HELP:", question["help"])
+            answer = inquirer.prompt([question_obj])
 
-    return inquirer.prompt(questions_ui)
+            # note: if answer is none, it means that the user cancelled
+            #       the process.
+            if answer is None:
+                return {}
+            answers[question_id] = (
+                answer.get(question_id, "") or default_answer
+            )
+    return answers
