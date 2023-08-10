@@ -17,7 +17,6 @@ def _create_question(
         return None
 
     # config required
-    question_message = question.get("message", "")
     question_type = question.get("type", "")
     # todo: implement help text int he prompt
     # question_help = question.get("help")
@@ -39,10 +38,10 @@ def _create_question(
             SciCookieErrorType.SCICOOKIE_INVALID_CONFIGURATION,
         )
 
-    content = {"message": question_message}
+    content = {"message": ""}
 
     if question.get("choices"):
-        content["choices"] = question.get("choices")
+        content["choices"] = question.get("choices", [])
 
     fn_questions: dict[str, Type[inquirer.questions.Question]] = {
         "text": inquirer.Text,
@@ -68,8 +67,9 @@ def make_questions(questions: dict):
         if question_obj:
             default_answer = question.get("default", "")
             default_answer = Template(default_answer).render(answers)
+            message = question.get("message", "")
+            print(f"{message} (default: {default_answer}):")
             print(">> HELP:", question["help"])
-            print(">> DEFAULT:", default_answer)
             answer = inquirer.prompt([question_obj])
 
             # note: if answer is none, it means that the user cancelled
@@ -79,5 +79,4 @@ def make_questions(questions: dict):
             answers[question_id] = (
                 answer.get(question_id, "") or default_answer
             )
-    breakpoint()
     return answers
