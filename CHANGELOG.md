@@ -1,6 +1,14 @@
 # Release Notes
 ---
 
+# [0.6.0](https://github.com/osl-incubator/scicookie/compare/0.5.0...0.6.0) (2023-08-11)
+
+
+### Features
+
+* Add help information to the TUI ([#167](https://github.com/osl-incubator/scicookie/issues/167)) ([8c05a6d](https://github.com/osl-incubator/scicookie/commit/8c05a6d161111e4c8d752dbe78df1450926659fb))
+* **template:** Added pybind11 as an option for build system  ([#163](https://github.com/osl-incubator/scicookie/issues/163)) ([b3d59cd](https://github.com/osl-incubator/scicookie/commit/b3d59cddc1d0f6381f442f5cec5af25d23e05d01))
+
 # [0.5.0](https://github.com/osl-incubator/scicookie/compare/0.4.0...0.5.0) (2023-08-09)
 
 
