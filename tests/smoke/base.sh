@@ -70,8 +70,11 @@ $COMMAND_PREFIX pre-commit install
 
 $COMMAND_PREFIX pre-commit run --all-files --verbose
 
-$COMMAND_PREFIX make docs-build
+$COMMAND_PREFIX make docs-build 
 make build
+
+$COMMAND_PREFIX makim docs-build 
+makim build
 
 export PATH=${PATH_ORI}
 
