@@ -70,11 +70,16 @@ $COMMAND_PREFIX pre-commit install
 
 $COMMAND_PREFIX pre-commit run --all-files --verbose
 
-$COMMAND_PREFIX make docs-build 
-make build
+if "{{cookiecutter.automation_tools}}" == "makim" ; then
+  $COMMAND_PREFIX makim docs.build
+  makim build
+else
+  $COMMAND_PREFIX make docs-build 
+  make build 
 
-$COMMAND_PREFIX makim docs-build 
-makim build
+fi
+
+
 
 export PATH=${PATH_ORI}
 

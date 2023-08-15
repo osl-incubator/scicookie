@@ -31,9 +31,17 @@ jobs:
       run: poetry install
 
     - name: Run tests
-      run: make test
-
+      run: |
+        if [[ "${{ cookiecutter.automation_tools }}" == "makim" ]]; then
+          makim test
+        else
+          make test
+        fi
     - name: Run style checks
       run: |
         pre-commit install
-        make lint
+        if [[ "${{ cookiecutter.automation_tools }}" == "makim" ]]; then
+          makim lint
+        else
+          make lint
+        fi
