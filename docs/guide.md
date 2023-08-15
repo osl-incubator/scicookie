@@ -766,6 +766,13 @@ efficient platform for running Python projects.
 
 In case you do not want to include DevOps in your project, you can do so
 by selecting the option `None` (this is the default option).
+## Automation Tools
+
+An automation tool is software or a platform designed to automate repetitive tasks, processes, or workflows that are traditionally performed manually. These tools are used to streamline and optimize various operations, reduce human intervention, increase efficiency, and minimize errors.Currently OSL is using `make` and `Makim`
+
+- [Makim](https://osl-incubator.github.io/makim):MakIm is an innovative tool inspired by Make, designed to simplify target and dependency definition through YAML format. It introduces advanced features such as conditionals, arguments, and dependencies with targeted parameters. It also facilitates organized grouping of targets and supports user-defined variables and environment variables. MakIm empowers users to streamline documentation and parameterize targets effectively. This free and open-source tool offers improved target management while maintaining compatibility with familiar YAML syntax.
+
+- [Make](https://pypi.org/project/make/):Make is a versatile build automation tool that uses Makefiles to define rules and dependencies for compiling code and building projects. It automates the process, intelligently rebuilding only changed components, streamlining software development workflows.
 
 ## Project team
 
