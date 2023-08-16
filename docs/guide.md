@@ -766,6 +766,8 @@ efficient platform for running Python projects.
 
 In case you do not want to include DevOps in your project, you can do so
 by selecting the option `None` (this is the default option).
+
+
 ## Automation Tools
 
 An automation tool is software or a platform designed to automate repetitive tasks, processes, or workflows that are traditionally performed manually. These tools are used to streamline and optimize various operations, reduce human intervention, increase efficiency, and minimize errors.Currently OSL is using `make` and `Makim`
