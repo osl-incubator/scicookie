@@ -32,16 +32,16 @@ jobs:
 
     - name: Run tests
       run: |
-        if [[ "${{ cookiecutter.automation_tools }}" == "makim" ]]; then
+        {% if cookiecutter.automation_tools == "makim" %}
           makim test
-        else
+        {% else %}
           make test
-        fi
+        {% endif %}
     - name: Run style checks
       run: |
         pre-commit install
-        if [[ "${{ cookiecutter.automation_tools }}" == "makim" ]]; then
+        {% if cookiecutter.automation_tools == "makim" %}
           makim lint
-        else
+        {% else %}
           make lint
-        fi
+        {% endif %}
