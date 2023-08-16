@@ -33,7 +33,7 @@ jobs:
     - name: Run tests
       run: |
         {% if cookiecutter.automation_tools == "makim" %}
-          makim test
+          makim tests.unittest
         {% else %}
           make test
         {% endif %}
