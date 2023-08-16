@@ -53,4 +53,4 @@ groups:
 
       unittest:
         help: Run tests
-        run: pytest -s -vv --template {{cookiecutter.project_slug}} tests
+        run: pytest -s -vv  {{cookiecutter.project_slug}} tests
