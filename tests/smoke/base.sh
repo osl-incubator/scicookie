@@ -70,7 +70,7 @@ $COMMAND_PREFIX pre-commit install
 
 $COMMAND_PREFIX pre-commit run --all-files --verbose
 
-if "{{cookiecutter.automation_tools}}" == "makim" ; then
+if command -v makim &> /dev/null; then
   $COMMAND_PREFIX makim docs.build
   makim build
 else
