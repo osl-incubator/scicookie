@@ -1,0 +1,56 @@
+version: 1.0
+groups:
+  default:
+    targets:
+      clean:
+        help: Clean unnecessary temporary files
+        run: |
+          rm -fr build/
+          rm -fr dist/
+          rm -fr .eggs/
+          find . -name '*.egg-info' -exec rm -fr {} +
+          find . -name '*.egg' -exec rm -f {} +
+          find . -name '*.pyc' -exec rm -f {} +
+          find . -name
+          find . -name '__pycache__' -exec rm -fr '*.pyo' -exec rm -f {} +
+          find . -name '*~' -exec rm -f {} +{} +
+          rm -f .coverage
+          rm -fr htmlcov/
+          rm -fr .pytest_cache
+
+  docs:
+    targets:
+      build:
+        help: Build documentation
+        run: |
+          rm -rf docs/_build
+          jupyter-book build docs
+
+      preview:
+        help: Preview documentation page locally
+        run: echo "[EE] Not implemented yet!"
+
+  release:
+    vars:
+      app: |
+        npx --yes \
+        -p semantic-release \
+        -p "@semantic-release/commit-analyzer" \
+        -p "@semantic-release/release-notes-generator" \
+        -p "@semantic-release/changelog" \
+        -p "@semantic-release/exec" \
+        -p "@semantic-release/github" \
+        -p "@semantic-release/git" \
+        -p "@google/semantic-release-replace-plugin" \
+        semantic-release
+
+    
+  tests:
+    targets:
+      lint:
+        help: Run linter tools
+        run: pre-commit run --all-files --verbose
+
+      unittest:
+        help: Run tests
+        run: pytest -s -vv  {{cookiecutter.project_slug}} tests

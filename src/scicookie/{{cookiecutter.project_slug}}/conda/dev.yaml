@@ -34,4 +34,7 @@ dependencies:
 {%- endif %}
 {%- if cookiecutter.documentation_engine == "sphinx" %}
   - pandoc
+{%- endif %}  
+{%- if cookiecutter.automation_tools == "make" %}
+  - make 
 {%- endif %}

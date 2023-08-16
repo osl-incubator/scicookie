@@ -70,8 +70,15 @@ $COMMAND_PREFIX pre-commit install
 
 $COMMAND_PREFIX pre-commit run --all-files --verbose
 
-$COMMAND_PREFIX make docs-build
-make build
+if command -v makim &> /dev/null; then
+  $COMMAND_PREFIX makim docs.build
+  makim build
+else
+  $COMMAND_PREFIX make docs-build 
+  make build 
+fi
+
+
 
 export PATH=${PATH_ORI}
 
