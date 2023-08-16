@@ -76,7 +76,6 @@ if command -v makim &> /dev/null; then
 else
   $COMMAND_PREFIX make docs-build 
   make build 
-
 fi
 
 
