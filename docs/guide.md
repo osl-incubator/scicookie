@@ -776,7 +776,7 @@ These tools are used to streamline and optimize various operations, reduce
 human intervention, increase efficiency, and minimize errors.
 Currently OSL is using `make` and `Makim`
 
-- [Makim](https://osl-incubator.github.io/makim):MakIm is an innovative tool
+- [Makim](https://osl-incubator.github.io/makim): MakIm is an innovative tool
 inspired by Make, designed to simplify target and dependency definition
 through YAML format. It introduces advanced features such as conditionals,
 arguments, and dependencies with targeted parameters. It also facilitates
