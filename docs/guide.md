@@ -785,7 +785,7 @@ variables. MakIm empowers users to streamline documentation and parameterize
 targets effectively. This free and open-source tool offers improved target
 management while maintaining compatibility with familiar YAML syntax.
 
-- [Make](https://pypi.org/project/make/):Make is a versatile build automation
+- [Make](https://en.wikipedia.org/wiki/Make_(software)): Make is a versatile build automation
 tool that uses Makefiles to define rules and dependencies for compiling code
 and building projects. It automates the process, intelligently rebuilding only
 changed components, streamlining software development workflows.
