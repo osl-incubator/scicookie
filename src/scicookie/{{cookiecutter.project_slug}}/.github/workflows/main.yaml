@@ -41,7 +41,7 @@ jobs:
       run: |
         pre-commit install
         {% if cookiecutter.automation_tools == "makim" %}
-          makim lint
+          makim tests.lint
         {% else %}
           make lint
         {% endif %}
