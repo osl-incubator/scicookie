@@ -774,7 +774,7 @@ An automation tool is software or a platform designed to automate repetitive
 tasks, processes, or workflows that are traditionally performed manually.
 These tools are used to streamline and optimize various operations, reduce 
 human intervention, increase efficiency, and minimize errors.
-Currently OSL is using `make` and `Makim`
+Currently SciCookie is using `make` and `Makim`
 
 - [Makim](https://osl-incubator.github.io/makim): MakIm is an innovative tool
 inspired by Make, designed to simplify target and dependency definition
