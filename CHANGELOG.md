@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.6.1](https://github.com/osl-incubator/scicookie/compare/0.6.0...0.6.1) (2023-08-21)
+
+
+### Bug Fixes
+
+* Update LICENSE ([#170](https://github.com/osl-incubator/scicookie/issues/170)) ([be88300](https://github.com/osl-incubator/scicookie/commit/be88300bed9de584598a0360c274c0334d4414cf))
+
 # [0.6.0](https://github.com/osl-incubator/scicookie/compare/0.5.0...0.6.0) (2023-08-11)
 
 
