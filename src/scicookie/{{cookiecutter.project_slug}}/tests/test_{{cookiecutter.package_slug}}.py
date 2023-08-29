@@ -2,10 +2,17 @@
 {% if cookiecutter.use_pytest == "yes" -%}
 import pytest
 {% endif -%}
+
+{%- if cookiecutter.use_pytest == "yes" and cookiecutter.use_hypothesis == "yes" -%}
+{# keep this line here #}
+{# keep this line here #}
+{%- endif -%}
+
 {% if cookiecutter.use_hypothesis == "yes" -%}
 from hypothesis import given
 from hypothesis import strategies as st
 {% endif -%}
+
 {% if cookiecutter.use_pytest == "yes" %}
 
 @pytest.fixture
