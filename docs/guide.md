@@ -189,7 +189,7 @@ two alternatives: *src* and *flat*.
   subdirectories that represent different modules or packages. Each module or
   package within the "src" directory focuses on a specific aspect of the
   project's functionality.
-  
+
   For example, a project following the src structure might have the following
   layout:
 
@@ -215,7 +215,7 @@ two alternatives: *src* and *flat*.
   code files directly in the project's root directory without any
   subdirectories. This means that all modules and packages are at the same level
   and there is no explicit separation between different aspects of the project.
-  
+
   Here's an example of a flat structure:
 
   ```python
@@ -305,7 +305,7 @@ packages. SciCookie support the following:
   PEP 517 compilation backend, PEP 621 project metadata, a flexible and
   powerful plugin system. It also offers, among other things, versatile
   user scripting, PyPI integration and version management.
-  
+
 - [**Hatch**](https://hatch.pypa.io): It's a PEP 517/PEP 660 compatible
   build backend used by Hatch, a modern, extensible Python project manager.
   It provides a standardized build system with reproducible builds by default,
@@ -333,7 +333,7 @@ packages. SciCookie support the following:
   cross-compilation, and efficient dependency locating with their associated
   build requirements. With its capabilities, it facilitates cross-platform
   builds using CMake and effortless integration with C/C++ libraries, making
-  it a valuable asset for research software engineers. 
+  it a valuable asset for research software engineers.
 
 - [**setuptools + pybind11**](https://pybind11.readthedocs.io/en/stable/): It's build system designed
    for C++ library that simplifies the creation of Python bindings for C++ code,
@@ -346,8 +346,8 @@ packages. SciCookie support the following:
   support have made it a popular choice for projects requiring seamless interoperability
    between C++ and Python, ranging from scientific computing to game development and
   automation. Staying up-to-date with the latest pybind11 documentation ensures the
-  best practices are followed. 
-   
+  best practices are followed.
+
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your
@@ -770,18 +770,18 @@ by selecting the option `None` (this is the default option).
 
 ## Automation Tools
 
-An automation tool is software or a platform designed to automate repetitive 
+An automation tool is software or a platform designed to automate repetitive
 tasks, processes, or workflows that are traditionally performed manually.
-These tools are used to streamline and optimize various operations, reduce 
+These tools are used to streamline and optimize various operations, reduce
 human intervention, increase efficiency, and minimize errors.
 Currently SciCookie is using `make` and `Makim`
 
-- [Makim](https://osl-incubator.github.io/makim): MakIm is an innovative tool
+- [Makim](https://osl-incubator.github.io/makim): Makim is an innovative tool
 inspired by Make, designed to simplify target and dependency definition
 through YAML format. It introduces advanced features such as conditionals,
 arguments, and dependencies with targeted parameters. It also facilitates
 organized grouping of targets and supports user-defined variables and environment
-variables. MakIm empowers users to streamline documentation and parameterize
+variables. Makim empowers users to streamline documentation and parameterize
 targets effectively. This free and open-source tool offers improved target
 management while maintaining compatibility with familiar YAML syntax.
 

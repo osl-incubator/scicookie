@@ -119,7 +119,7 @@ dependencies = [
     "jupyter-book >= 0.15.1",
     "myst-parser >= 0.18.1",
 {% endif %}
-{%- if cookiecutter.automation_tools == "makim" %}
+{%- if cookiecutter.use_makim == "yes" %}
     "makim >=1.8.3",
 {% endif %}
 ]

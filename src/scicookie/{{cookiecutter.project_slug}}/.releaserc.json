@@ -1,15 +1,15 @@
-{%- if cookiecutter.use_blue %}
+{%- if cookiecutter.use_blue -%}
   {%- set QUOTE = "'" -%}
-{%- elif cookiecutter.use_black %}
+{%- elif cookiecutter.use_black -%}
   {%- set QUOTE = '\\"' -%}
-{%- else %}
+{%- else -%}
   {%- set QUOTE = "'" -%}
-{%- endif %}
-{%- if cookiecutter.project_layout == "src" %}
-  {%- set PROJECT_PATH = "{{ cookiecutter.package_slug }}/src" -%}
-{%- else %}
-  {%- set PROJECT_PATH = "{{ cookiecutter.package_slug }}" -%}
-{%- endif %}
+{%- endif -%}
+{%- if cookiecutter.project_layout == "src" -%}
+  {%- set PROJECT_PATH = "src/" + cookiecutter.package_slug -%}
+{%- else -%}
+  {%- set PROJECT_PATH = cookiecutter.package_slug -%}
+{%- endif -%}
 
 {
   "branches": ["main"],

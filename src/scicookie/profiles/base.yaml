@@ -132,6 +132,8 @@ use_tools:
     - flake8
     - ruff
     - isort
+    - make
+    - makim
     - mccabe
     - mypy
     - pre-commit

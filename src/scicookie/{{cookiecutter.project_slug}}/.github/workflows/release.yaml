@@ -7,11 +7,16 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    timeout-minutes: 10  
+    timeout-minutes: 10
 
     defaults:
       run:
@@ -32,13 +37,27 @@ jobs:
           miniforge-variant: Mambaforge
 
       - name: Install deps
-        run: poetry install
+        run: |
+          {%- if cookiecutter.build_system == "poetry" %}
+          poetry install
+          {%- elif cookiecutter.build_system == "flit" %}
+          flit install
+          {%- elif cookiecutter.build_system == "pdm" %}
+          pdm install
+          {%- else %}
+          pip install .
+          {%- endif %}
 
       - name: Run semantic release (for tests)
         if: ${{ "{{ github.event_name != 'workflow_dispatch' }}" }}
         env:
           GITHUB_TOKEN: ${{ "{{ secrets.GITHUB_TOKEN }}" }}
-        run: make release-dry
+        run: |
+          {%- if cookiecutter.use_makim == "yes" %}
+          makim release.dry
+          {%- elif cookiecutter.use_make == "yes" -%}
+          make release-dry
+          {%- endif %}
 
       - name: Release command
         if: ${{ "{{ github.event_name == 'workflow_dispatch' }}" }}
@@ -47,15 +66,31 @@ jobs:
           PYPI_TOKEN: ${{ "{{ secrets.PYPI_TOKEN }}" }}
         run: |
           poetry config pypi-token.pypi ${PYPI_TOKEN}
+          {%- if cookiecutter.use_makim == "yes" %}
+          makim release.ci
+          {%- elif cookiecutter.use_make == "yes" -%}
           make release-ci
+          {%- endif %}
 
       - name: Generate documentation with changes from semantic-release
         if: ${{ "{{ github.event_name == 'workflow_dispatch' }}" }}
-        run: make docs-build
+        run: |
+          {%- if cookiecutter.use_makim == "yes" %}
+          makim docs.build
+          {%- elif cookiecutter.use_make == "yes" -%}
+          make docs-build
+          {%- endif %}
 
       - name: GitHub Pages action
         if: ${{ "{{ github.event_name == 'workflow_dispatch' }}" }}
         uses: peaceiris/actions-gh-pages@v3.5.9
         with:
           github_token: ${{ "{{ secrets.GITHUB_TOKEN }}" }}
-          publish_dir: ./docs/_build/html
+          publish_dir: >-
+            {%- if cookiecutter.documentation_engine == "jupyter-book" %}
+            ./docs/_build/html
+            {%- elif cookiecutter.documentation_engine == "mkdocs" %}
+            build/
+            {%- elif cookiecutter.documentation_engine == "sphinx" %}
+            docs/_build/html/
+            {%- endif %}

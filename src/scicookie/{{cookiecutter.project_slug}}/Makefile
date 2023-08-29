@@ -55,6 +55,8 @@ clean: ## remove build artifacts, compiled files, and cache
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
+	rm -fr .mypy_cache
+	rm -fr .ruff_cache
 
 .PHONY:lint
 lint:
@@ -114,7 +116,7 @@ build:
 {%- elif cookiecutter.build_system == "hatch" %}
 	hatch build
 {%- elif cookiecutter.build_system == "maturin" %}
-	maturin build	
+	maturin build
 {%- elif cookiecutter.build_system == "pybind11" %}
 	python -m build
 {%- endif %}

@@ -28,20 +28,30 @@ jobs:
         miniforge-variant: Mambaforge
 
     - name: Install dependencies
-      run: poetry install
+      run: |
+        {%- if cookiecutter.build_system == "poetry" %}
+        poetry install
+        {%- elif cookiecutter.build_system == "flit" %}
+        flit install
+        {%- elif cookiecutter.build_system == "pdm" %}
+        pdm install
+        {%- else %}
+        pip install .
+        {%- endif %}
 
     - name: Run tests
       run: |
-        {% if cookiecutter.automation_tools == "makim" %}
-          makim tests.unittest
-        {% else %}
-          make test
-        {% endif %}
+        {%- if cookiecutter.use_makim == "yes" %}
+        makim tests.unit
+        {%- else %}
+        make test
+        {%- endif %}
+
     - name: Run style checks
       run: |
         pre-commit install
-        {% if cookiecutter.automation_tools == "makim" %}
-          makim tests.lint
-        {% else %}
-          make lint
-        {% endif %}
+        {%- if cookiecutter.use_makim == "yes" %}
+        makim tests.linter
+        {%- else %}
+        make lint
+        {%- endif %}
