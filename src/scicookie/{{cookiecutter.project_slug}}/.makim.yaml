@@ -5,9 +5,9 @@
 {%- endif -%}
 version: 1.0
 groups:
-  default:
+  clean:
     targets:
-      clean:
+      all:
         help: Clean unnecessary temporary files
         run: |
           rm -fr build/
@@ -34,7 +34,7 @@ groups:
           rm -rf docs/_build
           jupyter-book build docs
           {%- elif cookiecutter.documentation_engine == "mkdocs" %}
-          mkdocs build --config-file mkdocs.yaml
+          mkdocs build --config-file docs/mkdocs.yaml
           {%- elif cookiecutter.documentation_engine == "sphinx" %}
           sphinx-apidoc -o docs/_build {{ package_path }}
           {%- endif %}
@@ -47,7 +47,7 @@ groups:
           {%- if cookiecutter.documentation_engine == "jupyter-book" %}
           cd docs/_build/html/ && python -m http.server
           {%- elif cookiecutter.documentation_engine == "mkdocs" %}
-          mkdocs build --config-file mkdocs.yaml
+          mkdocs build --config-file docs/mkdocs.yaml
           {%- elif cookiecutter.documentation_engine == "sphinx" %}
           cd docs/_build && python -m http.server
           {%- endif %}
@@ -79,6 +79,29 @@ groups:
         dependencies:
           - target: tests.unit
           - target: tests.linter
+
+  package:
+    targets:
+      build:
+        help: "Build the package"
+        run: |
+          {%- if cookiecutter.build_system == "poetry" %}
+          poetry build
+          {%- elif cookiecutter.build_system == "flit" %}
+          flit build
+          {%- elif cookiecutter.build_system == "mesonpy" %}
+          meson build
+          {%- elif cookiecutter.build_system == "setuptools" %}
+          python -m build
+          {%- elif cookiecutter.build_system == "pdm" %}
+          pdm build
+          {%- elif cookiecutter.build_system == "hatch" %}
+          hatch build
+          {%- elif cookiecutter.build_system == "maturin" %}
+          maturin build
+          {%- elif cookiecutter.build_system == "pybind11" %}
+          python -m build
+          {%- endif %}
 
   release:
     vars:

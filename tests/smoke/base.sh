@@ -57,28 +57,23 @@ elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
   pip install .
 elif [ "$(pip list|grep -c pybind11)" -ne "0" ]; then
   # Assuming you are inside the root of the CMake source directory
-  pip install .   
-  
+  pip install .
 else
-    # use setuptools
+  # use setuptools
   pip install .
 fi
 
 $COMMAND_PREFIX ipython kernel install --name "python3" --user
 
-$COMMAND_PREFIX pre-commit install
-
-$COMMAND_PREFIX pre-commit run --all-files --verbose
-
 if command -v makim &> /dev/null; then
+  $COMMAND_PREFIX makim tests.linter
   $COMMAND_PREFIX makim docs.build
-  makim build
+  $COMMAND_PREFIX makim package.build
 else
-  $COMMAND_PREFIX make docs-build 
-  make build 
+  $COMMAND_PREFIX make lint
+  $COMMAND_PREFIX make docs-build
+  $COMMAND_PREFIX make build
 fi
-
-
 
 export PATH=${PATH_ORI}
 
