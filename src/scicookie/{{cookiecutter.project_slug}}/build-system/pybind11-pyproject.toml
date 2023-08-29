@@ -35,7 +35,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 dynamic = ["version"]
-requires-python = ">=3.8.1"
+requires-python = ">=3.8.1,<4"
 dependencies = [
 {# keep this line here #}
     "build>=0.10.0",
