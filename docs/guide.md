@@ -24,6 +24,7 @@ The structure of the guide is as follows:
     - [Static analysis of shell scripts](#static-analysis-of-shell-scripts)
     - [Pre-commit verification](#pre-commit-verification)
   - [Integration with DevOps tools](#integration-with-devops-tools)
+  - [Automation tools](#automation-tools)
   - [Project team](#project-team)
     - [Code of conduct](#code-of-conduct)
     - [Governance document](#governance-document)
