@@ -40,7 +40,7 @@ export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
 export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
 echo "[II] included env conda to the PATH"
-COMMAND_PREFIX=
+
 if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then
@@ -50,7 +50,7 @@ elif command -v meson &> /dev/null; then
 elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatch &> /dev/null; then
-  COMMAND_PREFIX="hatch run"
+  pip install .
 elif command -v maturin &> /dev/null; then
   pip install .
 elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
@@ -63,16 +63,19 @@ else
   pip install .
 fi
 
-$COMMAND_PREFIX ipython kernel install --name "python3" --user
+ipython kernel install --name "python3" --user
 
 if command -v makim &> /dev/null; then
-  $COMMAND_PREFIX makim tests.linter
-  $COMMAND_PREFIX makim docs.build
-  $COMMAND_PREFIX makim package.build
+  makim tests.linter
+  makim docs.build
+  makim package.build
+elif command -v make &> /dev/null; then
+  make lint
+  make docs-build
+  make build
 else
-  $COMMAND_PREFIX make lint
-  $COMMAND_PREFIX make docs-build
-  $COMMAND_PREFIX make build
+  echo "Makim and Make were not found in the system."
+  exit 1
 fi
 
 export PATH=${PATH_ORI}
