@@ -61,7 +61,7 @@ clean: ## remove build artifacts, compiled files, and cache
 .PHONY:lint
 lint:
 	pre-commit install
-	pre-commit run --all-files
+	pre-commit run --all-files --verbose
 
 .PHONY: test
 test: ## run tests quickly with the default Python
