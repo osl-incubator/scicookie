@@ -777,7 +777,7 @@ human intervention, increase efficiency, and minimize errors.
 Currently, SciCookie allows you to use `Make` and/or `Makim`.
 
 - [Makim](https://osl-incubator.github.io/makim): Makim is an innovative tool
-inspired by Make, designed to simplify target and dependency definition
+inspired by make, designed to simplify target and dependency definition
 through YAML format. It introduces advanced features such as conditionals,
 arguments, and dependencies with targeted parameters. It also facilitates
 organized grouping of targets and supports user-defined variables and environment
