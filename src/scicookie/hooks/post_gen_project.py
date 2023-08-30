@@ -33,6 +33,8 @@ USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
 USE_CLI = {{ cookiecutter.command_line_interface != "No command-line interface" }}
 USE_CONDA = {{ cookiecutter.use_conda == "yes" }}
+USE_MAKE = {{ cookiecutter.use_make == "yes" }}
+USE_MAKIM = {{ cookiecutter.use_makim == "yes" }}
 USE_MYPY = {{ cookiecutter.use_mypy == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
@@ -105,6 +107,13 @@ def move_selected_doc_dir():
 
     shutil.rmtree(DOCS_SPEC_DIR)
 
+
+def clean_up_automation():
+    if not USE_MAKE:
+        remove_project_file("Makefile")
+
+    if not USE_MAKIM:
+        remove_project_file(".makim.yaml")
 
 def clean_up_docs():
     remove_dirs(UNUSED_DOCS_DIRS)
@@ -231,7 +240,7 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "setup.py",
             PROJECT_DIRECTORY / 'setup.py'
-        )                          
+        )
     else:
         shutil.move(
             build_system_dir / "base-pyproject.toml",
@@ -329,6 +338,7 @@ def post_gen():
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
     add_binding_source_files()
+    clean_up_automation()
     clean_up_cli()
     clean_up_mypy()
     clean_up_code_of_conduct()
