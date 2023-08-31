@@ -10,6 +10,7 @@ testpaths = [
     "tests",
 ]
 {% endif %}
+
 {%- if cookiecutter.use_blue == "yes" %}
 [tool.blue]
 line-length = 79
@@ -19,6 +20,7 @@ force-exclude = '''(?x)(
   | .*\\.egg-info
 )'''  # TOML's single-quoted strings do not require escaping backslashes
 {% endif %}
+
 {%- if cookiecutter.use_black == "yes" %}
 [tool.black]
 line-length = 79
@@ -28,6 +30,7 @@ force-exclude = '''(?x)(
   | .*\\.egg-info
 )'''  # TOML's single-quoted strings do not require escaping backslashes
 {% endif %}
+
 {%- if cookiecutter.use_isort == "yes" %}
 [tool.isort]
 ensure_newline_before_comments = true
@@ -36,11 +39,13 @@ multi_line_output = 3
 include_trailing_comma = true
 skip_glob = ["docs/*", "*.egg-info"]
 {% endif %}
+
 {%- if cookiecutter.use_bandit == "yes" %}
 [tool.bandit]
 exclude_dirs = ["tests"]
-targets = "{{ package_path }}"
+targets = "./"
 {% endif %}
+
 {%- if cookiecutter.use_vulture == "yes" %}
 [tool.vulture]
 exclude = ["tests"]
@@ -48,15 +53,16 @@ ignore_decorators = []
 ignore_names = []
 make_whitelist = true
 min_confidence = 80
-paths = ["{{ package_path }}"]
+paths = ["./"]
 sort_by_size = true
 verbose = false
 {% endif %}
+
 {%- if cookiecutter.use_ruff == "yes" %}
 [tool.ruff]
 line-length = 79
 force-exclude = true
-src = ["{{ package_path }}"]
+src = ["./"]
 exclude = [
   'docs',
 ]
@@ -72,9 +78,20 @@ fixable = ["I001"]
 
 [tool.ruff.pydocstyle]
 convention = "numpy"
+
+[tool.ruff.isort]
+# Use a single line between direct and from import
+lines-between-types = 1
 {% endif %}
+
 {%- if cookiecutter.use_mypy == "yes" %}
 [tool.mypy]
-no_strict_optional = false
+python_version = "3.8"
+check_untyped_defs = true
+strict = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
 {% endif %}
 {#- keep this line at the end of the file -#}

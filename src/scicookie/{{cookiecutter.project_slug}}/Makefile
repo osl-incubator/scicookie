@@ -55,10 +55,13 @@ clean: ## remove build artifacts, compiled files, and cache
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
+	rm -fr .mypy_cache
+	rm -fr .ruff_cache
 
 .PHONY:lint
 lint:
-	pre-commit run --all-files
+	pre-commit install
+	pre-commit run --all-files --verbose
 
 .PHONY: test
 test: ## run tests quickly with the default Python
@@ -101,23 +104,23 @@ docs-preview: docs-build
 
 .PHONY:build
 build:
-{%- if cookiecutter.build_system == "poetry" %}
+	{%- if cookiecutter.build_system == "poetry" %}
 	poetry build
-{%- elif cookiecutter.build_system == "flit" %}
+	{%- elif cookiecutter.build_system == "flit" %}
 	flit build
-{%- elif cookiecutter.build_system == "mesonpy" %}
+	{%- elif cookiecutter.build_system == "mesonpy" %}
 	meson build
-{%- elif cookiecutter.build_system == "setuptools" %}
+	{%- elif cookiecutter.build_system == "setuptools" %}
 	python -m build
-{%- elif cookiecutter.build_system == "pdm" %}
+	{%- elif cookiecutter.build_system == "pdm" %}
 	pdm build
-{%- elif cookiecutter.build_system == "hatch" %}
+	{%- elif cookiecutter.build_system == "hatch" %}
 	hatch build
-{%- elif cookiecutter.build_system == "maturin" %}
-	maturin build	
-{%- elif cookiecutter.build_system == "pybind11" %}
+	{%- elif cookiecutter.build_system == "maturin" %}
+	maturin build
+	{%- elif cookiecutter.build_system == "pybind11" %}
 	python -m build
-{%- endif %}
+	{%- endif %}
 
 .PHONY:release-ci
 release-ci:

@@ -58,6 +58,7 @@ jobs:
     strategy:
       matrix:
         smoke_file:
+          - automation.sh
           - auto-format-tools.sh
           - build-systems.sh
           - containers.sh

@@ -1,3 +1,10 @@
+{%- if not cookiecutter.git_https_upstream -%}
+{% set github_url = cookiecutter.git_https_upstream -%}
+{%- elif not cookiecutter.git_https_origin -%}
+{% set github_url = cookiecutter.git_https_origin -%}
+{%- else -%}
+{% set github_url = "https://github.com/" + cookiecutter.project_name + "/" + cookiecutter.project_name -%}
+{%- endif -%}
 ---
 name: 🐛  Bug Report
 description: Create a report to help us improve
@@ -15,7 +22,7 @@ body:
       GitHub][issue search].
 
 
-      [issue search]: https://github.com/{{ cookiecutter.project_name }}/issues?q=is%3Aopen+is%3Aissue+label%3Abug
+      [issue search]: {{ github_url }}/issues?q=is%3Aopen+is%3Aissue+label%3Abug
 
 - type: textarea
   attributes:
@@ -141,7 +148,7 @@ body:
     description: |
       Read the [`{{ cookiecutter.project_name }}` Code of Conduct][CoC] first.
 
-      [CoC]: https://github.com/{{cookiecutter.project_slug}}/coc/CODE_OF_CONDUCT.md
+      [CoC]: {{ github_url }}/coc/CODE_OF_CONDUCT.md
     options:
     - label: I agree to follow the Code of Conduct
       required: true

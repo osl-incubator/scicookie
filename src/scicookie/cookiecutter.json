@@ -29,10 +29,6 @@
     "sphinx",
     "jupyter-book"
   ],
-  "automation_tools": [
-    "Makim",
-    "Make"
-  ],
   "documentation_url": "{{ cookiecutter.project_url }}",
   "code_of_conduct": [
     "None",
@@ -63,6 +59,8 @@
   "use_black": "yes",
   "use_blue": "no",
   "use_conda": "yes",
+  "use_makim": "yes",
+  "use_make": "no",
   "use_containers": [
     "None",
     "Docker",

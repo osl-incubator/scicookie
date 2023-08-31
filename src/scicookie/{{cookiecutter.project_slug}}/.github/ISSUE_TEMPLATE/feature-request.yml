@@ -1,3 +1,10 @@
+{%- if not cookiecutter.git_https_upstream -%}
+{% set github_url = cookiecutter.git_https_upstream -%}
+{%- elif not cookiecutter.git_https_origin -%}
+{% set github_url = cookiecutter.git_https_origin -%}
+{%- else -%}
+{% set github_url = "https://github.com/" + cookiecutter.project_name + "/" + cookiecutter.project_name -%}
+{%- endif -%}
 ---
 name: ✨  Feature Request
 description: Suggest an idea for this project
@@ -17,7 +24,7 @@ body:
       already be implemented in a development release.
 
 
-      [issue search]: https://github.com/{{ cookiecutter.project_name }}/issues?q=is%3Aopen+is%3Aissue+label%3Afeat%2Fenhancement
+      [issue search]: {{ github_url }}/issues?q=is%3Aopen+is%3Aissue+label%3Afeat%2Fenhancement
 
 
 - type: textarea
@@ -73,7 +80,7 @@ body:
     description: |
       Read the [`{{ cookiecutter.project_name }}` Code of Conduct][CoC] first.
 
-      [CoC]: https://github.com/{{cookiecutter.project_slug}}/coc/CODE_OF_CONDUCT.md
+      [CoC]: {{ github_url }}/coc/CODE_OF_CONDUCT.md
     options:
     - label: I agree to follow the Code of Conduct
       required: true
