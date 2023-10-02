@@ -38,3 +38,4 @@ dependencies:
 {%- if cookiecutter.use_make == "yes" %}
   - make
 {%- endif %}
+

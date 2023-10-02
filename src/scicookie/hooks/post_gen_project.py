@@ -138,7 +138,11 @@ def clean_up_code_of_conduct():
 
 def clean_up_conda():
     if not USE_CONDA:
-        remove_dir("conda")
+        shutil.move(PROJECT_DIRECTORY / "virtualenvs" / "pyenv" / "requirements.txt", PROJECT_DIRECTORY)
+        remove_dir("virtualenvs")
+    else:
+        shutil.move(PROJECT_DIRECTORY / "virtualenvs" / "conda", PROJECT_DIRECTORY)
+        remove_dir("virtualenvs")
 
 
 def clean_up_governance():

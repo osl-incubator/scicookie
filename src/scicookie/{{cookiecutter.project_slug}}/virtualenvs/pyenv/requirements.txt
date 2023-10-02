@@ -1,0 +1,37 @@
+python < 3.11
+{%- if cookiecutter.build_system == "poetry" %}
+poetry
+{%- elif cookiecutter.build_system == "flit" %}
+flit
+{%- elif cookiecutter.build_system == "mesonpy" %}
+meson-python
+{%- elif cookiecutter.build_system == "setuptools" %}
+setuptools
+build
+{%- elif cookiecutter.build_system == "pdm" %}
+pdm
+{%- elif cookiecutter.build_system == "hatch" %}
+hatch
+{%- elif cookiecutter.build_system == "maturin" %}
+maturin
+rust
+{%- elif cookiecutter.build_system == "scikit-build-core" %}
+scikit-build-core
+cmake
+{%- elif cookiecutter.build_system == "pybind11" %}
+pybind11
+cmake
+{%- endif %}
+nodejs  # used by semantic-release
+{%- if cookiecutter.use_shellcheck == "yes" %}
+shellcheck
+{%- endif %}
+{%- if cookiecutter.documentation_engine == "sphinx" %}
+pandoc
+{%- endif %}
+{%- if cookiecutter.use_mypy == "yes" %}
+mypy
+{%- endif %}
+{%- if cookiecutter.use_make == "yes" %}
+make
+{%- endif %}
