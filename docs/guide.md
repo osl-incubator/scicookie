@@ -15,9 +15,9 @@ The structure of the guide is as follows:
     - [Command-line interfaces (CLIs)](#command-line-interfaces-clis)
     - [Documentation engine](#documentation-engine)
   - [Project tools](#project-tools)
-    - [Virtual Environment](#virtual-environment)
+    - [Virtual environment](#virtual-environment)
     - [Code formatter](#code-formatter)
-    - [Code Security Vulnerabilities](#code-security-vulnerabilities)
+    - [Code security vulnerabilities](#code-security-vulnerabilities)
     - [Code coverage testing](#code-coverage-testing)
     - [Code style and logic (code quality)](#code-style-and-logic-code-quality)
     - [Testing framework](#testing-framework)
@@ -29,7 +29,7 @@ The structure of the guide is as follows:
     - [Code of conduct](#code-of-conduct)
     - [Governance document](#governance-document)
     - [Roadmap document](#roadmap-document)
-  - [Control Version](#control-version)
+  - [Version control](#version-control)
 
 ## Notes about the text-based user interface (TUI)
 
@@ -449,7 +449,7 @@ errors and vulnerabilities in your code, and much more.
 
 The tools are described below according to their functionality.
 
-### Virtual Environment
+### Virtual environment
 
 When working with Python, you should always have a virtual environment.
 This is an isolated space where you can install and run applications and
@@ -472,6 +472,11 @@ community.
   software libraries that are not easily installed with pip, using conda
   is a good option. It is included in all versions of Anaconda and
   Miniconda.
+
+  If you select this option, a conda folder will appear in the project
+  directory, containing a dev.yaml file that you can use to manage the
+  development project's dependencies. If you do not select this option, a
+  requirements.txt will be added for you to manage with virtualenv.
 
 ### Code formatter
 
@@ -510,7 +515,7 @@ process will be stopped.
 Using code formatters such as *Black* or *Blue* in your project helps ensure
 consistent and readable code, making it easier to maintain and collaborate on.
 
-### Code Security Vulnerabilities
+### Code security vulnerabilities
 
 The code security vulnerabilities are errors or weaknesses in code that can be
 exploited by attackers to gain unauthorized access, steal data, or cause damage
@@ -769,7 +774,7 @@ In case you do not want to include DevOps in your project, you can do so
 by selecting the option `None` (this is the default option).
 
 
-## Automation Tools
+## Automation tools
 
 An automation tool is software or a platform designed to automate repetitive
 tasks, processes, or workflows that are traditionally performed manually.
@@ -896,7 +901,7 @@ Ignite Roadmap, click [here](https://github.com/pytorch/ignite/wiki/Roadmap).
 In case you do not want to include this file in your project, you can do so by
 selecting the option `None` (this is the default option).
 
-## Control Version
+## Version control
 
 Version control is essential for any project because it enables us to track and
 store all versions and changes made to our codebase. With this in mind, we have

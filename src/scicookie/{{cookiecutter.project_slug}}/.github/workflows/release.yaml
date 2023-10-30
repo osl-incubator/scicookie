@@ -24,6 +24,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+{% if cookiecutter.use_conda == "yes" %}
 
       - uses: conda-incubator/setup-miniconda@v2
         with:
@@ -35,6 +36,20 @@ jobs:
           activate-environment: {{ cookiecutter.project_slug }}
           use-mamba: true
           miniforge-variant: Mambaforge
+{% else %}
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "pypy3.9"
+      
+      - name: Create virtual environment
+        run: python -m venv {{ cookiecutter.project_slug }}
+
+      - name: Activate virtual environment
+        run: source {{ cookiecutter.project_slug }}/bin/activate
+
+      - name: Install build-system
+        run: pip install -r requests.txt
+{% endif %}
 
       - name: Install deps
         run: |

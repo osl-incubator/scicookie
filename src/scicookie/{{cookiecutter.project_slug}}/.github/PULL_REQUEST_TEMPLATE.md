@@ -51,5 +51,5 @@ Copy and paste this template for your review's note:
 
 - [ ] I managed to reproduce the problem locally from the `main` branch
 - [ ] I managed to test the new changes locally
-- [ ] I confirm that the issues mentioned were fixed/resolved .
+- [ ] I confirm that the issues mentioned were fixed/resolved
 ```
