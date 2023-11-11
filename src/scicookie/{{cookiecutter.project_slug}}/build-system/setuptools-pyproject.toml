@@ -111,7 +111,7 @@ dependencies = [
 ]
 
 [tool.setuptools.dynamic]
-version = {attr = "{{ cookiecutter.project_slug }}.__version__"}
+version = {attr = "{{ cookiecutter.package_slug }}.__version__"}
 
 [project.urls]
 Homepage = "{{ cookiecutter.project_url }}"
