@@ -110,6 +110,9 @@ dependencies = [
 {% endif %}
 ]
 
+[tool.setuptools.dynamic]
+version = {attr = "{{ cookiecutter.project_slug }}.__version__"}
+
 [project.urls]
 Homepage = "{{ cookiecutter.project_url }}"
 "Bug Tracker" = "{{ cookiecutter.project_url }}/issues"
