@@ -1,7 +1,9 @@
 author_full_name:
+  default: Yor Briar
   visible: true
 
 author_email:
+  default: yor.briar@spyx.family
   visible: true
 
 project_name:
@@ -12,7 +14,6 @@ project_short_description:
   visible: true
 
 project_slug:
-  default: my-project
   visible: true
 
 package_slug:
@@ -22,14 +23,13 @@ project_version:
   visible: true
 
 project_url:
-  default: https://my-project.com
   visible: true
 
 project_license:
-  default: BSD 3 Clause
+  # first choice is the default
   choices:
-    - MIT
     - BSD 3 Clause
+    - MIT
     - Apache Software License 2.0
     - Other
   visible: true
@@ -48,7 +48,6 @@ documentation_engine:
   visible: true
 
 documentation_url:
-  default: ""
   visible: true
 
 use_tools:
@@ -71,6 +70,9 @@ use_containers:
   visible: true
 
 code_of_conduct:
+  choices:
+    - contributor-covenant
+    - citizen-code-of-conduct
   visible: true
 
 governance_document:
@@ -81,18 +83,12 @@ roadmap_document:
   default: None
   visible: false
 
-# use_git:
-#   message: Configure the local git repository?
-#   control_flow: True
-#   help: ""
-#   type: "confirm"
-#   default: True
-#   visible: false
-
 git_username:
+  default: yorbriar
   visible: true
 
 git_https_origin:
+  default: "{{ 'https://github.com/' + git_username + '/' + project_slug }}"
   visible: true
 
 git_https_upstream:

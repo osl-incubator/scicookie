@@ -266,48 +266,79 @@ def validation():
         )
 
 
-def prepare_git():
-    subprocess.call(["git", "init"])
-
+def prepare_git() -> None:
     git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
     git_https_upstream = http2ssh("{{cookiecutter.git_https_upstream}}")
     git_main_branch = http2ssh("{{cookiecutter.git_main_branch}}")
     unique_id = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    git_new_branch = f"add-initial-structure-{unique_id}"
+    git_new_branch = f"initial-from-scicookie-{unique_id}"
+    git_stash_branch = f"stash-from-scicookie-{unique_id}"
 
     git_author_name = "{{cookiecutter.author_full_name}}"
     git_author_email = "{{cookiecutter.author_email}}"
 
-    empty_repo = not (git_https_origin or git_https_upstream)
+    use_remote = git_https_origin != '' or git_https_upstream != ''
 
-    if not empty_repo:
-        subprocess.call(["git", "stash"])
-
-    if git_https_origin != "":
-        subprocess.call(["git", "remote", "add", "origin", git_https_origin])
-        subprocess.call(["git", "fetch", "--all"])
-        subprocess.call(["git", "checkout", f"origin/{git_main_branch}"])
-
-    if git_https_upstream != "":
+    if not use_remote:
+        subprocess.call(["git", "init", "-b", git_main_branch])
         subprocess.call(
-            ["git", "remote", "add", "upstream", git_https_upstream]
+            ["git", "config", "user.name", git_author_name]
         )
-        subprocess.call(["git", "fetch", "--all"])
+        subprocess.call(
+            ["git", "config", "user.email", git_author_email]
+        )
+        subprocess.call(["git", "add", "."])
+        subprocess.call([
+            "git", "commit", "-m", "Initial commit from SciCookie", "--no-verify"
+        ])
+        return
 
+    subprocess.call(["git", "init", "-b", git_stash_branch])
+
+    # config
     subprocess.call(
         ["git", "config", "user.name", git_author_name]
     )
     subprocess.call(
         ["git", "config", "user.email", git_author_email]
     )
+    if git_https_origin != "":
+        subprocess.call(["git", "remote", "add", "origin", git_https_origin])
 
+    if git_https_upstream != "":
+        subprocess.call(
+            ["git", "remote", "add", "upstream", git_https_upstream]
+        )
+
+    subprocess.call(["git", "fetch", "--all"])
+
+    # prepare the first commit
+    subprocess.call([
+        "git",
+        "commit",
+        "--allow-empty",
+        "-m",
+        "Empty commit from SciCookie",
+        "--no-verify"
+    ])
+    subprocess.call([
+        "git", "stash", "-u"
+    ])
+
+    subprocess.call(["git", "checkout", f"origin/{git_main_branch}"])
     subprocess.call(["git", "checkout", "-b", git_new_branch])
-
-    if not empty_repo:
-        subprocess.call(["git", "stash", "pop"])
-
+    # note: https://stackoverflow.com/q/16606203files
+    subprocess.call(
+        "git stash show -p | git apply && git stash drop".split("|"),
+        shell=True,
+        stdout=subprocess.PIPE,
+    )
+    subprocess.call(["git", "stash", "pop"])
     subprocess.call(["git", "add", "."])
-    subprocess.call(["git", "commit", "-m", "Initial commit", "--no-verify"])
+    subprocess.call([
+        "git", "commit", "-m", "Initial commit from SciCookie", "--no-verify"
+    ])
+    subprocess.call(["git", "branch", "-D", git_stash_branch])
 
 
 def add_binding_source_files():

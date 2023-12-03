@@ -31,7 +31,7 @@ def _get_cookiecutter_default_answer(
     return answer_definition[0]
 
 
-def call_cookiecutter(profile: Profile, answers: dict):
+def call_cookiecutter(profile: Profile, answers: dict):  # noqa: PLR0912
     """Call cookiecutter/cookieninja with the parameters from the TUI."""
     answers_profile = {}
     cookie_args = []
@@ -42,7 +42,13 @@ def call_cookiecutter(profile: Profile, answers: dict):
 
     # fill the answers with default value
     for question_id, question in questions.items():
-        if not question.get("visible", False) or question.get("control_flow"):
+        if question.get("control_flow", False):
+            # "control_flow" is not defined in cookiecutter config
+            continue
+
+        if not question.get("visible", False):
+            # get the default for non visible questions
+            answers_profile[question_id] = question.get("default")
             continue
 
         if question.get("type") == "multiple-choices":

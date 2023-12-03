@@ -1,13 +1,19 @@
 """Define functions for the interface with the user."""
 from __future__ import annotations
 
-from typing import Optional, Type
+import os
+
+from typing import Any, Optional, Type
 
 import inquirer
 
+from colorama import Fore, Style, init
 from jinja2 import Template
 
 from scicookie.logs import SciCookieErrorType, SciCookieLogs
+
+# Initialize Colorama
+init()
 
 
 def _create_question(
@@ -24,6 +30,7 @@ def _create_question(
     # todo: implement depends on workflow, it needs refactoring the code
     #       because it needs access to the answer
     # question_depends_on = question.get("depends_on")
+    # it should allow multiple conditionals
 
     question_types_available = [
         "text",
@@ -57,9 +64,36 @@ def _create_question(
     )
 
 
-def make_questions(questions: dict):
+def check_dependencies_satisfied(
+    question: dict[str, Any], answers: dict[str, str]
+) -> bool:
+    """
+    Check if dependencies are satisfied.
+
+    Note: Not implemented yet.
+    """
+    return True
+
+
+def make_questions(questions: dict[str, Any]) -> dict[str, str]:
     """Generate all the visible questions."""
     answers: dict[str, str] = {}
+
+    # Get the size of the terminal window
+    columns, _ = os.get_terminal_size()
+
+    # Print a line
+    print("-" * columns)
+    print(
+        Fore.YELLOW
+        + "NOTE: "
+        + Fore.RESET
+        + "For questions with single or multiple choices, use the ARROW "
+        + "keys to navigate through the options. Use the SPACE BAR to "
+        + "select or deselect an option. Confirm your selection with "
+        + "the ENTER key."
+    )
+    print("." * columns)
 
     for question_id, question in questions.items():
         question_obj = _create_question(question_id, question)
@@ -68,9 +102,23 @@ def make_questions(questions: dict):
         if question_obj:
             default_answer = question.get("default", "")
             default_answer = Template(default_answer).render(answers)
+
+            if not check_dependencies_satisfied(question, answers):
+                answers[question_id] = default_answer
+                continue
+
             message = question.get("message", "")
-            print(f"{message} (default: {default_answer}):")
-            print(">> HELP:", question["help"])
+            print(
+                Style.BRIGHT
+                + f"{message} ("
+                + Fore.YELLOW
+                + f"default: {default_answer}"
+                + Fore.RESET
+                + Style.BRIGHT
+                + "):"
+                + Fore.RESET
+            )
+            print(Fore.BLUE + ">> HELP: " + question["help"] + Fore.RESET)
             answer = inquirer.prompt([question_obj])
 
             # note: if answer is none, it means that the user cancelled
@@ -80,4 +128,5 @@ def make_questions(questions: dict):
             answers[question_id] = (
                 answer.get(question_id, "") or default_answer
             )
+            print("." * columns)
     return answers

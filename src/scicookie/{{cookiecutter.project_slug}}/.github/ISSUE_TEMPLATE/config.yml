@@ -1,9 +1,9 @@
-{%- if not cookiecutter.git_https_upstream -%}
+{%- if cookiecutter.git_https_upstream -%}
 {% set github_url = cookiecutter.git_https_upstream -%}
-{%- elif not cookiecutter.git_https_origin -%}
+{%- elif cookiecutter.git_https_origin -%}
 {% set github_url = cookiecutter.git_https_origin -%}
 {%- else -%}
-{% set github_url = "https://github.com/" + cookiecutter.project_name + "/" + cookiecutter.project_name -%}
+{% set github_url = "https://github.com/" + cookiecutter.project_slug + "/" + cookiecutter.project_slug -%}
 {%- endif -%}
 # Ref: https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser
 blank_issues_enabled: true
@@ -11,12 +11,12 @@ contact_links:
 - name: 🙋  Usage Questions
   url: {{ github_url }}/discussions
   about: |
-    Use {{ cookiecutter.project_name }}'s GitHub Discussions to ask "How do I do X with Cookiecutter?".
+    Use {{ cookiecutter.project_name }}'s GitHub Discussions to ask "How do I do X with {{ cookiecutter.project_name }}?".
 - name: 📖  Tutorial
   url: {{ github_url }}
   about: |
     The {{ cookiecutter.project_name }} tutorial is continually updated and provides an in depth walkthrough
-    of how to use the latest release of Cookiecutter.
+    of how to use the latest release of {{ cookiecutter.project_name }}.
 - name: 📝  {{ cookiecutter.project_name }} Code of Conduct
   url: {{ github_url }}/coc/CODE_OF_CONDUCT.md
-  about: Expectations for how people will interact with each other on Cookiecutter's GitHub.
+  about: Expectations for how people will interact with each other on {{ cookiecutter.project_name }}'s GitHub.
