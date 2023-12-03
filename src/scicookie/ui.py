@@ -4,6 +4,7 @@ from __future__ import annotations
 from typing import Optional, Type
 
 import inquirer
+
 from jinja2 import Template
 
 from scicookie.logs import SciCookieErrorType, SciCookieLogs
@@ -13,7 +14,7 @@ def _create_question(
     question_id: str, question: dict
 ) -> Optional[inquirer.questions.Question]:
     # validation
-    if not question.get("enabled", False):
+    if not question.get("visible", False):
         return None
 
     # config required
@@ -57,13 +58,13 @@ def _create_question(
 
 
 def make_questions(questions: dict):
-    """Generate all the enabled questions."""
+    """Generate all the visible questions."""
     answers: dict[str, str] = {}
 
     for question_id, question in questions.items():
         question_obj = _create_question(question_id, question)
         # note: if question_object is None, that means that the question is
-        #       not enabled
+        #       not visible
         if question_obj:
             default_answer = question.get("default", "")
             default_answer = Template(default_answer).render(answers)

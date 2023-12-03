@@ -2,6 +2,7 @@
 import json
 import os
 import sys
+
 from pathlib import Path
 from typing import Union
 
@@ -41,7 +42,7 @@ def call_cookiecutter(profile: Profile, answers: dict):
 
     # fill the answers with default value
     for question_id, question in questions.items():
-        if not question.get("enabled", False) or question.get("control_flow"):
+        if not question.get("visible", False) or question.get("control_flow"):
             continue
 
         if question.get("type") == "multiple-choices":
