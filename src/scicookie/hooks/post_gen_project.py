@@ -313,27 +313,18 @@ def prepare_git() -> None:
     subprocess.call(["git", "fetch", "--all"])
 
     # prepare the first commit
+    subprocess.call(["git", "add", "."])
     subprocess.call([
         "git",
         "commit",
-        "--allow-empty",
         "-m",
-        "Empty commit from SciCookie",
+        "A temporary from SciCookie",
         "--no-verify"
-    ])
-    subprocess.call([
-        "git", "stash", "-u"
     ])
 
     subprocess.call(["git", "checkout", f"origin/{git_main_branch}"])
     subprocess.call(["git", "checkout", "-b", git_new_branch])
-    # note: https://stackoverflow.com/q/16606203files
-    subprocess.call(
-        "git stash show -p | git apply && git stash drop".split("|"),
-        shell=True,
-        stdout=subprocess.PIPE,
-    )
-    subprocess.call(["git", "stash", "pop"])
+    subprocess.call(["git", "checkout", git_stash_branch, "--", "."])
     subprocess.call(["git", "add", "."])
     subprocess.call([
         "git", "commit", "-m", "Initial commit from SciCookie", "--no-verify"
