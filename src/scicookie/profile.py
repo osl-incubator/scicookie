@@ -32,8 +32,12 @@ class Profile:
         self.config = self.read_config()
 
     def _load_profiles_available(self):
-        # note: it should catch it from the files' name
-        self.profiles_available = ["osl"]
+        self.profiles_available = []
+
+        profiles_path = Path(__file__).absolute().parent / "profiles"
+
+        for file in profiles_path.glob("*.yaml"):
+            self.profiles_available.append(file.stem)
 
     def read_config(self):
         """Read the config file."""
