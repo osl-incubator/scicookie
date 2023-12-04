@@ -97,36 +97,36 @@ def make_questions(questions: dict[str, Any]) -> dict[str, str]:
 
     for question_id, question in questions.items():
         question_obj = _create_question(question_id, question)
+
+        default_answer = question.get("default", "")
+        default_answer = Template(default_answer).render(answers)
+
         # note: if question_object is None, that means that the question is
         #       not visible
-        if question_obj:
-            default_answer = question.get("default", "")
-            default_answer = Template(default_answer).render(answers)
+        if not (
+            check_dependencies_satisfied(question, answers) and question_obj
+        ):
+            answers[question_id] = default_answer
+            continue
 
-            if not check_dependencies_satisfied(question, answers):
-                answers[question_id] = default_answer
-                continue
+        message = question.get("message", "")
+        print(
+            Style.BRIGHT
+            + f"{message} ("
+            + Fore.YELLOW
+            + f"default: {default_answer}"
+            + Fore.RESET
+            + Style.BRIGHT
+            + "):"
+            + Fore.RESET
+        )
+        print(Fore.BLUE + ">> HELP: " + question["help"] + Fore.RESET)
+        answer = inquirer.prompt([question_obj])
 
-            message = question.get("message", "")
-            print(
-                Style.BRIGHT
-                + f"{message} ("
-                + Fore.YELLOW
-                + f"default: {default_answer}"
-                + Fore.RESET
-                + Style.BRIGHT
-                + "):"
-                + Fore.RESET
-            )
-            print(Fore.BLUE + ">> HELP: " + question["help"] + Fore.RESET)
-            answer = inquirer.prompt([question_obj])
-
-            # note: if answer is none, it means that the user cancelled
-            #       the process.
-            if answer is None:
-                return {}
-            answers[question_id] = (
-                answer.get(question_id, "") or default_answer
-            )
-            print("." * columns)
+        # note: if answer is none, it means that the user cancelled
+        #       the process.
+        if answer is None:
+            return {}
+        answers[question_id] = answer.get(question_id, "") or default_answer
+        print("." * columns)
     return answers

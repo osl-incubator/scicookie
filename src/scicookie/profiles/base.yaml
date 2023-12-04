@@ -58,7 +58,8 @@ project_license:
   message: Select one option for the project license
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: single-choice
-  # first choice is the default
+  default: BSD 3 Clause
+  # first choice is the default for the UI
   choices:
     - BSD 3 Clause
     - MIT
@@ -72,7 +73,8 @@ project_layout:
   message: Select one option for the project layout
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#project-layout"
   type: single-choice
-  # first choice is the default
+  default: src
+  # first choice is the default for the UI
   choices:
     - src
     - flat
@@ -82,7 +84,8 @@ build_system:
   message: Select one option for the build system
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#build-system"
   type: single-choice
-  # first choice is the default
+  default: poetry
+  # first choice is the default for the UI
   choices:
     - poetry
     - flit
@@ -99,9 +102,10 @@ command_line_interface:
   message: Select one option for Command Line Interface (CLI)
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#command-line-interfaces-clis"
   type: single-choice
-  # first choice is the default
+  default: None
+  # first choice is the default for the UI
   choices:
-    - No command-line interface
+    - None
     - Click
     - Argparse
   visible: false
@@ -110,7 +114,8 @@ documentation_engine:
   message: Select one option for the Documentation Engine
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#documentation-engine"
   type: single-choice
-  # first choice is the default
+  default: mkdocs
+  # first choice is the default for the UI
   choices:
     - mkdocs
     - sphinx
@@ -153,7 +158,8 @@ use_containers:
   message: Select one option for the container technology for this project
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#integration-with-devops-tools"
   type: single-choice
-  # first choice is the default
+  default: None
+  # first choice is the default for the UI
   choices:
     - None
     - Docker
@@ -169,7 +175,8 @@ code_of_conduct:
   message: Select one option for the Code of Conduct
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#code-of-conduct"
   type: single-choice
-  # first choice is the default
+  default: None
+  # first choice is the default for the UI
   choices:
     - None
     - contributor-covenant
@@ -180,7 +187,8 @@ governance_document:
   message: Select one option for a governance document template
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#governance-document"
   type: single-choice
-  # first choice is the default
+  default: None
+  # first choice is the default for the UI
   choices:
     - None
     - numpy-governance
@@ -191,7 +199,8 @@ roadmap_document:
   message: Select one option for a Roadmap document template
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#roadmap-document"
   type: single-choice
-  # first choice is the default
+  default: None
+  # first choice is the default for the UI
   choices:
     - None
     - pytorch-ignite-roadmap

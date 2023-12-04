@@ -26,7 +26,7 @@ project_url:
   visible: true
 
 project_license:
-  # first choice is the default
+  # first choice is the default for the UI
   choices:
     - BSD 3 Clause
     - MIT
@@ -88,7 +88,7 @@ git_username:
   visible: true
 
 git_https_origin:
-  default: "{{ 'https://github.com/' + git_username + '/' + project_slug }}"
+  default: ""
   visible: true
 
 git_https_upstream:

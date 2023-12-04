@@ -20,7 +20,7 @@
     "flat"
   ],
   "command_line_interface": [
-    "No command-line interface",
+    "None",
     "Click",
     "Argparse"
   ],

@@ -31,7 +31,7 @@ USE_BLACK = {{ cookiecutter.use_black == "yes" }}
 USE_BLUE = {{ cookiecutter.use_blue == "yes" }}
 USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
-USE_CLI = {{ cookiecutter.command_line_interface != "No command-line interface" }}
+USE_CLI = {{ cookiecutter.command_line_interface != "None" }}
 USE_CONDA = {{ cookiecutter.use_conda == "yes" }}
 USE_MAKE = {{ cookiecutter.use_make == "yes" }}
 USE_MAKIM = {{ cookiecutter.use_makim == "yes" }}
