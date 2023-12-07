@@ -63,6 +63,8 @@ exclude = [
    'src/scicookie/\{\{cookiecutter.project_slug\}\}',
    'src/scicookie/hooks',
 ]
+
+[tool.ruff.lint]
 select = [
   "E",   # pycodestyle
   "F",   # pyflakes
@@ -72,7 +74,6 @@ select = [
   "RUF", # Ruff-specific rules
   "I001", # isort
 ]
-fix = true
 
 [tool.ruff.pydocstyle]
 convention = "numpy"
