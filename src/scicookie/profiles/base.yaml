@@ -3,83 +3,89 @@ author_full_name:
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: text
   default: Roronoa Zoro
-  enabled: true
+  visible: true
 
 author_email:
   message: Type the author's email
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: text
   default: zoro@one.piece
-  enabled: true
+  visible: true
 
 project_name:
   message: Type the project's title
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: text
   default: OSL Python package
-  enabled: true
+  visible: true
 
 project_short_description:
   message: Type a short description about the project
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: text
   default: This Project aims to ...
-  enabled: true
+  visible: true
 
 project_slug:
   message: Type the code name for your project (e.g. the repository name)
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: text
-  default: osl-template
-  enabled: true
+  default: "{{ project_name.replace(' ', '-').lower() }}"
+  visible: true
 
 package_slug:
   message: Type the code name for your package (the name used to import your package)
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: text
   default: "{{project_slug.replace('-', '_')}}"
-  enabled: true
+  visible: true
 
 project_version:
   message: Type the project version
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: text
   default: 0.1.0
-  enabled: true
+  visible: true
 
 project_url:
   message: Type the project URL
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: text
-  default: https://osl-template.com
-  enabled: true
+  default: "{{ 'https://' + project_slug + '.com' }}"
+  visible: true
 
 project_license:
   message: Select one option for the project license
   help: https://osl-incubator.github.io/scicookie/guide.html#information-about-the-project
   type: single-choice
+  default: BSD 3 Clause
+  # first choice is the default for the UI
   choices:
-    - MIT
     - BSD 3 Clause
+    - MIT
     - ISC license
     - Apache Software License 2.0
     - GNU General Public License v3
     - Other
-  enabled: true
+  visible: true
 
 project_layout:
   message: Select one option for the project layout
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#project-layout"
   type: single-choice
+  default: src
+  # first choice is the default for the UI
   choices:
     - src
     - flat
-  enabled: false
+  visible: false
 
 build_system:
   message: Select one option for the build system
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#build-system"
   type: single-choice
+  default: poetry
+  # first choice is the default for the UI
   choices:
     - poetry
     - flit
@@ -90,34 +96,38 @@ build_system:
     - maturin
     - scikit-build-core
     - pybind11
-  enabled: false
+  visible: false
 
 command_line_interface:
   message: Select one option for Command Line Interface (CLI)
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#command-line-interfaces-clis"
   type: single-choice
+  default: None
+  # first choice is the default for the UI
   choices:
-    - No command-line interface
+    - None
     - Click
     - Argparse
-  enabled: false
+  visible: false
 
 documentation_engine:
   message: Select one option for the Documentation Engine
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#documentation-engine"
   type: single-choice
+  default: mkdocs
+  # first choice is the default for the UI
   choices:
     - mkdocs
     - sphinx
     - jupyter-book
-  enabled: false
+  visible: false
 
 documentation_url:
   message: Type the documentation URL
   help: The URL for the documentation page.
   type: text
-  default: ""
-  enabled: false
+  default: "{{ project_url }}"
+  visible: false
 
 use_tools:
   message: Select all the initial tools you want to add to your project
@@ -142,18 +152,19 @@ use_tools:
     - hypothesis
     - shellcheck
     - vulture
-  enabled: false
+  visible: false
 
 use_containers:
   message: Select one option for the container technology for this project
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#integration-with-devops-tools"
   type: single-choice
+  default: None
+  # first choice is the default for the UI
   choices:
     - None
     - Docker
     - Podman
-    - kubernetes
-  enabled: false
+  visible: false
 
 # doc_template:
 #   message: Select the template for the Documentation Engine
@@ -164,77 +175,57 @@ code_of_conduct:
   message: Select one option for the Code of Conduct
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#code-of-conduct"
   type: single-choice
+  default: None
+  # first choice is the default for the UI
   choices:
     - None
     - contributor-covenant
     - citizen-code-of-conduct
-  enabled: true
+  visible: true
 
 governance_document:
   message: Select one option for a governance document template
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#governance-document"
   type: single-choice
+  default: None
+  # first choice is the default for the UI
   choices:
     - None
     - numpy-governance
     - sciml-governance
-  enabled: false
+  visible: false
 
 roadmap_document:
   message: Select one option for a Roadmap document template
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#roadmap-document"
   type: single-choice
+  default: None
+  # first choice is the default for the UI
   choices:
     - None
     - pytorch-ignite-roadmap
-  enabled: false
-
-# use_git:
-#   message: Configure the local git repository?
-#   control_flow: True
-#   help: ""
-#   type: "confirm"
-#   default: True
-#   enabled: false
+  visible: false
 
 git_username:
   message: Type the GIT username
   help: https://osl-incubator.github.io/scicookie/guide.html#control-version
   type: "text"
-  default: zoro_roronoa
-  depends_on:
-    option: use_git
-    values:
-      - True
-  enabled: false
+  default: ""
 
 git_https_origin:
   message: Type the GIT HTTPS origin URL
   help: https://osl-incubator.github.io/scicookie/guide.html#control-version
   type: "text"
-  depends_on:
-    option: use_git
-    values:
-      - True
-  enabled: false
+  default: ""
 
 git_https_upstream:
   message: Type the GIT HTTPS upstream URL
   help: https://osl-incubator.github.io/scicookie/guide.html#control-version
   type: "text"
-  depends_on:
-    option: use_git
-    values:
-      - True
-  enabled: false
+  default: ""
 
 git_main_branch:
   message: Type the GIT main branch
   help: https://osl-incubator.github.io/scicookie/guide.html#control-version
   type: "text"
   default: main
-  depends_on:
-    option: use_git
-    values:
-      - True
-  enabled: false

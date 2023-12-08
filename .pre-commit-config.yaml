@@ -10,14 +10,6 @@ repos:
 
   - repo: local
     hooks:
-    - id: black
-      entry: black
-      name: black
-      language: system
-      pass_filenames: true
-      types:
-        - python
-
     - id: mypy
       name: mypy
       entry: mypy
@@ -33,9 +25,24 @@ repos:
       types:
         - python
 
-    - id: ruff
-      name: ruff
-      entry: ruff --no-cache --fix
+    - id: ruff format
+      name: ruff format
+      entry: ruff format
+      language: system
+      pass_filenames: true
+      files: "./"
+      # pre-commit + ruff doesn't honor the exclusion defined in the config
+      exclude: |
+        (?x)(
+            src/scicookie/{{cookiecutter.project_slug}}
+          | src/scicookie/hooks
+        )
+      types:
+        - python
+
+    - id: ruff check
+      name: ruff check
+      entry: ruff check
       language: system
       pass_filenames: true
       files: "./"

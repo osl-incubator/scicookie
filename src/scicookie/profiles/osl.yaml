@@ -1,71 +1,98 @@
 author_full_name:
-  enabled: true
+  default: Yor Briar
+  visible: true
 
 author_email:
-  enabled: true
+  default: yor.briar@spyx.family
+  visible: true
 
 project_name:
-  enabled: true
+  default: My Super New Project
+  visible: true
 
 project_short_description:
-  enabled: true
+  visible: true
 
 project_slug:
-  enabled: true
+  visible: true
 
 package_slug:
-  enabled: true
+  visible: true
 
 project_version:
-  enabled: true
+  visible: true
 
 project_url:
-  enabled: true
+  visible: true
 
 project_license:
-  enabled: true
+  # first choice is the default for the UI
+  choices:
+    - BSD 3 Clause
+    - MIT
+    - Apache Software License 2.0
+    - Other
+  visible: true
 
 project_layout:
-  enabled: true
-
-command_line_interface:
-  enabled: true
-
-documentation_engine:
-  enabled: true
-
-documentation_url:
-  enabled: true
-
-code_of_conduct:
-  enabled: true
-
-governance_document:
-  enabled: true
-
-roadmap_document:
-  enabled: true
+  default : src
+  visible: false
 
 build_system:
-  enabled: true
+  visible: true
+
+command_line_interface:
+  visible: true
+
+documentation_engine:
+  visible: true
+
+documentation_url:
+  visible: true
 
 use_tools:
-  enabled: true
+  choices:
+    - bandit
+    - conda
+    - coverage
+    - ruff
+    - makim
+    - mccabe
+    - mypy
+    - pre-commit
+    - pytest
+    - hypothesis
+    - shellcheck
+    - vulture
+  visible: true
 
 use_containers:
-  enabled: true
+  visible: true
 
-# use_git:
-#     enabled: true
+code_of_conduct:
+  choices:
+    - contributor-covenant
+    - citizen-code-of-conduct
+  visible: true
+
+governance_document:
+  default: None
+  visible: false
+
+roadmap_document:
+  default: None
+  visible: false
 
 git_username:
-  enabled: true
+  default: yorbriar
+  visible: true
 
 git_https_origin:
-  enabled: true
+  default: ""
+  visible: true
 
 git_https_upstream:
-  enabled: true
+  visible: true
 
 git_main_branch:
-  enabled: true
+  visible: true

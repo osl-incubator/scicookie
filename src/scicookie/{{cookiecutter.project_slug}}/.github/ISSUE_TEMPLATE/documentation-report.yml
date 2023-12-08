@@ -1,9 +1,9 @@
-{%- if not cookiecutter.git_https_upstream -%}
+{%- if cookiecutter.git_https_upstream -%}
 {% set github_url = cookiecutter.git_https_upstream -%}
-{%- elif not cookiecutter.git_https_origin -%}
+{%- elif cookiecutter.git_https_origin -%}
 {% set github_url = cookiecutter.git_https_origin -%}
 {%- else -%}
-{% set github_url = "https://github.com/" + cookiecutter.project_name + "/" + cookiecutter.project_name -%}
+{% set github_url = "https://github.com/" + cookiecutter.project_slug + "/" + cookiecutter.project_slug -%}
 {%- endif -%}
 ---
 name: 📝  Documentation Report

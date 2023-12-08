@@ -1,7 +1,9 @@
 """Module with CLI functions."""
+import argparse
 import json
 import os
 import sys
+
 from pathlib import Path
 from typing import Union
 
@@ -13,6 +15,31 @@ from scicookie.ui import make_questions
 
 PACKAGE_PATH = Path(__file__).parent
 COOKIECUTTER_FILE_PATH = PACKAGE_PATH / "cookiecutter.json"
+
+
+class CustomHelpFormatter(argparse.RawTextHelpFormatter):
+    """Formatter for generating usage messages and argument help strings.
+
+    Only the name of this class is considered a public API. All the methods
+    provided by the class are considered an implementation detail.
+    """
+
+    def __init__(
+        self,
+        prog,
+        indent_increment=2,
+        max_help_position=4,
+        width=None,
+        **kwargs,
+    ):
+        """Define the parameters for the argparse help text."""
+        super().__init__(
+            prog,
+            indent_increment=indent_increment,
+            max_help_position=max_help_position,
+            width=width,
+            **kwargs,
+        )
 
 
 def _get_cookiecutter_default_answer(
@@ -30,7 +57,7 @@ def _get_cookiecutter_default_answer(
     return answer_definition[0]
 
 
-def call_cookiecutter(profile: Profile, answers: dict):
+def call_cookiecutter(profile: Profile, answers: dict):  # noqa: PLR0912
     """Call cookiecutter/cookieninja with the parameters from the TUI."""
     answers_profile = {}
     cookie_args = []
@@ -41,7 +68,13 @@ def call_cookiecutter(profile: Profile, answers: dict):
 
     # fill the answers with default value
     for question_id, question in questions.items():
-        if not question.get("enabled", False) or question.get("control_flow"):
+        if question.get("control_flow", False):
+            # "control_flow" is not defined in cookiecutter config
+            continue
+
+        if not question.get("visible", False):
+            # get the default for non visible questions
+            answers_profile[question_id] = question.get("default")
             continue
 
         if question.get("type") == "multiple-choices":
@@ -98,7 +131,35 @@ def call_cookiecutter(profile: Profile, answers: dict):
 def app():
     """Run SciCookie."""
     # note: this parameter should be provided by a CLI argument
-    profile = Profile("osl")
+
+    parser = argparse.ArgumentParser(
+        prog="SciCookie",
+        description=(
+            "SciCookie is a template developed by Open Science Labs that "
+            "creates projects through different options of profile. "
+            "It serves as a boilerplate which can be used by beginners as "
+            "well as full fledged developers to simplify the project creation "
+            "process and save considerable amount of time. It creates  "
+            "projects with an initial layout that includes recommended  "
+            "tools, workflows, and project structure."
+        ),
+        epilog=(
+            "If you have any problem, open an issue at: "
+            "https://github.com/osl-incubator/scicookie"
+        ),
+        add_help=True,
+        formatter_class=CustomHelpFormatter,
+    )
+    parser.add_argument(
+        "--profile",
+        type=str,
+        default="base",
+        help="Select the profile to be used",
+    )
+
+    args = parser.parse_args()
+
+    profile = Profile(args.profile)
 
     answers = make_questions(profile.config)
 

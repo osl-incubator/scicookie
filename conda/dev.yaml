@@ -4,10 +4,10 @@ channels:
   - conda-forge
 dependencies:
   - git
-  - python <3.11
-  - poetry
+  - python >=3.8.1,<3.12
+  - poetry >=1.5
   - nodejs
   - compilers
   - pip
   - pip:
-    - makim==1.8.2
+    - makim==1.8.3
