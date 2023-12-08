@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -76,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -129,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -141,8 +153,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/osl.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/osl.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/osl.png" class="logo__image only-light" alt="Cookiecutter Python Package - Home"/>
+    <script>document.write(`<img src="_static/osl.png" class="logo__image only-dark" alt="Cookiecutter Python Package - Home"/>`);</script>
   
   
 </a></div>
@@ -265,20 +277,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -316,9 +330,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-tools">Project tools</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environment">Virtual Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environment">Virtual environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-formatter">Code formatter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-security-vulnerabilities">Code Security Vulnerabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-security-vulnerabilities">Code security vulnerabilities</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-coverage-testing">Code coverage testing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style-and-logic-code-quality">Code style and logic (code quality)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-framework">Testing framework</a></li>
@@ -327,14 +341,14 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-devops-tools">Integration with DevOps tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-tools">Automation Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-tools">Automation tools</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-team">Project team</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of conduct</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#governance-document">Governance document</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roadmap-document">Roadmap document</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-version">Control Version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version control</a></li>
 </ul>
             </nav>
         </div>
@@ -367,9 +381,9 @@ created this guide to help you understand every option and its functionality.</p
 </li>
 <li><p><span class="xref myst">Project tools</span></p>
 <ul>
-<li><p><span class="xref myst">Virtual Environment</span></p></li>
+<li><p><span class="xref myst">Virtual environment</span></p></li>
 <li><p><span class="xref myst">Code formatter</span></p></li>
-<li><p><span class="xref myst">Code Security Vulnerabilities</span></p></li>
+<li><p><span class="xref myst">Code security vulnerabilities</span></p></li>
 <li><p><span class="xref myst">Code coverage testing</span></p></li>
 <li><p><span class="xref myst">Code style and logic (code quality)</span></p></li>
 <li><p><span class="xref myst">Testing framework</span></p></li>
@@ -386,7 +400,7 @@ created this guide to help you understand every option and its functionality.</p
 <li><p><span class="xref myst">Roadmap document</span></p></li>
 </ul>
 </li>
-<li><p><span class="xref myst">Control Version</span></p></li>
+<li><p><span class="xref myst">Version control</span></p></li>
 </ul>
 </li>
 </ul>
@@ -771,7 +785,7 @@ others allow you to format your code consistently, and others can help you find
 errors and vulnerabilities in your code, and much more.</p>
 <p>The tools are described below according to their functionality.</p>
 <section id="virtual-environment">
-<h3>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Permalink to this heading">#</a></h3>
+<h3>Virtual environment<a class="headerlink" href="#virtual-environment" title="Permalink to this heading">#</a></h3>
 <p>When working with Python, you should always have a virtual environment.
 This is an isolated space where you can install and run applications and
 software packages independently, without interfering with other
@@ -782,7 +796,7 @@ there are many tools to manage virtual environments, in SciCookie we
 offer you the option to use <em>conda</em> as your environment management
 system, which is a very popular option in the Python scientific
 community.</p>
-<ul class="simple">
+<ul>
 <li><p><a class="reference external" href="https://docs.conda.io/en/latest/"><strong>Conda</strong></a>: is an open source
 package and environment management system that runs on Windows, MacOS
 and Linux. It quickly installs, runs and updates packages and their
@@ -792,7 +806,12 @@ as an option in SciCookie. If you want an easy way to choose a
 specific version of Python, and if your project relies on complex
 software libraries that are not easily installed with pip, using conda
 is a good option. It is included in all versions of Anaconda and
-Miniconda.</p></li>
+Miniconda.</p>
+<p>If you select this option, a conda folder will appear in the project
+directory, containing a dev.yaml file that you can use to manage the
+development project’s dependencies. If you do not select this option, a
+requirements.txt will be added for you to manage with virtualenv.</p>
+</li>
 </ul>
 </section>
 <section id="code-formatter">
@@ -832,7 +851,7 @@ process will be stopped.</p>
 consistent and readable code, making it easier to maintain and collaborate on.</p>
 </section>
 <section id="code-security-vulnerabilities">
-<h3>Code Security Vulnerabilities<a class="headerlink" href="#code-security-vulnerabilities" title="Permalink to this heading">#</a></h3>
+<h3>Code security vulnerabilities<a class="headerlink" href="#code-security-vulnerabilities" title="Permalink to this heading">#</a></h3>
 <p>The code security vulnerabilities are errors or weaknesses in code that can be
 exploited by attackers to gain unauthorized access, steal data, or cause damage
 to a system.</p>
@@ -1078,7 +1097,7 @@ efficient platform for running Python projects.</p>
 by selecting the option <code class="docutils literal notranslate"><span class="pre">None</span></code> (this is the default option).</p>
 </section>
 <section id="automation-tools">
-<h2>Automation Tools<a class="headerlink" href="#automation-tools" title="Permalink to this heading">#</a></h2>
+<h2>Automation tools<a class="headerlink" href="#automation-tools" title="Permalink to this heading">#</a></h2>
 <p>An automation tool is software or a platform designed to automate repetitive
 tasks, processes, or workflows that are traditionally performed manually.
 These tools are used to streamline and optimize various operations, reduce
@@ -1202,8 +1221,8 @@ Ignite Roadmap, click <a class="reference external" href="https://github.com/pyt
 selecting the option <code class="docutils literal notranslate"><span class="pre">None</span></code> (this is the default option).</p>
 </section>
 </section>
-<section id="control-version">
-<h2>Control Version<a class="headerlink" href="#control-version" title="Permalink to this heading">#</a></h2>
+<section id="version-control">
+<h2>Version control<a class="headerlink" href="#version-control" title="Permalink to this heading">#</a></h2>
 <p>Version control is essential for any project because it enables us to track and
 store all versions and changes made to our codebase. With this in mind, we have
 added some functionalities to SciCookie that allow you to easily add your Git
@@ -1251,11 +1270,10 @@ with others, while ensuring that your code is properly versioned and tracked.</p
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="contributing.html"
@@ -1266,10 +1284,7 @@ with others, while ensuring that your code is properly versioned and tracked.</p
         <p class="prev-next-title">Contributing</p>
       </div>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1295,9 +1310,9 @@ with others, while ensuring that your code is properly versioned and tracked.</p
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-tools">Project tools</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environment">Virtual Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environment">Virtual environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-formatter">Code formatter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-security-vulnerabilities">Code Security Vulnerabilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-security-vulnerabilities">Code security vulnerabilities</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-coverage-testing">Code coverage testing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style-and-logic-code-quality">Code style and logic (code quality)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-framework">Testing framework</a></li>
@@ -1306,14 +1321,14 @@ with others, while ensuring that your code is properly versioned and tracked.</p
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-devops-tools">Integration with DevOps tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-tools">Automation Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-tools">Automation tools</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-team">Project team</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of conduct</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#governance-document">Governance document</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roadmap-document">Roadmap document</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-version">Control Version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version control</a></li>
 </ul>
   </nav></div>
 
@@ -1335,6 +1350,7 @@ By OpenScienceLabs Team
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1375,8 +1391,8 @@ By OpenScienceLabs Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
