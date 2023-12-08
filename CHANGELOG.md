@@ -1,6 +1,19 @@
 # Release Notes
 ---
 
+## [0.6.3](https://github.com/osl-incubator/scicookie/compare/0.6.2...0.6.3) (2023-12-08)
+
+
+### Bug Fixes
+
+* Add a dynamic version attribute for the `setuptools` build-backend ([#188](https://github.com/osl-incubator/scicookie/issues/188)) ([21fa953](https://github.com/osl-incubator/scicookie/commit/21fa953ca790b4464ac10794e899d1a58bf3a547))
+* Fix profile's mechanism and update OSL profile ([#189](https://github.com/osl-incubator/scicookie/issues/189)) ([4eaf7b4](https://github.com/osl-incubator/scicookie/commit/4eaf7b4c1cadcdb6293b71b791ad66551afe6dcb))
+
+
+### Performance Improvements
+
+* **template:** Improving the git workflow for the template ([#162](https://github.com/osl-incubator/scicookie/issues/162)) ([7ab065e](https://github.com/osl-incubator/scicookie/commit/7ab065e2c18f237a6525b4a26e160f2222cad422))
+
 ## [0.6.2](https://github.com/osl-incubator/scicookie/compare/0.6.1...0.6.2) (2023-08-31)
 
 
