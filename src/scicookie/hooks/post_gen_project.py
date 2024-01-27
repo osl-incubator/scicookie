@@ -28,7 +28,6 @@ else:
     PACKAGE_PATH = PROJECT_DIRECTORY / "{{ cookiecutter.package_slug}}"
 
 USE_BLACK = {{ cookiecutter.use_black == "yes" }}
-USE_BLUE = {{ cookiecutter.use_blue == "yes" }}
 USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
 USE_CLI = {{ cookiecutter.command_line_interface != "None" }}
@@ -259,9 +258,9 @@ def http2ssh(url):
 
 
 def validation():
-    if USE_BLUE and USE_BLACK:
+    if USE_BLACK:
         raise Exception(
-            "The libs Blue and Black were selected, but you need to choose "
+            "The libs Black were selected, but you need to choose "
             "just one of them."
         )
 

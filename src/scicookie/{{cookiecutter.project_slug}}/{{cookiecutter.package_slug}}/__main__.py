@@ -6,8 +6,7 @@ Why does this file exist, and why __main__? For more info, read:
 - https://docs.python.org/2/using/cmdline.html#cmdoption-m
 - https://docs.python.org/3/using/cmdline.html#cmdoption-m
 """
-{%- if cookiecutter.use_blue == "yes" %}
-  {%- set QUOTE = "'" -%}
+
 {%- elif cookiecutter.use_black == "yes" %}
   {%- set QUOTE = '"' -%}
 {%- else %}

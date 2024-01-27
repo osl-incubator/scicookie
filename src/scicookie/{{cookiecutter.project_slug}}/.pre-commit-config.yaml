@@ -21,15 +21,6 @@ repos:
       language: system
       pass_filenames: no
 {# keep this comment #}
-{%- if cookiecutter.use_blue == "yes" %}
-    - id: blue
-      name: blue
-      entry: blue
-      language: system
-      pass_filenames: true
-      types:
-        - python
-{% endif -%}
 {%- if cookiecutter.use_black == "yes" %}
     - id: black
       name: black
