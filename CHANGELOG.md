@@ -42,7 +42,7 @@
 ### Bug Fixes
 
 * Fix error in `__author__` introduced by [#156](https://github.com/osl-incubator/scicookie/issues/156) ([67a40af](https://github.com/osl-incubator/scicookie/commit/67a40afba6d0041b226e1c37ff46f252a36f843d))
-* Make `black` "yes" default ([#164](https://github.com/osl-incubator/scicookie/issues/164)) ([88048e4](https://github.com/osl-incubator/scicookie/commit/88048e43165c5918f4f5e70e9a5b374f9d5d5cf2))
+* Make `black` "yes" and `blue` "no" by default ([#164](https://github.com/osl-incubator/scicookie/issues/164)) ([88048e4](https://github.com/osl-incubator/scicookie/commit/88048e43165c5918f4f5e70e9a5b374f9d5d5cf2))
 
 
 ### Features

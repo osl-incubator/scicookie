@@ -257,14 +257,6 @@ def http2ssh(url):
     return url.replace("/", ":", 1)
 
 
-def validation():
-    if USE_BLACK:
-        raise Exception(
-            "The libs Black were selected, but you need to choose "
-            "just one of them."
-        )
-
-
 def prepare_git() -> None:
     git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
     git_https_upstream = http2ssh("{{cookiecutter.git_https_upstream}}")
