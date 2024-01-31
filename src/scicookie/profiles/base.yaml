@@ -61,12 +61,12 @@ project_license:
   default: BSD 3 Clause
   # first choice is the default for the UI
   choices:
-  - BSD 3 Clause
-  - MIT
-  - ISC license
-  - Apache Software License 2.0
-  - GNU General Public License v3
-  - Other
+    - BSD 3 Clause
+    - MIT
+    - ISC license
+    - Apache Software License 2.0
+    - GNU General Public License v3
+    - Other
   visible: true
 
 project_layout:
@@ -76,8 +76,8 @@ project_layout:
   default: src
   # first choice is the default for the UI
   choices:
-  - src
-  - flat
+    - src
+    - flat
   visible: false
 
 build_system:
@@ -87,15 +87,15 @@ build_system:
   default: poetry
   # first choice is the default for the UI
   choices:
-  - poetry
-  - flit
-  - mesonpy
-  - setuptools
-  - pdm
-  - hatch
-  - maturin
-  - scikit-build-core
-  - pybind11
+    - poetry
+    - flit
+    - mesonpy
+    - setuptools
+    - pdm
+    - hatch
+    - maturin
+    - scikit-build-core
+    - pybind11
   visible: false
 
 command_line_interface:
@@ -105,9 +105,9 @@ command_line_interface:
   default: None
   # first choice is the default for the UI
   choices:
-  - None
-  - Click
-  - Argparse
+    - None
+    - Click
+    - Argparse
   visible: false
 
 documentation_engine:
@@ -117,9 +117,9 @@ documentation_engine:
   default: mkdocs
   # first choice is the default for the UI
   choices:
-  - mkdocs
-  - sphinx
-  - jupyter-book
+    - mkdocs
+    - sphinx
+    - jupyter-book
   visible: false
 
 documentation_url:
@@ -134,23 +134,23 @@ use_tools:
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide.html#project-tools"
   type: multiple-choices
   choices:
-  - bandit
-  - black
-  - conda
-  - coverage
-  - flake8
-  - ruff
-  - isort
-  - make
-  - makim
-  - mccabe
-  - mypy
-  - pre-commit
-  - pydocstyle
-  - pytest
-  - hypothesis
-  - shellcheck
-  - vulture
+    - bandit
+    - black
+    - conda
+    - coverage
+    - flake8
+    - ruff
+    - isort
+    - make
+    - makim
+    - mccabe
+    - mypy
+    - pre-commit
+    - pydocstyle
+    - pytest
+    - hypothesis
+    - shellcheck
+    - vulture
   visible: false
 
 use_containers:
@@ -160,9 +160,9 @@ use_containers:
   default: None
   # first choice is the default for the UI
   choices:
-  - None
-  - Docker
-  - Podman
+    - None
+    - Docker
+    - Podman
   visible: false
 
 # doc_template:
@@ -177,9 +177,9 @@ code_of_conduct:
   default: None
   # first choice is the default for the UI
   choices:
-  - None
-  - contributor-covenant
-  - citizen-code-of-conduct
+    - None
+    - contributor-covenant
+    - citizen-code-of-conduct
   visible: true
 
 governance_document:
@@ -189,9 +189,9 @@ governance_document:
   default: None
   # first choice is the default for the UI
   choices:
-  - None
-  - numpy-governance
-  - sciml-governance
+    - None
+    - numpy-governance
+    - sciml-governance
   visible: false
 
 roadmap_document:
@@ -201,8 +201,8 @@ roadmap_document:
   default: None
   # first choice is the default for the UI
   choices:
-  - None
-  - pytorch-ignite-roadmap
+    - None
+    - pytorch-ignite-roadmap
   visible: false
 
 git_username:
