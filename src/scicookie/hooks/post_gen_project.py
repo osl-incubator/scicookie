@@ -350,7 +350,6 @@ def clean_up_mypy():
 
 
 def post_gen():
-    validation()
 
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
