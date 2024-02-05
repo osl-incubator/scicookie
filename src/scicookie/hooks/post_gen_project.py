@@ -357,6 +357,8 @@ def clean_up_mypy():
     if not USE_MYPY:
         remove_package_file("py.typed")
 
+def move_mkdocs():
+    shutil.move({{cookiecutter.project_slug}}/docs-mkdocs/mkdocs.yaml,{{cookiecutter.project_slug}})        
 
 def post_gen():
     validation()
@@ -374,7 +376,7 @@ def post_gen():
     clean_up_governance()
     clean_up_roadmap()
     clean_up_build_system()
-
+    move_mkdocs()
     # keep it at the end, because it will create a new git commit
     prepare_git()
 
