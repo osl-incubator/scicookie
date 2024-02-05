@@ -358,7 +358,7 @@ def clean_up_mypy():
         remove_package_file("py.typed")
  
 def move_mkdocs():
-    shutil.move({{cookiecutter.project_slug}}/docs-mkdocs/mkdocs.yaml,{{{{cookiecutter.project_slug}}}})        
+    shutil.move({{cookiecutter.project_slug}}/docs-mkdocs/mkdocs.yaml,{{cookiecutter.project_slug}})        
 
 
 def post_gen():
