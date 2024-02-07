@@ -66,7 +66,7 @@ dependencies = [
     "blue>=0.9.1",
 {% endif %}
 {%- if cookiecutter.use_black == "yes" -%}
-    "black>=23.3.0",
+    "black>=23.3.0,<23.10",
 {% endif %}
 {%- if cookiecutter.use_isort == "yes" -%}
     "isort>=5.12.0",
