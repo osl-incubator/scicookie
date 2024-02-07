@@ -22,7 +22,7 @@ jobs:
 
       - uses: conda-incubator/setup-miniconda@v3
         with:
-          miniconda-version: "latest"
+          miniforge-version: latest
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
           activate-environment: pypkg
