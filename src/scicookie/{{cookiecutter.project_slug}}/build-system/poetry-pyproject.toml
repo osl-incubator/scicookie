@@ -106,7 +106,7 @@ jupyter-book = ">=0.15.1"
 myst-parser = ">=0.18.1"
 {% endif %}
 {%- if cookiecutter.use_makim == "yes" %}
-makim =">=1.8.3"
+makim =">=1.12.0"
 {% endif %}
 
 {% include "build-system/base-pyproject.toml" %}

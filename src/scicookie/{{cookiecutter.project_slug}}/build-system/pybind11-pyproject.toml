@@ -63,7 +63,7 @@ dependencies = [
     "isort >= 5.12.0,<6",
 {% endif %}
 {%- if cookiecutter.use_pre_commit -%}
-    "pre-commit >= 3.3.2,<4",
+    "pre-commit >= 3.3.2,<3.12",
 {% endif %}
 {%- if cookiecutter.use_flake8 == "yes" -%}
     "flake8 >= 4.0.1, < 7",
@@ -93,7 +93,7 @@ dependencies = [
     "ipython < 8",
     "ipykernel >=6.0.0",
 {%- if cookiecutter.documentation_engine == 'mkdocs' -%}
-    "Jinja2 >=3.1.2,<4",
+    "Jinja2 >=3.1.2,<3.12",
     "mkdocs >=1.4.3,<2",
     "mkdocs-exclude >= 1.0.2,<2",
     "mkdocs-jupyter >= 0.24.1,<1",
@@ -114,7 +114,7 @@ dependencies = [
     "myst-parser >= 0.18.1,<1",
 {% endif %}
 {%- if cookiecutter.use_makim == "yes" %}
-    "makim >=1.8.3",
+    "makim >=1.12.0",
 {% endif %}
 ]
 
