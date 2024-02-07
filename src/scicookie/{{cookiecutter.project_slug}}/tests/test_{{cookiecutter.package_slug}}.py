@@ -1,6 +1,8 @@
-"""Tests for {{ cookiecutter.package_slug }} package."""{% if cookiecutter.use_pytest == "yes" -%}
+"""Tests for {{ cookiecutter.package_slug }} package."""
+{%- if cookiecutter.use_pytest == "yes" -%}
+{# keep this line here #}
 import pytest
-{% endif -%}
+{%- endif -%}
 
 {%- if cookiecutter.use_pytest == "yes" and cookiecutter.use_hypothesis == "yes" -%}
 {# keep this line here #}
