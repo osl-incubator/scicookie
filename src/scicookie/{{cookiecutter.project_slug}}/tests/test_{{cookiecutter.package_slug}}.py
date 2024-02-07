@@ -1,4 +1,5 @@
 """Tests for {{ cookiecutter.package_slug }} package."""
+
 {% if cookiecutter.use_pytest == "yes" -%}
 import pytest
 {% endif -%}
