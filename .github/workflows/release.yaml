@@ -20,16 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: conda-incubator/setup-miniconda@v2
-        with:
-          miniconda-version: "latest"
-          mamba-version: "1.*"
-          environment-file: conda/dev.yaml
-          channels: conda-forge,nodefaults
-          channel-priority: true
-          activate-environment: pypkg
-          use-mamba: true
-          miniforge-variant: Mambaforge
+    - uses: conda-incubator/setup-miniconda@v3
+      with:
+        miniconda-version: "latest"
+        environment-file: conda/dev.yaml
+        channels: conda-forge,nodefaults
+        activate-environment: pypkg
+        auto-update-conda: true
+        conda-solver: libmamba
 
       - name: Install deps
         run: poetry install
