@@ -43,7 +43,7 @@ class CustomHelpFormatter(argparse.RawTextHelpFormatter):
 
 
 def _get_cookiecutter_default_answer(
-    answer_definition: Union[str, list]
+    answer_definition: Union[str, list],
 ) -> str:
     if not isinstance(answer_definition, (str, list)):
         SciCookieLogs.raise_error(

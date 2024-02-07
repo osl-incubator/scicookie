@@ -78,7 +78,7 @@ project_layout:
   choices:
     - src
     - flat
-  visible: false
+  visible: true
 
 build_system:
   message: Select one option for the build system
@@ -96,7 +96,7 @@ build_system:
     - maturin
     - scikit-build-core
     - pybind11
-  visible: false
+  visible: true
 
 command_line_interface:
   message: Select one option for Command Line Interface (CLI)
@@ -108,7 +108,7 @@ command_line_interface:
     - None
     - Click
     - Argparse
-  visible: false
+  visible: true
 
 documentation_engine:
   message: Select one option for the Documentation Engine
@@ -120,14 +120,14 @@ documentation_engine:
     - mkdocs
     - sphinx
     - jupyter-book
-  visible: false
+  visible: true
 
 documentation_url:
   message: Type the documentation URL
   help: The URL for the documentation page.
   type: text
   default: "{{ project_url }}"
-  visible: false
+  visible: true
 
 use_tools:
   message: Select all the initial tools you want to add to your project
@@ -152,7 +152,7 @@ use_tools:
     - hypothesis
     - shellcheck
     - vulture
-  visible: false
+  visible: true
 
 use_containers:
   message: Select one option for the container technology for this project
@@ -164,7 +164,7 @@ use_containers:
     - None
     - Docker
     - Podman
-  visible: false
+  visible: true
 
 # doc_template:
 #   message: Select the template for the Documentation Engine
@@ -193,7 +193,7 @@ governance_document:
     - None
     - numpy-governance
     - sciml-governance
-  visible: false
+  visible: true
 
 roadmap_document:
   message: Select one option for a Roadmap document template
@@ -204,7 +204,7 @@ roadmap_document:
   choices:
     - None
     - pytorch-ignite-roadmap
-  visible: false
+  visible: true
 
 git_username:
   message: Type the GIT username
