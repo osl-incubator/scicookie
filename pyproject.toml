@@ -75,10 +75,10 @@ select = [
   "I001", # isort
 ]
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "numpy"
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 # Use a single line between direct and from import
 lines-between-types = 1
 
