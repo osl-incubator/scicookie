@@ -1,5 +1,4 @@
-"""Tests for {{ cookiecutter.package_slug }} package."""
-{% if cookiecutter.use_pytest == "yes" -%}
+"""Tests for {{ cookiecutter.package_slug }} package."""{% if cookiecutter.use_pytest == "yes" -%}
 import pytest
 {% endif -%}
 
@@ -44,4 +43,3 @@ def test_content_hypothesis(response_hypothesis):
     assert response_hypothesis
 {%- endif -%}
 {%- endif %}
-{# keep this line at the end of the file -#}
