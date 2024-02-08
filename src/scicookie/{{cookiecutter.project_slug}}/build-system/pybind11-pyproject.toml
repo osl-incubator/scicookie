@@ -57,22 +57,22 @@ dependencies = [
     "blue >= 0.9.1,<1",
 {% endif %}
 {%- if cookiecutter.use_black == "yes" -%}
-    "black >= 23.3.0,<24",
+    "black >= 23.3.0,<23.10",
 {% endif %}
 {%- if cookiecutter.use_isort == "yes" -%}
     "isort >= 5.12.0,<6",
 {% endif %}
 {%- if cookiecutter.use_pre_commit -%}
-    "pre-commit >= 3.3.2,<4",
+    "pre-commit >= 3.3.2,<3.12",
 {% endif %}
 {%- if cookiecutter.use_flake8 == "yes" -%}
     "flake8 >= 4.0.1, < 7",
 {% endif %}
 {%- if cookiecutter.use_ruff == "yes" -%}
-    "ruff >= 0.0.272,<1",
+    "ruff >= 0.2.0",
 {% endif %}
 {%- if cookiecutter.use_mypy == "yes" -%}
-    "mypy >= 1.3.0,<2",
+    "mypy >= 1.5.0,<2",
 {% endif %}
 {%- if cookiecutter.use_bandit == "yes" -%}
     "bandit >= 1.7.5,<2",
@@ -93,7 +93,7 @@ dependencies = [
     "ipython < 8",
     "ipykernel >=6.0.0",
 {%- if cookiecutter.documentation_engine == 'mkdocs' -%}
-    "Jinja2 >=3.1.2,<4",
+    "Jinja2 >=3.1.2,<3.12",
     "mkdocs >=1.4.3,<2",
     "mkdocs-exclude >= 1.0.2,<2",
     "mkdocs-jupyter >= 0.24.1,<1",
@@ -114,7 +114,7 @@ dependencies = [
     "myst-parser >= 0.18.1,<1",
 {% endif %}
 {%- if cookiecutter.use_makim == "yes" %}
-    "makim >=1.8.3",
+    "makim >=1.12.0",
 {% endif %}
 ]
 

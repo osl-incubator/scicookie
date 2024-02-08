@@ -20,16 +20,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: conda-incubator/setup-miniconda@v3
         with:
-          miniconda-version: "latest"
-          mamba-version: "1.*"
+          miniforge-version: latest
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
-          channel-priority: true
           activate-environment: pypkg
-          use-mamba: true
-          miniforge-variant: Mambaforge
+          auto-update-conda: true
+          conda-solver: libmamba
+
+      - name: Check poetry.lock
+        run: poetry check
 
       - name: Install dependencies
         run: poetry install
@@ -75,16 +76,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: conda-incubator/setup-miniconda@v3
         with:
-          miniconda-version: "latest"
-          mamba-version: "1.*"
+          miniforge-version: latest
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
-          channel-priority: true
           activate-environment: pypkg
-          use-mamba: true
-          miniforge-variant: Mambaforge
+          auto-update-conda: true
+          conda-solver: libmamba
 
       - name: Install dependencies
         run: poetry install
