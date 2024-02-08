@@ -164,6 +164,13 @@ Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for
     If you would like to skip the failing checks and push the code for further
     discussion, use the `--no-verify` option with `git commit`.
 
+    Smoke tests can be executed locally to quickly verify basic functionality and
+    behavior of the code changes. To run smoke tests, use:
+    ```
+    makim tests.smoke
+    ```
+    Make sure to run comprehensive unit tests alongside smoke tests to maintain code integrity.
+
 6. `{{ cookiecutter.project_slug }}` is tested with `pytest`. `pytest` is responsible for
     testing the code, whose configuration is available in pyproject.toml.
     Additionally, `{{ cookiecutter.project_slug }}` also uses `pytest-cov` to calculate the coverage of
