@@ -97,14 +97,38 @@ Ready to contribute? Here’s how to set up `scicookie` for local development.
     If you would like to skip the failing checks and push the code for further
     discussion, use the `--no-verify` option with `git commit`.
 
-6.  Commit your changes and push your branch to GitHub:
+6. `scicookie` is tested with `pytest`. `pytest` is responsible for
+    testing the code, whose configuration is available in pyproject.toml.
+    Additionally, `scicookie` also uses `pytest-cov` to calculate the coverage of
+    these unit tests.
+
+    #### Running tests locally
+
+    The tests can be executed using the `test` dependencies of `scicookie` in the
+    following way -
+    ```
+    python -m pytest
+    ```
+
+    #### Running tests with coverage locally
+
+    The coverage value can be obtained while running the tests using `pytest-cov` in
+    the following way -
+    ```
+    python -m pytest --cov=scicookie tests/
+    ```
+
+    A much more detailed guide on testing with `pytest` is available
+    [here](https://docs.pytest.org/en/8.0.x/how-to/index.html).
+
+7.  Commit your changes and push your branch to GitHub:
     ```
     git add . 
     git commit -m “Your detailed description of your changes.” 
     git push origin name-of-your-bugfix-or-feature
     ```
 
-7.  Submit a pull request through the GitHub website.
+8.  Submit a pull request through the GitHub website.
 
 ## Pull Request Guidelines
 
