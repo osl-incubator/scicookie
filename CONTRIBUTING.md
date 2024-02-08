@@ -54,38 +54,88 @@ Ready to contribute? Here’s how to set up `scicookie` for local development.
 
 1.  Fork the `scicookie` repo on GitHub.
 
-2.  Clone your fork locally::
+2.  Clone your fork locally:
+    ```
+    git clone git@github.com:your_name_here/scicookie.git
+    ```
+3.  Install your local copy into a virtualenv. This is how you set up your fork for
+    local development and this will automatically install all required and `dev` dependencies: 
+    ```
+    cd scicookie
+    python -m venv env
+    ```
+    Using poetry:
+    ```
+    poetry install --with dev
+    ```
+    To get poetry, just pip install it into your virtualenv.
 
-    $ git clone git@github.com:your_name_here/scicookie.git
-
-3.  Install your local copy into a virtualenv. Assuming you have
-    virtualenvwrapper installed, this is how you set up your fork for
-    local development::
-
-    $ mkvirtualenv scicookie
-    $ cd scicookie/
-    $ python setup.py develop
-
-4.  Create a branch for local development::
-
-    $ git checkout -b name-of-your-bugfix-or-feature
-
+    Alternatively, using pip:
+    ```
+    pip install -e .
+    ```
+4.  Create a branch for local development:
+    ```
+    git checkout -b name-of-your-bugfix-or-feature
+    ```
     Now you can make your changes locally.
 
-5.  When you’re done making changes, check that your changes pass flake8
-    and the tests, including testing other Python versions with tox::
+5.  `scicookie` uses a set of `pre-commit` hooks and the `pre-commit` bot to format,
+    type-check, and prettify the codebase. The hooks can be installed locally
+    using -
+    ```
+    pre-commit install
+    ```
 
-    $ flake8 scicookie tests $ python setup.py
-    test or pytest $ tox
+    This would run the checks every time a commit is created locally. The checks
+    will only run on the files modified by that commit, but the checks can be
+    triggered for all the files using -
+    ```
+    pre-commit run --all-files
+    ```
 
-    To get flake8 and tox, just pip install them into your virtualenv.
+    If you would like to skip the failing checks and push the code for further
+    discussion, use the `--no-verify` option with `git commit`.
 
-6.  Commit your changes and push your branch to GitHub::
+    Smoke tests can be executed locally to quickly verify basic functionality and
+    behavior of the code changes. To run smoke tests, use:
+    ```
+    makim tests.smoke
+    ```
+    Make sure to run comprehensive unit tests alongside smoke tests to maintain code integrity.
 
-    $ git add . $ git commit -m “Your detailed description of your
-    changes.” $ git push origin name-of-your-bugfix-or-feature
+6. `scicookie` is tested with `pytest`. `pytest` is responsible for
+    testing the code, whose configuration is available in pyproject.toml.
+    Additionally, `scicookie` also uses `pytest-cov` to calculate the coverage of
+    these unit tests.
 
-7.  Submit a pull request through the GitHub website.
+    #### Running tests locally
+
+    The tests can be executed using the `test` dependencies of `scicookie` in the
+    following way -
+    ```
+    python -m pytest
+    ```
+
+    #### Running tests with coverage locally
+
+    The coverage value can be obtained while running the tests using `pytest-cov` in
+    the following way -
+    ```
+    python -m pytest --cov=scicookie tests/
+    ```
+
+    A much more detailed guide on testing with `pytest` is available
+    [here](https://docs.pytest.org/en/8.0.x/how-to/index.html).
+
+7.  Commit your changes and push your branch to GitHub:
+    ```
+    git add . 
+    git commit -m “Your detailed description of your changes.” 
+    git push origin name-of-your-bugfix-or-feature
+    ```
+
+8.  Submit a pull request through the GitHub website.
 
 ## Pull Request Guidelines
 
@@ -99,10 +149,9 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Tips
 
-To run a subset of tests::
-
+To run a subset of tests:
 ```
-$ pytest
+pytest tests.<the test to run>
 ```
 
 ## Release
