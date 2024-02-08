@@ -58,12 +58,11 @@ Ready to contribute? Here’s how to set up `scicookie` for local development.
     ```
     git clone git@github.com:your_name_here/scicookie.git
     ```
-3.  Install your local copy into a virtualenv. Assuming you have
-    virtualenvwrapper installed, this is how you set up your fork for
+3.  Install your local copy into a virtualenv. This is how you set up your fork for
     local development and this will automatically install all required and `dev` dependencies: 
     ```
-    mkvirtualenv scicookie
     cd scicookie
+    python -m venv env
     ```
     Using poetry:
     ```
@@ -81,14 +80,22 @@ Ready to contribute? Here’s how to set up `scicookie` for local development.
     ```
     Now you can make your changes locally.
 
-5.  When you’re done making changes, check that your changes pass flake8
-    and the tests, including testing other Python versions with tox:
+5.  `scicookie` uses a set of `pre-commit` hooks and the `pre-commit` bot to format,
+    type-check, and prettify the codebase. The hooks can be installed locally
+    using -
     ```
-    flake8 scicookie tests 
-    pytest 
-    tox
+    pre-commit install
     ```
-    To get flake8 and tox, just pip install them into your virtualenv.
+
+    This would run the checks every time a commit is created locally. The checks
+    will only run on the files modified by that commit, but the checks can be
+    triggered for all the files using -
+    ```
+    pre-commit run --all-files
+    ```
+
+    If you would like to skip the failing checks and push the code for further
+    discussion, use the `--no-verify` option with `git commit`.
 
 6.  Commit your changes and push your branch to GitHub:
     ```
@@ -111,10 +118,9 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Tips
 
-To run a subset of tests::
-
+To run a subset of tests:
 ```
-pytest
+pytest tests.<the test to run>
 ```
 
 ## Release
