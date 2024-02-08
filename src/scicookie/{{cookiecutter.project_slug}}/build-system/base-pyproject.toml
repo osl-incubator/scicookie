@@ -66,6 +66,8 @@ src = ["./"]
 exclude = [
   'docs',
 ]
+
+[tool.ruff.lint]
 select = [
   "E",   # pycodestyle
   "F",   # pyflakes
@@ -76,10 +78,10 @@ select = [
 ]
 fixable = ["I001"]
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "numpy"
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 # Use a single line between direct and from import
 lines-between-types = 1
 {% endif %}
