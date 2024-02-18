@@ -44,6 +44,8 @@
     "None",
     "pytorch-ignite-roadmap"
   ],
+  "python_coc": [ "false"
+  ],
   "build_system": [
     "poetry",
     "flit",
@@ -82,4 +84,5 @@
   "git_https_origin": "",
   "git_https_upstream": "",
   "git_main_branch": "main"
+  
 }
