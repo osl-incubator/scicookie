@@ -16,7 +16,7 @@ if not re.match(MODULE_REGEX, module_name):
     sys.exit(1)
 
 # Prompt the user for the python_coc variable
-python_coc = input("Do you want to include the Python Code of Conduct? (yes/no): ")
+#python_coc = input("Do you want to include the Python Code of Conduct? (yes/no): ")
 
 # Set the environment variable
 os.environ['PYTHON_COC'] = python_coc
