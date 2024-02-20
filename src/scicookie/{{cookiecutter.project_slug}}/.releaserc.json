@@ -1,6 +1,4 @@
-{%- if cookiecutter.use_blue -%}
-  {%- set QUOTE = "'" -%}
-{%- elif cookiecutter.use_black -%}
+{%- if cookiecutter.use_black -%}
   {%- set QUOTE = '\\"' -%}
 {%- else -%}
   {%- set QUOTE = "'" -%}

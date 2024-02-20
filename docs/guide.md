@@ -54,7 +54,6 @@ the following way:
 ```python
  > [ ] bandit
    [ ] black
-   [ ] blue
    [ ] conda
    [ ] coverage
    [ ] flake8
@@ -485,7 +484,7 @@ of coding standards, such as PEP 8 guidelines. It helps us ensure consistency in
 our code, saves time by automating the formatting process, reduces errors by
 enforcing coding standards, and facilitates collaboration by making it easier
 for multiple developers to work on the same code base. In the options of
-SciCookie, you will find two choices: *Black* and *Blue*.
+SciCookie, you will find: *Black*.
 
 - [**Black**](https://black.readthedocs.io): It is a popular code formatter tool
 for Python that automatically formats code to conform to PEP 8 guidelines. It
@@ -497,22 +496,7 @@ standards.
 You can read the [*black documentation*](https://black.readthedocs.io) if you
 want to know more about it.
 
-- [**Blue**](https://blue.readthedocs.io/en/latest/): is a slightly less
-  rigid code formatter than *black*, it contains only a few improvements
-  that the maintainers have considered. It is hoped that in time it can
-  be merged with the *black* project. Some differences between *blue*
-  and *black*: *blue* defaults to single-quoted strings for everything
-  except docstrings and triple-quoted strings (TQS). *blue* defaults to
-  79-character line lengths, preserving whitespace before the pad for
-  right-justified comments. It also supports multiple configuration
-  files: `pyproject.toml`, `setup.cfg`, `tox.ini` and `.blue`.
-
-If you select both *Blue* and *Black* libraries in the TUI (Terminal User
-Interface), you will see the following message: "The libs Blue and Black were
-selected, but you need to choose just one of them." and the template generation
-process will be stopped.
-
-Using code formatters such as *Black* or *Blue* in your project helps ensure
+Using code formatters such as *Black* in your project helps ensure
 consistent and readable code, making it easier to maintain and collaborate on.
 
 ### Code security vulnerabilities
@@ -705,7 +689,7 @@ It is a code quality control tool that runs automatically before commits
 are made to a version control repository. When a commit is made,
 pre-commit executes the configured hooks. If you select the pre-commit
 option offered by SciCookie, we have configured the following hooks for
-you: *end-of-file-fixer*, *blue*, *black*, *flake8*, *ruff*, *isort*,
+you: *end-of-file-fixer*, *black*, *flake8*, *ruff*, *isort*,
 *mypy*, *shellcheck*, *bandit*, *pydocstyle*, *vulture* and *mccabe*
 (will be available in your project according to the tools you have
 selected in TUI).

@@ -28,7 +28,6 @@ else:
     PACKAGE_PATH = PROJECT_DIRECTORY / "{{ cookiecutter.package_slug}}"
 
 USE_BLACK = {{ cookiecutter.use_black == "yes" }}
-USE_BLUE = {{ cookiecutter.use_blue == "yes" }}
 USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
 USE_CLI = {{ cookiecutter.command_line_interface != "None" }}
@@ -258,14 +257,6 @@ def http2ssh(url):
     return url.replace("/", ":", 1)
 
 
-def validation():
-    if USE_BLUE and USE_BLACK:
-        raise Exception(
-            "The libs Blue and Black were selected, but you need to choose "
-            "just one of them."
-        )
-
-
 def prepare_git() -> None:
     git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
     git_https_upstream = http2ssh("{{cookiecutter.git_https_upstream}}")
@@ -359,7 +350,6 @@ def clean_up_mypy():
 
 
 def post_gen():
-    validation()
 
     # keep this one first, because it changes the package folder
     clean_up_project_layout()

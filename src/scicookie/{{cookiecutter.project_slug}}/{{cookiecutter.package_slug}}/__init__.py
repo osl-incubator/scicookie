@@ -2,9 +2,7 @@
 {%- if cookiecutter.use_mypy == "yes" %}
 # mypy: disable-error-code="attr-defined"
 {%- endif %}
-{%- if cookiecutter.use_blue == "yes" %}
-  {%- set QUOTE = "'" -%}
-{%- elif cookiecutter.use_black == "yes" %}
+{%- if cookiecutter.use_black == "yes" %}
   {%- set QUOTE = '"' -%}
 {%- else %}
   {%- set QUOTE = "'" -%}
