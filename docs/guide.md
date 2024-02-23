@@ -792,13 +792,15 @@ the *roadmap*.
 
 ### Code of conduct
 
-A code of conduct is a set of guidelines that outlines the expected behavior of
-individuals participating in a community or organization. It typically specifies
-the types of behavior that are considered acceptable and unacceptable, as well
-as the consequences for violating the code of conduct. In SciCookie you can find
-and choose between two adaptations of well-known codes of conduct accepted by a
-large part of the community: *A Code of Conduct for Open Source Communities by
-Contributors Covenant* and *The Citizen Code of Conduct*.
+A code of conduct is a set of guidelines that outlines the expected
+behavior of individuals participating in a community or organization. It
+typically specifies the types of behavior that are considered acceptable
+and unacceptable, as well as the consequences for violating the code of
+conduct. In SciCookie you can find and choose between three adaptations
+of well-known codes of conduct accepted by a large part of the
+community: *A Code of Conduct for Open Source Communities by
+Contributors Covenant*,*The Citizen Code of Conduct*, and the Adapted
+NumFOCUS Code of Conduct.
 
 - **`contributor-covenant` option**: The Contributor Covenant aims to create a
 safe and inclusive environment for all contributors to open source projects. By
@@ -815,6 +817,15 @@ helps to ensure that everyone can participate in the community without fear of
 discrimination or mistreatment. If you would like to know more, you can read the
 full text of this [code of
 conduct](https://github.com/stumpsyn/policies/blob/7caa4699ba74e341a46b3266d4610af477ba2c3d/citizen_code_of_conduct.md#citizen-code-of-conduct).
+
+- **`numfocus-adapted-coc` option**: It is an adaptation of the NumFocus
+  Code of Conduct, promotes kindness, respect, professionalism, good
+  communication, among others. It does not tolerate harassment,
+  regardless of gender, sexual orientation, gender identity and
+  expression, disability, physical appearance, body size, race or
+  religion of the members; nor sexist, racist or exclusionary jokes. If
+  you wish to read the full text, please visit this link [code of
+  conduct](https://numfocus.org/code-of-conduct)
 
 In case you do not want to include this file in your project, you can do so by
 selecting the option `None` (this is the default option).
