@@ -1,4 +1,4 @@
-# NumFOCUS-Adapted Code of Conduct
+# {{ cookiecutter.project_name }} Code of Conduct
 
 **Table of Contents**
 
@@ -100,9 +100,7 @@ Take care of each other. Alert {{ cookiecutter.project_name }} if you notice a d
 
 Reports are sent to the {{ cookiecutter.project_name }} Code of Conduct Enforcement Team (see below).
 
-<!-- If you are using TypeForm, leave the following text in place -->
-
-You can view the Privacy Policy and Terms of Service for TypeForm at [*https://terms.typeform.com/to/fJAmVc*](https://terms.typeform.com/to/fJAmVc).
+<< If the form you are using has any privacy policy, please add a paragraph about that with the link >>
 
 #### Person(s) Responsible for Resolving Incidents
 
