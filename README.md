@@ -20,7 +20,7 @@ for a Python package.
   - Licenses supported: MIT, BSD 3 Clause, ISC License, Apache Software License 2.0, and GPL 3
   - Documentation engines: mkdocs, sphinx, jupyter-boook
   - Test library: pytest, hypothesis 
-  - Auto format code tool: blue and black
+  - Auto format code tool: black
   - Initial integration with git
   - Support to conda (as base environment) and poetry as packaging and dependency management
   - Support to pre-commit

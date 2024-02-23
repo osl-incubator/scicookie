@@ -57,7 +57,6 @@
   ],
   "use_bandit": "no",
   "use_black": "yes",
-  "use_blue": "no",
   "use_conda": "yes",
   "use_makim": "yes",
   "use_make": "no",

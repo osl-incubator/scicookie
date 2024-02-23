@@ -53,9 +53,6 @@ dependencies = [
 {%- if cookiecutter.use_coverage == "yes" -%}
     "coverage >= 7.2.7,<8",
 {% endif %}
-{%- if cookiecutter.use_blue == "yes" -%}
-    "blue >= 0.9.1,<1",
-{% endif %}
 {%- if cookiecutter.use_black == "yes" -%}
     "black >= 23.3.0,<23.10",
 {% endif %}

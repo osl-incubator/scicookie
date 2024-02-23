@@ -136,7 +136,6 @@ use_tools:
   choices:
     - bandit
     - black
-    - blue
     - conda
     - coverage
     - flake8
