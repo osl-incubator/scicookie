@@ -73,7 +73,7 @@ code_of_conduct:
   choices:
     - contributor-covenant
     - citizen-code-of-conduct
-    - NumFOCUS-adapted-coc
+    - numfocus-adapted-coc
   visible: true
 
 governance_document:
