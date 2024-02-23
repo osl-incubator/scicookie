@@ -39,6 +39,8 @@ USE_MYPY = {{ cookiecutter.use_mypy == "yes" }}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CITIZEN.md'
+{%- elif cookiecutter.code_of_conduct == "numfocus-adapted-coc" -%}
+COC_PATH = PROJECT_DIRECTORY / 'coc' / 'NUMFOCUS_adapted_coc.md'
 {% else %}
 COC_PATH = None
 {%- endif %}
