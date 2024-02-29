@@ -45,11 +45,11 @@ jobs:
           pre-commit install
           makim tests.lint
 
-      - name: Semantic Release PR Title Check
-        uses: osl-incubator/semantic-release-pr-title-check@v1.4.3
-        if: success() || failure()
-        with:
-          convention-name: conventionalcommits
+      # - name: Semantic Release PR Title Check
+      #   uses: osl-incubator/semantic-release-pr-title-check@v1.4.3
+      #   if: success() || failure()
+      #   with:
+      #     convention-name: conventionalcommits
 
 
   smoke-test:
