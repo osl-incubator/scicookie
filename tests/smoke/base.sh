@@ -6,7 +6,7 @@ PATH_ORI=${PATH}
 PWD_ORI=$(pwd)
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
-if [ "$(which conda)}" == ""]; then
+if [ "$(which conda)" == "" ]; then
   echo "EE 'conda' not found."
   exit 1
 fi
