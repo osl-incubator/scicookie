@@ -1,8 +1,6 @@
 """Module with CLI functions."""
 
-{%- if cookiecutter.use_blue == "yes" %}
-  {%- set QUOTE = "'" -%}
-{%- elif cookiecutter.use_black == "yes" %}
+{%- if cookiecutter.use_black == "yes" %}
   {%- set QUOTE = '"' -%}
 {%- else %}
   {%- set QUOTE = "'" -%}
