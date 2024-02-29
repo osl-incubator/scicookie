@@ -24,9 +24,11 @@ cookieninja --no-input \
 
 cd "${OUTPUT_DIR}/${ENV_NAME}"
 
+set +x
 eval "$(conda shell.bash hook)"
 mamba env create --file conda/dev.yaml --force
 conda activate "${ENV_NAME}"
+set -x
 
 # remove any path to scicookie environment
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
