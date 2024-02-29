@@ -28,7 +28,7 @@ exclude = [
 include = ["{{ package_path }}/py.typed"]
 {%- endif %}
 
-{%- if cookiecutter.command_line_interface != "None" %}
+{% if cookiecutter.command_line_interface != "None" -%}
 [tool.poetry.scripts]
 "{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
 {%- endif %}
