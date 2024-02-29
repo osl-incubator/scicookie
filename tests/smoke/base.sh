@@ -39,7 +39,12 @@ conda activate "${ENV_NAME}"
 # export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
 # echo "[II] included env conda to the PATH"
 
-if command -v flit &> /dev/null; then
+# remove any path to scicookie environment
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
+
+if command -v poetry &> /dev/null; then
+  poetry install
+elif command -v flit &> /dev/null; then
   flit install
 elif command -v meson &> /dev/null; then
   pip install .
@@ -54,8 +59,6 @@ elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
 elif [ "$(pip list|grep -c pybind11)" -ne "0" ]; then
   # Assuming you are inside the root of the CMake source directory
   pip install .
-elif command -v poetry &> /dev/null; then
-  poetry install
 else
   # use setuptools
   pip install .
