@@ -25,7 +25,7 @@ jobs:
           miniforge-version: latest
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
-          activate-environment: pypkg
+          activate-environment: scicookie
           auto-update-conda: true
           conda-solver: libmamba
 
@@ -33,7 +33,9 @@ jobs:
         run: poetry check
 
       - name: Install dependencies
-        run: poetry install
+        run: |
+          poetry config virtualenvs.create false
+          poetry install
 
       - name: Run tests
         run: makim tests.unittest
@@ -81,7 +83,7 @@ jobs:
           miniforge-version: latest
           environment-file: conda/dev.yaml
           channels: conda-forge,nodefaults
-          activate-environment: pypkg
+          activate-environment: scicookie
           auto-update-conda: true
           conda-solver: libmamba
 

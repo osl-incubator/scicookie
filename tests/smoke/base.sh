@@ -4,16 +4,12 @@ set -ex
 
 PATH_ORI=${PATH}
 PWD_ORI=$(pwd)
-CONDA_PATH=$(cd "$(dirname ${CONDA_PYTHON_EXE})" && cd .. && pwd)
-PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" && cd ../src/scicookie && pwd )" >/dev/null 2>&1 && cd ../.. && pwd )"
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
-if [ "${CONDA_PATH}" == ""]; then
-  echo "INVALID 'CONDA_PATH' environment variable."
+if [ "$(which conda)" == "" ]; then
+  echo "EE 'conda' not found."
   exit 1
 fi
-
-export PATH="${CONDA_PATH}/condabin:${CONDA_PATH}/bin:$PATH"
-echo "[II] included conda to the PATH"
 
 ENV_NAME=osl-python-package
 
@@ -28,18 +24,14 @@ cookieninja --no-input \
 
 cd "${OUTPUT_DIR}/${ENV_NAME}"
 
-mamba env create --file conda/dev.yaml --force
+set +x
+eval "$(conda shell.bash hook)"
+mamba env create --file conda/dev.yaml --name "${ENV_NAME}" --force
+conda activate "${ENV_NAME}"
+set -x
 
-CONDA_PREFIX="${CONDA_PATH}/envs/${ENV_NAME}"
-
-export PATH=$(echo $PATH| sed -E "s/[^:]+\/mambaforge\/[^:]+//g")
-export PATH=$(echo $PATH| sed -E "s/[^:]+\/conda\/[^:]+//g")
-export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda\/[^:]+//g")
-export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda3\/[^:]+//g")
-export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
-export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
-export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
-echo "[II] included env conda to the PATH"
+# remove any path to scicookie environment
+export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
 
 if command -v poetry &> /dev/null; then
   poetry install
