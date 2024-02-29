@@ -799,8 +799,7 @@ and unacceptable, as well as the consequences for violating the code of
 conduct. In SciCookie you can find and choose between three adaptations
 of well-known codes of conduct accepted by a large part of the
 community: *A Code of Conduct for Open Source Communities by
-Contributors Covenant*,*The Citizen Code of Conduct*, and the Adapted
-NumFOCUS Code of Conduct.
+Contributors Covenant*,*The Citizen Code of Conduct*,and an adapted version of the NumFOCUS and Python Codes of Conduct.
 
 - **`contributor-covenant` option**: The Contributor Covenant aims to create a
 safe and inclusive environment for all contributors to open source projects. By
@@ -826,6 +825,8 @@ conduct](https://github.com/stumpsyn/policies/blob/7caa4699ba74e341a46b3266d4610
   religion of the members; nor sexist, racist or exclusionary jokes. If
   you wish to read the full text, please visit this link [code of
   conduct](https://numfocus.org/code-of-conduct)
+
+- **`python-adapted-coc` option**: This option is an adaptation of the Python Code of Conduct prioritizing inclusivity, respect, and a welcoming community. It emphasizes kindness, discourages discrimination, and encourages positive contributions, consideration, and collaboration among all members. If you would like to know more, you can read the full text of this [code of conduct](https://www.python.org/psf/conduct/).
 
 In case you do not want to include this file in your project, you can do so by
 selecting the option `None` (this is the default option).
