@@ -96,20 +96,20 @@ ipython_config.py
 
 {%- if cookiecutter.build_system == "poetry" %}
 # poetry build system
-poetry.lock
+#poetry.lock
 
 {%- elif cookiecutter.build_system == "mesonpy" %}
 # meson build system
-meson.build
-meson_options.txt
+#meson.build
+#meson_options.txt
 
 {%- elif cookiecutter.build_system == "pdm" %}
 # pdm build system
-pdm.lock
+#pdm.lock
 
 {%- elif cookiecutter.build_system == "maturin" %}
 # maturin build system
-Cargo.lock
+#Cargo.lock
 
 {%- endif %}
 
