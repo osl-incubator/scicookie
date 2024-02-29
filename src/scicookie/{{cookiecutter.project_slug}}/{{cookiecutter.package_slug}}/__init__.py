@@ -13,7 +13,7 @@ __version__ = {{ QUOTE }}{{ cookiecutter.project_version }}{{ QUOTE }}
 from importlib import metadata as importlib_metadata
 
 
-def get_version():
+def get_version() -> str:
     """Return the program version."""
     try:
         return importlib_metadata.version(__name__)
