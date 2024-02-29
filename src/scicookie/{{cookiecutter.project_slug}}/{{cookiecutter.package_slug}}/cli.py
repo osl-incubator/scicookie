@@ -46,7 +46,7 @@ def get_args():
         prog={{ QUOTE }}{{ cookiecutter.project_slug }}{{ QUOTE }},
         description=({{ QUOTE }}{{ cookiecutter.project_name }}{{ QUOTE }}),
         epilog=(
-            {{ QUOTE }} If you have any problem, open an issue at: {{ QUOTE }}
+            {{ QUOTE }}If you have any problem, open an issue at: {{ QUOTE }}
             {{ QUOTE }}{{ cookiecutter.project_url }}{{ QUOTE }}
         ),
         add_help=True,
@@ -74,7 +74,7 @@ def app():
     if args.version:
         return show_version()
 
-{%- else cookiecutter.command_line_interface == "Click" %}
+{%- elif cookiecutter.command_line_interface == "Click" %}
 
 import click
 
