@@ -4,7 +4,7 @@ set -ex
 
 PATH_ORI=${PATH}
 PWD_ORI=$(pwd)
-PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" && cd ../src/scicookie && pwd )" >/dev/null 2>&1 && cd ../.. && pwd )"
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
 if [ "$(which conda)}" == ""]; then
   echo "EE 'conda' not found."
