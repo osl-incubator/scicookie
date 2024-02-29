@@ -1,197 +1,254 @@
 # Contributing
 
-Contributions are welcome, and they are greatly appreciated! Every
-little bit helps, and credit will always be given.
+Your contributions are valued and play a significant role in the continuous
+improvement of **SciCookie**. We welcome contributions of all forms and
+acknowledge all efforts.
 
-You can contribute in many ways:
+## How You Can Contribute
 
-## Types of Contributions
+Contributions can be made in various ways, outlined below:
 
 ### Report Bugs
 
-Report bugs at https://github.com/osl-incubator/scicookie/issues.
+If you encounter a bug in **SciCookie**, please report it via our GitHub issues
+page at:
+[https://github.com/osl-incubator/scicookie/issues](https://github.com/osl-incubator/scicookie/issues).
 
-If you are reporting a bug, please include:
+When reporting a bug, kindly include the following information to aid in the
+issue's resolution:
 
-  - Your operating system name and version.
-  - Any details about your local setup that might be helpful in
-    troubleshooting.
-  - Detailed steps to reproduce the bug.
+-   The name and version of your operating system.
+-   Any relevant details about your setup that might assist in diagnosing the
+    issue.
+-   A step-by-step guide to reproduce the bug.
 
 ### Fix Bugs
 
-Look through the GitHub issues for bugs. Anything tagged with “bug” and
-“help wanted” is open to whoever wants to implement it.
+You can contribute by fixing bugs identified in the GitHub issues. Issues tagged
+with both "bug" and "help wanted" are available for anyone to work on.
 
 ### Implement Features
 
-Look through the GitHub issues for features. Anything tagged with
-“enhancement” and “help wanted” is open to whoever wants to implement
-it.
+Feature development is another way to contribute. Review the GitHub issues for
+requested features. Issues labeled with "enhancement" and "help wanted" are open
+for implementation.
 
 ### Write Documentation
 
-**Cookiecutter Python** could always use more documentation,
-whether as part of the official **Cookieninja** docs,
-in docstrings, or even on the web in blog posts, articles, and such.
+There's always a need for more documentation for **SciCookie**. This could be
+through enhancing the official documentation, contributing to docstrings, or
+sharing knowledge via blog posts, articles, and other media.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at
-https://github.com/osl-incubator/scicookie/issues.
+Feedback is crucial for project improvement. To submit feedback or propose a
+feature:
 
-If you are proposing a feature:
+-   File an issue at
+    [https://github.com/osl-incubator/scicookie/issues](https://github.com/osl-incubator/scicookie/issues).
+-   For feature proposals, please provide a detailed explanation of how the
+    feature would function, aim for a narrow scope to facilitate easier
+    implementation, and remember, **SciCookie** is a volunteer-driven project,
+    and we welcome contributions.
 
-  - Explain in detail how it would work.
-  - Keep the scope as narrow as possible, to make it easier to
-    implement.
-  - Remember that this is a volunteer-driven project, and that
-    contributions are welcome :)
+## Requirements
 
-## Get Started!
+Before you begin contributing to the SciCookie project, there are several
+technical prerequisites and best practices you should be familiar with. This
+section outlines the key requirements to ensure a smooth and productive
+contribution process.
 
-Ready to contribute? Here’s how to set up `scicookie` for local development.
+### Conda Environment
 
-1.  Fork the `scicookie` repo on GitHub.
+Conda is a versatile tool that provides package, dependency, and environment
+management for various programming languages. In the SciCookie project, we
+leverage Conda to manage virtual environments and package dependencies
+effectively.
 
-2.  Clone your fork locally:
+-   **Environment Setup**: We strongly advise using a Conda environment while
+    working with SciCookie. If Conda is not installed on your system, you can
+    download it from [Miniforge](https://github.com/conda-forge/miniforge). For
+    an introductory overview of Conda, consider watching this
+    [Conda Basics video](https://learning.anaconda.cloud/conda-basics).
+-   **Best Practices**: Avoid installing packages in the base Conda environment.
+    Always create and activate a new environment for each project to prevent
+    dependency conflicts and ensure a clean workspace.
+
+### Git
+
+Our collaborative efforts are facilitated through Git and GitHub. Understanding
+the fundamentals of Git is crucial for effective participation.
+
+-   **Learning Resources**: If you're new to Git, we recommend starting with the
+    [Software Carpentry Git Lesson](https://swcarpentry.github.io/git-novice/),
+    which covers essential Git concepts and workflows.
+-   **Quick Reference**: For a concise summary of common Git commands, refer to
+    this
+    [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+    provided by GitHub.
+-   **Configuration Tips**:
+    -   To streamline your workflow, configure Git to use `rebase` by default
+        for pulling changes with `git config --global pull.rebase true`.
+    -   Familiarize yourself with the `git rebase` command for updating branches
+        from a remote repository. Although more complex, it is preferred over
+        the default merge commit strategy. For an in-depth explanation, visit
+        [Atlassian's guide on merging vs. rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
+-   **Workflow**: The standard open-source development workflow includes forking
+    a repository, cloning the fork locally, and configuring an `upstream` remote
+    for the original repository. Detailed instructions can be found in
+    [GitHub's guide to configuring a remote for a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork).
+
+### Python
+
+Familiarity with Python and adherence to best practices is important for
+contributing to SciCookie.
+
+-   **Style Guide**: Follow the PEP 8 style guide for Python code, available at
+    [PEP8](https://peps.python.org/pep-0008/).
+-   **Best Practices**: pyOpenSci offers a comprehensive guide for writing
+    Python packages, which can be found
+    [here](https://www.pyopensci.org/python-package-guide/index.html).
+-   **Advanced Learning**: To deepen your understanding of Python and general
+    programming concepts, consider enrolling in the
+    [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212)
+    course on Udacity. Though challenging and based on Python 2, it provides
+    valuable insights into advanced Python usage and computer programming
+    principles.
+
+### How to Get Support
+
+Should you require assistance, please join our community on the Open Science
+Labs Discord server at
+[https://opensciencelabs.org/discord](https://opensciencelabs.org/discord).
+Here, you can participate in the incubator program and ask questions about
+SciCookie in its dedicated channel. You are also welcome to explore and join
+other groups that align with your interests.
+
+## Setting Up for Local Development
+
+To contribute to `scicookie`, follow these steps to set up your development
+environment:
+
+1. **Fork the Repository**: Begin by forking the `scicookie` repository on
+   GitHub to your own account.
+
+2. **Clone Your Fork Locally**: Clone the forked repository to your local
+   machine and navigate into the project directory.
+
+    ```bash
+    $ git clone git@github.com:your_username/scicookie.git
+    $ cd scicookie
     ```
-    git clone git@github.com:your_name_here/scicookie.git
-    ```
-3.  Install your local copy into a virtualenv. This is how you set up your fork for
-    local development and this will automatically install all required and `dev` dependencies: 
-    ```
-    cd scicookie
-    python -m venv env
-    ```
-    Using poetry:
-    ```
-    poetry install --with dev
-    ```
-    To get poetry, just pip install it into your virtualenv.
 
-    Alternatively, using pip:
-    ```
-    pip install -e .
-    ```
-4.  Create a branch for local development:
-    ```
-    git checkout -b name-of-your-bugfix-or-feature
-    ```
-    Now you can make your changes locally.
+3. **Install Dependencies**: Use `mamba` to create a Conda environment and
+   `poetry` for managing Python dependencies.
 
-5.  `scicookie` uses a set of `pre-commit` hooks and the `pre-commit` bot to format,
-    type-check, and prettify the codebase. The hooks can be installed locally
-    using -
-    ```
-    pre-commit install
+    ```bash
+    $ mamba env create --file conda/dev.yaml --force
+    $ poetry config virtualenvs.create false
+    $ poetry install
     ```
 
-    This would run the checks every time a commit is created locally. The checks
-    will only run on the files modified by that commit, but the checks can be
-    triggered for all the files using -
-    ```
-    pre-commit run --all-files
-    ```
+4. **Create a Development Branch**: Make a dedicated branch for your bugfix or
+   feature.
 
-    If you would like to skip the failing checks and push the code for further
-    discussion, use the `--no-verify` option with `git commit`.
-
-    Smoke tests can be executed locally to quickly verify basic functionality and
-    behavior of the code changes. To run smoke tests, use:
-    ```
-    makim tests.smoke
-    ```
-    Make sure to run comprehensive unit tests alongside smoke tests to maintain code integrity.
-
-6. `scicookie` is tested with `pytest`. `pytest` is responsible for
-    testing the code, whose configuration is available in pyproject.toml.
-    Additionally, `scicookie` also uses `pytest-cov` to calculate the coverage of
-    these unit tests.
-
-    #### Running tests locally
-
-    The tests can be executed using the `test` dependencies of `scicookie` in the
-    following way -
-    ```
-    python -m pytest
+    ```bash
+    $ git checkout -b name-of-your-bugfix-or-feature
     ```
 
-    #### Running tests with coverage locally
+5. **Make Changes Locally**: You are now ready to implement your changes or
+   improvements.
 
-    The coverage value can be obtained while running the tests using `pytest-cov` in
-    the following way -
-    ```
-    python -m pytest --cov=scicookie tests/
-    ```
+6. **Install and Use Pre-commit Hooks**: `scicookie` utilizes `pre-commit` hooks
+   to ensure code quality. Install them locally and they will automatically run
+   on each commit.
 
-    A much more detailed guide on testing with `pytest` is available
-    [here](https://docs.pytest.org/en/8.0.x/how-to/index.html).
-
-7.  Commit your changes and push your branch to GitHub:
-    ```
-    git add . 
-    git commit -m “Your detailed description of your changes.” 
-    git push origin name-of-your-bugfix-or-feature
+    ```bash
+    $ pre-commit install
+    $ pre-commit run --all-files
     ```
 
-8.  Submit a pull request through the GitHub website.
+    To bypass the hooks temporarily, use `git commit` with `--no-verify`.
 
-## Pull Request Guidelines
+7. **Run Smoke Tests**: Quickly validate the functionality of your changes with
+   smoke tests.
 
-Before you submit a pull request, check that it meets these guidelines:
+    ```bash
+    $ makim tests.smoke
+    ```
 
-1.  The pull request should include tests.
-2.  If the pull request adds functionality, the docs should be updated.
-    Put your new functionality into a function with a docstring, and add
-    the feature to the list in README.rst.
-3.  The pull request should work for Python >= 3.8.
+    Always complement smoke tests with thorough unit testing to ensure code
+    integrity.
 
-## Tips
+8. **Unit Testing with `pytest`**: `scicookie` leverages `pytest` for unit
+   testing, along with `pytest-cov` for coverage analysis. Run unit tests using:
 
-To run a subset of tests:
-```
-pytest tests.<the test to run>
-```
+    ```bash
+    $ python -m pytest
+    ```
 
-## Release
+    or
 
-This project uses semantic-release in order to cut a new release
-based on the commit-message.
+    ```bash
+    $ makim tests.unittest
+    ```
 
-### Commit message format
+9. **Commit and Push Changes**: Stage, commit, and push your changes to GitHub.
+   After setting the upstream branch once, subsequent pushes only require
+   `git push`.
 
-**semantic-release** uses the commit messages to determine the consumer
-impact of changes in the codebase. Following formalized conventions for
-commit messages, **semantic-release** automatically determines the next
-[semantic version](https://semver.org) number, generates a changelog and
-publishes the release.
+    ```bash
+    $ git add .
+    $ git commit -m "Detailed description of your changes."
+    $ git push --set-upstream origin <branch name>
+    ```
 
-By default, **semantic-release** uses [Angular Commit Message
-Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
-The commit message format can be changed with the `preset` or `config`
-options_ of the
-[@semantic-release/commit-analyzer](https://github.com/semantic-release/commit-analyzer#options)
-and
-[@semantic-release/release-notes-generator](https://github.com/semantic-release/release-notes-generator#options)
-plugins.
+10. **Submit a Pull Request**: Once your changes are pushed, go to the GitHub
+    website to submit a pull request for review.
 
-Tools such as [commitizen](https://github.com/commitizen/cz-cli) or
-[commitlint](https://github.com/conventional-changelog/commitlint) can
-be used to help contributors and enforce valid commit messages.
+## Release Process
 
-The table below shows which commit message gets you which release type
-when `semantic-release` runs (using the default configuration):
+The **SciCookie** project utilizes `semantic-release` to automate the release
+process, basing new releases on the content of commit messages.
 
-| Commit message                                                 | Release type     |
-|----------------------------------------------------------------|------------------|
-| `fix(pencil): stop graphite breaking when pressure is applied` | Fix Release      |
-| `feat(pencil): add 'graphiteWidth' option`                     | Feature Release  |
-| `perf(pencil): remove graphiteWidth option`                    | Chore            |
-| `BREAKING CHANGE: The graphiteWidth option has been removed`   | Breaking Release |
+### Commit Message Format
 
-source:
-<https://github.com/semantic-release/semantic-release/blob/master/README.md#commit-message-format>
+`semantic-release` analyzes commit messages to assess the impact of changes made
+to the codebase. Adhering to a standardized commit message format allows
+`semantic-release` to automatically determine the next semantic version number,
+generate a comprehensive changelog, and publish the release.
 
-As this project uses the `squash and merge` strategy, ensure to apply
-the commit message format to the PR's title.
+While `semantic-release` defaults to the
+[Angular Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format),
+**SciCookie** adopts the "Conventional Commits" standard
+([https://www.conventionalcommits.org/en/v1.0.0/](https://www.conventionalcommits.org/en/v1.0.0/)).
+This standard facilitates more detailed commit messages, especially for
+"breaking changes".
+
+Given the project's use of the `squash and merge` strategy for merging pull
+requests, it is crucial to format the PR title according to the commit message
+standards.
+
+To aid contributors in crafting compliant commit messages, tools like
+[commitizen](https://github.com/commitizen/cz-cli) and
+[commitlint](https://github.com/conventional-changelog/commitlint) are
+recommended. These tools help ensure that commit messages adhere to the required
+format.
+
+The following table illustrates how different commit messages correspond to the
+type of release generated by `semantic-release`, according to its default
+configuration:
+
+| Commit Message Example                                       | Release Type  |
+| ------------------------------------------------------------ | ------------- |
+| `fix(pencil): stop graphite breaking when too much pressure` | Patch Release |
+| `feat(pencil): add 'graphiteWidth' option`                   | Minor Release |
+| `perf(pencil): optimize 'graphiteWidth' calculation`         | Patch Release |
+| `fix(pencil)!: 'graphiteWidth' option removed`               | Major Release |
+
+**Note**: Within the Conventional Commits standard, appending `!` to the message
+prefix indicates a breaking change.
+
+For more details on the commit message format used by `semantic-release`, visit
+the
+[semantic-release documentation](https://github.com/semantic-release/semantic-release#commit-message-format).
