@@ -11,8 +11,6 @@ if [ "$(which conda)}" == ""]; then
   exit 1
 fi
 
-echo "[II] included conda to the PATH"
-
 ENV_NAME=osl-python-package
 
 OUTPUT_DIR="/tmp/osl"
@@ -29,15 +27,6 @@ cd "${OUTPUT_DIR}/${ENV_NAME}"
 eval "$(conda shell.bash hook)"
 mamba env create --file conda/dev.yaml --force
 conda activate "${ENV_NAME}"
-
-# export PATH=$(echo $PATH| sed -E "s/[^:]+\/mambaforge\/[^:]+//g")
-# export PATH=$(echo $PATH| sed -E "s/[^:]+\/conda\/[^:]+//g")
-# export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda\/[^:]+//g")
-# export PATH=$(echo $PATH| sed -E "s/[^:]+\/miniconda3\/[^:]+//g")
-# export PATH=$(echo $PATH| sed -E "s/[^:]+\/micromamba\/[^:]+//g")
-# export PATH=$(echo $PATH| sed -E "s/[^:]+\/anaconda3\/[^:]+//g")
-# export PATH="${CONDA_PREFIX}:${CONDA_PREFIX}/bin:$PATH"
-# echo "[II] included env conda to the PATH"
 
 # remove any path to scicookie environment
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
