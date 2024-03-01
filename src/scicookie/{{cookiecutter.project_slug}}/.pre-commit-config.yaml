@@ -46,14 +46,15 @@ repos:
           - python
 {% endif %}
 {%- if cookiecutter.use_ruff == 'yes' %}
-      - id: ruff
-        name: ruff
-        entry: ruff --fix
-        language: system
-        pass_filenames: true
-        files: "./"
-        types:
-          - python
+    - id: ruff
+      name: ruff
+      entry: ruff --fix
+      language: system
+      pass_filenames: true
+      require_serial: yes
+      files: "./"
+      types:
+        - python
 {% endif %}
 {%- if cookiecutter.use_isort == "yes" %}
       - id: isort
