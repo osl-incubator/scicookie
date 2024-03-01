@@ -9,7 +9,6 @@
 {%- if cookiecutter.command_line_interface == "Argparse" %}
 
 import argparse
-
 from {{ cookiecutter.package_slug }} import  __version__
 
 
