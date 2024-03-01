@@ -74,6 +74,7 @@ code_of_conduct:
     - contributor-covenant
     - citizen-code-of-conduct
     - numfocus-adapted-coc
+    - python-adapted-coc
   visible: true
 
 governance_document:
