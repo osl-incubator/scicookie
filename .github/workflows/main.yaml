@@ -69,6 +69,7 @@ jobs:
           - linters.sh
           - tests.sh
           - virtual-envs.sh
+          - cli.sh
 
     defaults:
       run:
