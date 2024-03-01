@@ -14,6 +14,7 @@ from {{ cookiecutter.package_slug }} import  __version__
 
 class CustomHelpFormatter(argparse.RawTextHelpFormatter):
     """Formatter for generating usage messages and argument help strings.
+    
     Only the name of this class is considered a public API. All the methods
     provided by the class are considered an implementation detail.
     """
