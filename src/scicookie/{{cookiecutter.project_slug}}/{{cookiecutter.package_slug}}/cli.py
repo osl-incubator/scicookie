@@ -18,6 +18,7 @@ class CustomHelpFormatter(argparse.RawTextHelpFormatter):
     Only the name of this class is considered a public API. All the methods
     provided by the class are considered an implementation detail.
     """
+    
     def __init__(
         self,
         prog,
