@@ -9,19 +9,15 @@
 {%- if cookiecutter.command_line_interface == "Argparse" %}
 
 import argparse
-import os
-import sys
 
 from {{ cookiecutter.package_slug }} import  __version__
 
 
 class CustomHelpFormatter(argparse.RawTextHelpFormatter):
     """Formatter for generating usage messages and argument help strings.
-
     Only the name of this class is considered a public API. All the methods
     provided by the class are considered an implementation detail.
     """
-
     def __init__(
         self,
         prog,
@@ -41,7 +37,6 @@ class CustomHelpFormatter(argparse.RawTextHelpFormatter):
 
 def get_args():
     """Return the arguments for the CLI."""
-
     parser = argparse.ArgumentParser(
         prog={{ QUOTE }}{{ cookiecutter.project_slug }}{{ QUOTE }},
         description=({{ QUOTE }}{{ cookiecutter.project_name }}{{ QUOTE }}),
