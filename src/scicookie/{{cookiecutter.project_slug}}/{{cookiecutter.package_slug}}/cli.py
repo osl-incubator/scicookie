@@ -9,7 +9,7 @@
 {%- if cookiecutter.command_line_interface == "Argparse" %}
 
 import argparse
-from {{ cookiecutter.package_slug }} import  __version__
+from {{ cookiecutter.package_slug }} import __version__
 
 
 class CustomHelpFormatter(argparse.RawTextHelpFormatter):
