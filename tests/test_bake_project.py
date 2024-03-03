@@ -1,4 +1,5 @@
 """Cookiecutter bake test."""
+
 from pathlib import Path
 
 import pytest

@@ -1,4 +1,5 @@
 """Define functions for the interface with the user."""
+
 from __future__ import annotations
 
 import os

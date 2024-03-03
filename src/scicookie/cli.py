@@ -1,4 +1,5 @@
 """Module with CLI functions."""
+
 import argparse
 import json
 import os

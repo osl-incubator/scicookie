@@ -1,4 +1,5 @@
 """Module for functions and classes for systen logs."""
+
 import os
 
 from enum import Enum
