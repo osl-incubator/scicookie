@@ -1,11 +1,5 @@
 """Module with CLI functions."""
 
-{%- if cookiecutter.use_black == "yes" %}
-  {%- set QUOTE = '"' -%}
-{%- else %}
-  {%- set QUOTE = "'" -%}
-{%- endif %}
-
 {%- if cookiecutter.command_line_interface == "Argparse" %}
 
 import argparse
@@ -39,19 +33,19 @@ class CustomHelpFormatter(argparse.RawTextHelpFormatter):
 def get_args():
     """Return the arguments for the CLI."""
     parser = argparse.ArgumentParser(
-        prog={{ QUOTE }}{{ cookiecutter.project_slug }}{{ QUOTE }},
-        description=({{ QUOTE }}{{ cookiecutter.project_name }}{{ QUOTE }}),
+        prog="{{ cookiecutter.project_slug }}",
+        description=("{{ cookiecutter.project_name }}"),
         epilog=(
-            {{ QUOTE }}If you have any problem, open an issue at: {{ QUOTE }}
-            {{ QUOTE }}{{ cookiecutter.project_url }}{{ QUOTE }}
+            "If you have any problem, open an issue at: "
+            "{{ cookiecutter.project_url }}"
         ),
         add_help=True,
         formatter_class=CustomHelpFormatter,
     )
     parser.add_argument(
-        {{ QUOTE }}--version{{ QUOTE }},
-        action={{ QUOTE }}store_true{{ QUOTE }},
-        help={{ QUOTE }}Show the version of the installed {{ cookiecutter.project_name }} tool.{{ QUOTE }},
+        "--version",
+        action="store_true",
+        help="Show the version of the installed {{ cookiecutter.project_name }} tool.",
     )
 
     return parser
@@ -77,7 +71,7 @@ import click
 from {{ cookiecutter.package_slug }} import __version__
 
 @click.command()
-@click.option({{ QUOTE }}--version{{ QUOTE }}, is_flag=True, help={{ QUOTE }}Show the version of the installed {{ cookiecutter.project_name }} tool.{{ QUOTE }})
+@click.option("--version", is_flag=True, help="Show the version of the installed {{ cookiecutter.project_name }} tool.")
 
 def app(version):
     """Run the application."""
@@ -85,7 +79,5 @@ def app(version):
         return click.echo(__version__)
     click.echo("You can add more Click commands here.")
 
-if __name__ == {{ QUOTE }}__main__{{ QUOTE }}:
+if __name__ == "__main__":
     app()
-
-{%- endif %}
