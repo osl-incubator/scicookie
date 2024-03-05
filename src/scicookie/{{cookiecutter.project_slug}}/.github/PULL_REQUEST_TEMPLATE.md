@@ -2,7 +2,7 @@
 <!-- Describe the purpose of your PR and the changes you have made. -->
 
 <!-- Which issue this PR aims to resolve or fix? E.g.:
-Solve #004
+Fixes #004
 -->
 
 ## How to test these changes
