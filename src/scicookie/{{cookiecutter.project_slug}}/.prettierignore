@@ -1,0 +1,4 @@
+{%- if cookiecutter.use_makim == "yes" %}
+.makim.yaml
+{%- endif %}
+docs/changelog.md

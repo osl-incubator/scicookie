@@ -15,20 +15,9 @@
     "GNU General Public License v3",
     "Other"
   ],
-  "project_layout": [
-    "src",
-    "flat"
-  ],
-  "command_line_interface": [
-    "None",
-    "Click",
-    "Argparse"
-  ],
-  "documentation_engine":[
-    "mkdocs",
-    "sphinx",
-    "jupyter-book"
-  ],
+  "project_layout": ["src", "flat"],
+  "command_line_interface": ["None", "Click", "Argparse"],
+  "documentation_engine": ["mkdocs", "sphinx", "jupyter-book"],
   "documentation_url": "{{ cookiecutter.project_url }}",
   "code_of_conduct": [
     "None",
@@ -37,15 +26,8 @@
     "numfocus-adapted-coc",
     "python-adapted-coc"
   ],
-  "governance_document": [
-    "None",
-    "numpy-governance",
-    "sciml-governance"
-  ],
-  "roadmap_document": [
-    "None",
-    "pytorch-ignite-roadmap"
-  ],
+  "governance_document": ["None", "numpy-governance", "sciml-governance"],
+  "roadmap_document": ["None", "pytorch-ignite-roadmap"],
   "build_system": [
     "poetry",
     "flit",
@@ -62,11 +44,7 @@
   "use_conda": "yes",
   "use_makim": "yes",
   "use_make": "no",
-  "use_containers": [
-    "None",
-    "Docker",
-    "Podman"
-  ],
+  "use_containers": ["None", "Docker", "Podman"],
   "use_coverage": "no",
   "use_flake8": "no",
   "use_hypothesis": "no",
@@ -74,6 +52,7 @@
   "use_mccabe": "no",
   "use_mypy": "no",
   "use_pre_commit": "yes",
+  "use_prettier": "no",
   "use_pydocstyle": "no",
   "use_pytest": "yes",
   "use_ruff": "yes",
