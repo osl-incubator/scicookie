@@ -3,9 +3,9 @@ name: Release
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 permissions:
   contents: write
@@ -25,7 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 {% if cookiecutter.use_conda == "yes" %}
-
       - uses: conda-incubator/setup-miniconda@v3
         with:
           miniforge-version: latest
@@ -35,7 +34,6 @@ jobs:
           auto-update-conda: true
           conda-solver: libmamba
 {% else %}
-
       - uses: actions/setup-python@v4
         with:
           python-version: "pypy3.9"
@@ -49,7 +47,6 @@ jobs:
       - name: Install build-system
         run: pip install -r requests.txt
 {% endif %}
-
       - name: Install deps
         run: |
           {%- if cookiecutter.build_system == "poetry" %}

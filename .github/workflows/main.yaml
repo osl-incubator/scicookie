@@ -2,9 +2,9 @@ name: main
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -50,7 +50,6 @@ jobs:
       #   if: success() || failure()
       #   with:
       #     convention-name: conventionalcommits
-
 
   smoke-test:
     runs-on: ubuntu-latest

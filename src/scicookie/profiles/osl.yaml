@@ -35,7 +35,7 @@ project_license:
   visible: true
 
 project_layout:
-  default : src
+  default: src
   visible: false
 
 build_system:

@@ -28,7 +28,7 @@ dependencies:
   - pybind11
   - cmake
 {%- endif %}
-  - nodejs  # used by semantic-release
+  - nodejs # used by semantic-release
 {%- if cookiecutter.use_shellcheck == "yes" %}
   - shellcheck
 {%- endif %}

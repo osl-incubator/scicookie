@@ -1,6 +1,10 @@
 site_name: {{ cookiecutter.project_name}}
 site_url: {{ cookiecutter.project_url}}
-repo_url: {{ cookiecutter.git_https_upstream}}
+{%- if cookiecutter.git_https_upstream != "" -%}
+repo_url: {{ cookiecutter.git_https_upstream }}
+{%- else %}
+repo_url: https://github.com/MYORG/MYREPO
+{%- endif %}
 docs_dir: ./
 site_dir: ../build
 # extra_css:
@@ -46,9 +50,10 @@ plugins:
         python:
           {% if cookiecutter.project_layout == "src" -%}
           paths: [../src]
-          {% else %}
+          {%- else %}
           paths: [..]
           {%- endif %}
+
           import:
             - https://docs.python.org/3/objects.inv
           options:

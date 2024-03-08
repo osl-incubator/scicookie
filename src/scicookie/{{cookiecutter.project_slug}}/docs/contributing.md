@@ -1,12 +1,13 @@
 # Contributing
 
-In order to be able to contribute, it is important that you understand
-the project layout.
+In order to be able to contribute, it is important that you understand the
+project layout.
+
 {% if cookiecutter.project_layout == "src" -%}
-This project uses the *src layout*, which means that the package code is located
+This project uses the _src layout_, which means that the package code is located
 at `./src/{{ cookiecutter.package_slug }}`.
 {% else -%}
-This project uses the *flat layout*, which means that the package code is located
+This project uses the _flat layout_, which means that the package code is located
 at `./{{ cookiecutter.package_slug }}`.
 {% endif %}
 For my information, check the official documentation:
@@ -78,78 +79,84 @@ Report bugs at {{ cookiecutter.git_https_upstream }}/issues.
 
 If you are reporting a bug, please include:
 
-  - Your operating system name and version.
-  - Any details about your local setup that might be helpful in
-    troubleshooting.
-  - Detailed steps to reproduce the bug.
+- Your operating system name and version.
+- Any details about your local setup that might be helpful in troubleshooting.
+- Detailed steps to reproduce the bug.
 
 ### Fix Bugs
 
-Look through the GitHub issues for bugs. Anything tagged with “bug” and
-“help wanted” is open to whoever wants to implement it.
+Look through the GitHub issues for bugs. Anything tagged with “bug” and “help
+wanted” is open to whoever wants to implement it.
 
 ### Implement Features
 
-Look through the GitHub issues for features. Anything tagged with
-“enhancement” and “help wanted” is open to whoever wants to implement
-it.
+Look through the GitHub issues for features. Anything tagged with “enhancement”
+and “help wanted” is open to whoever wants to implement it.
 
 ### Write Documentation
 
-{{ cookiecutter.project_name }} could always use more documentation,
-whether as part of the official {{ cookiecutter.project_name }} docs,
-in docstrings, or even on the web in blog posts, articles, and such.
+{{ cookiecutter.project_name }} could always use more documentation, whether as part of the
+official {{ cookiecutter.project_name }} docs, in docstrings, or even on the web in blog
+posts, articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at
-{{ cookiecutter.git_https_upstream }}/issues.
+The best way to send feedback is to file an issue at {{ cookiecutter.git_https_upstream }}/issues.
 
 If you are proposing a feature:
 
-  - Explain in detail how it would work.
-  - Keep the scope as narrow as possible, to make it easier to
-    implement.
-  - Remember that this is a volunteer-driven project, and that
-    contributions are welcome :)
+- Explain in detail how it would work.
+- Keep the scope as narrow as possible, to make it easier to implement.
+- Remember that this is a volunteer-driven project, and that contributions are
+  welcome :)
 
 ## Get Started!
 
-Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for local development.
+Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for local
+development.
 
 1.  Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
 
 2.  Clone your fork locally:
+
     ```
     git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
     ```
 
-3.  Install your local copy into a virtualenv. This is how you set up your fork for
-    local development:
+3.  Install your local copy into a virtualenv. This is how you set up your fork
+    for local development:
+
     ```
     cd {{cookiecutter.project_slug }}/
     python -m venv env
     ```
+
     Using poetry:
+
     ```
     poetry install --with dev
     ```
+
     To get poetry, just pip install it into your virtualenv.
 
     Alternatively, using pip:
+
     ```
     pip install -e .
     ```
 
 4.  Create a branch for local development:
+
     ```
     git checkout -b name-of-your-bugfix-or-feature
     ```
+
     Now you can make your changes locally.
 
-5.  `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks and the `pre-commit` bot to format,
-    type-check, and prettify the codebase. The hooks can be installed locally
-    using -
+5.  `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks and the `pre-commit`
+    bot to format, type-check, and prettify the codebase. The hooks can be
+    installed locally using -
+
     ```
     pre-commit install
     ```
@@ -157,6 +164,7 @@ Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for
     This would run the checks every time a commit is created locally. The checks
     will only run on the files modified by that commit, but the checks can be
     triggered for all the files using -
+
     ```
     pre-commit run --all-files
     ```
@@ -164,23 +172,25 @@ Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for
     If you would like to skip the failing checks and push the code for further
     discussion, use the `--no-verify` option with `git commit`.
 
-6. `{{ cookiecutter.project_slug }}` is tested with `pytest`. `pytest` is responsible for
+6.  `{{ cookiecutter.project_slug }}` is tested with `pytest`. `pytest` is responsible for
     testing the code, whose configuration is available in pyproject.toml.
-    Additionally, `{{ cookiecutter.project_slug }}` also uses `pytest-cov` to calculate the coverage of
-    these unit tests.
+    Additionally, `{{ cookiecutter.project_slug }}` also uses `pytest-cov` to calculate the
+    coverage of these unit tests.
 
     #### Running tests locally
 
-    The tests can be executed using the `test` dependencies of `{{ cookiecutter.project_slug }}` in the
-    following way -
+    The tests can be executed using the `test` dependencies of
+    `{{ cookiecutter.project_slug }}` in the following way -
+
     ```
     python -m pytest
     ```
 
     #### Running tests with coverage locally
 
-    The coverage value can be obtained while running the tests using `pytest-cov` in
-    the following way -
+    The coverage value can be obtained while running the tests using
+    `pytest-cov` in the following way -
+
     ```
     python -m pytest --cov={{ cookiecutter.project_slug }} tests/
     ```
@@ -189,9 +199,10 @@ Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for
     [here](https://docs.pytest.org/en/8.0.x/how-to/index.html).
 
 7.  Commit your changes and push your branch to GitHub::
+
     ```
-    git add . 
-    git commit -m “Your detailed description of your changes.” 
+    git add .
+    git commit -m “Your detailed description of your changes.”
     git push origin name-of-your-bugfix-or-feature
     ```
 
@@ -202,14 +213,15 @@ Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for
 Before you submit a pull request, check that it meets these guidelines:
 
 1.  The pull request should include tests.
-2.  If the pull request adds functionality, the docs should be updated.
-    Put your new functionality into a function with a docstring, and add
-    the feature to the list in README.rst.
+2.  If the pull request adds functionality, the docs should be updated. Put your
+    new functionality into a function with a docstring, and add the feature to
+    the list in README.rst.
 3.  The pull request should work for Python >= 3.8.
 
 ## Tips
 
 To run a subset of tests:
+
 {% if cookiecutter.use_pytest == "yes" -%}
 ```
 pytest tests.test_{{ cookiecutter.package_slug }}
@@ -220,38 +232,37 @@ pytest tests.test_{{ cookiecutter.package_slug }}
 python -m unittest discover
 ```
 {%- endif %}
-
 ## Release
 
-This project uses semantic-release in order to cut a new release
-based on the commit-message.
+This project uses semantic-release in order to cut a new release based on the
+commit-message.
 
 ### Commit message format
 
-**semantic-release** uses the commit messages to determine the consumer
-impact of changes in the codebase. Following formalized conventions for
-commit messages, **semantic-release** automatically determines the next
+**semantic-release** uses the commit messages to determine the consumer impact
+of changes in the codebase. Following formalized conventions for commit
+messages, **semantic-release** automatically determines the next
 [semantic version](https://semver.org) number, generates a changelog and
 publishes the release.
 
-By default, **semantic-release** uses [Angular Commit Message
-Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
-The commit message format can be changed with the `preset` or `config`
-options_ of the
+By default, **semantic-release** uses
+[Angular Commit Message Conventions](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
+The commit message format can be changed with the `preset` or `config` options\_
+of the
 [@semantic-release/commit-analyzer](https://github.com/semantic-release/commit-analyzer#options)
 and
 [@semantic-release/release-notes-generator](https://github.com/semantic-release/release-notes-generator#options)
 plugins.
 
 Tools such as [commitizen](https://github.com/commitizen/cz-cli) or
-[commitlint](https://github.com/conventional-changelog/commitlint) can
-be used to help contributors and enforce valid commit messages.
+[commitlint](https://github.com/conventional-changelog/commitlint) can be used
+to help contributors and enforce valid commit messages.
 
-The table below shows which commit message gets you which release type
-when `semantic-release` runs (using the default configuration):
+The table below shows which commit message gets you which release type when
+`semantic-release` runs (using the default configuration):
 
 | Commit message                                                 | Release type     |
-|----------------------------------------------------------------|------------------|
+| -------------------------------------------------------------- | ---------------- |
 | `fix(pencil): stop graphite breaking when pressure is applied` | Fix Release      |
 | `feat(pencil): add 'graphiteWidth' option`                     | Feature Release  |
 | `perf(pencil): remove graphiteWidth option`                    | Chore            |
@@ -260,5 +271,5 @@ when `semantic-release` runs (using the default configuration):
 source:
 <https://github.com/semantic-release/semantic-release/blob/master/README.md#commit-message-format>
 
-As this project uses the `squash and merge` strategy, ensure to apply
-the commit message format to the PR's title.
+As this project uses the `squash and merge` strategy, ensure to apply the commit
+message format to the PR's title.
