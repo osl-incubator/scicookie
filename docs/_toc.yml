@@ -1,5 +1,5 @@
 format: jb-book
 root: intro
 chapters:
-- file: contributing
-- file: guide
+  - file: contributing
+  - file: guide

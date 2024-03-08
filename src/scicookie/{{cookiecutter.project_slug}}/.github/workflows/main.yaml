@@ -15,54 +15,53 @@ jobs:
         shell: bash -l {0}
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 {% if cookiecutter.use_conda == "yes" %}
-    - uses: conda-incubator/setup-miniconda@v3
-      with:
-        miniforge-version: latest
-        environment-file: conda/dev.yaml
-        channels: conda-forge,nodefaults
-        activate-environment: {{ cookiecutter.project_slug }}
-        auto-update-conda: true
-        conda-solver: libmamba
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          environment-file: conda/dev.yaml
+          channels: conda-forge,nodefaults
+          activate-environment: {{ cookiecutter.project_slug }}
+          auto-update-conda: true
+          conda-solver: libmamba
 {% else %}
 
-    - uses: actions/checkout@v3
-      with:
-        python-version : "pypy3.9"
+      - uses: actions/checkout@v3
+        with:
+          python-version : "pypy3.9"
 
-    - name: Create virtual environment
-      run: source {{ cookiecutter.project_slug }}/bin/activate
+      - name: Create virtual environment
+        run: source {{ cookiecutter.project_slug }}/bin/activate
 
-    - name: Install build-system
-      run: pip install -r requests.txt
+      - name: Install build-system
+        run: pip install -r requests.txt
 {%- endif %}
+      - name: Install dependencies
+        run: |
+          {%- if cookiecutter.build_system == "poetry" %}
+          poetry install
+          {%- elif cookiecutter.build_system == "flit" %}
+          flit install
+          {%- elif cookiecutter.build_system == "pdm" %}
+          pdm install
+          {%- else %}
+          pip install .
+          {%- endif %}
 
-    - name: Install dependencies
-      run: |
-        {%- if cookiecutter.build_system == "poetry" %}
-        poetry install
-        {%- elif cookiecutter.build_system == "flit" %}
-        flit install
-        {%- elif cookiecutter.build_system == "pdm" %}
-        pdm install
-        {%- else %}
-        pip install .
-        {%- endif %}
+      - name: Run tests
+        run: |
+          {%- if cookiecutter.use_makim == "yes" %}
+          makim tests.unit
+          {%- else %}
+          make test
+          {%- endif %}
 
-    - name: Run tests
-      run: |
-        {%- if cookiecutter.use_makim == "yes" %}
-        makim tests.unit
-        {%- else %}
-        make test
-        {%- endif %}
-
-    - name: Run style checks
-      run: |
-        pre-commit install
-        {%- if cookiecutter.use_makim == "yes" %}
-        makim tests.linter
-        {%- else %}
-        make lint
-        {%- endif %}
+      - name: Run style checks
+        run: |
+          pre-commit install
+          {%- if cookiecutter.use_makim == "yes" %}
+          makim tests.linter
+          {%- else %}
+          make lint
+          {%- endif %}
