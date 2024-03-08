@@ -35,6 +35,7 @@ USE_CONDA = {{ cookiecutter.use_conda == "yes" }}
 USE_MAKE = {{ cookiecutter.use_make == "yes" }}
 USE_MAKIM = {{ cookiecutter.use_makim == "yes" }}
 USE_MYPY = {{ cookiecutter.use_mypy == "yes" }}
+USE_PRETTIER = {{ cookiecutter.use_prettier == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
@@ -175,6 +176,10 @@ def clean_up_cli():
     if not USE_CLI:
         remove_package_file("__main__.py")
 
+def clean_up_prettier():
+    if not USE_PRETTIER:
+        remove_project_file(".prettierrc.yaml")
+        remove_project_file(".prettierignore")
 
 def clean_up_build_system():
     build_system_dir = PROJECT_DIRECTORY / "build-system"
@@ -368,6 +373,7 @@ def post_gen():
     clean_up_governance()
     clean_up_roadmap()
     clean_up_build_system()
+    clean_up_prettier()
 
     # keep it at the end, because it will create a new git commit
     prepare_git()

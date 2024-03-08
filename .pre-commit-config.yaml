@@ -8,49 +8,54 @@ repos:
     hooks:
       - id: end-of-file-fixer
 
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v3.0.2"
+    hooks:
+      - id: prettier
+
   - repo: local
     hooks:
-    - id: mypy
-      name: mypy
-      entry: mypy
-      files: "src/scicookie/"
-      language: system
-      pass_filenames: true
-      # pre-commit + mypy doesn't honor the exclusion defined in the config
-      exclude: |
-        (?x)(
-            src/scicookie/{{cookiecutter.project_slug}}/
-          | src/scicookie/hooks
-        )
-      types:
-        - python
+      - id: mypy
+        name: mypy
+        entry: mypy
+        files: "src/scicookie/"
+        language: system
+        pass_filenames: true
+        # pre-commit + mypy doesn't honor the exclusion defined in the config
+        exclude: |
+          (?x)(
+              src/scicookie/{{cookiecutter.project_slug}}/
+            | src/scicookie/hooks
+          )
+        types:
+          - python
 
-    - id: ruff format
-      name: ruff format
-      entry: ruff format
-      language: system
-      pass_filenames: true
-      files: "./"
-      # pre-commit + ruff doesn't honor the exclusion defined in the config
-      exclude: |
-        (?x)(
-            src/scicookie/{{cookiecutter.project_slug}}
-          | src/scicookie/hooks
-        )
-      types:
-        - python
+      - id: ruff format
+        name: ruff format
+        entry: ruff format
+        language: system
+        pass_filenames: true
+        files: "./"
+        # pre-commit + ruff doesn't honor the exclusion defined in the config
+        exclude: |
+          (?x)(
+              src/scicookie/{{cookiecutter.project_slug}}
+            | src/scicookie/hooks
+          )
+        types:
+          - python
 
-    - id: ruff check
-      name: ruff check
-      entry: ruff check
-      language: system
-      pass_filenames: true
-      files: "./"
-      # pre-commit + ruff doesn't honor the exclusion defined in the config
-      exclude: |
-        (?x)(
-            src/scicookie/{{cookiecutter.project_slug}}
-          | src/scicookie/hooks
-        )
-      types:
-        - python
+      - id: ruff check
+        name: ruff check
+        entry: ruff check
+        language: system
+        pass_filenames: true
+        files: "./"
+        # pre-commit + ruff doesn't honor the exclusion defined in the config
+        exclude: |
+          (?x)(
+              src/scicookie/{{cookiecutter.project_slug}}
+            | src/scicookie/hooks
+          )
+        types:
+          - python

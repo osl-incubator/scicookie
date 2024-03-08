@@ -10,7 +10,13 @@ repos:
     rev: v4.1.0
     hooks:
       - id: end-of-file-fixer
-
+{# keep this comment #}
+{%- if cookiecutter.use_prettier == "yes" %}
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v3.0.2"
+    hooks:
+      - id: prettier
+{% endif %}
   - repo: local
     hooks:
     # NOTE: This is a total unnecessary check, just used as part of the
