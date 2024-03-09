@@ -3,16 +3,18 @@
 {%- if cookiecutter.command_line_interface == "Argparse" %}
 
 import argparse
+
 from {{ cookiecutter.package_slug }} import __version__
+{%- if cookiecutter.use_black == "yes" %}
 
-
+{% endif %}
 class CustomHelpFormatter(argparse.RawTextHelpFormatter):
     """Formatter for generating usage messages and argument help strings.
-    
+
     Only the name of this class is considered a public API. All the methods
     provided by the class are considered an implementation detail.
     """
-    
+
     def __init__(
         self,
         prog,
@@ -69,16 +71,23 @@ def app():
 import click
 
 from {{ cookiecutter.package_slug }} import __version__
+{%- if cookiecutter.use_black == "yes" %}
 
+{% endif %}
 @click.command()
-@click.option("--version", is_flag=True, help="Show the version of the installed {{ cookiecutter.project_name }} tool.")
-
+@click.option(
+    "--version",
+    is_flag=True,
+    help="Show the version of the installed {{ cookiecutter.project_name }} tool.",
+)
 def app(version):
     """Run the application."""
     if version:
         return click.echo(__version__)
     click.echo("You can add more Click commands here.")
+{%- if cookiecutter.use_black == "yes" %}
 
+{% endif %}
 if __name__ == "__main__":
     app()
 
