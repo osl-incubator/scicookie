@@ -5,9 +5,8 @@
 import argparse
 
 from {{ cookiecutter.package_slug }} import __version__
-{%- if cookiecutter.use_black == "yes" %}
 
-{% endif %}
+
 class CustomHelpFormatter(argparse.RawTextHelpFormatter):
     """Formatter for generating usage messages and argument help strings.
 
@@ -71,9 +70,8 @@ def app():
 import click
 
 from {{ cookiecutter.package_slug }} import __version__
-{%- if cookiecutter.use_black == "yes" %}
 
-{% endif %}
+
 @click.command()
 @click.option(
     "--version",
@@ -85,9 +83,8 @@ def app(version):
     if version:
         return click.echo(__version__)
     click.echo("You can add more Click commands here.")
-{%- if cookiecutter.use_black == "yes" %}
 
-{% endif %}
+
 if __name__ == "__main__":
     app()
 
