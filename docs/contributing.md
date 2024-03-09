@@ -206,6 +206,41 @@ environment:
 10. **Submit a Pull Request**: Once your changes are pushed, go to the GitHub
     website to submit a pull request for review.
 
+### How to Debug the tests
+
+When you find an error in one of the tests, you need to debug the code.
+
+Since you are running a script, you need to stop it in a place where you can check the results and see what is happening.
+
+*Where is the step that is failing?* You must first check the log file to
+identify which command in base.sh is failing. This is a really important step,
+take your time to identify it, every time the CI fails you need to identify
+where the error is occurring.
+
+After identifying that, you will find it is happening here (please only move to
+this step when you actually find the error in the previous step)
+`https://github.com/osl-incubator/scicookie/blob/main/tests/smoke/base.sh#L61`
+
+So you will have to stop the execution so you can do it by yourself and check
+the results. Why is execution step necessary? so the linter changes the files
+in the (new) project folder (in `/tmp/osl/osl-python-package`) and it will
+execute the command by itself and check the results and check what is
+happening. To stop the execution, just add a statement (`exit 1`) before the
+command that is failing. Then, run the specific test that is failing, if in
+doubt, check the logs and try to find out which test is failing.
+
+*TIP*: in the logs, when a line starts with + it usually means that it is a
+command that is executed, not an output, but also the tests have some outputs
+that will indicate which test is executed.
+
+So after you execute the specif test that is failing, it will break in the
+point you added `exit 1`.
+
+Now go to the new project created at `/tmp/osl/osl-python-package` and activate
+also the conda environment: `conda activate osl-python-package`. Now run the
+linter command, it will fail and now you can check what is the result after the
+changes and compare with the files in the template folder.
+
 ## Release Process
 
 The **SciCookie** project utilizes `semantic-release` to automate the release
