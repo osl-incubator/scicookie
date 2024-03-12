@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.7.1](https://github.com/osl-incubator/scicookie/compare/0.7.0...0.7.1) (2024-03-12)
+
+
+### Bug Fixes
+
+* Fix SciCookie documentation ([#236](https://github.com/osl-incubator/scicookie/issues/236)) ([fdff49e](https://github.com/osl-incubator/scicookie/commit/fdff49eb81f44c6e56ab7122230450e9714c0ae1))
+
 # [0.7.0](https://github.com/osl-incubator/scicookie/compare/0.6.3...0.7.0) (2024-03-12)
 
 
