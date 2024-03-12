@@ -1,0 +1,65 @@
+theme:
+  name: material
+  features:
+    - navigation.sections
+  palette:
+    - scheme: default
+      primary: white
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Lato
+  icon:
+    repo: fontawesome/brands/github
+
+site_name: SciCookie
+site_description: Documentation for SciCookie
+site_author: OpenScienceLabs Team
+site_url: https://osl-incubator.github.io/scicookie
+
+repo_url: https://github.com/osl-incubator/scicookie
+repo_name: osl-incubator/scicookie
+edit_uri: ./edit/main/docs
+
+# strict: true
+
+plugins:
+  - search
+  - mkdocstrings
+  - autorefs # Cross-links to headings
+  - include_exclude_files:
+      exclude:
+        - "_overrides"
+
+markdown_extensions:
+  - callouts
+  - pymdownx.arithmatex
+  - pymdownx.magiclink
+  - pymdownx.details # Allowing hidden expandable regions denoted by ???
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences # Seems to enable syntax highlighting when used with the Material theme.
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets:
+      check_paths: true
+  - toc:
+      permalink: "¤" # Adds a clickable permalink to each section heading
+      toc_depth: 4
+
+docs_dir: docs
+
+nav:
+  - Home: "index.md"
+  - Guide: "guide.md"
+  - Contributing: "contributing.md"
