@@ -34,7 +34,7 @@ groups:
           rm -rf docs/_build
           jupyter-book build docs
           {%- elif cookiecutter.documentation_engine == "mkdocs" %}
-          mkdocs build --config-file docs/mkdocs.yaml
+          mkdocs build --config-file mkdocs.yaml
           {%- elif cookiecutter.documentation_engine == "sphinx" %}
           sphinx-apidoc -o docs/_build {{ package_path }}
           {%- endif %}
@@ -47,7 +47,7 @@ groups:
           {%- if cookiecutter.documentation_engine == "jupyter-book" %}
           cd docs/_build/html/ && python -m http.server
           {%- elif cookiecutter.documentation_engine == "mkdocs" %}
-          mkdocs build --config-file docs/mkdocs.yaml
+          mkdocs build --config-file mkdocs.yaml
           {%- elif cookiecutter.documentation_engine == "sphinx" %}
           cd docs/_build && python -m http.server
           {%- endif %}

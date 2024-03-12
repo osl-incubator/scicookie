@@ -5,8 +5,8 @@ repo_url: {{ cookiecutter.git_https_upstream }}
 {%- else %}
 repo_url: https://github.com/MYORG/MYREPO
 {%- endif %}
-docs_dir: ./
-site_dir: ../build
+docs_dir: ./docs/
+site_dir: ./build/
 # extra_css:
 #   - stylesheets/extra.css
 # Page tree
@@ -15,7 +15,7 @@ nav:
   - Installation: installation.md
   - Changelog: changelog.md
   - Contributing: contributing.md
-  - API: api/references.md
+  - API: /api/references.md
   - Notebook page: example.ipynb
 theme:
   name: material
@@ -49,9 +49,9 @@ plugins:
       handlers:
         python:
           {% if cookiecutter.project_layout == "src" -%}
-          paths: [../src]
+          paths: [./src]
           {%- else %}
-          paths: [..]
+          paths: [.]
           {%- endif %}
 
           import:
