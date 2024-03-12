@@ -5,7 +5,7 @@
 
 {% if is_open_source -%}
 
-- Free software: {{ cookiecutter.project_license }}
+- Software License: {{ cookiecutter.project_license }}
 {%- endif %}
 - Documentation: {{ cookiecutter.documentation_url }}
 

@@ -30,8 +30,9 @@ theme:
     - search.suggest
   icon:
     repo: fontawesome/brands/github
-  logo: /images/logo.png
-  favicon: /images/favicon.png
+  # note: the path should be investigate a bit more
+  logo: images/logo.png
+  favicon: images/favicon.png
   palette:
     scheme: slate
     primary: white
