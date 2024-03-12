@@ -80,6 +80,9 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# mkdocs documentation
+site/
+
 # IntelliJ Idea family of suites
 .idea
 *.iml
