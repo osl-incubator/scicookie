@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "scicookie"
-version = "0.6.3"  # semantic-release
+version = "0.7.0"  # semantic-release
 description = "Cookiecutter template for a Python package"
 authors = ["Ivan Ogasawara <ivan.ogasawara@gmail.com>"]
 license = "BSD-3-Clause"

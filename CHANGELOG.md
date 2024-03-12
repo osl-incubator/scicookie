@@ -1,6 +1,21 @@
 # Release Notes
 ---
 
+# [0.7.0](https://github.com/osl-incubator/scicookie/compare/0.6.3...0.7.0) (2024-03-12)
+
+
+### Bug Fixes
+
+* **actions:** update setup-miniconda to v3 ([#202](https://github.com/osl-incubator/scicookie/issues/202)) ([6786a92](https://github.com/osl-incubator/scicookie/commit/6786a9202b302f20646328b05c2b810a4538e8d9))
+* Fix conda activate inside the smoke test ([#226](https://github.com/osl-incubator/scicookie/issues/226)) ([2831f1e](https://github.com/osl-incubator/scicookie/commit/2831f1e3f7370db5a91664038e0605df970a8930))
+
+
+### Features
+
+* Add prettier configuration to the root project and template ([#231](https://github.com/osl-incubator/scicookie/issues/231)) ([e57579c](https://github.com/osl-incubator/scicookie/commit/e57579cf95e05c9b8ad801a5b15effd33ae70c03))
+* **upgrade:** add numfocus coc option ([#219](https://github.com/osl-incubator/scicookie/issues/219)) ([177df05](https://github.com/osl-incubator/scicookie/commit/177df056fc7a84619ea905a17030b3e2f937caf6))
+* **upgrade:** adding python coc option ([#222](https://github.com/osl-incubator/scicookie/issues/222)) ([6334b2b](https://github.com/osl-incubator/scicookie/commit/6334b2bbed806d2379b270c9e50894485ccdf188))
+
 ## [0.6.3](https://github.com/osl-incubator/scicookie/compare/0.6.2...0.6.3) (2023-12-08)
 
 
