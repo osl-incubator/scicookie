@@ -1,4 +1,4 @@
-# Cookiecutter Python Package
+# SciCookie
 
 **SciCookie** is a template developed by
 [Open Science Labs](https://opensciencelabs.org/) that creates projects from
@@ -27,7 +27,7 @@ and can be adjusted to meet particular project requirements.
 a Python package.
 
 - GitHub repo: <https://github.com/osl-incubator/scicookie/>
-- Free software: BSD license
+- Software License: BSD license
 
 ## Features
 

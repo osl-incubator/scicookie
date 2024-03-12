@@ -29,7 +29,7 @@ groups:
 
       preview:
         help: Preview documentation page locally
-        run: echo "[EE] Not implemented yet!"
+        run: mkdocs serve --watch docs --config-file mkdocs.yaml
 
   release:
     vars:
