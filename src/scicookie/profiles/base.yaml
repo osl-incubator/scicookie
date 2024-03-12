@@ -139,16 +139,17 @@ use_tools:
     - conda
     - coverage
     - flake8
-    - ruff
+    - hypothesis
     - isort
     - make
     - makim
     - mccabe
     - mypy
     - pre-commit
+    - prettier
     - pydocstyle
     - pytest
-    - hypothesis
+    - ruff
     - shellcheck
     - vulture
   visible: true

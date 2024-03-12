@@ -11,5 +11,5 @@ dependencies:
   - compilers
   - pip
   - pip:
-    - makim==1.12.0
-    - paginate
+      - makim==1.12.0
+      - paginate

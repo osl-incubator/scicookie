@@ -4,9 +4,10 @@
 {{ cookiecutter.project_short_description }}
 
 {% if is_open_source -%}
-* Free software: {{ cookiecutter.project_license }}
+
+- Free software: {{ cookiecutter.project_license }}
 {%- endif %}
-* Documentation: {{ cookiecutter.documentation_url }}
+- Documentation: {{ cookiecutter.documentation_url }}
 
 ## Features
 

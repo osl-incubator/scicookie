@@ -1,2 +1,4 @@
 .makim.yaml
 docs/changelog.md
+CHANGELOG.md
+src/scicookie/{{cookiecutter.project_slug}}

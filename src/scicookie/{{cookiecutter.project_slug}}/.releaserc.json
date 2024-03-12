@@ -62,7 +62,6 @@
       {
         "prepareCmd": "poetry build",
         "publishCmd": "poetry publish"
-
       }
     ],
     [
