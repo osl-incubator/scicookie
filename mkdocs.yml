@@ -29,9 +29,6 @@ repo_url: https://github.com/osl-incubator/scicookie
 repo_name: osl-incubator/scicookie
 edit_uri: ./edit/main/docs
 
-extra_css:
-  - stylesheets/extra.css
-
 # strict: true
 
 plugins:
@@ -59,10 +56,6 @@ markdown_extensions:
   - toc:
       permalink: "¤" # Adds a clickable permalink to each section heading
       toc_depth: 4
-
-extra_javascript:
-  - mathjax-config.js
-  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 docs_dir: docs
 
