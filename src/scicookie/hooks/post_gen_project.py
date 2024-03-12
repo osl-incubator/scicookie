@@ -101,7 +101,11 @@ def remove_package_file(filepath: str):
 
 
 def move_selected_doc_dir():
-    docs_target_dir = PROJECT_DIRECTORY / "docs"
+    if DOCUMENTATION_ENGINE == "mkdocs":
+        docs_target_dir = PROJECT_DIRECTORY
+        remove_project_file(Path("docs/api") / "references.rst")
+    else:
+        docs_target_dir = PROJECT_DIRECTORY / "docs"
     for file_name in os.listdir(DOCS_SPEC_DIR):
         shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 

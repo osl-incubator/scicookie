@@ -76,11 +76,11 @@ test: ## run tests quickly with the default Python
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs-build
 docs-build:
-	mkdocs build --config-file docs/mkdocs.yaml
+	mkdocs build --config-file mkdocs.yaml
 
 .PHONY: docs-preview
 docs-preview: docs-build
-	mkdocs serve --watch docs --config-file docs/mkdocs.yaml
+	mkdocs serve --watch docs --config-file mkdocs.yaml
 
 {%- elif cookiecutter.documentation_engine == 'sphinx' -%}
 .PHONY:docs-build
