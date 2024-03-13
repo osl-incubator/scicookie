@@ -84,8 +84,8 @@ def app(version):
         return click.echo(__version__)
     click.echo("You can add more Click commands here.")
 
+{%- endif %}
+
 
 if __name__ == "__main__":
     app()
-
-{%- endif %}
