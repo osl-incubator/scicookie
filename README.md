@@ -107,11 +107,11 @@ makim tests.smoke
 ## Maintainers
 
 - Anavelyz Perez - [@Anavelyz](https://github.com/Anavelyz)
+- Ankit Kumar - [@ayeankit](https://github.com/ayeankit)
 - Ever Vino - [@EverVino](https://github.com/EverVino)
 - Ivan Ogasawara - [@xmnlab](https://github.com/xmnlab)
 - Saransh Chopra - [@Saransh-cpp](https://github.com/Saransh-cpp)
 - Yurely Camacho - [@YurelyCamacho](https://github.com/YurelyCamacho)
-- Ankit Kumar - [@ayeankit](https://github.com/ayeankit)
 
 ## Acknowledges
 
