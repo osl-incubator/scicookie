@@ -112,3 +112,22 @@ makim tests.smoke
 - Saransh Chopra - [@Saransh-cpp](https://github.com/Saransh-cpp)
 - Yurely Camacho - [@YurelyCamacho](https://github.com/YurelyCamacho)
 - Ankit Kumar - [@ayeankit](https://github.com/ayeankit)
+
+## Acknowledges
+
+### Python Software Foundation (PSF)
+
+Open Science Labs has been awarded two grants from the
+[Python Software Foundation (PSF)](https://www.python.org/psf-landing/) in April
+2023 and January 2024 to enhance SciCookie. The grants were and will be used to
+implement best practices recommended by pyOpenSci, improve dependencies and
+configuration settings, and add new features.
+
+We are grateful for the support of the Python Software Foundation. For further
+details about these grants, you can read more in the blog posts:
+
+- [PSF funding open source projects development: SciCookie](https://opensciencelabs.org/blog/psf-funding-open-source-projects-development-scicookie/index-en/)
+  and its
+  [Spanish version](https://opensciencelabs.org/blog/psf-funding-open-source-projects-development-scicookie/)
+
+- [SciCookie recibe nueva subvención de PSF para mejoras y crecimiento](https://opensciencelabs.org/blog/scicookie-recibe-nueva-subvencion-de-psf-para-mejoras-crecimiento/)
