@@ -51,6 +51,7 @@ repos:
         entry: ruff --fix
         language: system
         pass_filenames: true
+        require_serial: yes
         files: "./"
         types:
           - python

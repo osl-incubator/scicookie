@@ -68,6 +68,7 @@ groups:
         run: |
           ./tests/smoke/auto-format-tools.sh
           ./tests/smoke/build-systems.sh
+          ./tests/smoke/cli.sh
           ./tests/smoke/containers.sh
           ./tests/smoke/docs.sh
           ./tests/smoke/files.sh
