@@ -206,41 +206,50 @@ environment:
 10. **Submit a Pull Request**: Once your changes are pushed, go to the GitHub
     website to submit a pull request for review.
 
-### How to Debug the tests
+### Debugging Test Failures
 
-When you find an error in one of the tests, you need to debug the code.
+When encountering an error during test execution, debugging is crucial to
+isolate and resolve the issue.
 
-Since you are running a script, you need to stop it in a place where you can
-check the results and see what is happening.
+#### Initial Steps
 
-_Where is the step that is failing?_ You must first check the log file to
-identify which command in `base.sh` is failing. This is a really important step,
-take your time to identify it, every time the CI fails you need to identify
-where the error is occurring.
+1. **Identify the Failing Step:** Begin by reviewing the log file to pinpoint
+   the failing command within `base.sh`. This critical step requires attention
+   to detail. Each time Continuous Integration (CI) reports a failure,
+   identifying the error's location is your first task.
 
-After identifying that, you will find it is happening here (please only move to
-this step when you actually find the error in the previous step)
-`https://github.com/osl-incubator/scicookie/blob/main/tests/smoke/base.sh#L61`
+2. **Locate the Specific Error:** Once the failing step is identified, refer to
+   the precise location in the script
+   (`https://github.com/osl-incubator/scicookie/blob/main/tests/smoke/base.sh`).
+   It's essential to only proceed to this step after accurately locating the
+   error in the log.
 
-So you will have to stop the execution so you can do it by yourself and check
-the results. Why is execution step necessary? so the linter changes the files in
-the (new) project folder (in `/tmp/osl/osl-python-package`) and it will execute
-the command by itself and check the results and check what is happening. To stop
-the execution, just add a statement (`exit 1`) before the command that is
-failing. Then, run the specific test that is failing, if in doubt, check the
-logs and try to find out which test is failing.
+#### Execution Interruption
 
-_TIP_: in the logs, when a line starts with + it usually means that it is a
-command that is executed, not an output, but also the tests have some outputs
-that will indicate which test is executed.
+To further investigate, you'll need to halt the script's execution at the
+problematic point. Insert an `exit 1` statement immediately before the failing
+command. This action stops the process, allowing for manual intervention and
+closer examination.
 
-So after you execute the specif test that is failing, it will break in the point
-you added `exit 1`.
+#### Conducting a Manual Test
 
-Now go to the new project created at `/tmp/osl/osl-python-package` and activate
-also the conda environment: `conda activate osl-python-package`. Now run the
-linter command, it will fail and now you can check what is the result after the
-changes and compare with the files in the template folder.
+- Run the test that is encountering errors. If uncertain which test is failing,
+  consult the logs for clues.
+
+  **Tip:** In the logs, lines beginning with '+' typically represent executed
+  commands rather than outputs. Outputs from tests may indicate which test is
+  being run.
+
+  By executing the specific failing test with the `exit 1` modification, the
+  script will pause at the intended juncture.
+
+#### Further Investigation
+
+Navigate to the newly created project directory at `/tmp/osl/osl-python-package`
+and activate the corresponding conda environment using
+`conda activate osl-python-package`. Execute the failed command manually; it
+will fail and now you can check what is the result after the changes and compare
+with the files in the template folder.
 
 ## Release Process
 
