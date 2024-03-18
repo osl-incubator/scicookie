@@ -179,6 +179,8 @@ def clean_up_containers():
 def clean_up_cli():
     if not USE_CLI:
         remove_package_file("__main__.py")
+        remove_package_file("cli.py")
+
 
 def clean_up_prettier():
     if not USE_PRETTIER:

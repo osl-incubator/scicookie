@@ -206,6 +206,51 @@ environment:
 10. **Submit a Pull Request**: Once your changes are pushed, go to the GitHub
     website to submit a pull request for review.
 
+### Debugging Test Failures
+
+When encountering an error during test execution, debugging is crucial to
+isolate and resolve the issue.
+
+#### Initial Steps
+
+1. **Identify the Failing Step:** Begin by reviewing the log file to pinpoint
+   the failing command within `base.sh`. This critical step requires attention
+   to detail. Each time Continuous Integration (CI) reports a failure,
+   identifying the error's location is your first task.
+
+2. **Locate the Specific Error:** Once the failing step is identified, refer to
+   the precise location in the script
+   (`https://github.com/osl-incubator/scicookie/blob/main/tests/smoke/base.sh`).
+   It's essential to only proceed to this step after accurately locating the
+   error in the log.
+
+#### Execution Interruption
+
+To further investigate, you'll need to halt the script's execution at the
+problematic point. Insert an `exit 1` statement immediately before the failing
+command. This action stops the process, allowing for manual intervention and
+closer examination.
+
+#### Conducting a Manual Test
+
+- Run the test that is encountering errors. If uncertain which test is failing,
+  consult the logs for clues.
+
+  **Tip:** In the logs, lines beginning with '+' typically represent executed
+  commands rather than outputs. Outputs from tests may indicate which test is
+  being run.
+
+  By executing the specific failing test with the `exit 1` modification, the
+  script will pause at the intended juncture.
+
+#### Further Investigation
+
+Navigate to the newly created project directory at `/tmp/osl/osl-python-package`
+and activate the corresponding conda environment using
+`conda activate osl-python-package`. Execute the failed command manually; it
+will fail and now you can check what is the result after the changes and compare
+with the files in the template folder.
+
 ## Documenting scicookie
 
 `scicookie`'s documentation primarily consists of
