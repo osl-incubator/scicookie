@@ -1,5 +1,11 @@
 # SciCookie
 
+![CI](https://img.shields.io/github/actions/workflow/status/osl-incubator/scicookie/main.yaml?logo=github&label=CI)
+[![Python Versions](https://img.shields.io/pypi/pyversions/scicookie)](https://pypi.org/project/scicookie/)
+[![Package Version](https://img.shields.io/pypi/v/scicookie?color=blue)](https://pypi.org/project/scicookie/)
+![License](https://img.shields.io/pypi/l/scicookie?color=blue)
+![Discord](https://img.shields.io/discord/796786891798085652?logo=discord&color=blue)
+
 **SciCookie** is a template developed by
 [Open Science Labs](https://opensciencelabs.org/) that creates projects from
 project templates and is based on
