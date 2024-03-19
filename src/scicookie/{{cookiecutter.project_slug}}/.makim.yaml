@@ -13,17 +13,17 @@ groups:
           rm -fr build/
           rm -fr dist/
           rm -fr .eggs/
-          find . -name '*.egg-info' -exec rm -fr {} +
-          find . -name '*.egg' -exec rm -f {} +
-          find . -name '*.pyc' -exec rm -f {} +
-          find . -name
-          find . -name '__pycache__' -exec rm -fr '*.pyo' -exec rm -f {} +
-          find . -name '*~' -exec rm -f {} +{} +
           rm -f .coverage
           rm -fr htmlcov/
           rm -fr .pytest_cache
           rm -fr .mypy_cache
           rm -fr .ruff_cache
+          find . -name '*.egg-info' -exec rm -fr {} +
+          find . -name '*.egg' -exec rm -f {} +
+          find . -name '*.pyc' -exec rm -f {} +
+          find . -name '__pycache__' -exec rm -fr {} +
+          find . -name '*.pyo' -exec rm -f {} +
+          find . -name '*~' -exec rm -f {} +
 
   docs:
     targets:
@@ -72,7 +72,7 @@ groups:
             type: string
             default: "-vv"
         run: |
-          pytest {{ "{{ args.path }} {{ args.params }}" }}
+          pytest {{ "${{ args.path }} ${{ args.params }}" }}
 
       ci:
         help: run the sames tests executed on CI
@@ -120,8 +120,8 @@ groups:
     targets:
       ci:
         help: run semantic release on CI
-        run: {{ "{{ vars.app }} --ci" }}
+        run: {{ "${{ vars.app }} --ci" }}
 
       dry:
         help: run semantic release in dry-run mode
-        run: {{ "{{ vars.app }} --dry-run" }}
+        run: {{ "${{ vars.app }} --dry-run" }}
