@@ -251,6 +251,41 @@ and activate the corresponding conda environment using
 will fail and now you can check what is the result after the changes and compare
 with the files in the template folder.
 
+## Documenting scicookie
+
+`scicookie`'s documentation primarily consists of
+[docstrings](https://peps.python.org/pep-0257/) and
+[Markdown](https://en.wikipedia.org/wiki/Markdown) formatting. Docstrings
+contain descriptions, arguments, examples, return values, and attributes for
+classes or functions, while `.md` files allow us to display this documentation
+on the `scicookie`'s website.
+
+scicookie mainly relies on [MkDocs](https://www.mkdocs.org/) and
+[mkdocstrings](https://mkdocstrings.github.io/) to render documentation on its
+website. The configuration file (`mkdocs.yml`) for `MkDocs` can be found
+[here](https://github.com/osl-incubator/scicookie/blob/main/mkdocs.yaml).
+
+Ideally, with the addition of every new feature to `scicookie`, documentation
+should be added using comments, docstrings, and `.md` files.
+
+### Building documentation locally
+
+The documentation is located in the `docs` folder of the main repository. The
+following method can be used to generate this documentation with the `scicookie`
+`dev` dependencies:
+
+```bash
+mkdocs serve
+```
+
+Any existing documentation build will be cleaned by the commands executed above,
+create a new build (in `./site/`), and serve it on your `localhost`. To just
+build the documentation, use -
+
+```bash
+mkdocs build
+```
+
 ## Release Process
 
 The **SciCookie** project utilizes `semantic-release` to automate the release
