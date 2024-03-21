@@ -4,6 +4,10 @@ Your contributions are valued and play a significant role in the continuous
 improvement of **SciCookie**. We welcome contributions of all forms and
 acknowledge all efforts.
 
+To ensure a welcoming and safe environment for all members, OSL has established
+a Code of Conduct, which you can find here:
+[Code of Conduct](https://osl-incubator.github.io/scicookie/conduct)
+
 ## How You Can Contribute
 
 Contributions can be made in various ways, outlined below:
