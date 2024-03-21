@@ -3,8 +3,8 @@
 import argparse
 import json
 import os
-import sys
 import re
+import sys
 
 from pathlib import Path
 from typing import Union
@@ -129,15 +129,16 @@ def call_cookiecutter(profile: Profile, answers: dict):  # noqa: PLR0912
             f"Process {pid} killed.", SciCookieErrorType.SH_KEYBOARD_INTERRUPT
         )
 
+
 def sanitize_slugs(answers: dict[str, str]) -> dict[str, str]:
-    """Sanitize the project slug by removing 
-    non-alphanumeric characters."""
+    """Sanitize the project slug by removing non-alphanumeric characters."""
     sanitized_answers = answers.copy()
     for key in ["package_slug"]:
         slug = sanitized_answers.get(key, "")
-        sanitized_slug = re.sub(r'[^a-zA-Z0-9_]', '', slug)
+        sanitized_slug = re.sub(r"[^a-zA-Z0-9_]", "", slug)
         sanitized_answers[key] = sanitized_slug
     return sanitized_answers
+
 
 def app():
     """Run SciCookie."""
