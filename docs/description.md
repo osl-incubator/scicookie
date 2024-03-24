@@ -6,7 +6,7 @@
 
 ![logo_scicookie.png](images%2Flogo_scicookie.png)
 
-**SciCookie** is a Cookiecutter template designed to simplify scientific Python project creation. It provides a boilerplate structure with recommended tools, workflows, and industry best practices, saving developers time and effort. Built upon the PyOpenSci recommendations, it offers a foundation that adheres to scientific Python standards while remaining customizable to specific project needs.
+**SciCookie** is a project template designed to simplify scientific Python project creation. It provides an initial structure with recommended tools, workflows, and industry best practices, saving developers time and effort. Built upon the PyOpenSci recommendations, it offers a foundation that adheres to scientific Python standards while remaining customizable to specific project needs.
 
 - [Documentation](https://osl-incubator.github.io/scicookie/)
 - [GitHub](https://github.com/osl-incubator/scicookie)
