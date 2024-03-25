@@ -1,6 +1,16 @@
 # Release Notes
 ---
 
+## [0.7.2](https://github.com/osl-incubator/scicookie/compare/0.7.1...0.7.2) (2024-03-25)
+
+
+### Bug Fixes
+
+* **cli:** Add an initial code for the CLI option defined by the user ([#225](https://github.com/osl-incubator/scicookie/issues/225)) ([1b1db90](https://github.com/osl-incubator/scicookie/commit/1b1db90358d11c97d02fa7462bfcb1ef6b6b786c))
+* Fix the HELP url ([#241](https://github.com/osl-incubator/scicookie/issues/241)) ([42cf544](https://github.com/osl-incubator/scicookie/commit/42cf5441da3122afb7b1b61683ccf52dac3f20aa))
+* **pkg:** Add project metadata long description (readme) ([#248](https://github.com/osl-incubator/scicookie/issues/248)) ([6be8e03](https://github.com/osl-incubator/scicookie/commit/6be8e03e5511da23dd07dce78f94195e963c2bda))
+* Update makim config file for compatibility  with v1.14 ([#243](https://github.com/osl-incubator/scicookie/issues/243)) ([d9e8ce8](https://github.com/osl-incubator/scicookie/commit/d9e8ce8b68f22150592b791c5745435b58921942))
+
 ## [0.7.1](https://github.com/osl-incubator/scicookie/compare/0.7.0...0.7.1) (2024-03-12)
 
 
