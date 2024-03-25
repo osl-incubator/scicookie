@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -275,6 +275,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../guide/" class="md-nav__link">
         
   
@@ -458,6 +478,87 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Setting Up for Local Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debugging-test-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Test Failures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Test Failures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-interruption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution Interruption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conducting-a-manual-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conducting a Manual Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-investigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Investigation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-scicookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documenting scicookie
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documenting scicookie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-documentation-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building documentation locally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -635,6 +736,87 @@
       Setting Up for Local Development
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Setting Up for Local Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debugging-test-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Test Failures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Test Failures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-interruption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution Interruption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conducting-a-manual-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conducting a Manual Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-investigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Investigation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-scicookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documenting scicookie
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documenting scicookie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-documentation-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building documentation locally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -861,6 +1043,70 @@ $<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>
 <li><strong>Submit a Pull Request</strong>: Once your changes are pushed, go to the GitHub
     website to submit a pull request for review.</li>
 </ol>
+<h3 id="debugging-test-failures">Debugging Test Failures<a class="headerlink" href="#debugging-test-failures" title="Permanent link">¤</a></h3>
+<p>When encountering an error during test execution, debugging is crucial to
+isolate and resolve the issue.</p>
+<h4 id="initial-steps">Initial Steps<a class="headerlink" href="#initial-steps" title="Permanent link">¤</a></h4>
+<ol>
+<li>
+<p><strong>Identify the Failing Step:</strong> Begin by reviewing the log file to pinpoint
+   the failing command within <code>base.sh</code>. This critical step requires attention
+   to detail. Each time Continuous Integration (CI) reports a failure,
+   identifying the error's location is your first task.</p>
+</li>
+<li>
+<p><strong>Locate the Specific Error:</strong> Once the failing step is identified, refer to
+   the precise location in the script
+   (<code>https://github.com/osl-incubator/scicookie/blob/main/tests/smoke/base.sh</code>).
+   It's essential to only proceed to this step after accurately locating the
+   error in the log.</p>
+</li>
+</ol>
+<h4 id="execution-interruption">Execution Interruption<a class="headerlink" href="#execution-interruption" title="Permanent link">¤</a></h4>
+<p>To further investigate, you'll need to halt the script's execution at the
+problematic point. Insert an <code>exit 1</code> statement immediately before the failing
+command. This action stops the process, allowing for manual intervention and
+closer examination.</p>
+<h4 id="conducting-a-manual-test">Conducting a Manual Test<a class="headerlink" href="#conducting-a-manual-test" title="Permanent link">¤</a></h4>
+<ul>
+<li>Run the test that is encountering errors. If uncertain which test is failing,
+  consult the logs for clues.</li>
+</ul>
+<p><strong>Tip:</strong> In the logs, lines beginning with '+' typically represent executed
+  commands rather than outputs. Outputs from tests may indicate which test is
+  being run.</p>
+<p>By executing the specific failing test with the <code>exit 1</code> modification, the
+  script will pause at the intended juncture.</p>
+<h4 id="further-investigation">Further Investigation<a class="headerlink" href="#further-investigation" title="Permanent link">¤</a></h4>
+<p>Navigate to the newly created project directory at <code>/tmp/osl/osl-python-package</code>
+and activate the corresponding conda environment using
+<code>conda activate osl-python-package</code>. Execute the failed command manually; it
+will fail and now you can check what is the result after the changes and compare
+with the files in the template folder.</p>
+<h2 id="documenting-scicookie">Documenting scicookie<a class="headerlink" href="#documenting-scicookie" title="Permanent link">¤</a></h2>
+<p><code>scicookie</code>'s documentation primarily consists of
+<a href="https://peps.python.org/pep-0257/">docstrings</a> and
+<a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> formatting. Docstrings
+contain descriptions, arguments, examples, return values, and attributes for
+classes or functions, while <code>.md</code> files allow us to display this documentation
+on the <code>scicookie</code>'s website.</p>
+<p>scicookie mainly relies on <a href="https://www.mkdocs.org/">MkDocs</a> and
+<a href="https://mkdocstrings.github.io/">mkdocstrings</a> to render documentation on its
+website. The configuration file (<code>mkdocs.yml</code>) for <code>MkDocs</code> can be found
+<a href="https://github.com/osl-incubator/scicookie/blob/main/mkdocs.yaml">here</a>.</p>
+<p>Ideally, with the addition of every new feature to <code>scicookie</code>, documentation
+should be added using comments, docstrings, and <code>.md</code> files.</p>
+<h3 id="building-documentation-locally">Building documentation locally<a class="headerlink" href="#building-documentation-locally" title="Permanent link">¤</a></h3>
+<p>The documentation is located in the <code>docs</code> folder of the main repository. The
+following method can be used to generate this documentation with the <code>scicookie</code>
+<code>dev</code> dependencies:</p>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve
+</code></pre></div>
+<p>Any existing documentation build will be cleaned by the commands executed above,
+create a new build (in <code>./site/</code>), and serve it on your <code>localhost</code>. To just
+build the documentation, use -</p>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>build
+</code></pre></div>
 <h2 id="release-process">Release Process<a class="headerlink" href="#release-process" title="Permanent link">¤</a></h2>
 <p>The <strong>SciCookie</strong> project utilizes <code>semantic-release</code> to automate the release
 process, basing new releases on the content of commit messages.</p>
@@ -966,7 +1212,7 @@ the
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
       
     
   </body>
