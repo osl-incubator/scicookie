@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/pypi/l/scicookie?color=blue)
 ![Discord](https://img.shields.io/discord/796786891798085652?logo=discord&color=blue)
 
-![logo_scicookie.png](images%2Flogo_scicookie.png)
+![logo_scicookie.png](https://github.com/osl-incubator/scicookie/blob/main/docs/images/logo_scicookie.png?raw=true)
 
 **SciCookie** is a project template designed to simplify scientific Python
 project creation. It provides an initial structure with recommended tools,
