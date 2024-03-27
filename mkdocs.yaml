@@ -14,6 +14,8 @@ nav:
   - Installation: "install.md"
   - Guide: "guide.md"
   - Contributing: "contributing.md"
+  - Changelog: "changelog.md"
+  - Code of Conduct: "conduct.md"
 
 theme:
   name: material
