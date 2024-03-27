@@ -36,7 +36,7 @@ include = ["{{ package_path }}/py.typed"]
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev-dependencies]
 {# keep this line here #}
 {%- if cookiecutter.use_pytest == "yes" -%}
 pytest = ">=7.3.2"
