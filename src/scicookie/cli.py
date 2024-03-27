@@ -3,7 +3,6 @@
 import argparse
 import json
 import os
-import re
 import sys
 
 from pathlib import Path
@@ -130,16 +129,6 @@ def call_cookiecutter(profile: Profile, answers: dict):  # noqa: PLR0912
         )
 
 
-def sanitize_slugs(answers: dict[str, str]) -> dict[str, str]:
-    """Sanitize the project slug by removing non-alphanumeric characters."""
-    sanitized_answers = answers.copy()
-    for key in ["package_slug"]:
-        slug = sanitized_answers.get(key, "")
-        sanitized_slug = re.sub(r"[^a-zA-Z0-9_]", "", slug)
-        sanitized_answers[key] = sanitized_slug
-    return sanitized_answers
-
-
 def app():
     """Run SciCookie."""
     # note: this parameter should be provided by a CLI argument
@@ -174,8 +163,6 @@ def app():
     profile = Profile(args.profile)
 
     answers = make_questions(profile.config)
-
-    answers = sanitize_slugs(answers)
 
     if not answers:
         return
