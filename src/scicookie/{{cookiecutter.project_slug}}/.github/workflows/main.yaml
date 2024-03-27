@@ -61,6 +61,7 @@ jobs:
           {%- endif %}
 
       - name: Run style checks
+        if: success() || failure()
         run: |
           pre-commit install
           {%- if cookiecutter.use_makim == "yes" %}
