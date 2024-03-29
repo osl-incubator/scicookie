@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-import re  # Add this import for regex
+import re
 
 from typing import Any, Optional, Type
 
@@ -105,7 +105,7 @@ def make_questions(questions: dict[str, Any]) -> dict[str, str]:
     print("." * columns)
 
     # Create a Jinja2 environment and add the custom filter
-    env = Environment(autoescape=True)
+    env = Environment()
     env.filters["sanitize_package_slug"] = sanitize_package_slug
 
     for question_id, question in questions.items():
