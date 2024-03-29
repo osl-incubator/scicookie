@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import os
+import re
 
 from typing import Any, Optional, Type
 
 import inquirer
 
 from colorama import Fore, Style, init
-from jinja2 import Template
+from jinja2 import Environment
 
 from scicookie.logs import SciCookieErrorType, SciCookieLogs
 
@@ -76,6 +77,13 @@ def check_dependencies_satisfied(
     return True
 
 
+def sanitize_package_slug(package_slug: str) -> str:
+    """Filter to sanitize the package slug."""
+    return re.sub(
+        r"^\s+|\s+$", "", re.sub(r"[^a-zA-Z0-9_]+", "", package_slug)
+    )
+
+
 def make_questions(questions: dict[str, Any]) -> dict[str, str]:
     """Generate all the visible questions."""
     answers: dict[str, str] = {}
@@ -96,11 +104,17 @@ def make_questions(questions: dict[str, Any]) -> dict[str, str]:
     )
     print("." * columns)
 
+    # Create a Jinja2 environment and add the custom filter
+    env = Environment()
+    env.filters["sanitize_package_slug"] = sanitize_package_slug
+
     for question_id, question in questions.items():
         question_obj = _create_question(question_id, question)
 
         default_answer = question.get("default", "")
-        default_answer = Template(default_answer).render(answers)
+        default_answer = (
+            env.from_string(default_answer).render(answers).strip()
+        )
 
         # note: if question_object is None, that means that the question is
         #       not visible
