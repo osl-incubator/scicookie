@@ -12,7 +12,7 @@ project templates and is based on
 [Cookieninja](https://github.com/cookieninja-generator/cookieninja) **A
 Cookiecutter Fork** command-line utility. It serves as an initial structure
 which can be used by beginners as well as full-fledged developers to simplify
-the project creation process and save considerable amount of time. Scicookie
+the project creation process and save considerable amount of time. SciCookie
 enables projects with an initial layout that includes recommended tools,
 workflows, and project structure.
 
