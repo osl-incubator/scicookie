@@ -37,7 +37,8 @@
     "hatch",
     "maturin",
     "scikit-build-core",
-    "pybind11"
+    "pybind11",
+    "rye"
   ],
   "use_bandit": "no",
   "use_black": "yes",

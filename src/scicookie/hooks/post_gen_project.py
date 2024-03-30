@@ -78,6 +78,8 @@ BUILD_SYSTEM = "maturin"
 BUILD_SYSTEM = "scikit-build-core"
 {% elif cookiecutter.build_system == "pybind11" -%}
 BUILD_SYSTEM = "pybind11"
+{% elif cookiecutter.build_system == "rye" -%}
+BUILD_SYSTEM = "rye"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}

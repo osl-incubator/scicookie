@@ -96,6 +96,7 @@ build_system:
     - maturin
     - scikit-build-core
     - pybind11
+    - rye
   visible: true
 
 command_line_interface:
