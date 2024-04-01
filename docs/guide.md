@@ -395,8 +395,8 @@ project metadata.
 
 Depending on your taste and the needs of your project, you should choose the
 documentation engine that best suits your needs. SciCookie offers you three
-documentation engine options for your Python package: _mkdocs_, _sphinx_ and
-_jupyter-book_.
+documentation engine options for your Python package: _mkdocs_, _sphinx_,
+_jupyter-book_ and _quarto_.
 
 - [**mkdocs**](https://www.mkdocs.org/): is a fast, simple, and downright
   gorgeous static site generator for creating project documentation.
@@ -427,6 +427,15 @@ _jupyter-book_.
   features. It can generate books in a variety of output formats, including
   HTML, PDF and static web pages. It integrates well with version control
   systems such as Git.
+
+- [Quarto](https://quarto.org/): It is a versatile open-source platform designed
+  for scientific and technical publishing. It offers the unique feature of
+  embedding Python code directly into your documentation, enabling interactive
+  and dynamic content creation. With Quarto, you can easily render your
+  documents in multiple formats such as HTML, PDF, and websites, making it
+  convenient for sharing and presenting your work. Additionally, Quarto provides
+  customization options to personalize your content according to your
+  preferences and needs.
 
 If you think we should add more options of documentation engines or themes, you
 can submit your suggestion as a issue at

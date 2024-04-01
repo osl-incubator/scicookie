@@ -257,14 +257,14 @@ with the files in the template folder.
 
 ## Documenting scicookie
 
-`scicookie`'s documentation primarily consists of
+The documentation of SciCookie primarily consists of
 [docstrings](https://peps.python.org/pep-0257/) and
 [Markdown](https://en.wikipedia.org/wiki/Markdown) formatting. Docstrings
 contain descriptions, arguments, examples, return values, and attributes for
 classes or functions, while `.md` files allow us to display this documentation
-on the `scicookie`'s website.
+on the website of SciCookie.
 
-scicookie mainly relies on [MkDocs](https://www.mkdocs.org/) and
+SciCookie mainly relies on [MkDocs](https://www.mkdocs.org/) and
 [mkdocstrings](https://mkdocstrings.github.io/) to render documentation on its
 website. The configuration file (`mkdocs.yml`) for `MkDocs` can be found
 [here](https://github.com/osl-incubator/scicookie/blob/main/mkdocs.yaml).

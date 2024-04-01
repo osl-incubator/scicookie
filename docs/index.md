@@ -40,7 +40,7 @@ a Python package.
 - Allows package slug (use `_` instead of `-`)
 - Licenses supported: MIT, BSD 3 Clause, ISC License, Apache Software License
   2.0, and GPL 3
-- Documentation engines: mkdocs, sphinx, jupyter-boook
+- Documentation engines: mkdocs, sphinx, jupyter-boook, quarto
 - Test library: pytest, hypothesis
 - Auto format code tool: black
 - Initial integration with git
