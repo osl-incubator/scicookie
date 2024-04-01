@@ -11,7 +11,8 @@ PROJECT_DIRECTORY = Path(os.path.abspath(os.path.curdir)).resolve()
 UNUSED_DOCS_DIRS = [
     PROJECT_DIRECTORY / 'docs-mkdocs',
     PROJECT_DIRECTORY / 'docs-sphinx',
-    PROJECT_DIRECTORY / 'docs-jupyter-book'
+    PROJECT_DIRECTORY / 'docs-jupyter-book',
+    PROJECT_DIRECTORY / 'docs-quarto',
 ]
 
 DOCUMENTATION_ENGINE = "{{ cookiecutter.documentation_engine }}"
@@ -112,7 +113,9 @@ def move_selected_doc_dir():
     if DOCUMENTATION_ENGINE == "sphinx":
         remove_project_file(Path("docs") / "index.md")
         remove_project_file(Path("docs/api") / "references.md")
-
+    if DOCUMENTATION_ENGINE == "quarto":
+        remove_project_file(Path("docs/api") / "references.md")
+        remove_project_file(Path("docs/api") / "references.rst")
     shutil.rmtree(DOCS_SPEC_DIR)
 
 
