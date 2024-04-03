@@ -34,7 +34,12 @@ include = ["{{ package_path }}/py.typed"]
 {%- endif %}
 
 [tool.poetry.dependencies]
+{% if cookiecutter.documentation_engine == 'quarto' -%}
+python = ">=3.9,<4"
+{% else %}
 python = ">=3.8.1,<4"
+{% endif %}
+
 
 [tool.poetry.group.dev.dependencies]
 {# keep this line here #}
@@ -106,6 +111,9 @@ pandoc = ">=2.3"
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
 jupyter-book = ">=0.15.1"
 myst-parser = ">=0.18.1"
+{%- elif cookiecutter.documentation_engine == 'quarto' %}
+quarto-cli = ">=1.4.550"
+quartodoc = ">=0.7.2"
 {% endif %}
 {%- if cookiecutter.use_makim == "yes" %}
 makim = ">=1.14.0,<1.15"

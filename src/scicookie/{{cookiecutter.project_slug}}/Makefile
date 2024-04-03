@@ -100,6 +100,15 @@ docs-build:
 .PHONY: docs-preview
 docs-preview: docs-build
 	cd docs/_build/html/ && python -m http.server
+
+{%- elif cookiecutter.documentation_engine == 'quarto' -%}
+.PHONY:docs-build
+docs-build:
+	cd docs/ && quartodoc build && quarto render
+
+.PHONY: docs-preview
+docs-preview: docs-build
+	quarto preview docs
 {%- endif +%}
 
 .PHONY:build

@@ -1,0 +1,34 @@
+project:
+  type: website
+
+website:
+  title: "{{ cookiecutter.project_name }}"
+  navbar:
+    left:
+      - href: index.md
+        text: Home
+      - installation.md
+      - contributing.md
+      - changelog.md
+      - file: example.ipynb
+        text: Notebooks
+      - file: api/index.qmd
+        text: API Reference
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+# API documentation
+quartodoc:
+  style: pkgdown
+  dir: api
+  package: {{ cookiecutter.package_slug }}
+  sections:
+    - title: Functions and Modules
+      desc: This page outlines the API reference of {{ cookiecutter.package_slug }}.
+      contents:
+      # You can add modules and functions here, for example:
+        - get_version

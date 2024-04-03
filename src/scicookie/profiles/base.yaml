@@ -120,6 +120,7 @@ documentation_engine:
     - mkdocs
     - sphinx
     - jupyter-book
+    - quarto
   visible: true
 
 documentation_url:
