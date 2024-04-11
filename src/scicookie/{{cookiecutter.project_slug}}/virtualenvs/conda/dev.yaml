@@ -27,6 +27,8 @@ dependencies:
 {%- elif cookiecutter.build_system == "pybind11" %}
   - pybind11
   - cmake
+{%- elif cookiecutter.build_system == "rye" %}
+  - rye
 {%- endif %}
   - nodejs # used by semantic-release
 {%- if cookiecutter.use_shellcheck == "yes" %}
