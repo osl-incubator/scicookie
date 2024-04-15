@@ -50,6 +50,9 @@ elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
 elif [ "$(pip list|grep -c pybind11)" -ne "0" ]; then
   # Assuming you are inside the root of the CMake source directory
   pip install .
+elif [ "$(pip list|grep -c rye)" -ne "0" ]; then
+  # Assuming you are inside the root of the CMake source directory
+  pip install .
 else
   # use setuptools
   pip install .
