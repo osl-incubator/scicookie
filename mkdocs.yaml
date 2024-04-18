@@ -22,15 +22,18 @@ theme:
   features:
     - navigation.sections
   palette:
+    # Palette toggle for light mode
     - scheme: default
       primary: white
-      accent: amber
+      accent: lime
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
+
+    # Palette toggle for dark mode
     - scheme: slate
-      primary: black
-      accent: amber
+      primary: white
+      accent: lime
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
@@ -46,6 +49,13 @@ plugins:
   - search
   - mkdocstrings
   - autorefs # Cross-links to headings
+  - mkdocs-jupyter:
+      execute: false
+      ignore:
+        - "*.py"
+        - ".ipynb_checkpoints/*"
+      include_source: true
+      include_requirejs: true
   - include_exclude_files:
       exclude:
         - "_overrides"
