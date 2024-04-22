@@ -33,7 +33,7 @@ include = ["{{ package_path }}/py.typed"]
 {% endif %}
 
 [tool.poetry.dependencies]
-{%- if cookiecutter.documentation_engine == 'quarto' -%}
+{%- if cookiecutter.documentation_engine == 'quarto' %}
 python = ">=3.9,<4"
 {% else %}
 python = ">=3.8.1,<4"
