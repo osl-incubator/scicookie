@@ -6,7 +6,7 @@
 
 [tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
-version = "{{ cookiecutter.project_version }}"  # semantic-release
+version = "{{ cookiecutter.project_version }}"
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
@@ -14,7 +14,7 @@ authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}
 packages = [
   {include = "{{ cookiecutter.package_slug }}", from="src"},
 ]
-{% else -%}
+{%- else -%}
 packages = [
   {include = "{{ cookiecutter.package_slug }}"},
 ]
@@ -26,65 +26,61 @@ exclude = [
 ]
 {%- if cookiecutter.use_mypy == "yes" %}
 include = ["{{ package_path }}/py.typed"]
-{%- endif %}
-
+{% endif %}
 {% if cookiecutter.command_line_interface != "None" -%}
 [tool.poetry.scripts]
 "{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
-{%- endif %}
-
-[tool.poetry.dependencies]
-{% if cookiecutter.documentation_engine == 'quarto' -%}
-python = ">=3.9,<4"
-{% else %}
-python = ">=3.8.1,<4"
 {% endif %}
 
-
+[tool.poetry.dependencies]
+{%- if cookiecutter.documentation_engine == 'quarto' -%}
+python = ">=3.9,<4"
+{% else -%}
+python = ">=3.8.1,<4"
+{% endif %}
 [tool.poetry.group.dev.dependencies]
-{# keep this line here #}
-{%- if cookiecutter.use_pytest == "yes" -%}
+{% if cookiecutter.use_pytest == "yes" -%}
 pytest = ">=7.3.2"
 {% if cookiecutter.use_coverage == "yes" -%}
 pytest-cov = ">=4.1.0"
-{% endif %}
+{% endif -%}
 {%- endif -%}{#- end of use_pytest -#}
 {%- if cookiecutter.use_hypothesis == "yes" -%}
 hypothesis = ">=6.0"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_coverage == "yes" -%}
 coverage = ">=7.2.7"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_black == "yes" -%}
 black = ">=23.3.0,<23.10"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_isort == "yes" -%}
 isort = ">=5.12.0"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_pre_commit -%}
 pre-commit = ">=3.3.2"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_flake8 == "yes" -%}
 flake8 = ">=4.0.1, <7"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_ruff == "yes" -%}
 ruff = ">=0.2.0"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_mypy == "yes" -%}
 mypy = ">=1.5.0"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_bandit == "yes" -%}
 bandit = ">=1.7.5"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_pydocstyle == "yes" -%}
 pydocstyle = ">=6.3.0"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_vulture == "yes" -%}
 vulture = ">=2.7"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_mccabe == "yes" -%}
 mccabe = ">=0.6.1"
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_containers in ['Docker', 'Podman'] -%}
 # if you want to use docker-compose from your system, remove compose-go here
 compose-go = ">=2.18.1"
@@ -115,11 +111,10 @@ myst-parser = ">=0.18.1"
 quarto-cli = ">=1.4.550"
 quartodoc = ">=0.7.2"
 {%- endif %}
-{%- if cookiecutter.use_makim == "yes" %}
+{%- if cookiecutter.use_makim == "yes" -%}
 makim = ">=1.14.0,<1.15"
 {%- endif %}
 # 'PosixPath' object has no attribute 'endswith'
 virtualenv = "<=20.25.1"
-
 {% include "build-system/base-pyproject.toml" %}
 {#- keep this line at the end of the file -#}
