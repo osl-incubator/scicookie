@@ -6,7 +6,7 @@
 
 [tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
-version = "{{ cookiecutter.project_version }}"
+version = "{{ cookiecutter.project_version }}" #semantic-release
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
@@ -35,7 +35,7 @@ include = ["{{ package_path }}/py.typed"]
 [tool.poetry.dependencies]
 {%- if cookiecutter.documentation_engine == 'quarto' -%}
 python = ">=3.9,<4"
-{% else -%}
+{% else %}
 python = ">=3.8.1,<4"
 {% endif %}
 [tool.poetry.group.dev.dependencies]
