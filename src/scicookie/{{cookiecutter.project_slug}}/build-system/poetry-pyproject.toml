@@ -18,7 +18,7 @@ packages = [
 packages = [
   {include = "{{ cookiecutter.package_slug }}"},
 ]
-{% endif -%}
+{% endif %}
 license = "{{ cookiecutter.project_license }}"
 exclude = [
   ".git/*",
@@ -27,7 +27,7 @@ exclude = [
 {%- if cookiecutter.use_mypy == "yes" %}
 include = ["{{ package_path }}/py.typed"]
 {% endif %}
-{% if cookiecutter.command_line_interface != "None" -%}
+{% if cookiecutter.command_line_interface != "None" %}
 [tool.poetry.scripts]
 "{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
 {% endif %}
