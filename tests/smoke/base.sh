@@ -26,7 +26,7 @@ cd "${OUTPUT_DIR}/${ENV_NAME}"
 
 set +x
 eval "$(conda shell.bash hook)"
-mamba env create --file conda/dev.yaml --name "${ENV_NAME}" --force
+mamba env create --file conda/dev.yaml --name "${ENV_NAME}" --yes
 conda activate "${ENV_NAME}"
 set -x
 
