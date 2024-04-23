@@ -129,6 +129,8 @@ dependencies = [
 {%- if cookiecutter.use_makim == "yes" %}
     "makim>=1.14.0,<1.15",
 {% endif %}
+    # 'PosixPath' object has no attribute 'endswith'
+    "virtualenv<=20.25.1",
 ]
 
 [project.urls]
