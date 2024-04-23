@@ -50,8 +50,8 @@ dynamic = ["version"]
 {% endif -%}
 requires-python = ">=3.8.1,<4"
 dependencies = [
-{# keep this line here #}
-{%- if cookiecutter.build_system in ["setuptools", "pybind11"] -%}
+{#- keep this line here -#}
+{%- if cookiecutter.build_system in ["setuptools", "pybind11"] %}
   "build>=0.10.0",
 {%- endif -%}
 {%- if cookiecutter.use_pytest == "yes" %}
@@ -125,7 +125,7 @@ dependencies = [
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
   "quarto-cli >= 1.4.550",
   "quartodoc >= 0.7.2",
-{%- endif -%}
+{% endif -%}
 {%- if cookiecutter.use_makim == "yes" %}
     "makim>=1.14.0,<1.15",
 {% endif %}
