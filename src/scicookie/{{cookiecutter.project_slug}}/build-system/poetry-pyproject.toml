@@ -114,10 +114,12 @@ myst-parser = ">=0.18.1"
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
 quarto-cli = ">=1.4.550"
 quartodoc = ">=0.7.2"
-{% endif %}
+{%- endif %}
 {%- if cookiecutter.use_makim == "yes" %}
 makim = ">=1.14.0,<1.15"
-{% endif %}
+{%- endif %}
+# 'PosixPath' object has no attribute 'endswith'
+virtualenv = "<=20.25.1"
 
 {% include "build-system/base-pyproject.toml" %}
 {#- keep this line at the end of the file -#}
