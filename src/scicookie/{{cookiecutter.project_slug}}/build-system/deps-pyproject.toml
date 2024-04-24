@@ -90,6 +90,9 @@ dependencies = [
 {%- if cookiecutter.use_pydocstyle == "yes" %}
   "pydocstyle >= 6.3.0",
 {%- endif -%}
+{%- if cookiecutter.use_makim == "yes" %}
+  "makim>=1.14.0,<1.15",
+{%- endif -%}
 {%- if cookiecutter.use_vulture == "yes" %}
   "vulture >= 2.7",
 {%- endif -%}
@@ -128,9 +131,6 @@ dependencies = [
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
   "quarto-cli >= 1.4.550",
   "quartodoc >= 0.7.2",
-{% endif -%}
-{%- if cookiecutter.use_makim == "yes" %}
-  "makim>=1.14.0,<1.15",
 {% endif -%}
   # 'PosixPath' object has no attribute 'endswith'
   "virtualenv<=20.25.1",

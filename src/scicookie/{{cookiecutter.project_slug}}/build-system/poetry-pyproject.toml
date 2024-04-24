@@ -114,7 +114,7 @@ myst-parser = ">=0.18.1"
 quarto-cli = ">=1.4.550"
 quartodoc = ">=0.7.2"
 {% endif -%}
-{%- if cookiecutter.use_makim == "yes" %}
+{%- if cookiecutter.use_makim == "yes" -%}
 makim = ">=1.14.0,<1.15"
 {% endif -%}
 # 'PosixPath' object has no attribute 'endswith'
