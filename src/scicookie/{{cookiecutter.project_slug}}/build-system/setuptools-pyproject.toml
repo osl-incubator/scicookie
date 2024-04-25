@@ -2,8 +2,6 @@
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
-
 {% include "build-system/deps-pyproject.toml" %}
-
 {% include "build-system/base-pyproject.toml" %}
 {#- keep this line at the end of the file -#}
