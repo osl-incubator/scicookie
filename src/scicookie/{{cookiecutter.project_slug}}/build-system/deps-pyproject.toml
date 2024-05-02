@@ -50,6 +50,10 @@ dynamic = ["version"]
 {% endif -%}
 requires-python = ">=3.8.1,<4"
 dependencies = [
+]
+
+[project.optional-dependencies]
+dev = [
 {#- keep this line here -#}
 {%- if cookiecutter.build_system in ["setuptools", "pybind11"] %}
   "build>=0.10.0",
