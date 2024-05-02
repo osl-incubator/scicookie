@@ -1,0 +1,92 @@
+author_full_name:
+  default: Your Name
+  visible: true
+
+author_email:
+  default: your.email@email.com
+  visible: true
+
+project_name:
+  default: Your Project Name Here
+  visible: true
+
+project_short_description:
+  visible: true
+
+project_slug:
+  visible: false
+
+package_slug:
+  visible: false
+
+project_version:
+  default: 0.1.0
+  visible: false
+
+project_url:
+  visible: false
+
+project_license:
+  # first choice is the default for the UI
+  default: MIT
+  visible: false
+
+project_layout:
+  default: src
+  visible: false
+
+build_system:
+  visible: false
+  default: hatch
+
+command_line_interface:
+  visible: false
+
+documentation_engine:
+  visible: true
+  choices:
+    - sphinx
+    - mkdocs
+
+documentation_url:
+  visible: false
+
+use_tools:
+  choices:
+    - conda
+    - coverage
+    - ruff
+    - mypy
+    - pre-commit
+    - pytest
+  visible: true
+
+use_containers:
+  visible: false
+
+code_of_conduct:
+  choices:
+    - contributor-covenant
+  visible: false
+
+governance_document:
+  default: None
+  visible: false
+
+roadmap_document:
+  default: None
+  visible: false
+
+git_username:
+  default: yorbriar
+  visible: true
+
+git_https_origin:
+  default: ""
+  visible: false
+
+git_https_upstream:
+  visible: false
+
+git_main_branch:
+  visible: false
