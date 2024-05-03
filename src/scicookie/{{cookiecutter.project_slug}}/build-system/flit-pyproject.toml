@@ -4,4 +4,4 @@ build-backend = "flit_core.buildapi"
 
 {% include "build-system/deps-pyproject.toml" %}
 {% include "build-system/base-pyproject.toml" %}
-{# keep this line at the end of the file -#}
+{#- keep this line at the end of the file -#}
