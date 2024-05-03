@@ -13,7 +13,7 @@ fi
 
 input_params="$1"
 
-if [[ "${input_params}" == *"use_conda=yes"* ]] || [[ "$input_params" == *"use_virtualenv=yes"* ]]; then
+if [[ "${input_params}" == *"use_conda=yes"* ]] || [[ "$input_params" == *"use_pyenv=yes"* ]]; then
   echo "Virtual environment defined."
 else
   input_params="use_conda=yes ${input_params}"
@@ -47,7 +47,7 @@ if [[ "${input_params}" == *"use_conda=yes"* ]]; then
   set -x
 fi
 
-if [[ "$input_params" == *"use_virtualenv=yes"* ]]; then
+if [[ "$input_params" == *"use_pyenv=yes"* ]]; then
   set +x
   virtualenv "${ENV_NAME}"
   source "${ENV_NAME}/bin/activate"

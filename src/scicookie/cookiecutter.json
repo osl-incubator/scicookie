@@ -54,6 +54,7 @@
   "use_pre_commit": "no",
   "use_prettier": "no",
   "use_pydocstyle": "no",
+  "use_pyenv": "no",
   "use_pytest": "no",
   "use_ruff": "no",
   "use_shellcheck": "no",

@@ -142,7 +142,7 @@ $ conda activate {{ cookiecutter.package_slug }}
 ```
 Note: you can use `mamba env create` instead, if you have it already installed,
 in order to boost the installation step.
-{% elif cookiecutter.use_virtualenv == "yes" -%}
+{% elif cookiecutter.use_pyenv == "yes" -%}
 Create your environment using `virtualenv`:
 ```bash
 $ virtualenv {{ cookiecutter.package_slug }}
@@ -214,7 +214,7 @@ Before you submit a pull request, check that it meets these guidelines:
     the list in README.rst.
 3.  The pull request should work for Python >= 3.8.
 
-{%- if cookiecutter.use_pytest == "yes" %}
+{% if cookiecutter.use_pytest == "yes" -%}
 ## Running tests locally
 
 The tests can be executed using the `test` dependencies of
@@ -224,6 +224,7 @@ The tests can be executed using the `test` dependencies of
 $ python -m pytest
 ```
 
+{% if cookiecutter.use_coverage == "yes" -%}
 ### Running tests with coverage locally
 
 The coverage value can be obtained while running the tests using
@@ -235,6 +236,8 @@ $ python -m pytest --cov={{ cookiecutter.project_slug }} tests/
 
 A much more detailed guide on testing with `pytest` is available
 [here](https://docs.pytest.org/en/8.0.x/how-to/index.html).
+
+{%- endif %}
 
 {%- endif %}
 
