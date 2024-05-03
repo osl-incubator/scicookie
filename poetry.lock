@@ -1741,36 +1741,17 @@ files = [
 setuptools = "*"
 
 [[package]]
-name = "nodejs-bin"
-version = "18.4.0a4"
-description = "Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser."
+name = "nodejs-wheel"
+version = "20.12.2"
+description = "unoffical Node.js package"
 optional = false
-python-versions = "~=3.5"
+python-versions = ">=3.7"
 files = [
-    {file = "nodejs_bin-18.4.0a4-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:16cb1abf7fe8c11c574e1e474d9f934a0df49a480290eae6e733d8bb09512e22"},
-    {file = "nodejs_bin-18.4.0a4-py3-none-macosx_11_0_arm64.whl", hash = "sha256:068ca987ed83ea1123775fafe5dc22d8f2ff920d7d31571e1bfe6fb1093833eb"},
-    {file = "nodejs_bin-18.4.0a4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:06cfeaa4d26eec94d8edb9927525ce94eb96dadc81f7d1daed42d1a7d003a4c9"},
-    {file = "nodejs_bin-18.4.0a4-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:431ee3529f4fb226ddcfd4f14cb37e7df31238c42dfd051f4bf8f0c21029b133"},
-    {file = "nodejs_bin-18.4.0a4-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:21f1f77ddc8fe05353bb6d6ee8e5a62edb3a8dcdb2740a5f9307fd8d9eef6691"},
-    {file = "nodejs_bin-18.4.0a4-py3-none-win32.whl", hash = "sha256:59671fdc563dabb8be8a0b6dae4169d780482b3c9e0fba3f9aa2b7ee8d2261ac"},
-    {file = "nodejs_bin-18.4.0a4-py3-none-win_amd64.whl", hash = "sha256:cbd509218b4b17f75ee7841f9c21d5cacc1626d3b823a652a6627dbad18228ec"},
-]
-
-[package.dependencies]
-nodejs-cmd = {version = "*", optional = true, markers = "extra == \"cmd\""}
-
-[package.extras]
-cmd = ["nodejs-cmd"]
-
-[[package]]
-name = "nodejs-cmd"
-version = "0.0.1a0"
-description = "Additional Standard Command Line Commands For nodejs-bin"
-optional = false
-python-versions = "~=3.5"
-files = [
-    {file = "nodejs-cmd-0.0.1a0.tar.gz", hash = "sha256:fd71e7384892405bff93dcd203423cb80f5a8f15f37775dc7ee106388cc35da2"},
-    {file = "nodejs_cmd-0.0.1a0-py3-none-any.whl", hash = "sha256:a88e06d0ff5d1768cbf89fb5eda3383fa3b229ff2a496f6898dae503a1a1dcba"},
+    {file = "nodejs_wheel-20.12.2-py2.py3-none-macosx_10_9_x86_64.whl", hash = "sha256:5c9f7bd4f2149d2d17c9d19e8878c69ac97e0da71d1e4ed7250b15adf31fca70"},
+    {file = "nodejs_wheel-20.12.2-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:5b93fe06341d1130dbf6ab9b458cb5983d6a9cf8e8ebc14e496b78aa9ae36c4e"},
+    {file = "nodejs_wheel-20.12.2-py2.py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9099b220d99b35bb139e1155b0a9552600ade0e7a91cc5c68d70234e579bd5ce"},
+    {file = "nodejs_wheel-20.12.2-py2.py3-none-win_amd64.whl", hash = "sha256:fc1e7591cb856e5d06b4f2be4b331b83809da82942cd7701c65092ac26a137c1"},
+    {file = "nodejs_wheel-20.12.2.tar.gz", hash = "sha256:4219b35f95c265faa08606b22df885ab7b68cc6c0bfa9c90058698f8099acc46"},
 ]
 
 [[package]]
@@ -3146,4 +3127,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8.1,<4"
-content-hash = "f9dce107da6a9e694a8c080e1402207b93d522be61600d79fae09d8cf167ccba"
+content-hash = "681b815a09502d43b60e7af56e0236af61273e14277d7fd34bc1d526f2af66a2"
