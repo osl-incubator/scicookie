@@ -281,6 +281,17 @@ def http2ssh(url):
     url = url.replace("https://", "git@")
     return url.replace("/", ":", 1)
 
+def autoformatter():
+    if USE_PRETTIER:
+        subprocess.call([
+            "npx",
+            "--yes",
+            "prettier",
+            "--write",
+            "--ignore-unknown",
+            PROJECT_DIRECTORY
+        ])
+
 
 def prepare_git() -> None:
     git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
@@ -375,7 +386,6 @@ def clean_up_mypy():
 
 
 def post_gen():
-
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
     add_binding_source_files()
@@ -391,6 +401,9 @@ def post_gen():
     clean_up_build_system()
     clean_up_prettier()
     clean_up_tests()
+
+    # autoformatter
+    autoformatter()
 
     # keep it at the end, because it will create a new git commit
     prepare_git()
