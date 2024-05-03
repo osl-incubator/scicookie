@@ -6,6 +6,8 @@ import subprocess
 
 from pathlib import Path
 
+from scicookie.tools import fix_eof
+
 PROJECT_DIRECTORY = Path(os.path.abspath(os.path.curdir)).resolve()
 
 UNUSED_DOCS_DIRS = [
@@ -284,15 +286,10 @@ def clean_up_linter():
     if not USE_PRE_COMMIT:
         remove_project_file(".pre-commit-config.yaml")
 
-    # Auto format files with prettier
-    subprocess.call([
-        "npx",
-        "--yes",
-        "prettier",
-        "--write",
-        "--ignore-unknown",
-        PROJECT_DIRECTORY
-    ])
+    # Auto format tools
+    # -----------------
+
+    # prettier
     subprocess.call([
         "npx",
         "--yes",
@@ -305,6 +302,9 @@ def clean_up_linter():
     if not USE_PRETTIER:
         remove_project_file(".prettierrc.yaml")
         remove_project_file(".prettierignore")
+
+    # fix end of file
+    fix_eof.run(PROJECT_DIRECTORY)
 
 
 def prepare_git() -> None:
