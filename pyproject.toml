@@ -60,6 +60,7 @@ module = [
   "inquirer",
   "sh",
   "yaml",
+  "pre_commit_hooks",
 ]
 ignore_missing_imports = true
 
