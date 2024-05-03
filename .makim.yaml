@@ -1,7 +1,7 @@
 version: 1.0
 groups:
   clean:
-    targets:
+    tasks:
       tmp:
         help: Clean unnecessary temporary files
         shell: bash
@@ -20,7 +20,7 @@ groups:
           find . -name '*~' -exec rm -f {} +
 
   docs:
-    targets:
+    tasks:
       build:
         help: Build documentation
         run: |
@@ -45,7 +45,7 @@ groups:
         -p "@google/semantic-release-replace-plugin" \
         semantic-release
 
-    targets:
+    tasks:
       dry:
         help: Run semantic release in dry-run mode
         run: ${{ vars.app }} --dry-run
@@ -54,7 +54,7 @@ groups:
         run: ${{ vars.app }} --ci
 
   tests:
-    targets:
+    tasks:
       lint:
         help: Run linter tools
         run: pre-commit run --all-files --verbose
