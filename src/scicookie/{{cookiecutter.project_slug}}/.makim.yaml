@@ -6,7 +6,7 @@
 version: 1.0
 groups:
   clean:
-    targets:
+    tasks:
       all:
         help: Clean unnecessary temporary files
         run: |
@@ -26,7 +26,7 @@ groups:
           find . -name '*~' -exec rm -f {} +
 
   docs:
-    targets:
+    tasks:
       build:
         help: Build documentation
         run: |
@@ -47,7 +47,7 @@ groups:
       preview:
         help: Preview documentation page locally
         dependencies:
-          - target: docs.build
+          - task: docs.build
         run: |
           {%- if cookiecutter.documentation_engine == "jupyter-book" %}
           cd docs/_build/html/ && python -m http.server
@@ -60,7 +60,7 @@ groups:
           {%- endif %}
 
   tests:
-    targets:
+    tasks:
       linter:
         help: Run linter tools
         run: |
@@ -79,16 +79,22 @@ groups:
             type: string
             default: "-vv"
         run: |
+          {%- if cookiecutter.use_pytest == "yes" %}
           pytest {{ "${{ args.path }} ${{ args.params }}" }}
+          {%- elif cookiecutter.use_hypothesis == "yes" %}
+          python -m unittest discover
+          {%- else %}
+          echo "No test library installed."
+          {%- endif %}
 
       ci:
         help: run the sames tests executed on CI
         dependencies:
-          - target: tests.unit
-          - target: tests.linter
+          - task: tests.unit
+          - task: tests.linter
 
   package:
-    targets:
+    tasks:
       build:
         help: "Build the package"
         run: |
@@ -124,7 +130,7 @@ groups:
         -p "@google/semantic-release-replace-plugin" \
         semantic-release
 
-    targets:
+    tasks:
       ci:
         help: run semantic release on CI
         run: {{ "${{ vars.app }} --ci" }}

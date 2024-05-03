@@ -70,7 +70,7 @@ test: ## run tests quickly with the default Python
 	{%- elif cookiecutter.use_hypothesis == "yes" %}
 	python -m unittest discover
 	{%- else %}
-	@echo "No test library selected."
+	@echo "No test library installed."
 	{%- endif %}
 
 {% if cookiecutter.documentation_engine == 'mkdocs' -%}

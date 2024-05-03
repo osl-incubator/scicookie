@@ -86,4 +86,5 @@ warn_unused_ignores = true
 warn_redundant_casts = true
 warn_unused_configs = true
 {% endif -%}
-{#- keep this line at the end of the file -#}
+{# keep this line at the end of the file #}
+# Add more configuration here!

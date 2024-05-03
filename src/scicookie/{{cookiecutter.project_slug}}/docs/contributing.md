@@ -112,101 +112,96 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug}}` for local
+Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug }}` for local
 development.
 
 1.  Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
-
-2.  Clone your fork locally:
-
-    ```
-    git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
-    ```
-
-3.  Install your local copy into a virtualenv. This is how you set up your fork
-    for local development:
-
-    ```
-    cd {{cookiecutter.project_slug }}/
-    python -m venv env
-    ```
-
-    Using poetry:
-
-    ```
-    poetry install --with dev
-    ```
-
-    To get poetry, just pip install it into your virtualenv.
-
-    Alternatively, using pip:
-
-    ```
-    pip install -e .
-    ```
-
-4.  Create a branch for local development:
-
-    ```
-    git checkout -b name-of-your-bugfix-or-feature
-    ```
-
-    Now you can make your changes locally.
-
-5.  `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks and the `pre-commit`
-    bot to format, type-check, and prettify the codebase. The hooks can be
-    installed locally using -
-
-    ```
-    pre-commit install
-    ```
-
-    This would run the checks every time a commit is created locally. The checks
-    will only run on the files modified by that commit, but the checks can be
-    triggered for all the files using -
-
-    ```
-    pre-commit run --all-files
-    ```
-
-    If you would like to skip the failing checks and push the code for further
-    discussion, use the `--no-verify` option with `git commit`.
-
-6.  `{{ cookiecutter.project_slug }}` is tested with `pytest`. `pytest` is responsible for
-    testing the code, whose configuration is available in pyproject.toml.
-    Additionally, `{{ cookiecutter.project_slug }}` also uses `pytest-cov` to calculate the
-    coverage of these unit tests.
-
-    #### Running tests locally
-
-    The tests can be executed using the `test` dependencies of
-    `{{ cookiecutter.project_slug }}` in the following way -
-
-    ```
-    python -m pytest
-    ```
-
-    #### Running tests with coverage locally
-
-    The coverage value can be obtained while running the tests using
-    `pytest-cov` in the following way -
-
-    ```
-    python -m pytest --cov={{ cookiecutter.project_slug }} tests/
-    ```
-
-    A much more detailed guide on testing with `pytest` is available
-    [here](https://docs.pytest.org/en/8.0.x/how-to/index.html).
-
-7.  Commit your changes and push your branch to GitHub::
-
-    ```
-    git add .
-    git commit -m “Your detailed description of your changes.”
-    git push origin name-of-your-bugfix-or-feature
-    ```
-
-8.  Submit a pull request through the GitHub website.
+1.  Clone your fork locally and change to the directory of your project:
+```bash
+$ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
+$ cd {{cookiecutter.project_slug }}/
+```
+{% if cookiecutter.git_https_upstream -%}
+Also, create a remote to the upstream repository, you will need that later:
+```bash
+$ git remote add upstream {{ cookiecutter.git_https_upstream }}
+$ git fetch --all
+```
+{% endif -%}
+1.  Prepare and use virtual environment:
+{%- if cookiecutter.use_conda == "yes" %}
+If you don't have yet conda installed in your machine, you can check the
+installation steps here:
+<https://github.com/conda-forge/miniforge?tab=readme-ov-file#download>
+After that, ensure that conda is already available in your terminal session and
+run:
+```bash
+$ conda env create env create --file conda/dev.yaml
+$ conda activate {{ cookiecutter.package_slug }}
+```
+Note: you can use `mamba env create` instead, if you have it already installed,
+in order to boost the installation step.
+{% elif cookiecutter.use_pyenv == "yes" -%}
+Create your environment using `virtualenv`:
+```bash
+$ virtualenv {{ cookiecutter.package_slug }}
+$ source {{ cookiecutter.package_slug }}/bin/activate
+```
+{% else -%}
+We highly recommend you to use `conda` for managing virtual environment, but
+you can use any other one of your preference.
+{% endif -%}
+1. Install the dependencies:
+Now, you can already install the dependencies for the project:
+{% if cookiecutter.build_system == "poetry" -%}
+```bash
+$ poetry install
+```
+{%- elif cookiecutter.build_system == "pdm" -%}
+```bash
+$ pdm install
+```
+{%- elif cookiecutter.build_system == "flit" -%}
+```bash
+$ flit install
+```
+{%- else -%}
+```bash
+$ pip install -e ".[dev]"
+```
+{%- endif -%}
+{% if cookiecutter.use_pre_commit == "yes" %}
+1.  `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks to
+improve code quality. The hooks can be installed locally using:
+```bash
+$ pre-commit install
+```
+This would run the checks every time a `git commit` is executed locally.
+Usually, the verification will only run on the files modified by that commit,
+but the verification can also be triggered for all the files using:
+```bash
+$ pre-commit run --all-files
+```
+If you would like to skip the failing checks and push the code for further
+discussion, use the `--no-verify` option with `git commit`.
+{% endif -%}
+{% if cookiecutter.use_pytest == "yes" %}
+1.  This project uses `pytest` as a testing tool. `pytest` is responsible for
+testing the code, whose configuration is available in pyproject.toml.
+Additionally, this project also uses `pytest-cov` to calculate the coverage of
+these unit tests. For more information, check the section about tests later in
+this document.
+{% elif cookiecutter.use_hypothesis == "yes" %}
+1.  This project uses `hypothesis` as a testing tool. For more information,
+please check its official documentation <https://hypothesis.readthedocs.io/>
+{% endif -%}
+1.  Commit your changes and push your branch to GitHub::
+```
+$ git add .
+$ git commit -m "Your detailed description of your changes.""
+$ git push origin name-of-your-bugfix-or-feature
+```
+1.  Submit a pull request through the GitHub website.
 
 ## Pull Request Guidelines
 
@@ -218,20 +213,47 @@ Before you submit a pull request, check that it meets these guidelines:
     the list in README.rst.
 3.  The pull request should work for Python >= 3.8.
 
-## Tips
-
-To run a subset of tests:
-
 {% if cookiecutter.use_pytest == "yes" -%}
+## Running tests locally
+
+The tests can be executed using the `test` dependencies of
+`{{ cookiecutter.project_slug }}` in the following way:
+
+```bash
+$ python -m pytest
 ```
-pytest tests.test_{{ cookiecutter.package_slug }}
+
+{% if cookiecutter.use_coverage == "yes" -%}
+### Running tests with coverage locally
+
+The coverage value can be obtained while running the tests using
+`pytest-cov` in the following way:
+
+```bash
+$ python -m pytest --cov={{ cookiecutter.project_slug }} tests/
 ```
+
+A much more detailed guide on testing with `pytest` is available
+[here](https://docs.pytest.org/en/8.0.x/how-to/index.html).
 {%- endif %}
-{% if cookiecutter.use_hypothesis == "yes" -%}
-```
-python -m unittest discover
-```
 {%- endif %}
+
+{% if cookiecutter.use_makim == "yes" -%}
+## Automation Tasks with Makim
+
+This project uses `makim` as  an automation tool. Please, check the
+`.makim.yaml` file to check all the tasks available or run:
+
+```bash
+$ makim --help
+```
+{% elif cookiecutter.use_make == "yes" -%}
+## Automation Tasks with Make
+
+This project uses `make` as  an automation tool. Please, check the `Makefile`
+to check all the tasks (targets) available.
+{%- endif %}
+
 ## Release
 
 This project uses semantic-release in order to cut a new release based on the
@@ -266,7 +288,9 @@ The table below shows which commit message gets you which release type when
 | `fix(pencil): stop graphite breaking when pressure is applied` | Fix Release      |
 | `feat(pencil): add 'graphiteWidth' option`                     | Feature Release  |
 | `perf(pencil): remove graphiteWidth option`                    | Chore            |
-| `BREAKING CHANGE: The graphiteWidth option has been removed`   | Breaking Release |
+| `feat(pencil)!: The graphiteWidth option has been removed`     | Breaking Release |
+
+Note: For a breaking change release, uses `!` at the end of the message prefix.
 
 source:
 <https://github.com/semantic-release/semantic-release/blob/master/README.md#commit-message-format>
