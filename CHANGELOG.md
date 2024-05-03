@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.8.1](https://github.com/osl-incubator/scicookie/compare/0.8.0...0.8.1) (2024-05-03)
+
+
+### Bug Fixes
+
+* Add nodejs-wheel as a dependency ([#276](https://github.com/osl-incubator/scicookie/issues/276)) ([a470d28](https://github.com/osl-incubator/scicookie/commit/a470d283795311b3489b98e1f3f34ab5a45b7da1))
+
 # [0.8.0](https://github.com/osl-incubator/scicookie/compare/0.7.2...0.8.0) (2024-05-03)
 
 
