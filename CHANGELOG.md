@@ -1,6 +1,20 @@
 # Release Notes
 ---
 
+# [0.8.0](https://github.com/osl-incubator/scicookie/compare/0.7.2...0.8.0) (2024-05-03)
+
+
+### Bug Fixes
+
+* **file:** remove mypy filter #type:ignore ([#250](https://github.com/osl-incubator/scicookie/issues/250)) ([55de1e2](https://github.com/osl-incubator/scicookie/commit/55de1e2b482db2346b24bd27fe06f8db65cc2cc5))
+* Fix issues with dependencies and default tools ([#274](https://github.com/osl-incubator/scicookie/issues/274)) ([ed65b11](https://github.com/osl-incubator/scicookie/commit/ed65b11937325e36b3fa6bcecc9512550e7e673c))
+* Fix the default slug used for the package name ([#245](https://github.com/osl-incubator/scicookie/issues/245)) ([9c53ee3](https://github.com/osl-incubator/scicookie/commit/9c53ee378d93e47becb033c10c98c4b8ff238c9c))
+
+
+### Features
+
+* **template:** Add quarto documentation engine ([#257](https://github.com/osl-incubator/scicookie/issues/257)) ([9aed15b](https://github.com/osl-incubator/scicookie/commit/9aed15b5cb3eba56e51b8af1934b7a9814ef4ea5))
+
 ## [0.7.2](https://github.com/osl-incubator/scicookie/compare/0.7.1...0.7.2) (2024-03-25)
 
 
