@@ -2,6 +2,7 @@
 build-backend = "mesonpy"
 requires = ["meson", "meson-python"]
 
-{% include "build-system/deps-pyproject.toml" %}
 {% include "build-system/base-pyproject.toml" %}
-{#- keep this line at the end of the file -#}
+{% include "build-system/base-dev-deps-pyproject.toml" %}
+{% include "build-system/base-urls-pyproject.toml" %}
+{% include "build-system/base-dev-deps-config-pyproject.toml" %}

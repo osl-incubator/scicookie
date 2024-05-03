@@ -293,6 +293,14 @@ def clean_up_linter():
         "--ignore-unknown",
         PROJECT_DIRECTORY
     ])
+    subprocess.call([
+        "npx",
+        "--yes",
+        "prettier",
+        "--write",
+        "--ignore-unknown",
+        PROJECT_DIRECTORY
+    ])
 
     if not USE_PRETTIER:
         remove_project_file(".prettierrc.yaml")
