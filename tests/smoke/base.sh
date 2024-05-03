@@ -25,6 +25,12 @@ else
   input_params="use_makim=yes ${input_params}"
 fi
 
+if [[ "${input_params}" == *"use_pre_commit=yes"* ]]; then
+  echo "pre-commit tool defined."
+else
+  input_params="use_pre_commit=yes ${input_params}"
+fi
+
 ENV_NAME=osl-python-package
 
 OUTPUT_DIR="/tmp/osl"
