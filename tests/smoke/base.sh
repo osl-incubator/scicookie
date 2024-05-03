@@ -38,21 +38,21 @@ if command -v poetry &> /dev/null; then
 elif command -v flit &> /dev/null; then
   flit install
 elif command -v meson &> /dev/null; then
-  pip install .
+  pip install ".[dev]"
 elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatch &> /dev/null; then
-  pip install .
+  pip install ".[dev]"
 elif command -v maturin &> /dev/null; then
-  pip install .
+  pip install ".[dev]"
 elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
-  pip install .
+  pip install ".[dev]"
 elif [ "$(pip list|grep -c pybind11)" -ne "0" ]; then
   # Assuming you are inside the root of the CMake source directory
-  pip install .
+  pip install ".[dev]"
 else
   # use setuptools
-  pip install .
+  pip install ".[dev]"
 fi
 
 ipython kernel install --name "python3" --user
