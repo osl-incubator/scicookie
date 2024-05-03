@@ -79,11 +79,11 @@ groups:
             type: string
             default: "-vv"
         run: |
-          {% if cookiecutter.use_pytest == "yes" -%}
+          {%- if cookiecutter.use_pytest == "yes" %}
           pytest {{ "${{ args.path }} ${{ args.params }}" }}
-          {%- elif cookiecutter.use_hypothesis == "yes" -%}
+          {%- elif cookiecutter.use_hypothesis == "yes" %}
           python -m unittest discover
-          {%- else -%}
+          {%- else %}
           echo "No test library installed."
           {%- endif %}
 
