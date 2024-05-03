@@ -148,3 +148,4 @@ Homepage = "{{ cookiecutter.project_url }}"
 "Bug Tracker" = "{{ cookiecutter.project_url }}/issues"
 Discussions = "{{ cookiecutter.project_url }}/discussions"
 Changelog = "{{ cookiecutter.project_url }}/releases"
+{#- keep this line at the end of the file -#}

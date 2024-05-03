@@ -37,6 +37,8 @@ USE_MAKE = {{ cookiecutter.use_make == "yes" }}
 USE_MAKIM = {{ cookiecutter.use_makim == "yes" }}
 USE_MYPY = {{ cookiecutter.use_mypy == "yes" }}
 USE_PRETTIER = {{ cookiecutter.use_prettier == "yes" }}
+USE_PYTEST = {{ cookiecutter.use_pytest == "yes" }}
+USE_HYPOTHESIS = {{ cookiecutter.use_hypothesis == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
@@ -117,6 +119,11 @@ def move_selected_doc_dir():
         remove_project_file(Path("docs/api") / "references.md")
         remove_project_file(Path("docs/api") / "references.rst")
     shutil.rmtree(DOCS_SPEC_DIR)
+
+
+def clean_up_tests():
+    if not USE_PYTEST and not USE_HYPOTHESIS:
+        remove_project_file("tests/test_main.py")
 
 
 def clean_up_automation():
@@ -383,6 +390,7 @@ def post_gen():
     clean_up_roadmap()
     clean_up_build_system()
     clean_up_prettier()
+    clean_up_tests()
 
     # keep it at the end, because it will create a new git commit
     prepare_git()

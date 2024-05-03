@@ -11,6 +11,20 @@ if [ "$(which conda)" == "" ]; then
   exit 1
 fi
 
+input_params="$1"
+
+if [[ "${input_params}" == *"use_conda=yes"* ]] || [[ "$input_params" == *"use_virtualenv=yes"* ]]; then
+  echo "Virtual environment defined."
+else
+  input_params="use_conda=yes ${input_params}"
+fi
+
+if [[ "${input_params}" == *"use_makim=yes"* ]] || [[ "$input_params" == *"use_make=yes"* ]]; then
+  echo "Automation task tool defined."
+else
+  input_params="use_makim=yes ${input_params}"
+fi
+
 ENV_NAME=osl-python-package
 
 OUTPUT_DIR="/tmp/osl"
@@ -20,15 +34,25 @@ mkdir -p "${OUTPUT_DIR}"
 cookieninja --no-input \
   --output-dir "${OUTPUT_DIR}" \
   "${PROJECT_PATH}/src/scicookie" \
-  ${1}
+  ${input_params}
 
 cd "${OUTPUT_DIR}/${ENV_NAME}"
 
-set +x
-eval "$(conda shell.bash hook)"
-mamba env create --file conda/dev.yaml --name "${ENV_NAME}" --yes
-conda activate "${ENV_NAME}"
-set -x
+
+if [[ "${input_params}" == *"use_conda=yes"* ]]; then
+  set +x
+  eval "$(conda shell.bash hook)"
+  mamba env create --file conda/dev.yaml --name "${ENV_NAME}" --yes
+  conda activate "${ENV_NAME}"
+  set -x
+fi
+
+if [[ "$input_params" == *"use_virtualenv=yes"* ]]; then
+  set +x
+  virtualenv "${ENV_NAME}"
+  source "${ENV_NAME}"/bin/activate
+  set -x
+fi
 
 # remove any path to scicookie environment
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
