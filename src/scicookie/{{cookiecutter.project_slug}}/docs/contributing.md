@@ -116,7 +116,7 @@ Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug }}` fo
 development.
 
 1.  Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
-2.  Clone your fork locally and change to the directory of your project:
+1.  Clone your fork locally and change to the directory of your project:
 ```bash
 $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
 $ cd {{cookiecutter.project_slug }}/
@@ -128,12 +128,11 @@ $ git remote add upstream {{ cookiecutter.git_https_upstream }}
 $ git fetch --all
 ```
 {% endif -%}
-3.  Prepare and use virtual environment:
-{% if cookiecutter.use_conda == "yes" %}
+1.  Prepare and use virtual environment:
+{%- if cookiecutter.use_conda == "yes" %}
 If you don't have yet conda installed in your machine, you can check the
 installation steps here:
 <https://github.com/conda-forge/miniforge?tab=readme-ov-file#download>
-
 After that, ensure that conda is already available in your terminal session and
 run:
 ```bash
@@ -152,27 +151,27 @@ $ source {{ cookiecutter.package_slug }}/bin/activate
 We highly recommend you to use `conda` for managing virtual environment, but
 you can use any other one of your preference.
 {% endif -%}
-4. Install the dependencies:
+1. Install the dependencies:
 Now, you can already install the dependencies for the project:
 {% if cookiecutter.build_system == "poetry" -%}
 ```bash
 $ poetry install
 ```
-{% elif cookiecutter.build_system == "pdm" -%}
+{%- elif cookiecutter.build_system == "pdm" -%}
 ```bash
 $ pdm install
 ```
-{% elif cookiecutter.build_system == "flit" -%}
+{%- elif cookiecutter.build_system == "flit" -%}
 ```bash
 $ flit install
 ```
-{% else -%}
+{%- else -%}
 ```bash
 $ pip install -e ".[dev]"
 ```
-{% endif -%}
+{%- endif -%}
 {% if cookiecutter.use_pre_commit == "yes" %}
-6.  `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks to
+1.  `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks to
 improve code quality. The hooks can be installed locally using:
 ```bash
 $ pre-commit install
@@ -187,22 +186,22 @@ If you would like to skip the failing checks and push the code for further
 discussion, use the `--no-verify` option with `git commit`.
 {% endif -%}
 {% if cookiecutter.use_pytest == "yes" %}
-7.  This project uses `pytest` as a testing tool. `pytest` is responsible for
+1.  This project uses `pytest` as a testing tool. `pytest` is responsible for
 testing the code, whose configuration is available in pyproject.toml.
 Additionally, this project also uses `pytest-cov` to calculate the coverage of
 these unit tests. For more information, check the section about tests later in
 this document.
 {% elif cookiecutter.use_hypothesis == "yes" %}
-7.  This project uses `hypothesis` as a testing tool. For more information,
+1.  This project uses `hypothesis` as a testing tool. For more information,
 please check its official documentation <https://hypothesis.readthedocs.io/>
 {% endif -%}
-8.  Commit your changes and push your branch to GitHub::
+1.  Commit your changes and push your branch to GitHub::
 ```
 $ git add .
 $ git commit -m "Your detailed description of your changes.""
 $ git push origin name-of-your-bugfix-or-feature
 ```
-9.  Submit a pull request through the GitHub website.
+1.  Submit a pull request through the GitHub website.
 
 ## Pull Request Guidelines
 
@@ -236,9 +235,7 @@ $ python -m pytest --cov={{ cookiecutter.project_slug }} tests/
 
 A much more detailed guide on testing with `pytest` is available
 [here](https://docs.pytest.org/en/8.0.x/how-to/index.html).
-
 {%- endif %}
-
 {%- endif %}
 
 {% if cookiecutter.use_makim == "yes" -%}
@@ -250,7 +247,6 @@ This project uses `makim` as  an automation tool. Please, check the
 ```bash
 $ makim --help
 ```
-
 {% elif cookiecutter.use_make == "yes" -%}
 ## Automation Tasks with Make
 

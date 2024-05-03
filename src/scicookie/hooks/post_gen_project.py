@@ -37,6 +37,7 @@ USE_MAKE = {{ cookiecutter.use_make == "yes" }}
 USE_MAKIM = {{ cookiecutter.use_makim == "yes" }}
 USE_MYPY = {{ cookiecutter.use_mypy == "yes" }}
 USE_PRETTIER = {{ cookiecutter.use_prettier == "yes" }}
+USE_PRE_COMMIT = {{ cookiecutter.use_pre_commit == "yes" }}
 USE_PYTEST = {{ cookiecutter.use_pytest == "yes" }}
 USE_HYPOTHESIS = {{ cookiecutter.use_hypothesis == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
@@ -192,11 +193,6 @@ def clean_up_cli():
         remove_package_file("cli.py")
 
 
-def clean_up_prettier():
-    if not USE_PRETTIER:
-        remove_project_file(".prettierrc.yaml")
-        remove_project_file(".prettierignore")
-
 def clean_up_build_system():
     build_system_dir = PROJECT_DIRECTORY / "build-system"
 
@@ -281,7 +277,18 @@ def http2ssh(url):
     url = url.replace("https://", "git@")
     return url.replace("/", ":", 1)
 
-def autoformatter():
+def clean_up_linter():
+    if not USE_MYPY:
+        remove_package_file("py.typed")
+
+    if not USE_PRE_COMMIT:
+        remove_project_file(".pre-commit-config.yaml")
+
+    if not USE_PRETTIER:
+        remove_project_file(".prettierrc.yaml")
+        remove_project_file(".prettierignore")
+
+    # keep this one at the end
     if USE_PRETTIER:
         subprocess.call([
             "npx",
@@ -380,18 +387,12 @@ def add_binding_source_files():
         pass
 
 
-def clean_up_mypy():
-    if not USE_MYPY:
-        remove_package_file("py.typed")
-
-
 def post_gen():
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
     add_binding_source_files()
     clean_up_automation()
     clean_up_cli()
-    clean_up_mypy()
     clean_up_code_of_conduct()
     clean_up_conda()
     clean_up_containers()
@@ -399,11 +400,10 @@ def post_gen():
     clean_up_governance()
     clean_up_roadmap()
     clean_up_build_system()
-    clean_up_prettier()
     clean_up_tests()
 
-    # autoformatter
-    autoformatter()
+    # keep it before the prepare_git function call
+    clean_up_linter()
 
     # keep it at the end, because it will create a new git commit
     prepare_git()
