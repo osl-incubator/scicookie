@@ -79,13 +79,13 @@ groups:
             type: string
             default: "-vv"
         run: |
-          {%- if cookiecutter.use_pytest == "yes" -%}
+          {% if cookiecutter.use_pytest == "yes" -%}
           pytest {{ "${{ args.path }} ${{ args.params }}" }}
           {%- elif cookiecutter.use_hypothesis == "yes" -%}
           python -m unittest discover
           {%- else -%}
           echo "No test library installed."
-          {%- endif -%}
+          {%- endif %}
 
       ci:
         help: run the sames tests executed on CI
