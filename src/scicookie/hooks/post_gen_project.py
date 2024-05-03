@@ -284,20 +284,19 @@ def clean_up_linter():
     if not USE_PRE_COMMIT:
         remove_project_file(".pre-commit-config.yaml")
 
+    # Auto format files with prettier
+    subprocess.call([
+        "npx",
+        "--yes",
+        "prettier",
+        "--write",
+        "--ignore-unknown",
+        PROJECT_DIRECTORY
+    ])
+
     if not USE_PRETTIER:
         remove_project_file(".prettierrc.yaml")
         remove_project_file(".prettierignore")
-
-    # keep this one at the end
-    if USE_PRETTIER:
-        subprocess.call([
-            "npx",
-            "--yes",
-            "prettier",
-            "--write",
-            "--ignore-unknown",
-            PROJECT_DIRECTORY
-        ])
 
 
 def prepare_git() -> None:
