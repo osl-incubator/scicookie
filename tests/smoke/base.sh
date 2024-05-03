@@ -50,7 +50,7 @@ fi
 if [[ "$input_params" == *"use_virtualenv=yes"* ]]; then
   set +x
   virtualenv "${ENV_NAME}"
-  source "${ENV_NAME}"/bin/activate
+  source "${ENV_NAME}/bin/activate"
   set -x
 fi
 
