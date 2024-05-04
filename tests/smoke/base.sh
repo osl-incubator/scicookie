@@ -105,8 +105,12 @@ else
 
 fi
 
-if [[ "$BUILD_SYSTEM" != "mesonpy" && "$BUILD_SYSTEM" != "maturin" ]]; then
+if [[ "$BUILD_SYSTEM" != "maturin" ]]; then
     python -c "import osl_python_package as mypkg; assert mypkg.__version__ == '0.1.0'"
+fi
+
+if [[ "$BUILD_SYSTEM" == "mesonpy" ]]; then
+    python -c "from osl_python_package import core; core.foo()"
 fi
 
 export PATH=${PATH_ORI}

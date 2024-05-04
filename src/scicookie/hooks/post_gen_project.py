@@ -389,27 +389,6 @@ def prepare_git() -> None:
     subprocess.call(["git", "branch", "-D", git_stash_branch])
 
 
-# def add_binding_source_files():
-#     if BUILD_SYSTEM == "maturin":
-#         build_system_dir = PROJECT_DIRECTORY / "build-system"
-#         src_system_dir = PROJECT_DIRECTORY/ "src"
-#         if USE_SRC_LAYOUT :
-#             shutil.move(build_system_dir / "lib.rs", "src")
-#         else:
-#             os.makedir(src_system_dir)
-#             shutil.move(build_system_dir / "lib.rs", src_system_dir)
-#     elif BUILD_SYSTEM == "pybind11" :
-#         build_system_dir = PROJECT_DIRECTORY / "build-system"
-#         src_system_dir = PROJECT_DIRECTORY/ "src"
-#         if USE_SRC_LAYOUT :
-#             shutil.move(build_system_dir / "main.cpp", "src")
-#         else:
-#             os.makedir(src_system_dir)
-#             shutil.move(build_system_dir / "main.cpp", src_system_dir)
-#     else:
-#         pass
-
-
 def post_gen():
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
