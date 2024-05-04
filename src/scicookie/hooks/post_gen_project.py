@@ -201,36 +201,7 @@ def clean_up_build_system():
     build_system_base_dir = PROJECT_DIRECTORY / "build-system"
     build_system_dir = build_system_base_dir / BUILD_SYSTEM
 
-    if BUILD_SYSTEM == "poetry":
-        shutil.move(
-            build_system_dir / "pyproject.toml",
-            PROJECT_DIRECTORY / 'pyproject.toml'
-        )
-    elif BUILD_SYSTEM == "flit":
-        shutil.move(
-            build_system_dir / "pyproject.toml",
-            PROJECT_DIRECTORY / 'pyproject.toml'
-        )
-    elif BUILD_SYSTEM == "mesonpy":
-        os.makedirs(COMPILE_SOURCE_DIR, exist_ok=True)
-        shutil.move(
-            build_system_dir / "pyproject.toml",
-            PROJECT_DIRECTORY / 'pyproject.toml'
-        )
-        shutil.move(
-            build_system_dir / "meson.build",
-            PROJECT_DIRECTORY / 'meson.build'
-        )
-        shutil.move(
-            build_system_dir / "main.cpp",
-            COMPILE_SOURCE_DIR / 'main.cpp'
-        )
-    elif BUILD_SYSTEM == "setuptools":
-        shutil.move(
-            build_system_dir / "pyproject.toml",
-            PROJECT_DIRECTORY / 'pyproject.toml'
-        )
-    elif BUILD_SYSTEM == "pdm":
+    if BUILD_SYSTEM == "flit":
         shutil.move(
             build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
@@ -253,18 +224,29 @@ def clean_up_build_system():
             build_system_dir / "lib.rs",
             COMPILE_SOURCE_DIR / 'lib.rs'
         )
-    elif BUILD_SYSTEM == "scikit-build-core":
+    elif BUILD_SYSTEM == "mesonpy":
+        os.makedirs(COMPILE_SOURCE_DIR, exist_ok=True)
         shutil.move(
             build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
         shutil.move(
-            build_system_dir / "CMakeLists.txt",
-            PROJECT_DIRECTORY / 'CMakeLists.txt'
+            build_system_dir / "meson.build",
+            PROJECT_DIRECTORY / 'meson.build'
         )
         shutil.move(
             build_system_dir / "main.cpp",
             COMPILE_SOURCE_DIR / 'main.cpp'
+        )
+    elif BUILD_SYSTEM == "pdm":
+        shutil.move(
+            build_system_dir / "pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+    elif BUILD_SYSTEM == "poetry":
+        shutil.move(
+            build_system_dir / "pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
         )
     elif BUILD_SYSTEM == "pybind11":
         shutil.move(
@@ -282,6 +264,24 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "main.cpp",
             COMPILE_SOURCE_DIR / 'main.cpp'
+        )
+    elif BUILD_SYSTEM == "scikit-build-core":
+        shutil.move(
+            build_system_dir / "pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+        shutil.move(
+            build_system_dir / "CMakeLists.txt",
+            PROJECT_DIRECTORY / 'CMakeLists.txt'
+        )
+        shutil.move(
+            build_system_dir / "main.cpp",
+            COMPILE_SOURCE_DIR / 'main.cpp'
+        )
+    elif BUILD_SYSTEM == "setuptools":
+        shutil.move(
+            build_system_dir / "pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
         )
     else:
         shutil.move(

@@ -3,7 +3,7 @@
 {% else -%}
 {% set package_path = cookiecutter.package_slug -%}
 {% endif -%}
-{% set cpp_path = "src/" -%}
+{% set cpp_path = "src" -%}
 project(
   '{{ cookiecutter.project_slug }}',
   'cpp',
@@ -11,13 +11,16 @@ project(
   license: '{{ cookiecutter.project_license }}',
   meson_version: '>= 1.1.0',
 )
-name = '{{ cookiecutter.package_slug }}'
+# name = '{{ cookiecutter.package_slug }}'
+
+cpp_sources = files('src/main.cpp')
 
 py_mod = import('python')
 py = py_mod.find_installation(pure: false)
 
 py.extension_module(
-    '{{ cpp_path }}/main.cpp',
+    '{{ cookiecutter.project_slug }}',
+    cpp_sources,
     subdir: '{{ cookiecutter.project_slug }}',
     install: true,
 )

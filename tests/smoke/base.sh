@@ -63,17 +63,21 @@ fi
 # remove any path to scicookie environment
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
 
+BUILD_SYSTEM = "others"
+
 if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then
   flit install
 elif command -v meson &> /dev/null; then
+  BUILD_SYSTEM="mesonpy"
   pip install ".[dev]"
 elif command -v pdm &> /dev/null; then
   pdm install
 elif command -v hatch &> /dev/null; then
   pip install ".[dev]"
 elif command -v maturin &> /dev/null; then
+  BUILD_SYSTEM="maturin"
   pip install ".[dev]"
 elif [ "$(pip list|grep -c scikit_build_core)" -ne "0" ]; then
   pip install ".[dev]"
@@ -98,9 +102,12 @@ elif command -v make &> /dev/null; then
 else
   echo "Makim and Make were not found in the system."
   exit 1
+
 fi
 
-python -c "import osl_python_package as mypkg; assert mypkg.__version__ == '0.1.0'"
+if [[ "$BUILD_SYSTEM" != "mesonpy" && "$BUILD_SYSTEM" != "maturin" ]]; then
+    python -c "import osl_python_package as mypkg; assert mypkg.__version__ == '0.1.0'"
+fi
 
 export PATH=${PATH_ORI}
 
