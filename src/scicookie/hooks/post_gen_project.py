@@ -201,6 +201,8 @@ def clean_up_build_system():
     build_system_base_dir = PROJECT_DIRECTORY / "build-system"
     build_system_dir = build_system_base_dir / BUILD_SYSTEM
 
+    os.makedirs(COMPILE_SOURCE_DIR, exist_ok=True)
+
     if BUILD_SYSTEM == "flit":
         shutil.move(
             build_system_dir / "pyproject.toml",
