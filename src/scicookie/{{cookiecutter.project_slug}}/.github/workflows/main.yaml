@@ -1,3 +1,4 @@
+{%- raw -%}
 name: main
 
 on:
@@ -30,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
-      group: ci-${{ github.event_name }}-${{ "{{ github.ref }}" }}
+      group: ci-${{ github.event_name }}-${{ github.ref }}
       cancel-in-progress: true
 
     defaults:
@@ -39,6 +40,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+{%- endraw %}
 {% if cookiecutter.use_conda == "yes" %}
       - uses: conda-incubator/setup-miniconda@v3
         with:
@@ -75,7 +77,7 @@ jobs:
         run: |
           {%- if cookiecutter.use_makim == "yes" %}
           makim tests.unit
-          {%- if cookiecutter.use_make == "yes" %}
+          {%- elif cookiecutter.use_make == "yes" %}
           make test
           {%- else %}
           # add your command for running tests here
@@ -88,8 +90,10 @@ jobs:
           pre-commit install
           {%- if cookiecutter.use_makim == "yes" %}
           makim tests.linter
-          {%- else %}
+          {%- elif cookiecutter.use_make == "yes" %}
           make lint
+          {%- else %}
+          # add your command for running the linter here
           {%- endif %}
           {%- else %}
           # add your command for running the linter here

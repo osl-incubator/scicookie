@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: "pypy3.9"
-      
+
       - name: Create virtual environment
         run: python -m venv {{ cookiecutter.project_slug }}
 
@@ -60,43 +60,53 @@ jobs:
           {%- endif %}
 
       - name: Run semantic release (for tests)
-        if: ${{ "{{ github.event_name != 'workflow_dispatch' }}" }}
+        if: {% raw %}${{ github.event_name != 'workflow_dispatch' }}{% endraw %}
         env:
-          GITHUB_TOKEN: ${{ "{{ secrets.GITHUB_TOKEN }}" }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         run: |
           {%- if cookiecutter.use_makim == "yes" %}
           makim release.dry
-          {%- elif cookiecutter.use_make == "yes" -%}
+          {%- elif cookiecutter.use_make == "yes" %}
           make release-dry
+          {%- else %}
+          # add your command here to run semantic-release in dry mode
           {%- endif %}
 
       - name: Release command
-        if: ${{ "{{ github.event_name == 'workflow_dispatch' }}" }}
+        if: {% raw %}${{ github.event_name == 'workflow_dispatch' }}{% endraw %}
         env:
-          GITHUB_TOKEN: ${{ "{{ secrets.GITHUB_TOKEN }}" }}
-          PYPI_TOKEN: ${{ "{{ secrets.PYPI_TOKEN }}" }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          PYPI_TOKEN: {% raw %}${{ secrets.PYPI_TOKEN }}{% endraw %}
         run: |
-          poetry config pypi-token.pypi ${PYPI_TOKEN}
+          {%- if cookiecutter.build_system == "poetry" %}
+          poetry config pypi-token.pypi {% raw %}${PYPI_TOKEN}{% endraw %}
+          {%- else %}
+          # add here any configuration for setting PYPI_TOKEN
+          {% endif -%}
           {%- if cookiecutter.use_makim == "yes" %}
           makim release.ci
           {%- elif cookiecutter.use_make == "yes" -%}
           make release-ci
+          {%- else -%}
+          # add your command here to run semantic-release for CI
           {%- endif %}
 
       - name: Generate documentation with changes from semantic-release
-        if: ${{ "{{ github.event_name == 'workflow_dispatch' }}" }}
+        if: {% raw %}${{ github.event_name == 'workflow_dispatch' }}{% endraw %}
         run: |
           {%- if cookiecutter.use_makim == "yes" %}
           makim docs.build
           {%- elif cookiecutter.use_make == "yes" -%}
           make docs-build
+          {%- else %}
+          # add here your command for generating the documentation
           {%- endif %}
 
       - name: GitHub Pages action
-        if: ${{ "{{ github.event_name == 'workflow_dispatch' }}" }}
+        if: {% raw %}${{ github.event_name == 'workflow_dispatch' }}{% endraw %}
         uses: peaceiris/actions-gh-pages@v3.5.9
         with:
-          github_token: ${{ "{{ secrets.GITHUB_TOKEN }}" }}
+          github_token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           publish_dir: >-
             {%- if cookiecutter.documentation_engine == "jupyter-book" %}
             ./docs/_build/html
@@ -104,4 +114,6 @@ jobs:
             build/
             {%- elif cookiecutter.documentation_engine == "sphinx" %}
             docs/_build/html/
+            {%- else %}
+            # add here the path for your documentation static folder
             {%- endif %}
