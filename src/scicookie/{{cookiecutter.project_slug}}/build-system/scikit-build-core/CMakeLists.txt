@@ -4,6 +4,6 @@ project({{ cookiecutter.package_slug }} VERSION {{ cookiecutter.project_version 
 
 find_package(pybind11 CONFIG REQUIRED)
 
-pybind11_add_module(main MODULE main.cpp)
+pybind11_add_module({{ cookiecutter.package_slug }} MODULE src/main.cpp)
 
-install(TARGETS main DESTINATION .)
+install(TARGETS {{ cookiecutter.package_slug }} DESTINATION .)

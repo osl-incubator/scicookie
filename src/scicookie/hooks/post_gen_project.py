@@ -30,7 +30,7 @@ if USE_SRC_LAYOUT:
 else:
     PACKAGE_PATH = PROJECT_DIRECTORY / "{{ cookiecutter.package_slug}}"
 
-CPP_DIR = PROJECT_DIRECTORY / "src"
+COMPILE_SOURCE_DIR = PROJECT_DIRECTORY / "src"
 
 USE_BLACK = {{ cookiecutter.use_black == "yes" }}
 USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
@@ -212,7 +212,7 @@ def clean_up_build_system():
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     elif BUILD_SYSTEM == "mesonpy":
-        os.makedirs(CPP_DIR, exist_ok=True)
+        os.makedirs(COMPILE_SOURCE_DIR, exist_ok=True)
         shutil.move(
             build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
@@ -223,7 +223,7 @@ def clean_up_build_system():
         )
         shutil.move(
             build_system_dir / "main.cpp",
-            CPP_DIR / 'main.cpp'
+            COMPILE_SOURCE_DIR / 'main.cpp'
         )
     elif BUILD_SYSTEM == "setuptools":
         shutil.move(
@@ -249,6 +249,10 @@ def clean_up_build_system():
             build_system_dir / "Cargo.toml",
             PROJECT_DIRECTORY / 'Cargo.toml'
         )
+        shutil.move(
+            build_system_dir / "lib.rs",
+            COMPILE_SOURCE_DIR / 'lib.rs'
+        )
     elif BUILD_SYSTEM == "scikit-build-core":
         shutil.move(
             build_system_dir / "pyproject.toml",
@@ -260,7 +264,7 @@ def clean_up_build_system():
         )
         shutil.move(
             build_system_dir / "main.cpp",
-            PROJECT_DIRECTORY / 'main.cpp'
+            COMPILE_SOURCE_DIR / 'main.cpp'
         )
     elif BUILD_SYSTEM == "pybind11":
         shutil.move(
@@ -274,6 +278,10 @@ def clean_up_build_system():
         shutil.move(
             build_system_dir / "setup.py",
             PROJECT_DIRECTORY / 'setup.py'
+        )
+        shutil.move(
+            build_system_dir / "main.cpp",
+            COMPILE_SOURCE_DIR / 'main.cpp'
         )
     else:
         shutil.move(
@@ -381,31 +389,30 @@ def prepare_git() -> None:
     subprocess.call(["git", "branch", "-D", git_stash_branch])
 
 
-def add_binding_source_files():
-    if BUILD_SYSTEM == "maturin":
-        build_system_dir = PROJECT_DIRECTORY / "build-system"
-        src_system_dir = PROJECT_DIRECTORY/ "src"
-        if USE_SRC_LAYOUT :
-            shutil.move(build_system_dir / "lib.rs", "src")
-        else:
-            os.makedir(src_system_dir)
-            shutil.move(build_system_dir / "lib.rs", src_system_dir)
-    elif BUILD_SYSTEM == "pybind11" :
-        build_system_dir = PROJECT_DIRECTORY / "build-system"
-        src_system_dir = PROJECT_DIRECTORY/ "src"
-        if USE_SRC_LAYOUT :
-            shutil.move(build_system_dir / "main.cpp", "src")
-        else:
-            os.makedir(src_system_dir)
-            shutil.move(build_system_dir / "main.cpp", src_system_dir)
-    else:
-        pass
+# def add_binding_source_files():
+#     if BUILD_SYSTEM == "maturin":
+#         build_system_dir = PROJECT_DIRECTORY / "build-system"
+#         src_system_dir = PROJECT_DIRECTORY/ "src"
+#         if USE_SRC_LAYOUT :
+#             shutil.move(build_system_dir / "lib.rs", "src")
+#         else:
+#             os.makedir(src_system_dir)
+#             shutil.move(build_system_dir / "lib.rs", src_system_dir)
+#     elif BUILD_SYSTEM == "pybind11" :
+#         build_system_dir = PROJECT_DIRECTORY / "build-system"
+#         src_system_dir = PROJECT_DIRECTORY/ "src"
+#         if USE_SRC_LAYOUT :
+#             shutil.move(build_system_dir / "main.cpp", "src")
+#         else:
+#             os.makedir(src_system_dir)
+#             shutil.move(build_system_dir / "main.cpp", src_system_dir)
+#     else:
+#         pass
 
 
 def post_gen():
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
-    add_binding_source_files()
     clean_up_automation()
     clean_up_cli()
     clean_up_code_of_conduct()
