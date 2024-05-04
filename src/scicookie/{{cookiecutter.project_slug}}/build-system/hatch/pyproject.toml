@@ -1,0 +1,17 @@
+{% if cookiecutter.project_layout == "src" -%}
+{% set package_path = "src/" + cookiecutter.package_slug -%}
+{% else -%}
+{% set package_path = cookiecutter.package_slug -%}
+{% endif -%}
+[build-system]
+requires = ["hatchling>=1.17.1"]
+build-backend = "hatchling.build"
+
+{% include "build-system/base/pyproject.toml" %}
+{% include "build-system/base/dev-deps-pyproject.toml" %}
+{% include "build-system/base/urls-pyproject.toml" %}
+
+[tool.hatch.version]
+path = "{{ package_path }}/__init__.py"
+
+{% include "build-system/base/dev-deps-config-pyproject.toml" %}

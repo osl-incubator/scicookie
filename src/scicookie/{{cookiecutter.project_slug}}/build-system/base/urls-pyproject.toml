@@ -1,0 +1,5 @@
+[project.urls]
+Homepage = "{{ cookiecutter.project_url }}"
+"Bug Tracker" = "{{ cookiecutter.project_url }}/issues"
+Discussions = "{{ cookiecutter.project_url }}/discussions"
+Changelog = "{{ cookiecutter.project_url }}/releases"

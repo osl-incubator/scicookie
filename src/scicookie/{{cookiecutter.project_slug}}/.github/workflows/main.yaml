@@ -1,3 +1,4 @@
+{%- raw -%}
 name: main
 
 on:
@@ -7,11 +8,30 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  check-branch:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    concurrency:
+      group: check-pr-${{ github.ref }}
+      cancel-in-progress: true
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Check if the PR's branch is updated
+        uses: osl-incubator/gh-check-pr-is-updated@1.0.0
+        with:
+          remote_branch: origin/main
+          pr_sha: ${{ github.event.pull_request.head.sha }}
+
+  test:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
-      group: ci-${{ "{{ github.ref }}" }}
+      group: ci-${{ github.event_name }}-${{ github.ref }}
       cancel-in-progress: true
 
     defaults:
@@ -20,6 +40,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+{%- endraw %}
 {% if cookiecutter.use_conda == "yes" %}
       - uses: conda-incubator/setup-miniconda@v3
         with:
@@ -38,7 +59,7 @@ jobs:
         run: source {{ cookiecutter.project_slug }}/bin/activate
 
       - name: Install build-system
-        run: pip install -r requests.txt
+        run: pip install -r requirements.txt
 {%- endif %}
       - name: Install dependencies
         run: |
@@ -56,16 +77,24 @@ jobs:
         run: |
           {%- if cookiecutter.use_makim == "yes" %}
           makim tests.unit
-          {%- else %}
+          {%- elif cookiecutter.use_make == "yes" %}
           make test
+          {%- else %}
+          # add your command for running tests here
           {%- endif %}
 
       - name: Run style checks
         if: success() || failure()
         run: |
+          {%- if cookiecutter.use_pre_commit == "yes" %}
           pre-commit install
           {%- if cookiecutter.use_makim == "yes" %}
           makim tests.linter
-          {%- else %}
+          {%- elif cookiecutter.use_make == "yes" %}
           make lint
+          {%- else %}
+          # add your command for running the linter here
+          {%- endif %}
+          {%- else %}
+          # add your command for running the linter here
           {%- endif %}

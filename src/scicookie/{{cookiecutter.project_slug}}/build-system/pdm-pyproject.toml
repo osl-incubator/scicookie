@@ -1,7 +1,0 @@
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
-
-{% include "build-system/deps-pyproject.toml" %}
-{% include "build-system/base-pyproject.toml" %}
-{#- keep this line at the end of the file -#}

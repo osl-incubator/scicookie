@@ -1,0 +1,55 @@
+[project]
+name = "{{ cookiecutter.project_slug }}"
+authors = [
+  { name = "{{ cookiecutter.author_full_name }}", email = "{{ cookiecutter.author_email }}" },
+]
+description = "{{ cookiecutter.project_short_description }}"
+{% if cookiecutter.build_system not in ["setuptools", "pybind11"]%}
+{% if cookiecutter.project_layout == "src" -%}
+packages = [
+  {include = "{{ cookiecutter.package_slug }}", from="src"},
+]
+{% else -%}
+packages = [
+  {include = "{{ cookiecutter.package_slug }}"},
+]
+{% endif -%}
+{% endif -%}
+readme = "README.md"
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Developers",
+{%- if cookiecutter.project_license == "MIT" %}
+  "License :: OSI Approved :: MIT License",
+{%- elif cookiecutter.project_license == "BSD 3 Clause" %}
+  "License :: OSI Approved :: BSD License",
+{%- elif cookiecutter.project_license == "Apache Software License 2.0" %}
+  "License :: OSI Approved :: Apache Software License",
+{%- elif cookiecutter.project_license == "GNU General Public License v3" %}
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+{% endif %}
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+{%- if cookiecutter.use_mypy == "yes" %}
+  "Typing :: Typed",
+{% endif -%}
+]
+{% if cookiecutter.build_system == "scikit-build-core" %}
+version = "{{ cookiecutter.project_version }}"
+{% else %}
+dynamic = ["version"]
+{% endif -%}
+requires-python = ">=3.8.1,<4"
+dependencies = [
+  # note: add your dependencies here
+]
+{# keep this line here -#}

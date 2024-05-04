@@ -1,0 +1,12 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+{% include "build-system/base/pyproject.toml" %}
+{% include "build-system/base/dev-deps-pyproject.toml" %}
+{% include "build-system/base/urls-pyproject.toml" %}
+
+[tool.maturin]
+manifest-path = "Cargo.toml"
+
+{% include "build-system/base/dev-deps-config-pyproject.toml" %}

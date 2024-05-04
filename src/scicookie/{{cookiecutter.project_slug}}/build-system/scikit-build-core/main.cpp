@@ -2,7 +2,7 @@
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(skcdemo, m) {
+PYBIND11_MODULE({{ cookiecutter.package_slug }}, m) {
     m.def("hello", [](){
         py::print("Hello, scikit-build-core!");
     });
