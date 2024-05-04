@@ -63,7 +63,7 @@ fi
 # remove any path to scicookie environment
 export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
 
-BUILD_SYSTEM = "others"
+BUILD_SYSTEM="others"
 
 if command -v poetry &> /dev/null; then
   poetry install
