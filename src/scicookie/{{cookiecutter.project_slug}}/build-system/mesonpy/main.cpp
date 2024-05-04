@@ -12,13 +12,13 @@ static PyMethodDef methods[] = {
 
 static struct PyModuleDef module = {
     PyModuleDef_HEAD_INIT,
-    "{{ cookiecutter.package_slug }}",
+    "core",
     NULL,
     -1,
     methods,
 };
 
-PyMODINIT_FUNC PyInit_{{ cookiecutter.package_slug }}(void)
+PyMODINIT_FUNC PyInit_core(void)
 {
     return PyModule_Create(&module);
 }

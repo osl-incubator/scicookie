@@ -11,7 +11,7 @@ project(
   license: '{{ cookiecutter.project_license }}',
   meson_version: '>= 1.1.0',
 )
-# name = '{{ cookiecutter.package_slug }}'
+name = '{{ cookiecutter.package_slug }}'
 
 cpp_sources = files('src/main.cpp')
 
@@ -19,14 +19,14 @@ py_mod = import('python')
 py = py_mod.find_installation(pure: false)
 
 py.extension_module(
-    '{{ cookiecutter.project_slug }}',
+    'core',
     cpp_sources,
-    subdir: '{{ cookiecutter.project_slug }}',
+    subdir: '{{ cookiecutter.package_slug }}',
     install: true,
 )
 
 install_subdir(
     '{{ package_path }}',
-    install_dir: py.get_install_dir() / '{{ cookiecutter.project_slug }}',
+    install_dir: py.get_install_dir() / '{{ cookiecutter.package_slug }}',
     strip_directory: true
 )
