@@ -4,7 +4,7 @@
 {%- else %}
   {%- set QUOTE = "'" -%}
 {%- endif %}
-{% if cookiecutter.build_system == "hatch" -%}
+{% if cookiecutter.build_system in ["hatch", "pdm", "flit"] -%}
 __version__ = {{ QUOTE }}{{ cookiecutter.project_version }}{{ QUOTE }}
 {%- else %}
 from importlib import metadata as importlib_metadata

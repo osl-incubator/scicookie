@@ -100,6 +100,8 @@ else
   exit 1
 fi
 
+python -c "import osl_python_package as mypkg; assert mypkg.__version__ == '0.1.0'"
+
 export PATH=${PATH_ORI}
 
 echo '---------------------------- passed --------------------------'
