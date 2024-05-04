@@ -1,0 +1,8 @@
+[build-system]
+requires = ["flit_core >=3.4"]
+build-backend = "flit_core.buildapi"
+
+{% include "build-system/base/pyproject.toml" %}
+{% include "build-system/base/dev-deps-pyproject.toml" %}
+{% include "build-system/base/urls-pyproject.toml" %}
+{% include "build-system/base/dev-deps-config-pyproject.toml" %}

@@ -30,6 +30,8 @@ if USE_SRC_LAYOUT:
 else:
     PACKAGE_PATH = PROJECT_DIRECTORY / "{{ cookiecutter.package_slug}}"
 
+CPP_DIR = PROJECT_DIRECTORY / "src"
+
 USE_BLACK = {{ cookiecutter.use_black == "yes" }}
 USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
@@ -196,45 +198,51 @@ def clean_up_cli():
 
 
 def clean_up_build_system():
-    build_system_dir = PROJECT_DIRECTORY / "build-system"
+    build_system_base_dir = PROJECT_DIRECTORY / "build-system"
+    build_system_dir = build_system_base_dir / BUILD_SYSTEM
 
     if BUILD_SYSTEM == "poetry":
         shutil.move(
-            build_system_dir / "poetry-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     elif BUILD_SYSTEM == "flit":
         shutil.move(
-            build_system_dir / "flit-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     elif BUILD_SYSTEM == "mesonpy":
+        os.makedirs(CPP_DIR, exist_ok=True)
         shutil.move(
-            build_system_dir / "mesonpy-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
         shutil.move(
             build_system_dir / "meson.build",
             PROJECT_DIRECTORY / 'meson.build'
         )
+        shutil.move(
+            build_system_dir / "main.cpp",
+            CPP_DIR / 'main.cpp'
+        )
     elif BUILD_SYSTEM == "setuptools":
         shutil.move(
-            build_system_dir / "setuptools-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     elif BUILD_SYSTEM == "pdm":
         shutil.move(
-            build_system_dir / "pdm-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     elif BUILD_SYSTEM == "hatch":
         shutil.move(
-            build_system_dir / "hatch-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     elif BUILD_SYSTEM == "maturin":
         shutil.move(
-            build_system_dir / "maturin-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
         shutil.move(
@@ -243,7 +251,7 @@ def clean_up_build_system():
         )
     elif BUILD_SYSTEM == "scikit-build-core":
         shutil.move(
-            build_system_dir / "scikit-build-core-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
         shutil.move(
@@ -251,12 +259,12 @@ def clean_up_build_system():
             PROJECT_DIRECTORY / 'CMakeLists.txt'
         )
         shutil.move(
-            build_system_dir / "skcdemo.cpp",
-            PROJECT_DIRECTORY / 'skcdemo.cpp'
+            build_system_dir / "main.cpp",
+            PROJECT_DIRECTORY / 'main.cpp'
         )
     elif BUILD_SYSTEM == "pybind11":
         shutil.move(
-            build_system_dir / "pybind11-pyproject.toml",
+            build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
         shutil.move(
@@ -269,7 +277,7 @@ def clean_up_build_system():
         )
     else:
         shutil.move(
-            build_system_dir / "base-pyproject.toml",
+            build_system_base_dir / "base" / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     remove_dir("build-system")

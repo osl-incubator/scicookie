@@ -120,4 +120,4 @@ makim = "1.15.1"
 # 'PosixPath' object has no attribute 'endswith'
 virtualenv = "<=20.25.1"
 
-{% include "build-system/base-dev-deps-config-pyproject.toml" %}
+{% include "build-system/base/dev-deps-config-pyproject.toml" %}

@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+{% include "build-system/base/pyproject.toml" %}
+{% include "build-system/base/dev-deps-pyproject.toml" %}
+{% include "build-system/base/urls-pyproject.toml" %}
+
+[tool.setuptools.dynamic]
+version = {attr = "{{ cookiecutter.package_slug }}.__version__"}
+
+{% include "build-system/base/dev-deps-config-pyproject.toml" %}

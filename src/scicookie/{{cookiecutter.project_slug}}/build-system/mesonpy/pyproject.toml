@@ -1,0 +1,8 @@
+[build-system]
+build-backend = "mesonpy"
+requires = ["meson-python"]
+
+{% include "build-system/base/pyproject.toml" %}
+{% include "build-system/base/dev-deps-pyproject.toml" %}
+{% include "build-system/base/urls-pyproject.toml" %}
+{% include "build-system/base/dev-deps-config-pyproject.toml" %}

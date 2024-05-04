@@ -7,12 +7,12 @@
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-{% include "build-system/base-pyproject.toml" %}
-{% include "build-system/base-dev-deps-pyproject.toml" %}
-{% include "build-system/base-urls-pyproject.toml" %}
+{% include "build-system/base/pyproject.toml" %}
+{% include "build-system/base/dev-deps-pyproject.toml" %}
+{% include "build-system/base/urls-pyproject.toml" %}
 
 [tool.pdm.version]
 source = "file"
 path = "{{ package_path }}/__init__.py"
 
-{% include "build-system/base-dev-deps-config-pyproject.toml" %}
+{% include "build-system/base/dev-deps-config-pyproject.toml" %}

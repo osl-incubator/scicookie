@@ -97,10 +97,9 @@ plugins:
             show_source: false
             show_modules: true
   - mkdocs-jupyter:
-      execute: true
+      execute: false
       ignore:
         - "*.py"
-      # execute_ignore: "tutorial/*Geospatial*.ipynb"
       include_source: true
       theme: dark
   - literate-nav
