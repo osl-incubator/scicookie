@@ -74,6 +74,15 @@ def check_dependencies_satisfied(
 
     Note: Not implemented yet.
     """
+    dependencies = question.get("depends_on", None)
+
+    if not dependencies:
+        return True
+
+    for dependency in dependencies:
+        if not answers[dependency]:
+            return False
+
     return True
 
 
@@ -144,4 +153,5 @@ def make_questions(questions: dict[str, Any]) -> dict[str, str]:
             return {}
         answers[question_id] = answer.get(question_id, "") or default_answer
         print("." * columns)
+
     return answers

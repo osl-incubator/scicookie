@@ -59,6 +59,7 @@
   "use_ruff": "no",
   "use_shellcheck": "no",
   "use_vulture": "no",
+  "use_git": "yes",
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",

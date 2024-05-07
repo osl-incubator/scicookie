@@ -85,6 +85,10 @@ roadmap_document:
   default: None
   visible: false
 
+use_git:
+  default: true
+  visible: true
+
 git_username:
   default: yorbriar
   visible: true
