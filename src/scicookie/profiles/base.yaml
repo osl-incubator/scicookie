@@ -247,7 +247,7 @@ git_main_branch:
   message: Type the GIT main branch
   help: https://osl-incubator.github.io/scicookie/guide/#control-version
   type: text
-  default: ""
+  default: main
   depends_on:
     - use_git
   visible: true
