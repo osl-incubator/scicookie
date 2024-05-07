@@ -79,7 +79,9 @@ def check_dependencies_satisfied(
     if not dependencies:
         return True
 
-    for dependency in dependencies:
+    for dependency, value in dependencies.items():
+        if value is False:
+            continue
         if not answers[dependency]:
             return False
 

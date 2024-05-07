@@ -213,7 +213,6 @@ use_git:
   message: "Configure the local git repository?"
   help: ""
   type: confirm
-  default: y
   visible: true
 
 git_username:
@@ -222,7 +221,7 @@ git_username:
   type: text
   default: zoro_roronoa
   depends_on:
-    - use_git
+    use_git: true
   visible: true
 
 git_https_origin:
@@ -231,7 +230,7 @@ git_https_origin:
   type: text
   default: ""
   depends_on:
-    - use_git
+    use_git: true
   visible: true
 
 git_https_upstream:
@@ -240,7 +239,7 @@ git_https_upstream:
   type: text
   default: ""
   depends_on:
-    - use_git
+    use_git: true
   visible: true
 
 git_main_branch:
@@ -249,5 +248,5 @@ git_main_branch:
   type: text
   default: main
   depends_on:
-    - use_git
+    use_git: true
   visible: true
