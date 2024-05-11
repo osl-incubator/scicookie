@@ -1,6 +1,17 @@
 # Release Notes
 ---
 
+## [0.8.2](https://github.com/osl-incubator/scicookie/compare/0.8.1...0.8.2) (2024-05-11)
+
+
+### Bug Fixes
+
+* Fix generation for maturin build-system ([#279](https://github.com/osl-incubator/scicookie/issues/279)) ([9aecb55](https://github.com/osl-incubator/scicookie/commit/9aecb554f260b65f5df3b472d23bc67e820f1fbc))
+* Fix the project generation for mesonpy build-system ([#278](https://github.com/osl-incubator/scicookie/issues/278)) ([2a1102c](https://github.com/osl-incubator/scicookie/commit/2a1102c1c4f0574e5cc8a041d6d634ae0e124c79))
+* Fix usage of scicookie for pipx ([#285](https://github.com/osl-incubator/scicookie/issues/285)) ([41b80b8](https://github.com/osl-incubator/scicookie/commit/41b80b88d9b93a26298ae51f610ab21c44d6066d))
+* Improve pyproject.toml output and keep workflow more consistent ([#277](https://github.com/osl-incubator/scicookie/issues/277)) ([b2cc87d](https://github.com/osl-incubator/scicookie/commit/b2cc87d57f6c9de162ab3d53a413e9f0291e49c2))
+* Move back to cookiecutter ([#284](https://github.com/osl-incubator/scicookie/issues/284)) ([f7cc72a](https://github.com/osl-incubator/scicookie/commit/f7cc72a3942b0539dcafe2ce08463658c45756db))
+
 ## [0.8.1](https://github.com/osl-incubator/scicookie/compare/0.8.0...0.8.1) (2024-05-03)
 
 
