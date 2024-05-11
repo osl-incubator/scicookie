@@ -111,14 +111,14 @@ body:
 
   - type: textarea
     attributes:
-      label: cookieninja version
+      label: cookiecutter version
       description: >-
-        Paste verbatim output from `cookieninja --version` below, under the prompt line.
+        Paste verbatim output from `cookiecutter --version` below, under the prompt line.
         Don't wrap it with triple backticks &mdash; your whole input will be
         turned into a code snippet automatically.
       render: console
       placeholder: |
-        $ cookieninja --version
+        $ cookiecutter --version
     validations:
       required: true
 

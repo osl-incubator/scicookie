@@ -63,6 +63,6 @@ This tool is included with [Flake8](https://flake8.pycqa.org/en/latest/).
 
 ## Credits
 
-This package was created with Cookieninja and the
+This package was created with Cookiecutter and the
 [osl-incubator/scicookie](https://github.com/osl-incubator/scicookie) project
 template.

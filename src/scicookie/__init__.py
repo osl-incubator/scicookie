@@ -1,1 +1,1 @@
-"""SciCookie is a wrap around cookiecutter/cookieninja with an improved TUI."""
+"""SciCookie is a wrap around cookiecutter with an improved TUI."""

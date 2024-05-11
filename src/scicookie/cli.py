@@ -59,7 +59,7 @@ def _get_cookiecutter_default_answer(
 
 
 def call_cookiecutter(profile: Profile, answers: dict):  # noqa: PLR0912
-    """Call cookiecutter/cookieninja with the parameters from the TUI."""
+    """Call cookiecutter/cookiecutter with the parameters from the TUI."""
     answers_profile = {}
     cookie_args = []
     questions = profile.config
@@ -113,7 +113,7 @@ def call_cookiecutter(profile: Profile, answers: dict):  # noqa: PLR0912
         "_bg_exc": False,
     }
 
-    p = sh.cookieninja("--no-input", PACKAGE_PATH, *cookie_args, **sh_extras)
+    p = sh.cookiecutter("--no-input", PACKAGE_PATH, *cookie_args, **sh_extras)
 
     try:
         p.wait()
