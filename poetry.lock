@@ -1707,31 +1707,16 @@ setuptools = "*"
 
 [[package]]
 name = "nodejs-wheel"
-version = "20.13.0.post1"
+version = "20.12.2"
 description = "unoffical Node.js package"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "nodejs_wheel-20.13.0.post1-py3-none-any.whl", hash = "sha256:6a2c726a04d0052d9825073e692cb7e85e90ee0e19ad70f46345a17b3be3d3b5"},
-    {file = "nodejs_wheel-20.13.0.post1.tar.gz", hash = "sha256:2007749ac8f28599279e5007b12d3f4788bad449cd23fcb30f528a7de1e31c47"},
-]
-
-[package.dependencies]
-nodejs-wheel-binaries = "20.13.0"
-
-[[package]]
-name = "nodejs-wheel-binaries"
-version = "20.13.0"
-description = "unoffical Node.js package"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "nodejs_wheel_binaries-20.13.0-py2.py3-none-macosx_10_9_x86_64.whl", hash = "sha256:67c17094e39c3897d6f558c5cf6e43657b40a469298743ed776eef93bb243582"},
-    {file = "nodejs_wheel_binaries-20.13.0-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:a4278164fc6969ea628d43f4068bcbad65bdc3f0e08f5ed1f9677fa15bc6b01c"},
-    {file = "nodejs_wheel_binaries-20.13.0-py2.py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:25d4dbd4bc15a0fd56a026e7d4fe95e4ef3f9e2d10b79a5ad6d472f71d338710"},
-    {file = "nodejs_wheel_binaries-20.13.0-py2.py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fd0bd0f7c3be733db96001188791740286d1c856da62615fbc424189b903552b"},
-    {file = "nodejs_wheel_binaries-20.13.0-py2.py3-none-win_amd64.whl", hash = "sha256:27097d803050aa92b422b9fbd68f43b3878007473220b13134df958548447571"},
-    {file = "nodejs_wheel_binaries-20.13.0.tar.gz", hash = "sha256:4978db6f8fe383be64f2f7e5808f5004cff18ddf6a0bbc36433f92cec6fd02db"},
+    {file = "nodejs_wheel-20.12.2-py2.py3-none-macosx_10_9_x86_64.whl", hash = "sha256:5c9f7bd4f2149d2d17c9d19e8878c69ac97e0da71d1e4ed7250b15adf31fca70"},
+    {file = "nodejs_wheel-20.12.2-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:5b93fe06341d1130dbf6ab9b458cb5983d6a9cf8e8ebc14e496b78aa9ae36c4e"},
+    {file = "nodejs_wheel-20.12.2-py2.py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9099b220d99b35bb139e1155b0a9552600ade0e7a91cc5c68d70234e579bd5ce"},
+    {file = "nodejs_wheel-20.12.2-py2.py3-none-win_amd64.whl", hash = "sha256:fc1e7591cb856e5d06b4f2be4b331b83809da82942cd7701c65092ac26a137c1"},
+    {file = "nodejs_wheel-20.12.2.tar.gz", hash = "sha256:4219b35f95c265faa08606b22df885ab7b68cc6c0bfa9c90058698f8099acc46"},
 ]
 
 [[package]]
@@ -3187,4 +3172,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8.1,<4"
-content-hash = "a3440446d542a07485d8d843f0b8a0aee3ac790a98f90f8749fc8afcf027c438"
+content-hash = "6fe38fe5b8b468b1e4ff0610081c3d0ca730dd5730e9e4b4de78fca3fa171f41"

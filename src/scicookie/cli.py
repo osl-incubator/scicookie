@@ -97,7 +97,9 @@ def call_cookiecutter(profile: Profile, answers: dict):
             choice_id = f"use_{choice.replace('-', '_')}"
             answers_profile[choice_id] = "yes"
 
-        cookiecutter(no_input=True, extra_context=answers_profile)
+        cookiecutter(
+            str(PACKAGE_PATH), no_input=True, extra_context=answers_profile
+        )
 
 
 def app():
