@@ -61,8 +61,8 @@ needs.
 
 **Installation**
 
-- Install Cookieninja (if not already installed): Open your terminal and run the
-  following command: `pip install scicookie`
+- Install Cookiecutter (if not already installed): Open your terminal and run
+  the following command: `pip install scicookie`
 
 **Project Creation**
 
