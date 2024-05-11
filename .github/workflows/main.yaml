@@ -26,10 +26,18 @@ jobs:
           remote_branch: origin/main
           pr_sha: ${{ github.event.pull_request.head.sha }}
 
-  test:
-    runs-on: ubuntu-latest
+  tests:
+    strategy:
+      matrix:
+        os:
+          - "ubuntu"
+          - "macos"
+          - "windows"
+
+    runs-on: ${{ matrix.os }}-latest
+
     concurrency:
-      group: ci-main-tests-${{ github.ref }}
+      group: ci-main-tests-${{ matrix.os }}-${{ github.ref }}
       cancel-in-progress: true
 
     defaults:
