@@ -78,18 +78,52 @@ jobs:
           poetry install
 
       - name: Run tests
+        if: ${{ matrix.os != 'windows' }}
         run: makim tests.unittest
 
-      - name: Run style checks
-        run: |
-          pre-commit install
-          makim tests.lint
+      - name: Run tests
+        if: ${{ matrix.os == 'windows' }}
+        run: pytest -s -vv --template src/scicookie tests
 
       # - name: Semantic Release PR Title Check
       #   uses: osl-incubator/semantic-release-pr-title-check@v1.4.3
       #   if: success() || failure()
       #   with:
       #     convention-name: conventionalcommits
+
+  linter:
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: ci-main-linter-${{ github.ref }}
+      cancel-in-progress: true
+
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies with conda for linux/macos
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          environment-file: conda/dev.yaml
+          channels: conda-forge,nodefaults
+          activate-environment: scicookie
+          auto-update-conda: true
+          conda-solver: libmamba
+
+      - name: Install dependencies
+        run: |
+          poetry config virtualenvs.create false
+          poetry install
+
+      - name: Run style checks
+        run: |
+          pre-commit install
+          makim tests.lint
 
   smoke-test:
     runs-on: ubuntu-latest
