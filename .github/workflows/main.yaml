@@ -47,10 +47,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: conda-incubator/setup-miniconda@v3
+      - name: Install dependencies with conda for linux/macos
+        uses: conda-incubator/setup-miniconda@v3
+        if: ${{ matrix.os != "windows" }}
         with:
           miniforge-version: latest
           environment-file: conda/dev.yaml
+          channels: conda-forge,nodefaults
+          activate-environment: scicookie
+          auto-update-conda: true
+          conda-solver: libmamba
+
+      - name: Install dependencies with conda for windows
+        uses: conda-incubator/setup-miniconda@v3
+        if: ${{ matrix.os == "windows" }}
+        with:
+          miniforge-version: latest
+          environment-file: conda/dev-win.yaml
           channels: conda-forge,nodefaults
           activate-environment: scicookie
           auto-update-conda: true
