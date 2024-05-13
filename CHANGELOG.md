@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+## [0.8.3](https://github.com/osl-incubator/scicookie/compare/0.8.2...0.8.3) (2024-05-13)
+
+
+### Bug Fixes
+
+* Fix support for pipx ([#286](https://github.com/osl-incubator/scicookie/issues/286)) ([0e5b125](https://github.com/osl-incubator/scicookie/commit/0e5b1251becf4cec319fb74ceb3a11dc4f704212))
+
 ## [0.8.2](https://github.com/osl-incubator/scicookie/compare/0.8.1...0.8.2) (2024-05-11)
 
 
