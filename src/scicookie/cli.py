@@ -1,7 +1,12 @@
 """Module with CLI functions."""
 
+from __future__ import annotations
+
 import argparse
 import json
+import os
+import platform
+import sys
 
 from pathlib import Path
 from typing import Union
@@ -97,9 +102,14 @@ def call_cookiecutter(profile: Profile, answers: dict):
             choice_id = f"use_{choice.replace('-', '_')}"
             answers_profile[choice_id] = "yes"
 
-        cookiecutter(
-            str(PACKAGE_PATH), no_input=True, extra_context=answers_profile
-        )
+    env_path_sep = ";" if platform.system() == "Windows" else ":"
+    pipx_path: list[str] = list(filter(lambda v: ".local/pipx" in v, sys.path))
+    new_path: list[str] = [*pipx_path, os.getenv("PATH", "")]
+    os.environ["PATH"] = env_path_sep.join(new_path)
+
+    cookiecutter(
+        str(PACKAGE_PATH), no_input=True, extra_context=answers_profile
+    )
 
 
 def app():

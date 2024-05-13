@@ -15,21 +15,18 @@ developers to simplify the project creation process and save considerable amount
 of time. SciCookie enables projects with an initial layout that includes
 recommended tools, workflows, and project structure.
 
-Cookiecutter also offers other features that can enhance the workflow of the
+SciCookie also offers other features that can enhance the workflow of the
 development process. Features such as _automatic documentation generation,
 automated testing,_ and _project-specific configuration_ are part of this.
-Overall, Cookiecutter is an efficient tool that gives users the ability to
+Overall, SciCookie is an efficient tool that gives users the ability to
 effortlessly create consistent, high-quality projects.
 
-Open Science Labs Scientific Python cookiecutter template is primarily based on
-the **PyOpenSci** recommendations who is actively conducting research to
-determine the tools, libraries, best practices, and workflows utilized by
-significant scientific Python groups. As a result, this template offers to
-authors a starting point for their project that adheres with industry standards
-and can be adjusted to meet particular project requirements.
-
-[Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a
-Python package.
+SciCookie is primarily based on the **PyOpenSci** recommendations who is
+actively conducting research to determine the tools, libraries, best practices,
+and workflows utilized by significant scientific Python groups. As a result,
+this template offers to authors a starting point for their project that adheres
+with industry standards and can be adjusted to meet particular project
+requirements.
 
 - GitHub repo: <https://github.com/osl-incubator/scicookie/>
 - Software License: BSD license
@@ -80,9 +77,6 @@ Python package.
 
 ## Quickstart
 
-Install the latest Cookiecutter if you haven't installed it yet (this requires
-Cookiecutter 1.0.0):
-
 ```bash
 pip install scicookie
 ```
@@ -97,6 +91,18 @@ Generate a Python package project:
 
 ```bash
 scicookie
+```
+
+You can also select a specific profile, for example:
+
+```bash
+scicookie --profile osl
+```
+
+You can also use it with `pipx`:
+
+```bash
+pipx run scicookie --profile osl
 ```
 
 ## Development
