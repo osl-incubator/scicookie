@@ -30,14 +30,14 @@ project_slug:
   message: Type the code name for your project (e.g. the repository name)
   help: https://osl-incubator.github.io/scicookie/guide/#information-about-the-project
   type: text
-  default: "{{ project_name.replace(' ', '-').lower() }}"
+  default: "myprojectslug"
   visible: true
 
 package_slug:
   message: Type the code name for your package (the name used to import your package)
   help: https://osl-incubator.github.io/scicookie/guide/#information-about-the-project
   type: text
-  default: "{{project_slug.replace('-', '_') | sanitize_package_slug}}"
+  default: "mypackageslug"
   visible: true
 
 project_version:
@@ -51,7 +51,7 @@ project_url:
   message: Type the project URL
   help: https://osl-incubator.github.io/scicookie/guide/#information-about-the-project
   type: text
-  default: "{{ 'https://' + project_slug + '.com' }}"
+  default: "myproject.com"
   visible: true
 
 project_license:
@@ -127,7 +127,7 @@ documentation_url:
   message: Type the documentation URL
   help: The URL for the documentation page.
   type: text
-  default: "{{ project_url }}"
+  default: "docs.myproject.com"
   visible: true
 
 use_tools:

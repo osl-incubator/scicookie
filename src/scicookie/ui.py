@@ -89,7 +89,10 @@ def make_questions(questions: dict[str, Any]) -> dict[str, str]:
     answers: dict[str, str] = {}
 
     # Get the size of the terminal window
-    columns, _ = os.get_terminal_size()
+    try:
+        columns, _ = os.get_terminal_size()
+    except OSError:
+        columns = 80
 
     # Print a line
     print("-" * columns)
