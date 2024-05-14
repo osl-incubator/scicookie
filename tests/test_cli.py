@@ -2,18 +2,15 @@
 
 from __future__ import annotations
 
-import pytest
 import re
 import shutil
 
-from io import StringIO
 from pathlib import Path
 from typing import Any
 
 import pexpect
+import pytest
 import yaml
-
-from scicookie.cli import call_app
 
 
 @pytest.fixture
@@ -31,15 +28,20 @@ def setup_test_main_yaml() -> None:
 
 
 @pytest.fixture
-def all_questions() -> dict[str, Any]:
+def all_questions_main_yaml() -> dict[str, Any]:
     """Load all questions from the base.yaml configuration for testing."""
-    project_dir = Path(__file__).parent.parent
-    profile_dir = project_dir / "src" / "scicookie" / "profiles"
-    with open(profile_dir / "base.yaml") as f:
+    test_dir = Path(__file__).parent
+    profile_path = test_dir / "profiles" / "test-main.yaml"
+    with open(profile_path) as f:
         return yaml.safe_load(f)
 
 
-def test_main(setup_test_main_yaml: None, all_questions: dict[str, Any]):
+def test_main(
+    setup_test_main_yaml: None, all_questions_main_yaml: dict[str, Any]
+) -> None:
+    """Test with test-main.yaml."""
+    all_questions = all_questions_main_yaml
+
     child = pexpect.spawn(
         "scicookie --profile test-main", encoding="utf-8", timeout=10
     )
@@ -51,10 +53,9 @@ def test_main(setup_test_main_yaml: None, all_questions: dict[str, Any]):
             regex_prompt = re.escape(prompt) + r"\s*"
             # Use regex for matching the prompt
             child.expect(regex_prompt, timeout=10)
-            default = value.get("default")
-            response = default if default else "Test Input"
+            response = value.get("default", "")
             child.sendline(response)
 
     child.expect(pexpect.EOF)
     output = child.before
-    assert "Traceback" not in output, f"Failure found: {output}"
+    assert "Traceback" not in output, output

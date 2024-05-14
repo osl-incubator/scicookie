@@ -37,7 +37,7 @@ package_slug:
   message: Type the code name for your package (the name used to import your package)
   help: https://osl-incubator.github.io/scicookie/guide/#information-about-the-project
   type: text
-  default: "{{project_slug.replace('-', '_') | sanitize_package_slug}} "
+  default: "{{project_slug.replace('-', '_') | sanitize_package_slug}}"
   visible: true
 
 project_version:
