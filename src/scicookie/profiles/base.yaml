@@ -214,21 +214,25 @@ git_username:
   help: https://osl-incubator.github.io/scicookie/guide/#control-version
   type: "text"
   default: ""
+  visible: true
 
 git_https_origin:
   message: Type the GIT HTTPS origin URL
   help: https://osl-incubator.github.io/scicookie/guide/#control-version
   type: "text"
   default: ""
+  visible: true
 
 git_https_upstream:
   message: Type the GIT HTTPS upstream URL
   help: https://osl-incubator.github.io/scicookie/guide/#control-version
   type: "text"
   default: ""
+  visible: true
 
 git_main_branch:
   message: Type the GIT main branch
   help: https://osl-incubator.github.io/scicookie/guide/#control-version
   type: "text"
   default: main
+  visible: true

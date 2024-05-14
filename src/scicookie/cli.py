@@ -61,7 +61,7 @@ def _get_cookiecutter_default_answer(
     return answer_definition[0]
 
 
-def call_cookiecutter(profile: Profile, answers: dict):
+def call_cookiecutter(profile: Profile, answers: dict) -> None:
     """Call cookiecutter/cookiecutter with the parameters from the TUI."""
     answers_profile = {}
     questions = profile.config
@@ -112,7 +112,19 @@ def call_cookiecutter(profile: Profile, answers: dict):
     )
 
 
-def app():
+def call_app(profile_name: str) -> None:
+    """Call the scicookie app."""
+    profile = Profile(profile_name)
+
+    answers = make_questions(profile.config)
+
+    if not answers:
+        return
+
+    call_cookiecutter(profile, answers)
+
+
+def app() -> None:
     """Run SciCookie."""
     # note: this parameter should be provided by a CLI argument
 
@@ -142,12 +154,4 @@ def app():
     )
 
     args = parser.parse_args()
-
-    profile = Profile(args.profile)
-
-    answers = make_questions(profile.config)
-
-    if not answers:
-        return
-
-    call_cookiecutter(profile, answers)
+    call_app(args.profile)
