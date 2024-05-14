@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 import shutil
+import sys
 import tempfile
 
 from pathlib import Path
@@ -29,6 +30,7 @@ def tmp_dir() -> str:
         yield tmp_dir
 
 
+@pytest.mark.skipif(not sys.platform.startswith("linux"), reason="Linux only")
 class TestMain:
     """Tests for test-main.yaml."""
 
