@@ -14,61 +14,63 @@ import pytest
 import yaml
 
 
-@pytest.fixture
-def setup_test_main_yaml() -> None:
-    """Copy the test YAML profile for testing and remove it after the test."""
+def get_all_questions(profile_file_name: str) -> dict[str, Any]:
+    """Load all questions from the given configuration file for testing."""
     test_dir = Path(__file__).parent
-    src_dir = test_dir.parent / "src" / "scicookie"
-
-    profile_src_path = test_dir / "profiles" / "test-main.yaml"
-    profile_dest_path = src_dir / "profiles" / "test-main.yaml"
-    shutil.copy(profile_src_path, profile_dest_path)
-
-    # Create a temporary directory using the tempfile module
-    with tempfile.TemporaryDirectory() as tmp_dir:
-        shutil.copy(profile_src_path, profile_dest_path)
-        # Provide the temporary directory path to the test
-        yield {"tmp_dir": tmp_dir}
-        # The temporary directory is automatically cleaned up here
-
-    # Cleanup after test
-    profile_dest_path.unlink()
-
-
-@pytest.fixture
-def all_questions_main_yaml() -> dict[str, Any]:
-    """Load all questions from the base.yaml configuration for testing."""
-    test_dir = Path(__file__).parent
-    profile_path = test_dir / "profiles" / "test-main.yaml"
+    profile_path = test_dir / "profiles" / profile_file_name
     with open(profile_path) as f:
         return yaml.safe_load(f)
 
 
-def test_main(
-    setup_test_main_yaml: dict[str, str],
-    all_questions_main_yaml: dict[str, Any],
-) -> None:
-    """Test with test-main.yaml."""
-    all_questions = all_questions_main_yaml
-    tmp_dir = setup_test_main_yaml.get("tmp_dir", "/tmp")
+@pytest.fixture
+def tmp_dir() -> str:
+    """Create a temporary folder."""
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        yield tmp_dir
 
-    child = pexpect.spawn(
-        "scicookie --profile test-main",
-        cwd=tmp_dir,
-        encoding="utf-8",
-        timeout=10,
-    )
 
-    for key, value in all_questions.items():
-        prompt = value.get("message")
-        if prompt:
-            # Escape special characters and allow any whitespace after
-            regex_prompt = re.escape(prompt) + r"\s*"
-            # Use regex for matching the prompt
-            child.expect(regex_prompt, timeout=10)
-            response = value.get("default", "")
-            child.sendline(response)
+class TestMain:
+    """Tests for test-main.yaml."""
 
-    child.expect(pexpect.EOF)
-    output = child.before
-    assert "Traceback" not in output, output
+    profile_path: str
+
+    @classmethod
+    def setup_class(cls):
+        """Configure initial settings for the class."""
+        test_dir = Path(__file__).parent
+        src_dir = test_dir.parent / "src" / "scicookie"
+
+        profile_src_path = test_dir / "profiles" / "test-main.yaml"
+        cls.profile_path = src_dir / "profiles" / "test-main.yaml"
+
+        shutil.copy(profile_src_path, cls.profile_path)
+
+    @classmethod
+    def teardown_class(cls):
+        """Cleanup after test."""
+        cls.profile_path.unlink()
+
+    def test_cli(self, tmp_dir: str) -> None:
+        """Test with test-main.yaml."""
+        all_questions = get_all_questions("test-main.yaml")
+
+        child = pexpect.spawn(
+            "scicookie --profile test-main",
+            cwd=tmp_dir,
+            encoding="utf-8",
+            timeout=10,
+        )
+
+        for key, value in all_questions.items():
+            prompt = value.get("message")
+            if prompt:
+                # Escape special characters and allow any whitespace after
+                regex_prompt = re.escape(prompt) + r"\s*"
+                # Use regex for matching the prompt
+                child.expect(regex_prompt, timeout=10)
+                response = value.get("default", "")
+                child.sendline(response)
+
+        child.expect(pexpect.EOF)
+        output = child.before
+        assert "Traceback" not in output, output
