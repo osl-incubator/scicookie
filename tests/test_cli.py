@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 import shutil
+import tempfile
 
 from pathlib import Path
 from typing import Any
@@ -22,7 +23,14 @@ def setup_test_main_yaml() -> None:
     profile_src_path = test_dir / "profiles" / "test-main.yaml"
     profile_dest_path = src_dir / "profiles" / "test-main.yaml"
     shutil.copy(profile_src_path, profile_dest_path)
-    yield
+
+    # Create a temporary directory using the tempfile module
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        shutil.copy(profile_src_path, profile_dest_path)
+        # Provide the temporary directory path to the test
+        yield {"tmp_dir": tmp_dir}
+        # The temporary directory is automatically cleaned up here
+
     # Cleanup after test
     profile_dest_path.unlink()
 
@@ -37,13 +45,18 @@ def all_questions_main_yaml() -> dict[str, Any]:
 
 
 def test_main(
-    setup_test_main_yaml: None, all_questions_main_yaml: dict[str, Any]
+    setup_test_main_yaml: dict[str, str],
+    all_questions_main_yaml: dict[str, Any],
 ) -> None:
     """Test with test-main.yaml."""
     all_questions = all_questions_main_yaml
+    tmp_dir = setup_test_main_yaml.get("tmp_dir", "/tmp")
 
     child = pexpect.spawn(
-        "scicookie --profile test-main", encoding="utf-8", timeout=10
+        "scicookie --profile test-main",
+        cwd=tmp_dir,
+        encoding="utf-8",
+        timeout=10,
     )
 
     for key, value in all_questions.items():
