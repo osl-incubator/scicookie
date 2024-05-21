@@ -72,8 +72,22 @@ def check_dependencies_satisfied(
     """
     Check if dependencies are satisfied.
 
-    Note: Not implemented yet.
+    Args: question (dict[str, Any]): The question.
+          answers (dict[str, str]): The answers.
+
+    Returns: bool: Whether the dependencies are satisfied or not.
     """
+    dependencies = question.get("depends_on", None)
+
+    if not dependencies:
+        return True
+
+    for dependency, value in dependencies.items():
+        if not value:
+            continue
+        if value != answers[dependency]:
+            return False
+
     return True
 
 
