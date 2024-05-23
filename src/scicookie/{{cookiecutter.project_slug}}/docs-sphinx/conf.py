@@ -46,7 +46,7 @@ templates_path = ["_templates"]
 source_suffix = [".rst", ".md"]
 
 # The master toctree document.
-master_doc = "index"
+master_doc = "index-myst"
 
 # General information about the project.
 project = "{{ cookiecutter.project_name }}"
