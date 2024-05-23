@@ -112,7 +112,8 @@ def remove_package_file(filepath: str):
 def move_selected_doc_dir():
     if DOCUMENTATION_ENGINE == "mkdocs":
         docs_target_dir = PROJECT_DIRECTORY
-        remove_project_file(Path("docs/api") / "references.rst")
+        remove_project_file(Path("docs/api") / "references-rst.rst")
+        remove_project_file(Path("docs/api") / "references-myst.md")
     else:
         docs_target_dir = PROJECT_DIRECTORY / "docs"
     for file_name in os.listdir(DOCS_SPEC_DIR):
@@ -123,7 +124,8 @@ def move_selected_doc_dir():
         remove_project_file(Path("docs/api") / "references.md")
     if DOCUMENTATION_ENGINE == "quarto":
         remove_project_file(Path("docs/api") / "references.md")
-        remove_project_file(Path("docs/api") / "references.rst")
+        remove_project_file(Path("docs/api") / "references-rst.rst")
+        remove_project_file(Path("docs/api") / "references-myst.md")
     shutil.rmtree(DOCS_SPEC_DIR)
 
 
