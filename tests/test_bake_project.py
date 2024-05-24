@@ -16,7 +16,7 @@ def context():
         "project_short_description": "This is an example",
         "project_url": "example.com",
         "project_version": "0.1.0",
-        "documentation_engine": "sphinx",
+        "documentation_engine": "sphinx(rst)",
     }
 
 
