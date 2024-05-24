@@ -13,8 +13,8 @@ PROJECT_DIRECTORY = Path(os.path.abspath(os.path.curdir)).resolve()
 
 UNUSED_DOCS_DIRS = [
     PROJECT_DIRECTORY / 'docs-mkdocs',
-    PROJECT_DIRECTORY / 'docs-sphinx/rst',
-    PROJECT_DIRECTORY / 'docs-sphinx/myst',
+    PROJECT_DIRECTORY / 'docs-sphinx'/'rst',
+    PROJECT_DIRECTORY / 'docs-sphinx'/'myst',
     PROJECT_DIRECTORY / 'docs-jupyter-book',
     PROJECT_DIRECTORY / 'docs-quarto',
 ]
