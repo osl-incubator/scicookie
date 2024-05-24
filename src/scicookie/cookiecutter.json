@@ -17,7 +17,13 @@
   ],
   "project_layout": ["src", "flat"],
   "command_line_interface": ["None", "Click", "Argparse"],
-  "documentation_engine": ["mkdocs", "sphinx", "jupyter-book", "quarto"],
+  "documentation_engine": [
+    "mkdocs",
+    "sphinx(rst)",
+    "sphinx(myst)",
+    "jupyter-book",
+    "quarto"
+  ],
   "documentation_url": "{{ cookiecutter.project_url }}",
   "code_of_conduct": [
     "None",
