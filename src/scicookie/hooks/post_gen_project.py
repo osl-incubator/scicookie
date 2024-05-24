@@ -20,11 +20,25 @@ UNUSED_DOCS_DIRS = [
 ]
 
 DOCUMENTATION_ENGINE = "{{ cookiecutter.documentation_engine }}"
+{% if cookiecutter.documentation_engine == "sphinx(rst)" -%}
+DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(
+    UNUSED_DOCS_DIRS.index(
+        PROJECT_DIRECTORY / f'docs-sphinx/rst'
+    )
+)
+{% elif cookiecutter.documentation_engine == "sphinx(myst)" -%}
+DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(
+    UNUSED_DOCS_DIRS.index(
+        PROJECT_DIRECTORY / f'docs-sphinx/myst'
+    )
+)
+{% else %}
 DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(
     UNUSED_DOCS_DIRS.index(
         PROJECT_DIRECTORY / f'docs-{DOCUMENTATION_ENGINE}'
     )
 )
+{%- endif %}
 
 USE_SRC_LAYOUT = {{ cookiecutter.project_layout == "src" }}
 if USE_SRC_LAYOUT:
