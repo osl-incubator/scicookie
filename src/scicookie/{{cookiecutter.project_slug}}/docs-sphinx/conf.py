@@ -46,7 +46,11 @@ templates_path = ["_templates"]
 source_suffix = [".rst", ".md"]
 
 # The master toctree document.
-master_doc = "index-myst"
+{% if cookiecutter.documentation_engine == "sphinx(rst)" -%}
+master_doc = "/rst/index"
+{% elif cookiecutter.documentation_engine == "sphinx(myst)" -%}
+master_doc = "/myst/index"
+{%- endif %}
 
 # General information about the project.
 project = "{{ cookiecutter.project_name }}"

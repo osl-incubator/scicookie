@@ -13,7 +13,8 @@ PROJECT_DIRECTORY = Path(os.path.abspath(os.path.curdir)).resolve()
 
 UNUSED_DOCS_DIRS = [
     PROJECT_DIRECTORY / 'docs-mkdocs',
-    PROJECT_DIRECTORY / 'docs-sphinx',
+    PROJECT_DIRECTORY / 'docs-sphinx-rst',
+    PROJECT_DIRECTORY / 'docs-sphinx-myst',
     PROJECT_DIRECTORY / 'docs-jupyter-book',
     PROJECT_DIRECTORY / 'docs-quarto',
 ]
@@ -119,9 +120,16 @@ def move_selected_doc_dir():
     for file_name in os.listdir(DOCS_SPEC_DIR):
         shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 
-    if DOCUMENTATION_ENGINE == "sphinx":
+    if DOCUMENTATION_ENGINE == "sphinx(rst)":
         remove_project_file(Path("docs") / "index.md")
         remove_project_file(Path("docs/api") / "references.md")
+        remove_project_file(Path("docs/api") / "references-myst.md")
+
+    if DOCUMENTATION_ENGINE == "sphinx(myst)":
+        remove_project_file(Path("docs") / "index.md")
+        remove_project_file(Path("docs/api") / "references.md")
+        remove_project_file(Path("docs/api") / "references-rst.rst")
+
     if DOCUMENTATION_ENGINE == "quarto":
         remove_project_file(Path("docs/api") / "references.md")
         remove_project_file(Path("docs/api") / "references-rst.rst")

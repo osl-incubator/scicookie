@@ -18,9 +18,9 @@ PACKAGE_PATH="{{cookiecutter.package_slug}}"
 {% endif -%}
 
 
-{%- if cookiecutter.documentation_engine == 'sphinx' %}
+{%- if cookiecutter.documentation_engine == 'sphinx(rst) OR sphinx(myst)' %}
 SPHINXOPTS    =
-SPHINXBUILD   = python -msphinx
+SPHINXBUILD   = python -m sphinx
 SPHINXPROJ    = {{ cookiecutter.project_slug }}
 SOURCEDIR     = docs/
 BUILDDIR      = docs/_build
@@ -82,7 +82,7 @@ docs-build:
 docs-preview: docs-build
 	mkdocs serve --watch docs --config-file mkdocs.yaml
 
-{%- elif cookiecutter.documentation_engine == 'sphinx' -%}
+{%- elif cookiecutter.documentation_engine == 'sphinx(rst) OR sphinx(myst)' -%}
 .PHONY:docs-build
 docs-build:
 	sphinx-apidoc -o docs/_build ${PACKAGE_PATH}
