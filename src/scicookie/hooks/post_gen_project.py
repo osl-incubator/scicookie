@@ -149,7 +149,6 @@ def move_selected_doc_dir():
         remove_project_file(Path("docs/api") / "references-rst.rst")
         remove_project_file(Path("docs/api") / "references-myst.md")
     shutil.rmtree(DOCS_SPEC_DIR)
-    remove_dir("docs-sphinx")
 
 
 def clean_up_tests():
