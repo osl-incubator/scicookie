@@ -54,7 +54,7 @@ groups:
           {%- elif cookiecutter.documentation_engine == "mkdocs" %}
           mkdocs serve --watch docs --config-file mkdocs.yaml
           {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
-          cd docs/_build/html && python -m http.server
+          cd docs/_build/ && python -m http.server
           {%- elif cookiecutter.documentation_engine == "quarto" %}
           quarto preview docs
           {%- endif %}
