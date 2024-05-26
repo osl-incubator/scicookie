@@ -76,3 +76,51 @@ class TestMain:
         child.expect(pexpect.EOF)
         output = child.before
         assert "Traceback" not in output, output
+
+
+@pytest.mark.skipif(not sys.platform.startswith("linux"), reason="Linux only")
+class TestAlternative:
+    """Tests for conditional-main.yaml."""
+
+    profile_path: str
+
+    @classmethod
+    def setup_class(cls):
+        """Configure initial settings for the class."""
+        test_dir = Path(__file__).parent
+        src_dir = test_dir.parent / "src" / "scicookie"
+
+        profile_src_path = test_dir / "profiles" / "test-conditional.yaml"
+        cls.profile_path = src_dir / "profiles" / "test-conditional.yaml"
+
+        shutil.copy(profile_src_path, cls.profile_path)
+
+    @classmethod
+    def teardown_class(cls):
+        """Cleanup after test."""
+        cls.profile_path.unlink()
+
+    def test_cli(self, tmp_dir: str) -> None:
+        """Test with test-conditional.yaml."""
+        all_questions = get_all_questions("test-conditional.yaml")
+
+        child = pexpect.spawn(
+            "scicookie --profile test-conditional",
+            cwd=tmp_dir,
+            encoding="utf-8",
+            timeout=10,
+        )
+
+        for key, value in all_questions.items():
+            prompt = value.get("message")
+            if prompt:
+                # Escape special characters and allow any whitespace after
+                regex_prompt = re.escape(prompt) + r"\s*"
+                # Use regex for matching the prompt
+                child.expect(regex_prompt, timeout=10)
+                response = value.get("default", "")
+                child.sendline(response)
+
+        child.expect(pexpect.EOF)
+        output = child.before
+        assert "Traceback" not in output, output

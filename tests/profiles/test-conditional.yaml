@@ -1,0 +1,105 @@
+author_full_name:
+  default: Yor Briar
+  visible: true
+
+author_email:
+  default: yor.briar@spyx.family
+  visible: true
+
+project_name:
+  default: My Super New Project
+  visible: true
+
+project_short_description:
+  visible: true
+
+project_slug:
+  visible: true
+
+package_slug:
+  visible: true
+
+project_version:
+  visible: true
+
+project_url:
+  visible: true
+
+project_license:
+  # first choice is the default for the UI
+  choices:
+    - BSD 3 Clause
+    - MIT
+    - Apache Software License 2.0
+    - Other
+  visible: true
+
+project_layout:
+  default: src
+  visible: false
+
+build_system:
+  visible: true
+
+command_line_interface:
+  visible: true
+
+documentation_engine:
+  visible: true
+
+documentation_url:
+  visible: true
+
+use_tools:
+  choices:
+    - bandit
+    - conda
+    - coverage
+    - ruff
+    - makim
+    - mccabe
+    - mypy
+    - pre-commit
+    - pytest
+    - hypothesis
+    - shellcheck
+    - vulture
+  visible: true
+
+code_of_conduct:
+  choices:
+    - contributor-covenant
+    - citizen-code-of-conduct
+    - numfocus-adapted-coc
+    - python-adapted-coc
+  visible: true
+
+governance_document:
+  default: None
+  visible: false
+
+roadmap_document:
+  default: None
+  visible: false
+
+git_username:
+  default: yorbriar
+  depends_on:
+    pre-commit: true
+  visible: true
+
+git_https_origin:
+  default: ""
+  depends_on:
+    pre-commit: true
+  visible: true
+
+git_https_upstream:
+  depends_on:
+    pre-commit: true
+  visible: true
+
+git_main_branch:
+  depends_on:
+    pre-commit: true
+  visible: true
