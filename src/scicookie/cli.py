@@ -85,6 +85,15 @@ def call_cookiecutter(profile: Profile, answers: dict) -> None:
                 choice_id = f"use_{choice.replace('-', '_')}"
                 answers_profile[choice_id] = "no"
             continue
+        elif question.get("type") == "confirm":
+            default_answer = _get_cookiecutter_default_answer(
+                cookiecutter_config[question_id]
+            )
+            if default_answer == "y":
+                answers_profile[question_id] = True
+            else:
+                answers_profile[question_id] = False
+            continue
 
         answers_profile[question_id] = question.get(
             "default"
