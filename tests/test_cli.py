@@ -31,10 +31,11 @@ def tmp_dir() -> str:
 
 
 @pytest.mark.skipif(not sys.platform.startswith("linux"), reason="Linux only")
-class TestMain:
+class BaseCLITestProfile:
     """Tests for test-main.yaml."""
 
-    profile_path: str
+    profile_path: str = ""
+    profile_filename: str = ""
 
     @classmethod
     def setup_class(cls):
@@ -42,8 +43,8 @@ class TestMain:
         test_dir = Path(__file__).parent
         src_dir = test_dir.parent / "src" / "scicookie"
 
-        profile_src_path = test_dir / "profiles" / "test-main.yaml"
-        cls.profile_path = src_dir / "profiles" / "test-main.yaml"
+        profile_src_path = test_dir / "profiles" / cls.profile_filename
+        cls.profile_path = src_dir / "profiles" / cls.profile_filename
 
         shutil.copy(profile_src_path, cls.profile_path)
 
@@ -52,9 +53,16 @@ class TestMain:
         """Cleanup after test."""
         cls.profile_path.unlink()
 
+
+@pytest.mark.skipif(not sys.platform.startswith("linux"), reason="Linux only")
+class TestMain(BaseCLITestProfile):
+    """Tests for test-main.yaml."""
+
+    profile_filename: str = "test-main.yaml"
+
     def test_cli(self, tmp_dir: str) -> None:
         """Test with test-main.yaml."""
-        all_questions = get_all_questions("test-main.yaml")
+        all_questions = get_all_questions(self.profile_filename)
 
         child = pexpect.spawn(
             "scicookie --profile test-main",
@@ -72,6 +80,55 @@ class TestMain:
                 child.expect(regex_prompt, timeout=10)
                 response = value.get("default", "")
                 child.sendline(response)
+
+        child.expect(pexpect.EOF)
+        output = child.before
+        assert "Traceback" not in output, output
+
+
+@pytest.mark.skipif(not sys.platform.startswith("linux"), reason="Linux only")
+class TestDependsOn(BaseCLITestProfile):
+    """Tests for test-main.yaml."""
+
+    profile_filename: str = "test-depends-on.yaml"
+
+    def test_cli(self, tmp_dir: str) -> None:
+        """Test with test-main.yaml."""
+        all_questions = get_all_questions(self.profile_filename)
+
+        child = pexpect.spawn(
+            "scicookie --profile test-depends-on",
+            cwd=tmp_dir,
+            encoding="utf-8",
+            timeout=10,
+        )
+
+        answers = {}
+
+        for key, value in all_questions.items():
+            depends_on = value.get("depends_on", {})
+            depends_on_satisfied = True
+
+            for dep_key, dep_val in depends_on.items():
+                if answers.get(dep_key, "") != dep_val:
+                    depends_on_satisfied = False
+                    break
+
+            if not depends_on_satisfied:
+                continue
+
+            prompt = value.get("message")
+
+            if not prompt:
+                continue
+
+            # Escape special characters and allow any whitespace after
+            regex_prompt = re.escape(prompt) + r"\s*"
+            # Use regex for matching the prompt
+            child.expect(regex_prompt, timeout=10)
+            response = value.get("default", "")
+            answers[key] = response
+            child.sendline(response)
 
         child.expect(pexpect.EOF)
         output = child.before
