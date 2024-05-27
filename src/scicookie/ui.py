@@ -69,12 +69,17 @@ def _create_question(
 def check_dependencies_satisfied(
     question: dict[str, Any], answers: dict[str, str]
 ) -> bool:
-    """
-    Check if dependencies are satisfied.
+    """Check if dependencies are satisfied."""
+    if "depends_on" not in question:
+        return True
 
-    Note: Not implemented yet.
-    """
-    return True
+    depends_satisfied = True
+    for dep_key, dep_value in question.get("depends_on", {}).items():
+        if answers[dep_key] != dep_value:
+            depends_satisfied = False
+            break
+
+    return depends_satisfied
 
 
 def sanitize_package_slug(package_slug: str) -> str:

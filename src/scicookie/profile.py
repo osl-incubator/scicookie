@@ -25,7 +25,7 @@ class Profile:
 
         if profile_name not in self.profiles_available:
             SciCookieLogs.raise_error(
-                "The given profiles is not available.",
+                f"The given profile ({profile_name}) is not available.",
                 SciCookieErrorType.SCICOOKIE_INVALID_PARAMETER,
             )
 
