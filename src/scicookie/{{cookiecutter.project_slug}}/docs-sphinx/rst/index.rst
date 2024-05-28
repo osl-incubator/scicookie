@@ -9,7 +9,7 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
 
    Introduction <readme>
    installation
-   api/references
+   references
    Example <example>
    contributing
    changelog
