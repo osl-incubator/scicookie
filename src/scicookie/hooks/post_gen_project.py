@@ -136,7 +136,7 @@ def move_selected_doc_dir():
         remove_project_file(Path("docs") / "index.md")   
 
     if DOCUMENTATION_ENGINE == "quarto":
-        remove_dir(Path("docs/api"))
+        remove_project_file(Path("docs/api") / "references.md")
     shutil.rmtree(DOCS_SPEC_DIR)
 
 
