@@ -133,10 +133,7 @@ def move_selected_doc_dir():
         shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 
     if DOCUMENTATION_ENGINE.startswith("sphinx"):
-        remove_project_file(Path("docs") / "index.md")   
-
-    if DOCUMENTATION_ENGINE == "quarto":
-        remove_project_file(Path("docs/api") / "references.md")
+        remove_project_file(Path("docs") / "index.md")
     shutil.rmtree(DOCS_SPEC_DIR)
 
 
