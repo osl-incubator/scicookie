@@ -8,7 +8,8 @@
     :members:
 ```
 
-:::{note}
+```{admonition} API documentation with sphinx-autodoc2
+:class: important
 
-You can also build the API documentation using sphinx-autodoc2
-:::
+You can also build the API documentation using [sphinx-autodoc2 extension](https://sphinx-autodoc2.readthedocs.io/en/latest/). 
+```
