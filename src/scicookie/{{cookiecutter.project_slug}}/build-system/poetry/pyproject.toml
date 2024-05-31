@@ -87,6 +87,7 @@ compose-go = ">=2.18.1"
 {% endif -%}
 ipython = "<8"
 ipykernel = ">=6.0.0"
+{# keep this line here #}
 {%- if cookiecutter.documentation_engine == 'mkdocs' %}
 Jinja2 = ">=3.1.2"
 mkdocs = ">=1.4.3"
@@ -98,7 +99,7 @@ mkdocs-material = ">=9.1.15"
 mkdocstrings = ">=0.21.2"
 mkdocstrings-python = ">=1.1.2"
 {# keep this line here #}
-{%- elif cookiecutter.documentation_engine == 'sphinx' %}
+{%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
 Sphinx = ">=6.2.1"
 sphinx-rtd-theme = ">=1.2.2"
 importlib-metadata = ">=6.5.1"
