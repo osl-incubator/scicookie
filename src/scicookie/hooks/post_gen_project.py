@@ -23,13 +23,13 @@ DOCUMENTATION_ENGINE = "{{ cookiecutter.documentation_engine }}"
 {% if cookiecutter.documentation_engine == "sphinx(rst)" -%}
 DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(
     UNUSED_DOCS_DIRS.index(
-        PROJECT_DIRECTORY / f'docs-sphinx/rst'
+        PROJECT_DIRECTORY / 'docs-sphinx'/'rst'
     )
 )
 {% elif cookiecutter.documentation_engine == "sphinx(myst)" -%}
 DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(
     UNUSED_DOCS_DIRS.index(
-        PROJECT_DIRECTORY / f'docs-sphinx/myst'
+        PROJECT_DIRECTORY / 'docs-sphinx'/'myst'
     )
 )
 {% else %}
@@ -129,11 +129,18 @@ def move_selected_doc_dir():
         docs_target_dir = PROJECT_DIRECTORY
     else:
         docs_target_dir = PROJECT_DIRECTORY / "docs"
+
+    if DOCUMENTATION_ENGINE.startswith("sphinx"):
+        remove_project_file(Path("docs") / "index.md")   
+
     for file_name in os.listdir(DOCS_SPEC_DIR):
         shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 
     if DOCUMENTATION_ENGINE.startswith("sphinx"):
-        remove_project_file(Path("docs") / "index.md")
+        DOCS_SPHINX = Path(DOCS_SPEC_DIR).parent 
+        shutil.move(DOCS_SPHINX / 'conf.py', docs_target_dir)
+        shutil.move(DOCS_SPHINX / 'make.bat', docs_target_dir)
+        shutil.move(DOCS_SPHINX / 'readme.md', docs_target_dir)
     shutil.rmtree(DOCS_SPEC_DIR)
 
 
