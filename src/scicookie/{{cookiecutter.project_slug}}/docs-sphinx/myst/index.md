@@ -5,7 +5,7 @@
 ```{toctree}
 Introduction <readme.md>
 installation.md
-references-myst.md
+api/references.md
 Example <example.ipynb>
 contributing.md
 changelog.md
