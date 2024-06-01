@@ -146,6 +146,20 @@ mkdocs_theme:
     documentation_engine: mkdocs
   visible: true
 
+sphinx_theme:
+  message: Select one option for the Sphinx theme
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
+  type: single-choice
+  default: Read the Docs
+  # first choice is the default for the UI
+  choices:
+    - Read the Docs
+    - PyData
+    - Alabaster
+  depends_on:
+    documentation_engine: sphinx
+  visible: true
+
 use_tools:
   message: Select all the initial tools you want to add to your project
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#project-tools"

@@ -33,7 +33,7 @@ include = ["{{ package_path }}/py.typed"]
 {% endif -%}
 {# keep this line here #}
 [tool.poetry.dependencies]
-{%- if cookiecutter.documentation_engine == 'quarto' %}
+{%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'PyData' %}
 python = ">=3.9,<4"
 {% else %}
 python = ">=3.8.1,<4"
@@ -105,7 +105,11 @@ mkdocstrings-python = ">=1.1.2"
 {# keep this line here #}
 {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
 Sphinx = ">=6.2.1"
+{%- if cookiecutter.sphinx_theme == 'Read the Docs'%}
 sphinx-rtd-theme = ">=1.2.2"
+{%- elif cookiecutter.sphinx_theme == 'PyData' %}
+pydata-sphinx-theme = ">=0.15.3"
+{%- endif %}
 importlib-metadata = ">=6.5.1"
 myst-parser = ">=0.19.2"
 nbsphinx = ">=0.9.2"
