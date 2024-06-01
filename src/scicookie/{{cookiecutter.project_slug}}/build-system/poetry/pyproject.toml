@@ -33,7 +33,7 @@ include = ["{{ package_path }}/py.typed"]
 {% endif -%}
 {# keep this line here #}
 [tool.poetry.dependencies]
-{%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'PyData' %}
+{%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'PyData' or cookiecutter.jupyter_book_theme == 'PyData Sphinx Theme'%}
 python = ">=3.9,<4"
 {% else %}
 python = ">=3.8.1,<4"
@@ -118,6 +118,11 @@ pandoc = ">=2.3"
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
 jupyter-book = ">=0.15.1"
 myst-parser = ">=0.18.1"
+{%- if cookiecutter.jupyter_book_theme == 'Read the Docs Sphinx Theme'%}
+sphinx-rtd-theme = ">= 1.2.2"
+{%- elif cookiecutter.jupyter_book_theme == 'PyData Sphinx Theme' %}
+pydata-sphinx-theme = ">= 0.15.3"
+{% endif %}
 {# keep this line here #}
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
 quarto-cli = ">=1.4.550"

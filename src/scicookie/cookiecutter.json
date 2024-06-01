@@ -27,6 +27,11 @@
   "documentation_url": "{{ cookiecutter.project_url }}",
   "mkdocs_theme": ["Material", "Cinder", "Mkdocs", "Readthedocs"],
   "sphinx_theme": ["Read the Docs", "Alabaster", "PyData"],
+  "jupyter_book_theme": [
+    "Read the Docs Sphinx Theme",
+    "Jupyter Book",
+    "PyData Sphinx Theme"
+  ],
   "code_of_conduct": [
     "None",
     "contributor-covenant",

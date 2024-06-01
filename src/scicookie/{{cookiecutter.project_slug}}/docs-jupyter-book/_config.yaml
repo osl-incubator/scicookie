@@ -26,3 +26,13 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+{%- if cookiecutter.jupyter_book_theme == 'PyData Sphinx Theme' %}
+sphinx:
+  config:
+    html_theme: pydata_sphinx_theme
+{%- elif cookiecutter.jupyter_book_theme == 'Read the Docs Sphinx Theme' %}
+sphinx:
+  config:
+    html_theme: sphinx_rtd_theme
+{% endif %}

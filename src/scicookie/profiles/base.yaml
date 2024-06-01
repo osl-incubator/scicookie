@@ -146,6 +146,20 @@ mkdocs_theme:
     documentation_engine: mkdocs
   visible: true
 
+jupyter_book_theme:
+  message: Select one option for the Jupyter Book theme
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
+  type: single-choice
+  default: Jupyter Book
+  # first choice is the default for the UI
+  choices:
+    - Jupyter Book
+    - PyData Sphinx Theme
+    - Read the Docs Sphinx Theme
+  depends_on:
+    documentation_engine: jupyter-book
+  visible: true
+
 sphinx_theme:
   message: Select one option for the Sphinx theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
