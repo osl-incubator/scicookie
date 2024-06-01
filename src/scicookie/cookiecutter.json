@@ -32,6 +32,7 @@
     "Jupyter Book",
     "PyData Sphinx Theme"
   ],
+  "quarto_theme": ["Default", "Cosmo", "Cerulean", "Materia"],
   "code_of_conduct": [
     "None",
     "contributor-covenant",

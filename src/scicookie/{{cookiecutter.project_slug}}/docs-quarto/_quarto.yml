@@ -17,7 +17,15 @@ website:
 
 format:
   html:
+  {%- if cookiecutter.quarto_theme == 'Default' %}
+    theme: default
+  {%- elif cookiecutter.quarto_theme == 'Cosmo' %}
     theme: cosmo
+  {%- elif cookiecutter.quarto_theme == 'Cerulean' %}
+    theme: cerulean
+  {%- elif cookiecutter.quarto_theme == 'Materia' %}
+    theme: materia
+  {%- endif %}
     css: styles.css
     toc: true
 

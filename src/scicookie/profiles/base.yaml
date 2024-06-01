@@ -146,6 +146,20 @@ mkdocs_theme:
     documentation_engine: mkdocs
   visible: true
 
+sphinx_theme:
+  message: Select one option for the Sphinx theme
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
+  type: single-choice
+  default: Read the Docs
+  # first choice is the default for the UI
+  choices:
+    - Read the Docs
+    - PyData
+    - Alabaster
+  depends_on:
+    documentation_engine: sphinx
+  visible: true
+
 jupyter_book_theme:
   message: Select one option for the Jupyter Book theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
@@ -160,18 +174,19 @@ jupyter_book_theme:
     documentation_engine: jupyter-book
   visible: true
 
-sphinx_theme:
-  message: Select one option for the Sphinx theme
+quarto_theme:
+  message: Select one option for the Quarto theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
   type: single-choice
-  default: Read the Docs
+  default: Default
   # first choice is the default for the UI
   choices:
-    - Read the Docs
-    - PyData
-    - Alabaster
+    - Default
+    - Cosmo
+    - Cerulean
+    - Materia
   depends_on:
-    documentation_engine: sphinx
+    documentation_engine: quarto
   visible: true
 
 use_tools:
