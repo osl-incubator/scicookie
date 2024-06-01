@@ -95,7 +95,11 @@ mkdocs-exclude = ">=1.0.2"
 mkdocs-jupyter = ">=0.24.1"
 mkdocs-literate-nav = ">=0.6.0"
 mkdocs-macros-plugin = ">=0.7.0,<1"
+{% if cookiecutter.mkdocs_theme == "Material" -%}
 mkdocs-material = ">=9.1.15"
+{% elif cookiecutter.mkdocs_theme == "Cinder" -%}
+mkdocs-cinder = ">=1.2.0"
+{% endif -%}
 mkdocstrings = ">=0.21.2"
 mkdocstrings-python = ">=1.1.2"
 {# keep this line here #}

@@ -131,6 +131,21 @@ documentation_url:
   default: "${{ project_url }}"
   visible: true
 
+mkdocs_theme:
+  message: Select one option for the MkDocs theme
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
+  type: single-choice
+  default: Material
+  # first choice is the default for the UI
+  choices:
+    - Material
+    - Cinder
+    - Mkdocs
+    - Readthedocs
+  depends_on:
+    documentation_engine: mkdocs
+  visible: true
+
 use_tools:
   message: Select all the initial tools you want to add to your project
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#project-tools"
