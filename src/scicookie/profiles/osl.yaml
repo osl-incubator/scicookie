@@ -45,10 +45,15 @@ command_line_interface:
   visible: true
 
 documentation_engine:
-  visible: true
+  default: mkdocs
+  visible: false
 
 documentation_url:
   visible: true
+
+mkdocs_theme:
+  default: Material
+  visible: false
 
 use_tools:
   choices:
