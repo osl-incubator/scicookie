@@ -32,11 +32,13 @@ jobs:
   tests:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        prefix:
-          - /usr/share/miniconda3/envs/scicookie
-          - /Users/runner/miniconda3/envs/scicookie
-          - C:\Miniconda3\envs\scicookie
+        include:
+          - os: ubuntu-latest
+            prefix: /usr/share/miniconda3/envs/scicookie
+          - os: macos-latest
+            prefix: /Users/runner/miniconda3/envs/scicookie
+          - os: windows-latest
+            prefix: C:\Miniconda3\envs\scicookie
 
     runs-on: ${{ matrix.os }}
 
