@@ -75,8 +75,14 @@ jobs:
         run: mamba env update -n scicookie -f conda/dev.yaml
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "export PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: |
+          source $GITHUB_ENV
           poetry config virtualenvs.create false
           poetry install
 
@@ -124,8 +130,14 @@ jobs:
         run: mamba env update -n scicookie -f conda/dev.yaml
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "export PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: |
+          source $GITHUB_ENV
           poetry config virtualenvs.create false
           poetry install
 
@@ -183,8 +195,15 @@ jobs:
         run: mamba env update -n scicookie -f conda/dev.yaml
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "export PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
+
       - name: Install dependencies
-        run: poetry install
+        run: |
+          source $GITHUB_ENV
+          poetry install
 
       - name: Run Smoke Test (${{ matrix.smoke_file }})
         run: bash ./tests/smoke/${{ matrix.smoke_file }}
