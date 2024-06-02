@@ -135,12 +135,12 @@ mkdocs_theme:
   message: Select one option for the MkDocs theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
   type: single-choice
-  default: Material
+  default: Default (Mkdocs)
   # first choice is the default for the UI
   choices:
+    - Default (Mkdocs)
     - Material
     - Cinder
-    - Mkdocs
     - Readthedocs
   depends_on:
     documentation_engine: mkdocs
@@ -150,12 +150,12 @@ sphinx_theme:
   message: Select one option for the Sphinx theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
   type: single-choice
-  default: Read the Docs
+  default: Default (Alabaster)
   # first choice is the default for the UI
   choices:
+    - Default (Alabaster)
     - Read the Docs
     - PyData
-    - Alabaster
   depends_on:
     documentation_engine: sphinx
   visible: true
@@ -164,10 +164,10 @@ jupyter_book_theme:
   message: Select one option for the Jupyter Book theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
   type: single-choice
-  default: Jupyter Book
+  default: Default (Jupyter Book)
   # first choice is the default for the UI
   choices:
-    - Jupyter Book
+    - Default (Jupyter Book)
     - PyData Sphinx Theme
     - Read the Docs Sphinx Theme
   depends_on:

@@ -88,9 +88,9 @@ todo_include_todos = False
 #
 {%- if cookiecutter.sphinx_theme == 'Read the Docs' %}
 html_theme = "sphinx_rtd_theme"
-{%- elif cookiecutter.sphinx_theme == "PyData" %}
+{%- elif cookiecutter.sphinx_theme == 'PyData' %}
 html_theme = "pydata_sphinx_theme"
-{%- elif cookiecutter.sphinx_theme == "Alabaster" %}
+{%- elif cookiecutter.sphinx_theme == 'Default (Alabaster)' %}
 html_theme = "alabaster"
 {%- endif %}
 
