@@ -73,7 +73,20 @@ class TestMain(BaseCLITestProfile):
             timeout=10,
         )
 
+        answers = {}
+
         for key, value in all_questions.items():
+            depends_on = value.get("depends_on", {})
+            depends_on_satisfied = True
+
+            for dep_key, dep_val in depends_on.items():
+                if answers.get(dep_key, "") != dep_val:
+                    depends_on_satisfied = False
+                    break
+
+            if not depends_on_satisfied:
+                continue
+
             prompt = value.get("message")
             if prompt:
                 # Escape special characters and allow any whitespace after
@@ -81,6 +94,7 @@ class TestMain(BaseCLITestProfile):
                 # Use regex for matching the prompt
                 child.expect(regex_prompt, timeout=10)
                 response = value.get("default", "")
+                answers[key] = response
                 child.sendline(response)
 
         child.expect(pexpect.EOF)

@@ -131,6 +131,64 @@ documentation_url:
   default: "docs.myproject.com"
   visible: true
 
+mkdocs_theme:
+  message: Select one option for the MkDocs theme
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
+  type: single-choice
+  default: Default (Mkdocs)
+  # first choice is the default for the UI
+  choices:
+    - Default (Mkdocs)
+    - Material
+    - Cinder
+    - Readthedocs
+  depends_on:
+    documentation_engine: mkdocs
+  visible: true
+
+sphinx_theme:
+  message: Select one option for the Sphinx theme
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
+  type: single-choice
+  default: Default (Alabaster)
+  # first choice is the default for the UI
+  choices:
+    - Default (Alabaster)
+    - Read the Docs
+    - PyData
+  depends_on:
+    documentation_engine: sphinx
+  visible: true
+
+jupyter_book_theme:
+  message: Select one option for the Jupyter Book theme
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
+  type: single-choice
+  default: Default (Jupyter Book)
+  # first choice is the default for the UI
+  choices:
+    - Default (Jupyter Book)
+    - PyData Sphinx Theme
+    - Read the Docs Sphinx Theme
+  depends_on:
+    documentation_engine: jupyter-book
+  visible: true
+
+quarto_theme:
+  message: Select one option for the Quarto theme
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
+  type: single-choice
+  default: Default
+  # first choice is the default for the UI
+  choices:
+    - Default
+    - Cosmo
+    - Cerulean
+    - Materia
+  depends_on:
+    documentation_engine: quarto
+  visible: true
+
 use_tools:
   message: Select all the initial tools you want to add to your project
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#project-tools"
