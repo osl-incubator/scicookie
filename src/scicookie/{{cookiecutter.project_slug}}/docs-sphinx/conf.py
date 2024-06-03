@@ -90,7 +90,7 @@ todo_include_todos = False
 html_theme = "sphinx_rtd_theme"
 {%- elif cookiecutter.sphinx_theme == 'PyData' %}
 html_theme = "pydata_sphinx_theme"
-{%- elif cookiecutter.sphinx_theme == 'Default (Alabaster)' %}
+{%- elif cookiecutter.sphinx_theme == 'Default' %}
 html_theme = "alabaster"
 {%- endif %}
 

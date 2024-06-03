@@ -18,13 +18,13 @@ nav:
   - API: /api/references.md
   - Notebook page: example.ipynb
 theme:
-{% if cookiecutter.mkdocs_theme == "Default (Mkdocs)" %}
+{% if cookiecutter.mkdocs_theme == 'Default' %}
   name: mkdocs
-{% elif cookiecutter.mkdocs_theme == "Material" %}
+{% elif cookiecutter.mkdocs_theme == 'Material' %}
   name: material
-{% elif cookiecutter.mkdocs_theme == "Cinder" %}
+{% elif cookiecutter.mkdocs_theme == 'Cinder' %}
   name: cinder
-{% elif cookiecutter.mkdocs_theme == "Readthedocs" %}
+{% elif cookiecutter.mkdocs_theme == 'Readthedocs' %}
   name: readthedocs
 {% endif%}
   features:

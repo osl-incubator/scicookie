@@ -25,10 +25,10 @@
     "quarto"
   ],
   "documentation_url": "{{ cookiecutter.project_url }}",
-  "mkdocs_theme": ["Default (Mkdocs)", "Material", "Cinder", "Read the Docs"],
-  "sphinx_theme": ["Default (Alabaster)", "Read the Docs", "PyData"],
+  "mkdocs_theme": ["Default", "Material", "Cinder", "Read the Docs"],
+  "sphinx_theme": ["Default", "Read the Docs", "PyData"],
   "jupyter_book_theme": [
-    "Default (Jupyter Book)",
+    "Default",
     "PyData Sphinx Theme",
     "Read the Docs Sphinx Theme"
   ],
