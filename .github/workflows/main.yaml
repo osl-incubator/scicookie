@@ -47,6 +47,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cache Conda packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.conda/pkgs
+          key: conda-${{ runner.os }}-${{ hashFiles('**/conda*.yaml') }}
+          restore-keys: |
+            conda-${{ runner.os }}-
+
       - name: Install dependencies with conda for linux/macos
         uses: conda-incubator/setup-miniconda@v3
         if: ${{ matrix.os != 'windows' }}
@@ -104,6 +112,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Cache Conda packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.conda/pkgs
+          key: conda-${{ runner.os }}-${{ hashFiles('**/conda*.yaml') }}
+          restore-keys: |
+            conda-${{ runner.os }}-
 
       - name: Install dependencies with conda for linux/macos
         uses: conda-incubator/setup-miniconda@v3
