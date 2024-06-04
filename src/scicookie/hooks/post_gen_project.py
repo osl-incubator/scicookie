@@ -11,7 +11,7 @@ from scicookie.tools import fix_eof
 
 PROJECT_DIRECTORY = Path(os.path.abspath(os.path.curdir)).resolve()
 
-UNUSED_DOCS_DIRS = [
+ALL_DOCS_DIRS = [
     PROJECT_DIRECTORY / 'docs-mkdocs',
     PROJECT_DIRECTORY / 'docs-sphinx',
     PROJECT_DIRECTORY / 'docs-jupyter-book',
@@ -19,11 +19,16 @@ UNUSED_DOCS_DIRS = [
 ]
 
 DOCUMENTATION_ENGINE = "{{ cookiecutter.documentation_engine }}"
-DOCS_SPEC_DIR = UNUSED_DOCS_DIRS.pop(
-    UNUSED_DOCS_DIRS.index(
-        PROJECT_DIRECTORY / f'docs-{DOCUMENTATION_ENGINE}'
-    )
-)
+{% if cookiecutter.documentation_engine == "sphinx(rst)" -%}
+DOCS_SPEC_DIR = PROJECT_DIRECTORY / 'docs-sphinx'/'rst'
+
+{% elif cookiecutter.documentation_engine == "sphinx(myst)" -%}
+DOCS_SPEC_DIR = PROJECT_DIRECTORY / 'docs-sphinx'/'myst'
+
+{% else %}
+DOCS_SPEC_DIR = PROJECT_DIRECTORY / f'docs-{DOCUMENTATION_ENGINE}'
+
+{%- endif %}
 
 USE_SRC_LAYOUT = {{ cookiecutter.project_layout == "src" }}
 if USE_SRC_LAYOUT:
@@ -112,19 +117,20 @@ def remove_package_file(filepath: str):
 def move_selected_doc_dir():
     if DOCUMENTATION_ENGINE == "mkdocs":
         docs_target_dir = PROJECT_DIRECTORY
-        remove_project_file(Path("docs/api") / "references.rst")
     else:
         docs_target_dir = PROJECT_DIRECTORY / "docs"
+
+    if DOCUMENTATION_ENGINE.startswith("sphinx"):
+        remove_project_file(Path("docs") / "index.md")
+
     for file_name in os.listdir(DOCS_SPEC_DIR):
         shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 
-    if DOCUMENTATION_ENGINE == "sphinx":
-        remove_project_file(Path("docs") / "index.md")
-        remove_project_file(Path("docs/api") / "references.md")
-    if DOCUMENTATION_ENGINE == "quarto":
-        remove_project_file(Path("docs/api") / "references.md")
-        remove_project_file(Path("docs/api") / "references.rst")
-    shutil.rmtree(DOCS_SPEC_DIR)
+    if DOCUMENTATION_ENGINE.startswith("sphinx"):
+        DOCS_SPHINX = Path(DOCS_SPEC_DIR).parent
+        shutil.move(DOCS_SPHINX / 'conf.py', docs_target_dir)
+        shutil.move(DOCS_SPHINX / 'make.bat', docs_target_dir)
+        shutil.move(DOCS_SPHINX / 'readme.md', docs_target_dir)
 
 
 def clean_up_tests():
@@ -140,9 +146,9 @@ def clean_up_automation():
         remove_project_file(".makim.yaml")
 
 def clean_up_docs():
-    remove_dirs(UNUSED_DOCS_DIRS)
     move_selected_doc_dir()
-
+    remove_dirs(ALL_DOCS_DIRS)
+    
 
 def clean_up_project_layout():
     if USE_SRC_LAYOUT:

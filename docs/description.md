@@ -32,8 +32,8 @@ needs.
 - **Version Control & Automation:** Includes initial git integration, conda
   (base environment) support, pre-commit hooks, continuous integration with
   GitHub Actions, and release workflows with semantic-release.
-- **Documentation:** Offers options for mkdocs, sphinx, jupyter-book or quarto
-  documentation generation.
+- **Documentation:** Offers options for mkdocs, sphinx-rst, sphinx-myst,
+  jupyter-book or quarto documentation generation.
 - **Containerization:** Provides the ability to add initial files for running
   and managing containers using Docker or Podman.
 

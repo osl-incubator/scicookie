@@ -70,7 +70,7 @@ dev = [
   "mkdocs-material >= 9.1.15",
   "mkdocstrings >= 0.21.2",
   "mkdocstrings-python >= 1.1.2",
-{%- elif cookiecutter.documentation_engine == 'sphinx' %}
+{%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
   "Sphinx >= 6.2.1",
   "sphinx-rtd-theme >= 1.2.2",
   "importlib-metadata >= 6.5.1",
