@@ -408,17 +408,17 @@ _sphinx-myst_, _jupyter-book_ and _quarto_.
   customise the visual appearance of your documentation. In SciCookie, so far,
   we use the _material_ theme to generate documentation with _mkdocs_.
 
-- [**Sphinx**](https://www.sphinx-doc.org/en/master/): _Sphinx_ makes it easy
-  to create intelligent and attractive documentation. It provides various
-  output formats such as HTML, LaTeX, ePub, Texinfo, manual pages, plain text.
-  It allows the use of built-in extensions for automatic code snippet checking,
-  the inclusion of docstrings from Python modules, and third-party extensions
-  to include many more features. To work with _Sphinx_ you can select either of
-  the two available options: _sphinx-rst_ and _sphinx-myst_. _Sphinx-rst_ uses
-  the _reStructuredText_ markup language by default and _Sphinx-myst_(Markedly
+- [**Sphinx**](https://www.sphinx-doc.org/en/master/): _Sphinx_ makes it easy to
+  create intelligent and attractive documentation. It provides various output
+  formats such as HTML, LaTeX, ePub, Texinfo, manual pages, plain text. It
+  allows the use of built-in extensions for automatic code snippet checking, the
+  inclusion of docstrings from Python modules, and third-party extensions to
+  include many more features. To work with _Sphinx_ you can select either of the
+  two available options: _sphinx-rst_ and _sphinx-myst_. _Sphinx-rst_ uses the
+  _reStructuredText_ markup language by default and _Sphinx-myst_(Markedly
   Structured Text - Parser) is a Sphinx and Docutils extension to parse MyST, a
-  rich and extensible flavour of Markdown for authoring technical and
-  scientific documentation.
+  rich and extensible flavour of Markdown for authoring technical and scientific
+  documentation.
 
 - [**Jupyter Book**](https://jupyterbook.org/en/stable/intro.html): allows you
   to create engaging, publication-quality books and documents from computational
@@ -430,11 +430,11 @@ _sphinx-myst_, _jupyter-book_ and _quarto_.
   HTML, PDF and static web pages. It integrates well with version control
   systems such as Git.
 
-- [**Quarto**](https://quarto.org/): It is a versatile open-source platform designed
-  for scientific and technical publishing. It offers the unique feature of
-  embedding Python code directly into your documentation, enabling interactive
-  and dynamic content creation. With Quarto, you can easily render your
-  documents in multiple formats such as HTML, PDF, and websites, making it
+- [**Quarto**](https://quarto.org/): It is a versatile open-source platform
+  designed for scientific and technical publishing. It offers the unique feature
+  of embedding Python code directly into your documentation, enabling
+  interactive and dynamic content creation. With Quarto, you can easily render
+  your documents in multiple formats such as HTML, PDF, and websites, making it
   convenient for sharing and presenting your work. Additionally, Quarto provides
   customization options to personalize your content according to your
   preferences and needs.
