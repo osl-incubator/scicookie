@@ -33,7 +33,7 @@ include = ["{{ package_path }}/py.typed"]
 {% endif -%}
 {# keep this line here #}
 [tool.poetry.dependencies]
-{%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'PyData' or cookiecutter.jupyter_book_theme == 'PyData Sphinx Theme'%}
+{%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'PyData' or cookiecutter.jupyter_book_theme == 'PyData-sphinx-theme'%}
 python = ">=3.9,<4"
 {% else %}
 python = ">=3.8.1,<4"
@@ -105,7 +105,7 @@ mkdocstrings-python = ">=1.1.2"
 {# keep this line here #}
 {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
 Sphinx = ">=6.2.1"
-{%- if cookiecutter.sphinx_theme == 'Read the Docs'%}
+{%- if cookiecutter.sphinx_theme == 'Readthedocs'%}
 sphinx-rtd-theme = ">=1.2.2"
 {%- elif cookiecutter.sphinx_theme == 'PyData' %}
 pydata-sphinx-theme = ">=0.15.3"
@@ -118,9 +118,9 @@ pandoc = ">=2.3"
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
 jupyter-book = ">=0.15.1"
 myst-parser = ">=0.18.1"
-{%- if cookiecutter.jupyter_book_theme == 'Read the Docs Sphinx Theme'%}
+{%- if cookiecutter.jupyter_book_theme == 'Readthedocs-sphinx-theme'%}
 sphinx-rtd-theme = ">= 1.2.2"
-{%- elif cookiecutter.jupyter_book_theme == 'PyData Sphinx Theme' %}
+{%- elif cookiecutter.jupyter_book_theme == 'PyData-sphinx-theme' %}
 pydata-sphinx-theme = ">= 0.15.3"
 {% endif %}
 {# keep this line here #}

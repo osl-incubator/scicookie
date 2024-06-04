@@ -76,7 +76,7 @@ dev = [
   "mkdocstrings-python >= 1.1.2",
 {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
   "Sphinx >= 6.2.1",
-  {%- if cookiecutter.sphinx_theme == 'Read the Docs'%}
+  {%- if cookiecutter.sphinx_theme == 'Readthedocs'%}
   "sphinx-rtd-theme >= 1.2.2",
   {%- elif cookiecutter.sphinx_theme == 'PyData' %}
   "pydata-sphinx-theme >= 0.15.3"
@@ -88,9 +88,9 @@ dev = [
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
   "jupyter-book >= 0.15.1",
   "myst-parser >= 0.18.1",
-  {%- if cookiecutter.jupyter_book_theme == 'Read the Docs Sphinx Theme'%}
+  {%- if cookiecutter.jupyter_book_theme == 'Readthedocs-sphinx-theme'%}
   "sphinx-rtd-theme >= 1.2.2",
-  {%- elif cookiecutter.jupyter_book_theme == 'PyData Sphinx Theme' %}
+  {%- elif cookiecutter.jupyter_book_theme == 'PyData-sphinx-theme' %}
   "pydata-sphinx-theme >= 0.15.3",
   {% endif %}
 {%- elif cookiecutter.documentation_engine == 'quarto' %}

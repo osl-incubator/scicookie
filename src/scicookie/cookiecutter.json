@@ -25,12 +25,12 @@
     "quarto"
   ],
   "documentation_url": "{{ cookiecutter.project_url }}",
-  "mkdocs_theme": ["Default", "Material", "Cinder", "Read the Docs"],
-  "sphinx_theme": ["Default", "Read the Docs", "PyData"],
+  "mkdocs_theme": ["Default", "Material", "Cinder", "Readthedocs"],
+  "sphinx_theme": ["Default", "Readthedocs", "PyData"],
   "jupyter_book_theme": [
     "Default",
-    "PyData Sphinx Theme",
-    "Read the Docs Sphinx Theme"
+    "PyData-sphinx-theme",
+    "Readthedocs-sphinx-theme"
   ],
   "quarto_theme": ["Default", "Cosmo", "Cerulean", "Materia"],
   "code_of_conduct": [

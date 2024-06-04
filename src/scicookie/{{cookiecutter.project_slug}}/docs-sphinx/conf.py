@@ -86,7 +86,7 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-{%- if cookiecutter.sphinx_theme == 'Read the Docs' %}
+{%- if cookiecutter.sphinx_theme == 'Readthedocs' %}
 html_theme = "sphinx_rtd_theme"
 {%- elif cookiecutter.sphinx_theme == 'PyData' %}
 html_theme = "pydata_sphinx_theme"

@@ -158,7 +158,7 @@ sphinx_theme:
   # first choice is the default for the UI
   choices:
     - Default
-    - Read the Docs
+    - Readthedocs
     - PyData
   depends_on:
     documentation_engine: sphinx
@@ -172,8 +172,8 @@ jupyter_book_theme:
   # first choice is the default for the UI
   choices:
     - Default
-    - PyData Sphinx Theme
-    - Read the Docs Sphinx Theme
+    - PyData-sphinx-theme
+    - Readthedocs-sphinx-theme
   depends_on:
     documentation_engine: jupyter-book
   visible: true
