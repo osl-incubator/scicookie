@@ -154,7 +154,10 @@ jobs:
           - auto-format-tools.sh
           - build-systems.sh
           - containers.sh
-          - docs.sh
+          - docs-jupyter-book.sh
+          - docs-mkdocs.sh
+          - docs-quarto.sh
+          - docs-sphinx.sh
           - files.sh
           - linters.sh
           - tests.sh

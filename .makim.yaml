@@ -70,7 +70,10 @@ groups:
           ./tests/smoke/build-systems.sh
           ./tests/smoke/cli.sh
           ./tests/smoke/containers.sh
-          ./tests/smoke/docs.sh
+          ./tests/smoke/docs-jupyter-book.sh
+          ./tests/smoke/docs-mkdocs.sh
+          ./tests/smoke/docs-quarto.sh
+          ./tests/smoke/docs-sphinx.sh
           ./tests/smoke/files.sh
           ./tests/smoke/linters.sh
           ./tests/smoke/tests.sh
