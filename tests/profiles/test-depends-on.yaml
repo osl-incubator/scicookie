@@ -47,7 +47,7 @@ project_version:
   default: 0.1.0
   visible: true
   depends_on:
-    package_slug: mypackageslug
+    - package_slug: mypackageslug
 
 project_url:
   message: Type the project URL
@@ -56,7 +56,7 @@ project_url:
   default: "myproject.com"
   visible: true
   depends_on:
-    project_version: 1.0.0
+    - project_version: 1.0.0
 
 project_license:
   message: Select one option for the project license

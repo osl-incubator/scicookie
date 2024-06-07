@@ -74,10 +74,24 @@ def check_dependencies_satisfied(
         return True
 
     depends_satisfied = True
-    for dep_key, dep_value in question.get("depends_on", {}).items():
-        if answers[dep_key] != dep_value:
-            depends_satisfied = False
-            break
+    depends_on_attr = question.get("depends_on", [])
+
+    if not isinstance(depends_on_attr, list):
+        raise Exception("`depends_on` attribute is a list of dictionaries.")
+
+    for criteria_or in depends_on_attr:
+        if not isinstance(criteria_or, dict):
+            raise Exception(
+                "`depends_on` attribute is a list of dictionaries."
+            )
+
+        tmp_satisfied = False
+
+        for crit_key, crit_value in criteria_or.items():
+            if answers[crit_key] == crit_value:
+                tmp_satisfied = True
+
+        depends_satisfied = depends_satisfied and tmp_satisfied
 
     return depends_satisfied
 
