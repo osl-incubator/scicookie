@@ -76,15 +76,7 @@ class TestMain(BaseCLITestProfile):
         answers = {}
 
         for key, value in all_questions.items():
-            depends_on = value.get("depends_on", {})
-            depends_on_satisfied = True
-
-            for dep_key, dep_val in depends_on.items():
-                if answers.get(dep_key, "") != dep_val:
-                    depends_on_satisfied = False
-                    break
-
-            if not depends_on_satisfied:
+            if not check_dependencies_satisfied(value, answers):
                 continue
 
             prompt = value.get("message")
