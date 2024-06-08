@@ -147,7 +147,7 @@ mkdocs_theme:
     - Cinder
     - Readthedocs
   depends_on:
-    documentation_engine: mkdocs
+    - documentation_engine: mkdocs
   visible: true
 
 sphinx_theme:
@@ -161,7 +161,8 @@ sphinx_theme:
     - Readthedocs
     - PyData
   depends_on:
-    documentation_engine: sphinx
+    - documentation_engine: sphinx(rst)
+    - documentation_engine: sphinx(myst)
   visible: true
 
 jupyter_book_theme:
@@ -175,7 +176,7 @@ jupyter_book_theme:
     - PyData-sphinx-theme
     - Readthedocs-sphinx-theme
   depends_on:
-    documentation_engine: jupyter-book
+    - documentation_engine: jupyter-book
   visible: true
 
 quarto_theme:
@@ -190,7 +191,7 @@ quarto_theme:
     - Cerulean
     - Materia
   depends_on:
-    documentation_engine: quarto
+    - documentation_engine: quarto
   visible: true
 
 use_tools:
