@@ -14,7 +14,7 @@ import pexpect
 import pytest
 import yaml
 
-from scicookie.ui import check_dependencies_satisfied
+from scicookie.ui import check_visibility
 
 
 def get_all_questions(profile_file_name: str) -> dict[str, Any]:
@@ -108,7 +108,7 @@ class TestDependsOn(BaseCLITestProfile):
         answers = {}
 
         for key, value in all_questions.items():
-            if not check_dependencies_satisfied(value, answers):
+            if not check_visibility(value, answers):
                 continue
 
             prompt = value.get("message")
