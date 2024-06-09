@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 import re
 
-from typing import Any, Optional, Type
+from typing import Any, Optional, Type, Union, cast
 
 import inquirer
 
@@ -14,6 +14,13 @@ from jinja2 import Environment
 
 from scicookie.logs import SciCookieErrorType, SciCookieLogs
 
+ENV = Environment(
+    autoescape=False,
+    variable_start_string="${{",
+    variable_end_string="}}",
+)
+
+
 # Initialize Colorama
 init()
 
@@ -21,10 +28,6 @@ init()
 def _create_question(
     question_id: str, question: dict
 ) -> Optional[inquirer.questions.Question]:
-    # validation
-    if not question.get("visible", False):
-        return None
-
     # config required
     question_type = question.get("type", "")
     # todo: implement help text int he prompt
@@ -66,10 +69,21 @@ def _create_question(
     )
 
 
-def check_dependencies_satisfied(
+def check_visibility(
     question: dict[str, Any], answers: dict[str, str]
 ) -> bool:
     """Check if dependencies are satisfied."""
+    # validation
+    is_visible: Union[str, bool] = question.get("visible", False)
+
+    if isinstance(is_visible, str):
+        is_visible = (
+            ENV.from_string(is_visible).render(answers).strip() == "True"
+        )
+
+    if not cast(bool, is_visible):
+        return False
+
     if "depends_on" not in question:
         return True
 
@@ -127,22 +141,19 @@ def make_questions(questions: dict[str, Any]) -> dict[str, str]:
     print("." * columns)
 
     # Create a Jinja2 environment and add the custom filter
-    env = Environment()
-    env.filters["sanitize_package_slug"] = sanitize_package_slug
+    ENV.filters["sanitize_package_slug"] = sanitize_package_slug
 
     for question_id, question in questions.items():
         question_obj = _create_question(question_id, question)
 
         default_answer = question.get("default", "")
         default_answer = (
-            env.from_string(default_answer).render(answers).strip()
+            ENV.from_string(default_answer).render(answers).strip()
         )
 
         # note: if question_object is None, that means that the question is
         #       not visible
-        if not (
-            check_dependencies_satisfied(question, answers) and question_obj
-        ):
+        if not (check_visibility(question, answers) and question_obj):
             answers[question_id] = default_answer
             continue
 

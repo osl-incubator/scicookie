@@ -45,7 +45,7 @@ project_version:
   help: https://osl-incubator.github.io/scicookie/guide/#information-about-the-project
   type: text
   default: 0.1.0
-  visible: true
+  visible: ${{ package_slug == "mypackageslug" }}
   depends_on:
     - package_slug: mypackageslug
 
