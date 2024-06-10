@@ -142,9 +142,9 @@ mkdocs_theme:
     - Material
     - Cinder
     - Readthedocs
+  visible: ${{ documentation_engine == "mkdocs" }}
   depends_on:
     - documentation_engine: mkdocs
-  visible: true
 
 sphinx_theme:
   message: Select one option for the Sphinx theme
@@ -156,10 +156,7 @@ sphinx_theme:
     - Default
     - Readthedocs
     - PyData
-  depends_on:
-    - documentation_engine: sphinx(rst)
-    - documentation_engine: sphinx(myst)
-  visible: true
+  visible: ${{ documentation_engine.startswith("sphinx") }}
 
 jupyter_book_theme:
   message: Select one option for the Jupyter Book theme
@@ -171,9 +168,9 @@ jupyter_book_theme:
     - Default
     - PyData-sphinx-theme
     - Readthedocs-sphinx-theme
+  visible: ${{ documentation_engine == "jupyter-book" }}
   depends_on:
     - documentation_engine: jupyter-book
-  visible: true
 
 quarto_theme:
   message: Select one option for the Quarto theme
@@ -186,9 +183,9 @@ quarto_theme:
     - Cosmo
     - Cerulean
     - Materia
+  visible: ${{ documentation_engine == "quarto" }}
   depends_on:
     - documentation_engine: quarto
-  visible: true
 
 use_tools:
   message: Select all the initial tools you want to add to your project

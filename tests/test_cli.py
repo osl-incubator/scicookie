@@ -76,7 +76,7 @@ class TestMain(BaseCLITestProfile):
         answers = {}
 
         for key, value in all_questions.items():
-            if not check_dependencies_satisfied(value, answers):
+            if not check_visibility(value, answers):
                 continue
 
             prompt = value.get("message")
