@@ -5,7 +5,7 @@
 To install {{ cookiecutter.project_name }}, run this command in your terminal:
 
 ```bash
-$ pip install {{ cookiecutter.project_slug }}
+pip install {{ cookiecutter.project_slug }}
 ```
 
 This is the preferred method to install {{ cookiecutter.project_name }}, as it will always
@@ -21,23 +21,27 @@ The sources for {{ cookiecutter.project_name }} can be downloaded from the [Gith
 
 You can either clone the public repository:
 {% if cookiecutter.git_https_upstream != "" %}
+
 ```bash
-$ git clone {{ cookiecutter.git_https_upstream }}
+git clone {{ cookiecutter.git_https_upstream }}
 ```
+
 {%- else %}
+
 ```bash
-$ git clone https://github.com/MYORG/MYREPO
+git clone https://github.com/MYORG/MYREPO
 ```
+
 {%- endif %}
 
 Or download the [tarball]({{ cookiecutter.git_https_upstream }}/tarball/main):
 
 ```bash
-$ curl -OJL {{ cookiecutter.git_https_upstream }}/tarball/main
+curl -OJL {{ cookiecutter.git_https_upstream }}/tarball/main
 ```
 
 Once you have a copy of the source, you can install it with:
 
 ```bash
-$ poetry install
+poetry install
 ```

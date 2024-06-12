@@ -119,8 +119,8 @@ development.
 2. Clone your fork locally and change to the directory of your project:
 
 ```bash
-$git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
-$cd {{cookiecutter.project_slug }}/
+git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
+cd {{cookiecutter.project_slug }}/
 ```
 
 {% if cookiecutter.git_https_upstream -%}
@@ -133,7 +133,8 @@ git fetch --all
 
 {% endif -%}
 
-1. Prepare and use virtual environment:
+### Prepare and use virtual environment
+
 {%- if cookiecutter.use_conda == "yes" %}
 If you don't have yet conda installed in your machine, you can check the
 installation steps here:
@@ -161,8 +162,10 @@ We highly recommend you to use `conda` for managing virtual environment, but
 you can use any other one of your preference.
 {% endif -%}
 
-1. Install the dependencies:
+### Install the dependencies
+
 Now, you can already install the dependencies for the project:
+
 {% if cookiecutter.build_system == "poetry" -%}
 
 ```bash
@@ -188,9 +191,10 @@ pip install -e ".[dev]"
 ```
 
 {%- endif -%}
+
 {% if cookiecutter.use_pre_commit == "yes" %}
 
-1. `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks to
+- `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks to
 improve code quality. The hooks can be installed locally using:
 
 ```bash
@@ -210,16 +214,17 @@ discussion, use the `--no-verify` option with `git commit`.
 {% endif -%}
 {% if cookiecutter.use_pytest == "yes" %}
 
-1. This project uses `pytest` as a testing tool. `pytest` is responsible for
+This project uses `pytest` as a testing tool. `pytest` is responsible for
 testing the code, whose configuration is available in pyproject.toml.
 Additionally, this project also uses `pytest-cov` to calculate the coverage of
 these unit tests. For more information, check the section about tests later in
 this document.
 {% elif cookiecutter.use_hypothesis == "yes" %}
-1. This project uses `hypothesis` as a testing tool. For more information,
+This project uses `hypothesis` as a testing tool. For more information,
 please check its official documentation <https://hypothesis.readthedocs.io/>
-{% endif -%}
-1. Commit your changes and push your branch to GitHub:
+{% endif %}
+
+### Commit your changes and push your branch to GitHub
 
 ```bash
 git add .
@@ -227,7 +232,7 @@ git commit -m "Your detailed description of your changes.""
 git push origin name-of-your-bugfix-or-feature
 ```
 
-1. Submit a pull request through the GitHub website.
+- Submit a pull request through the GitHub website.
 
 ## Pull Request Guidelines
 
