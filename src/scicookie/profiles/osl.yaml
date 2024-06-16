@@ -55,7 +55,8 @@ use_tools:
     - bandit
     - conda
     - coverage
-    - ruff
+    - ruff_linter
+    - ruff_formatter
     - makim
     - mccabe
     - mypy

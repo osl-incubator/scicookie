@@ -155,7 +155,8 @@ use_tools:
     - prettier
     - pydocstyle
     - pytest
-    - ruff
+    - ruff_linter
+    - ruff_formatter
     - shellcheck
     - vulture
   visible: true
