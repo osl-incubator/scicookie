@@ -1,6 +1,6 @@
 site_name: {{ cookiecutter.project_name}}
 site_url: {{ cookiecutter.project_url}}
-{%- if cookiecutter.git_https_upstream != "" -%}
+{%- if cookiecutter.git_https_upstream != "" %}
 repo_url: {{ cookiecutter.git_https_upstream }}
 {%- else %}
 repo_url: https://github.com/MYORG/MYREPO
