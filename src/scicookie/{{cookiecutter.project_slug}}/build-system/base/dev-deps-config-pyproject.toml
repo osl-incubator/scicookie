@@ -48,7 +48,7 @@ sort_by_size = true
 verbose = false
 {% endif -%}
 
-{%- if cookiecutter.use_ruff_linter == "yes" %}
+{%- if cookiecutter.use_ruff_linter == "yes" or cookiecutter.use_ruff_formatter == "yes" %}
 [tool.ruff]
 line-length = 79
 force-exclude = true
@@ -66,22 +66,10 @@ select = [
   "RUF", # Ruff-specific rules
   "I001",  # isort
 ]
+fixable = ["I001"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
-{% endif -%}
-
-{%- if cookiecutter.use_ruff_formatter == "yes" %}
-[tool.ruff]
-line-length = 79
-force-exclude = true
-src = ["./"]
-exclude = [
-  'docs',
-]
-
-[tool.ruff.lint]
-fixable = ["I001"]
 
 [tool.ruff.lint.isort]
 # Use a single line between direct and from import
