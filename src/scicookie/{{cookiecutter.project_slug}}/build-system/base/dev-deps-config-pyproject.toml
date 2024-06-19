@@ -74,6 +74,9 @@ convention = "numpy"
 [tool.ruff.lint.isort]
 # Use a single line between direct and from import
 lines-between-types = 1
+
+[tool.ruff.format]
+quote-style = "double"
 {% endif -%}
 
 {%- if cookiecutter.use_mypy == "yes" %}
