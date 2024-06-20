@@ -8,7 +8,7 @@ PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../
 
 CONDA_PATH=$(ensureconda --conda-exe --no-install)
 
-if test -f "$CONDA_PATH"; then
+if [[ ! -f "$CONDA_PATH" ]]; then
   echo "[EE] 'conda' not found."
   exit 1
 fi
