@@ -7,7 +7,7 @@ PWD_ORI=$(pwd)
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
 CONDA_PATH=$(ensureconda --conda --no-install)
-MAMBA_PATH=$(ensureconda --conda --no-install | sed 's:/conda$:/mamba:')
+MAMBA_PATH=$(ensureconda --mamba --no-install | sed 's:/conda$:/mamba:')
 
 if [[ -f "$MAMBA_PATH" ]]; then
   echo "[EE] 'mamba' not found."
