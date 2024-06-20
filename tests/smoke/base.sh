@@ -6,7 +6,7 @@ PATH_ORI=${PATH}
 PWD_ORI=$(pwd)
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
-CONDA_PATH=$(ensureconda --conda --no-install)
+CONDA_PATH=$(ensureconda --conda-exe --no-install)
 
 if [[ -f "$CONDA_PATH" ]]; then
   echo "[EE] 'conda' not found."
