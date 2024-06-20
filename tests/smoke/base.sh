@@ -57,6 +57,7 @@ if [[ "${input_params}" == *"use_conda=yes"* ]]; then
   set +x
   eval "$(conda shell.bash hook)"
   $MAMBA_PATH env create --file conda/dev.yaml --name "${ENV_NAME}" --yes
+  $CONDA_PATH init
   $CONDA_PATH activate "${ENV_NAME}"
   set -x
 fi
