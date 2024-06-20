@@ -42,6 +42,7 @@ mkdocstrings-python-legacy = ">=0.2.3"
 pymdown-extensions = ">=9.5"
 makim = "1.15.1"
 pexpect = ">=4.9.0"
+ensureconda = ">=1.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

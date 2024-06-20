@@ -6,8 +6,11 @@ PATH_ORI=${PATH}
 PWD_ORI=$(pwd)
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../.. && pwd )"
 
-if [ "$(which conda)" == "" ]; then
-  echo "EE 'conda' not found."
+CONDA_PATH=$(ensureconda --conda-exe --no-install)
+MAMBA_PATH=$(ensureconda --conda-exe --no-install | sed 's:/conda$:/mamba:')
+
+if [[ -f "$MAMBA_PATH" ]]; then
+  echo "[EE] 'mamba' not found."
   exit 1
 fi
 
@@ -48,8 +51,8 @@ cd "${OUTPUT_DIR}/${ENV_NAME}"
 if [[ "${input_params}" == *"use_conda=yes"* ]]; then
   set +x
   eval "$(conda shell.bash hook)"
-  mamba env create --file conda/dev.yaml --name "${ENV_NAME}" --yes
-  conda activate "${ENV_NAME}"
+  $MAMBA_PATH env create --file conda/dev.yaml --name "${ENV_NAME}" --yes
+  $CONDA_PATH activate "${ENV_NAME}"
   set -x
 fi
 
