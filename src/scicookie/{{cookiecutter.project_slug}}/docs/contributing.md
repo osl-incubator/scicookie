@@ -127,8 +127,8 @@ cd {{cookiecutter.project_slug }}/
 Also, create a remote to the upstream repository, you will need that later:
 
 ```bash
-git remote add upstream {{ cookiecutter.git_https_upstream }}
-git fetch --all
+$ git remote add upstream {{ cookiecutter.git_https_upstream }}
+$ git fetch --all
 ```
 
 {% endif -%}
@@ -143,8 +143,8 @@ After that, ensure that conda is already available in your terminal session and
 run:
 
 ```bash
-conda env create env create --file conda/dev.yaml
-conda activate {{ cookiecutter.package_slug }}
+$ conda env create env create --file conda/dev.yaml
+$ conda activate {{ cookiecutter.package_slug }}
 ```
 
 Note: you can use `mamba env create` instead, if you have it already installed,
@@ -153,8 +153,8 @@ in order to boost the installation step.
 Create your environment using `virtualenv`:
 
 ```bash
-virtualenv {{ cookiecutter.package_slug }}
-source {{ cookiecutter.package_slug }}/bin/activate
+$ virtualenv {{ cookiecutter.package_slug }}
+$ source {{ cookiecutter.package_slug }}/bin/activate
 ```
 
 {% else -%}
@@ -169,25 +169,25 @@ Now, you can already install the dependencies for the project:
 {% if cookiecutter.build_system == "poetry" -%}
 
 ```bash
-poetry install
+$ poetry install
 ```
 
 {%- elif cookiecutter.build_system == "pdm" -%}
 
 ```bash
-pdm install
+$ pdm install
 ```
 
 {%- elif cookiecutter.build_system == "flit" -%}
 
 ```bash
-flit install
+$ flit install
 ```
 
 {%- else -%}
 
 ```bash
-pip install -e ".[dev]"
+$ pip install -e ".[dev]"
 ```
 
 {%- endif -%}
@@ -198,7 +198,7 @@ pip install -e ".[dev]"
 improve code quality. The hooks can be installed locally using:
 
 ```bash
-pre-commit install
+$ pre-commit install
 ```
 
 This would run the checks every time a `git commit` is executed locally.
@@ -206,7 +206,7 @@ Usually, the verification will only run on the files modified by that commit,
 but the verification can also be triggered for all the files using:
 
 ```bash
-pre-commit run --all-files
+$ pre-commit run --all-files
 ```
 
 If you would like to skip the failing checks and push the code for further
@@ -227,9 +227,9 @@ please check its official documentation <https://hypothesis.readthedocs.io/>
 ### Commit your changes and push your branch to GitHub
 
 ```bash
-git add .
-git commit -m "Your detailed description of your changes.""
-git push origin name-of-your-bugfix-or-feature
+$ git add .
+$ git commit -m "Your detailed description of your changes.""
+$ git push origin name-of-your-bugfix-or-feature
 ```
 
 - Submit a pull request through the GitHub website.
@@ -252,7 +252,7 @@ The tests can be executed using the `test` dependencies of
 `{{ cookiecutter.project_slug }}` in the following way:
 
 ```bash
-python -m pytest
+$ python -m pytest
 ```
 
 {% if cookiecutter.use_coverage == "yes" -%}
@@ -263,7 +263,7 @@ The coverage value can be obtained while running the tests using
 `pytest-cov` in the following way:
 
 ```bash
-python -m pytest --cov={{ cookiecutter.project_slug }} tests/
+$ python -m pytest --cov={{ cookiecutter.project_slug }} tests/
 ```
 
 A much more detailed guide on testing with `pytest` is available
@@ -279,7 +279,7 @@ This project uses `makim` as  an automation tool. Please, check the
 `.makim.yaml` file to check all the tasks available or run:
 
 ```bash
-makim --help
+$ makim --help
 ```
 
 {% elif cookiecutter.use_make == "yes" -%}

@@ -52,7 +52,7 @@ documentation_url:
   visible: true
 
 mkdocs_theme:
-  default: Material
+  default: material
   visible: false
 
 use_tools:

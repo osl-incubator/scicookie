@@ -3,7 +3,7 @@ set -e
 
 SMOKE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-. ${SMOKE_DIR}/base.sh 'documentation_engine=mkdocs mkdocs_theme=Default'
-. ${SMOKE_DIR}/base.sh 'documentation_engine=mkdocs mkdocs_theme=Material'
-. ${SMOKE_DIR}/base.sh 'documentation_engine=mkdocs mkdocs_theme=Cinder'
-. ${SMOKE_DIR}/base.sh 'documentation_engine=mkdocs mkdocs_theme=Readthedocs'
+. ${SMOKE_DIR}/base.sh 'documentation_engine=mkdocs mkdocs_theme=default'
+. ${SMOKE_DIR}/base.sh 'documentation_engine=mkdocs mkdocs_theme=material'
+. ${SMOKE_DIR}/base.sh 'documentation_engine=mkdocs mkdocs_theme=cinder'
+. ${SMOKE_DIR}/base.sh 'documentation_engine=mkdocs mkdocs_theme=readthedocs'

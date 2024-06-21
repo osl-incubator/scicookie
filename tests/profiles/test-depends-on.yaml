@@ -139,13 +139,13 @@ mkdocs_theme:
   message: Select one option for the MkDocs theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
   type: single-choice
-  default: Default
+  default: default
   # first choice is the default for the UI
   choices:
-    - Default
-    - Material
-    - Cinder
-    - Readthedocs
+    - default
+    - material
+    - cinder
+    - readthedocs
   visible: ${{ documentation_engine == "mkdocs" }}
   depends_on:
     - documentation_engine: mkdocs
@@ -154,24 +154,24 @@ sphinx_theme:
   message: Select one option for the Sphinx theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
   type: single-choice
-  default: Default
+  default: default
   # first choice is the default for the UI
   choices:
-    - Default
-    - Readthedocs
-    - PyData
+    - default
+    - readthedocs
+    - pydata
   visible: ${{ documentation_engine.startswith("sphinx") }}
 
 jupyter_book_theme:
   message: Select one option for the Jupyter Book theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
   type: single-choice
-  default: Default
+  default: default
   # first choice is the default for the UI
   choices:
-    - Default
-    - PyData-sphinx-theme
-    - Readthedocs-sphinx-theme
+    - default
+    - pydata-sphinx-theme
+    - readthedocs-sphinx-theme
   visible: ${{ documentation_engine == "jupyter-book" }}
   depends_on:
     - documentation_engine: jupyter-book
@@ -180,13 +180,13 @@ quarto_theme:
   message: Select one option for the Quarto theme
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#documentation-engine"
   type: single-choice
-  default: Default
+  default: default
   # first choice is the default for the UI
   choices:
-    - Default
-    - Cosmo
-    - Cerulean
-    - Materia
+    - default
+    - cosmo
+    - cerulean
+    - materia
   visible: ${{ documentation_engine == "quarto" }}
   depends_on:
     - documentation_engine: quarto

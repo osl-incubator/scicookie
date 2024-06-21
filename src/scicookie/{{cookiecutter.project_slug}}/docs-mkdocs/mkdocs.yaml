@@ -18,14 +18,10 @@ nav:
   - API: ./api/references.md
   - Notebook page: example.ipynb
 theme:
-{% if cookiecutter.mkdocs_theme == 'Default' %}
+{% if cookiecutter.mkdocs_theme == 'default' %}
   name: mkdocs
-{% elif cookiecutter.mkdocs_theme == 'Material' %}
-  name: material
-{% elif cookiecutter.mkdocs_theme == 'Cinder' %}
-  name: cinder
-{% elif cookiecutter.mkdocs_theme == 'Readthedocs' %}
-  name: readthedocs
+{% else %}
+  name: {{ cookiecutter.mkdocs_theme }}
 {% endif%}
   features:
     - content.code.annotate
