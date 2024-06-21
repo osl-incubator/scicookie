@@ -119,8 +119,8 @@ development.
 2. Clone your fork locally and change to the directory of your project:
 
 ```bash
-git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
-cd {{cookiecutter.project_slug }}/
+$ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
+$ cd {{cookiecutter.project_slug }}/
 ```
 
 {% if cookiecutter.git_https_upstream -%}
