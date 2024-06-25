@@ -76,7 +76,7 @@ convention = "numpy"
 lines-between-types = 1
 
 [tool.ruff.format]
-quote-style = "double"
+quote-style = "single"
 {% endif -%}
 
 {%- if cookiecutter.use_mypy == "yes" %}
