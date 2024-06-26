@@ -11,7 +11,7 @@ This project uses the _flat layout_, which means that the package code is locate
 at `./{{ cookiecutter.package_slug }}`.
 {% endif %}
 For my information, check the official documentation:
-https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/
+<https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/>
 
 {% if cookiecutter.build_system == "poetry" -%}
 In addition, you should know that to build our package we use
@@ -34,7 +34,7 @@ In addition, you should know that to build our package we use
 [meson-python](https://meson-python.readthedocs.io/en/latest/index.html),
 it's a tool for automating and simplifying the construction of software
 projects written in the Python programming language. It is based on the
-*Meson* build system, which allows you to efficiently configure and manage
+_Meson_ build system, which allows you to efficiently configure and manage
 the build process of a project. It allows you to easily define project
 dependencies, specify build options, generate configuration files and
 build scripts, among other tasks related to building software.
@@ -56,7 +56,7 @@ In addition, you should know that to build our package we use
 [Hatch](https://hatch.pypa.io): It's a Python Package that is compatible build backend used by Hatch, a modern, extensible Python project manager. It provides a standardized build system with reproducible builds by default, robust environment management with support for custom scripts, easy publishing to PyPI or other indexes, version management, and configurable project generation with sane defaults. Hatchling might support multiple programming languages and offer language-specific options for building projects in different languages. It could also provide customization and extensibility options, allowing you to incorporate plugins or scripts for tailored build processes.
 {%- elif cookiecutter.build_system == "maturin" -%}
 In addition, you should know that to build our package we use
-[Maturin](https://pypi.org/project/maturin/0.8.2/):It's a Python packaging tool and build system for creating Python bindings from Rust projects. It enables seamless integration of Rust code into Python applications, offering efficient builds, cross-platform support, and compatibility with different Python versions. Maturin automates the process of generating Python modules that directly call Rust functions, leveraging Rust's performance and low-level capabilities in Python. With its easy-to-use interface and integration with setuptools and Cargo, Maturin provides a straightforward solution for developers seeking to combine the strengths of Python and Rust in a single project.
+[Maturin](https://pypi.org/project/maturin/0.8.2/): It's a Python packaging tool and build system for creating Python bindings from Rust projects. It enables seamless integration of Rust code into Python applications, offering efficient builds, cross-platform support, and compatibility with different Python versions. Maturin automates the process of generating Python modules that directly call Rust functions, leveraging Rust's performance and low-level capabilities in Python. With its easy-to-use interface and integration with setuptools and Cargo, Maturin provides a straightforward solution for developers seeking to combine the strengths of Python and Rust in a single project.
 {%- elif cookiecutter.build_system == "scikit-build-core" -%}
 In addition, you should know that to build our package we use
 [scikit-build-core](https://scikit-build-core.readthedocs.io/en/latest/): It's a Python packaging tool and build system an improved build system generator for CPython C extensions. It provides better support for additional compilers, build systems, cross compilation, and locating dependencies and their associated build requirements.This tool improves package management in the scientific Python ecosystem, enabling cross-platform builds with CMake, and seamless integration with C/C++ libraries for research software engineers.
@@ -110,110 +110,142 @@ If you are proposing a feature:
 - Remember that this is a volunteer-driven project, and that contributions are
   welcome :)
 
-## Get Started!
+## Get Started
 
 Ready to contribute? Here’s how to set up `{{ cookiecutter.project_slug }}` for local
 development.
 
-1.  Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
-1.  Clone your fork locally and change to the directory of your project:
+1. Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
+2. Clone your fork locally and change to the directory of your project:
+
 ```bash
 $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
 $ cd {{cookiecutter.project_slug }}/
 ```
+
 {% if cookiecutter.git_https_upstream -%}
 Also, create a remote to the upstream repository, you will need that later:
+
 ```bash
 $ git remote add upstream {{ cookiecutter.git_https_upstream }}
 $ git fetch --all
 ```
+
 {% endif -%}
-1.  Prepare and use virtual environment:
+
+### Prepare and use virtual environment
+
 {%- if cookiecutter.use_conda == "yes" %}
 If you don't have yet conda installed in your machine, you can check the
 installation steps here:
 <https://github.com/conda-forge/miniforge?tab=readme-ov-file#download>
 After that, ensure that conda is already available in your terminal session and
 run:
+
 ```bash
 $ conda env create env create --file conda/dev.yaml
 $ conda activate {{ cookiecutter.package_slug }}
 ```
+
 Note: you can use `mamba env create` instead, if you have it already installed,
 in order to boost the installation step.
 {% elif cookiecutter.use_pyenv == "yes" -%}
 Create your environment using `virtualenv`:
+
 ```bash
 $ virtualenv {{ cookiecutter.package_slug }}
 $ source {{ cookiecutter.package_slug }}/bin/activate
 ```
+
 {% else -%}
 We highly recommend you to use `conda` for managing virtual environment, but
 you can use any other one of your preference.
 {% endif -%}
-1. Install the dependencies:
+
+### Install the dependencies
+
 Now, you can already install the dependencies for the project:
+
 {% if cookiecutter.build_system == "poetry" -%}
+
 ```bash
 $ poetry install
 ```
+
 {%- elif cookiecutter.build_system == "pdm" -%}
+
 ```bash
 $ pdm install
 ```
+
 {%- elif cookiecutter.build_system == "flit" -%}
+
 ```bash
 $ flit install
 ```
+
 {%- else -%}
+
 ```bash
 $ pip install -e ".[dev]"
 ```
+
 {%- endif -%}
+
 {% if cookiecutter.use_pre_commit == "yes" %}
-1.  `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks to
+
+- `{{ cookiecutter.project_slug }}` uses a set of `pre-commit` hooks to
 improve code quality. The hooks can be installed locally using:
+
 ```bash
 $ pre-commit install
 ```
+
 This would run the checks every time a `git commit` is executed locally.
 Usually, the verification will only run on the files modified by that commit,
 but the verification can also be triggered for all the files using:
+
 ```bash
 $ pre-commit run --all-files
 ```
+
 If you would like to skip the failing checks and push the code for further
 discussion, use the `--no-verify` option with `git commit`.
 {% endif -%}
 {% if cookiecutter.use_pytest == "yes" %}
-1.  This project uses `pytest` as a testing tool. `pytest` is responsible for
+
+This project uses `pytest` as a testing tool. `pytest` is responsible for
 testing the code, whose configuration is available in pyproject.toml.
 Additionally, this project also uses `pytest-cov` to calculate the coverage of
 these unit tests. For more information, check the section about tests later in
 this document.
 {% elif cookiecutter.use_hypothesis == "yes" %}
-1.  This project uses `hypothesis` as a testing tool. For more information,
+This project uses `hypothesis` as a testing tool. For more information,
 please check its official documentation <https://hypothesis.readthedocs.io/>
-{% endif -%}
-1.  Commit your changes and push your branch to GitHub::
-```
+{% endif %}
+
+### Commit your changes and push your branch to GitHub
+
+```bash
 $ git add .
 $ git commit -m "Your detailed description of your changes.""
 $ git push origin name-of-your-bugfix-or-feature
 ```
-1.  Submit a pull request through the GitHub website.
+
+- Submit a pull request through the GitHub website.
 
 ## Pull Request Guidelines
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1.  The pull request should include tests.
-2.  If the pull request adds functionality, the docs should be updated. Put your
+1. The pull request should include tests.
+2. If the pull request adds functionality, the docs should be updated. Put your
     new functionality into a function with a docstring, and add the feature to
     the list in README.rst.
-3.  The pull request should work for Python >= 3.8.
+3. The pull request should work for Python >= 3.8.
 
 {% if cookiecutter.use_pytest == "yes" -%}
+
 ## Running tests locally
 
 The tests can be executed using the `test` dependencies of
@@ -224,6 +256,7 @@ $ python -m pytest
 ```
 
 {% if cookiecutter.use_coverage == "yes" -%}
+
 ### Running tests with coverage locally
 
 The coverage value can be obtained while running the tests using
@@ -239,6 +272,7 @@ A much more detailed guide on testing with `pytest` is available
 {%- endif %}
 
 {% if cookiecutter.use_makim == "yes" -%}
+
 ## Automation Tasks with Makim
 
 This project uses `makim` as  an automation tool. Please, check the
@@ -247,7 +281,9 @@ This project uses `makim` as  an automation tool. Please, check the
 ```bash
 $ makim --help
 ```
+
 {% elif cookiecutter.use_make == "yes" -%}
+
 ## Automation Tasks with Make
 
 This project uses `make` as  an automation tool. Please, check the `Makefile`

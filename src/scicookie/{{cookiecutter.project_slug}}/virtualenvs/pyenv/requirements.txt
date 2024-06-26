@@ -26,7 +26,7 @@ nodejs  # used by semantic-release
 {%- if cookiecutter.use_shellcheck == "yes" %}
 shellcheck
 {%- endif %}
-{%- if cookiecutter.documentation_engine == "sphinx" %}
+{%- if cookiecutter.documentation_engine.startswith("sphinx") %}
 pandoc
 {%- endif %}
 {%- if cookiecutter.use_mypy == "yes" %}

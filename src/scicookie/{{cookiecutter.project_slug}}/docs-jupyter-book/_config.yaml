@@ -3,7 +3,7 @@
 
 title: {{cookiecutter.project_name}}
 author: {{cookiecutter.author_full_name}}
-logo: /images/logo.png
+logo: ./images/logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -26,3 +26,13 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+{%- if cookiecutter.jupyter_book_theme == 'pydata-sphinx-theme' %}
+sphinx:
+  config:
+    html_theme: pydata_sphinx_theme
+{%- elif cookiecutter.jupyter_book_theme == 'readthedocs-sphinx-theme' %}
+sphinx:
+  config:
+    html_theme: sphinx_rtd_theme
+{% endif %}

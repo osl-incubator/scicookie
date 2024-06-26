@@ -121,16 +121,16 @@ def move_selected_doc_dir():
         docs_target_dir = PROJECT_DIRECTORY / "docs"
 
     if DOCUMENTATION_ENGINE.startswith("sphinx"):
+        DOCS_SPHINX = Path(DOCS_SPEC_DIR).parent
+        remove_dir(Path("docs") / "api")
         remove_project_file(Path("docs") / "index.md")
+        shutil.move(DOCS_SPHINX / 'conf.py', docs_target_dir)
+        shutil.move(DOCS_SPHINX / 'make.bat', docs_target_dir)
+        shutil.move(DOCS_SPHINX / 'readme.md', docs_target_dir)
 
     for file_name in os.listdir(DOCS_SPEC_DIR):
         shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
 
-    if DOCUMENTATION_ENGINE.startswith("sphinx"):
-        DOCS_SPHINX = Path(DOCS_SPEC_DIR).parent
-        shutil.move(DOCS_SPHINX / 'conf.py', docs_target_dir)
-        shutil.move(DOCS_SPHINX / 'make.bat', docs_target_dir)
-        shutil.move(DOCS_SPHINX / 'readme.md', docs_target_dir)
 
 
 def clean_up_tests():

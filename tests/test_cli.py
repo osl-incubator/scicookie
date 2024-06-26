@@ -73,7 +73,12 @@ class TestMain(BaseCLITestProfile):
             timeout=10,
         )
 
+        answers = {}
+
         for key, value in all_questions.items():
+            if not check_visibility(value, answers):
+                continue
+
             prompt = value.get("message")
             if prompt:
                 # Escape special characters and allow any whitespace after
@@ -81,6 +86,7 @@ class TestMain(BaseCLITestProfile):
                 # Use regex for matching the prompt
                 child.expect(regex_prompt, timeout=10)
                 response = value.get("default", "")
+                answers[key] = response
                 child.sendline(response)
 
         child.expect(pexpect.EOF)

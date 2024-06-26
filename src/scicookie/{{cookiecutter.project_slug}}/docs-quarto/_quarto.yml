@@ -17,7 +17,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: {{ cookiecutter.quarto_theme }}
     css: styles.css
     toc: true
 

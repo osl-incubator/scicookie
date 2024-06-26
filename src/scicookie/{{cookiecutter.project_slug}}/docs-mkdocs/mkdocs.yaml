@@ -15,10 +15,14 @@ nav:
   - Installation: installation.md
   - Changelog: changelog.md
   - Contributing: contributing.md
-  - API: /api/references.md
+  - API: ./api/references.md
   - Notebook page: example.ipynb
 theme:
-  name: material
+{% if cookiecutter.mkdocs_theme == 'default' %}
+  name: mkdocs
+{% else %}
+  name: {{ cookiecutter.mkdocs_theme }}
+{% endif%}
   features:
     - content.code.annotate
     - content.tabs.link
