@@ -45,10 +45,21 @@ repos:
         types:
           - python
 {% endif %}
-{%- if cookiecutter.use_ruff == 'yes' %}
-      - id: ruff
-        name: ruff
+{%- if cookiecutter.use_ruff_linter == 'yes' %}
+      - id: ruff-linter
+        name: ruff-linter
         entry: ruff --fix
+        language: system
+        pass_filenames: true
+        require_serial: yes
+        files: "./"
+        types:
+          - python
+{% endif %}
+{%- if cookiecutter.use_ruff_formatter == 'yes' %}
+      - id: ruff-format
+        name: ruff-format
+        entry: ruff format
         language: system
         pass_filenames: true
         require_serial: yes

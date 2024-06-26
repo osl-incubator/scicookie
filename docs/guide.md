@@ -58,7 +58,8 @@ the following way:
    [ ] conda
    [ ] coverage
    [ ] flake8
-   [ ] ruff
+   [ ] ruff_linter
+   [ ] ruff_formatter
    [ ] isort
    [ ] make
    [ ] makim
@@ -498,8 +499,16 @@ SciCookie, you will find: _Black_.
 You can read the [_black documentation_](https://black.readthedocs.io) if you
 want to know more about it.
 
-Using code formatters such as _Black_ in your project helps ensure consistent
-and readable code, making it easier to maintain and collaborate on.
+- [**Ruff**](https://docs.astral.sh/ruff/): Ruff is a versatile tool for Python
+  that offers both linting and auto-formatting capabilities. As an
+  auto-formatter, Ruff ensures consistent code formatting, fixes import sorting,
+  and adheres to best practices. Notably, Ruff is significantly faster than
+  tools like Black, making it ideal for large codebases. Its benefits include
+  enhancing code readability, saving time on manual formatting, and allowing for
+  fine-tuned configurations to meet specific project needs.
+
+Using code formatters such as _Black_ and _Ruff_ in your project helps ensure
+consistent and readable code, making it easier to maintain and collaborate on.
 
 ### Code security vulnerabilities
 

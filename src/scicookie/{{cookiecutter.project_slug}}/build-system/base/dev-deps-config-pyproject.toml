@@ -48,7 +48,7 @@ sort_by_size = true
 verbose = false
 {% endif -%}
 
-{%- if cookiecutter.use_ruff == "yes" %}
+{%- if cookiecutter.use_ruff_linter == "yes" or cookiecutter.use_ruff_formatter == "yes" %}
 [tool.ruff]
 line-length = 79
 force-exclude = true
@@ -74,6 +74,9 @@ convention = "numpy"
 [tool.ruff.lint.isort]
 # Use a single line between direct and from import
 lines-between-types = 1
+
+[tool.ruff.format]
+quote-style = "single"
 {% endif -%}
 
 {%- if cookiecutter.use_mypy == "yes" %}
