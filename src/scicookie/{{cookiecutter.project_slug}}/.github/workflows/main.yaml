@@ -45,10 +45,11 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ~/.conda/envs/{{ cookiecutter.project_slug }}
+          {%- raw -%}
           key: ubuntu-latest-conda-${{ hashFiles('conda/dev.yaml') }}
+          {%- endraw %}
           restore-keys: |
             ubuntu-latest-conda-
-
       - uses: conda-incubator/setup-miniconda@v3
         with:
           miniforge-version: latest
