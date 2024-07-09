@@ -47,7 +47,7 @@ jobs:
           path: ~/.conda/envs/{{ cookiecutter.project_slug }}
           {%- raw -%}
           key: ubuntu-latest-conda-${{ hashFiles('conda/dev.yaml') }}
-          {%- endraw %}
+          {%- endraw -%}
           restore-keys: |
             ubuntu-latest-conda-
       - uses: conda-incubator/setup-miniconda@v3
