@@ -42,6 +42,7 @@
   ],
   "governance_document": ["None", "numpy-governance", "sciml-governance"],
   "roadmap_document": ["None", "pytorch-ignite-roadmap"],
+  "release_workflow": ["semantic-release", "release-please", "None"],
   "build_system": [
     "poetry",
     "flit",

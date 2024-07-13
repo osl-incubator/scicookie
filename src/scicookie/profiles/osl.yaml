@@ -91,6 +91,10 @@ roadmap_document:
   default: None
   visible: false
 
+release_workflow:
+  default: semantic-release
+  visible: false
+
 git_username:
   default: yorbriar
   visible: true

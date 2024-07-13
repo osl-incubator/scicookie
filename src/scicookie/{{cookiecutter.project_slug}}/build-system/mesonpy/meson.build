@@ -4,6 +4,7 @@
 {% set package_path = cookiecutter.package_slug -%}
 {% endif -%}
 {% set cpp_path = "src" -%}
+{% if cookiecutter.release_workflow == "semantic-release -%}
 project(
   '{{ cookiecutter.project_slug }}',
   'cpp',
@@ -11,6 +12,16 @@ project(
   license: '{{ cookiecutter.project_license }}',
   meson_version: '>= 1.1.0',
 )
+{% endif -%}
+{% if cookiecutter.release_workflow == "release-please -%}
+project(
+  '{{ cookiecutter.project_slug }}',
+  'cpp',
+  version: '{{ cookiecutter.project_version }}',  # release-please
+  license: '{{ cookiecutter.project_license }}',
+  meson_version: '>= 1.1.0',
+)
+{% endif -%}
 name = '{{ cookiecutter.package_slug }}'
 
 cpp_sources = files('src/main.cpp')

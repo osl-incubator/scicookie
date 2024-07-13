@@ -262,6 +262,18 @@ roadmap_document:
     - pytorch-ignite-roadmap
   visible: true
 
+release_workflow:
+  message: Select one option for release automation tool for this project
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#release-workflow"
+  type: single-choice
+  default: semantic-release
+  # first choice is the default for the UI
+  choices:
+    - semantic-release
+    - release-please
+    - None
+  visible: true
+
 git_username:
   message: Type the GIT username
   help: https://osl-incubator.github.io/scicookie/guide/#control-version
