@@ -266,12 +266,12 @@ release_workflow:
   message: Select one option for release automation tool for this project
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#release-workflow"
   type: single-choice
-  default: semantic-release
+  default: None
   # first choice is the default for the UI
   choices:
+    - None
     - semantic-release
     - release-please
-    - None
   visible: true
 
 git_username:
