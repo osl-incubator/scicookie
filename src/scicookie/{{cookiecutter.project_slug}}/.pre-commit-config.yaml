@@ -48,7 +48,7 @@ repos:
 {%- if cookiecutter.use_ruff_linter == 'yes' %}
       - id: ruff-linter
         name: ruff-linter
-        entry: ruff --fix
+        entry: ruff check --fix
         language: system
         pass_filenames: true
         require_serial: yes
