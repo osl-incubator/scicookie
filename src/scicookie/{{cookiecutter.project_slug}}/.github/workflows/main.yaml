@@ -79,6 +79,8 @@ jobs:
           flit install
           {%- elif cookiecutter.build_system == "pdm" %}
           pdm install
+          {%- elif cookiecutter.build_system == "pixi" %}
+          pixi install
           {%- else %}
           pip install .
           {%- endif %}
