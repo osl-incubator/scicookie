@@ -20,6 +20,8 @@ cmake
 {%- elif cookiecutter.build_system == "pybind11" %}
 pybind11
 cmake
+{%- elif cookiecutter.build_system == "pixi" %}
+pixi
 {%- endif %}
 nodejs  # used by semantic-release
 {%- if cookiecutter.use_shellcheck == "yes" %}

@@ -91,6 +91,8 @@ BUILD_SYSTEM = "maturin"
 BUILD_SYSTEM = "scikit-build-core"
 {% elif cookiecutter.build_system == "pybind11" -%}
 BUILD_SYSTEM = "pybind11"
+{% elif cookiecutter.build_system == "pixi" -%}
+BUILD_SYSTEM = "pixi"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -260,6 +262,11 @@ def clean_up_build_system():
             COMPILE_SOURCE_DIR / 'main.cpp'
         )
     elif BUILD_SYSTEM == "pdm":
+        shutil.move(
+            build_system_dir / "pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+    elif BUILD_SYSTEM == "pixi":
         shutil.move(
             build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'

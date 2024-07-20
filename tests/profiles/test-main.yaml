@@ -96,6 +96,7 @@ build_system:
     - maturin
     - scikit-build-core
     - pybind11
+    - pixi
   visible: true
 
 command_line_interface:
