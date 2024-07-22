@@ -104,3 +104,7 @@ git_https_upstream:
 
 git_main_branch:
   visible: true
+
+continuos_integration:
+  default: github-actions
+  visible: true

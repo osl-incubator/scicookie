@@ -95,6 +95,8 @@ BUILD_SYSTEM = "pybind11"
 BUILD_SYSTEM = None
 {%- endif %}
 
+CONTINUOS_INTEGRATION = "{{ cookiecutter.continuos_integration }}"
+
 
 def remove_dirs(dirs: list):
     for dirs in dirs:
@@ -300,6 +302,15 @@ def clean_up_build_system():
     remove_dir("build-system")
 
 
+def ci_clean_up():
+    if CONTINUOS_INTEGRATION == "github-actions":
+        remove_dir(".circleci")
+    elif CONTINUOS_INTEGRATION == "circleci":
+        remove_dir(".github")
+    else:
+        remove_dir(".github")
+        remove_dir(".circleci")
+
 def http2ssh(url):
     url = url.replace("https://", "git@")
     return url.replace("/", ":", 1)
@@ -401,6 +412,7 @@ def prepare_git() -> None:
 def post_gen():
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
+    ci_clean_up()
     clean_up_automation()
     clean_up_cli()
     clean_up_code_of_conduct()
