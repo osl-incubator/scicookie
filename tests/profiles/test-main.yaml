@@ -295,3 +295,15 @@ git_main_branch:
   type: "text"
   default: main
   visible: true
+
+continuos_integration:
+  message: Select one option for Continuous Integration
+  help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#continuous-integration"
+  type: single-choice
+  default: github-actions
+  # first choice is the default for the UI
+  choices:
+    - github-actions
+    - circleci
+    - None
+  visible: true

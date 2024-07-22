@@ -78,5 +78,6 @@
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",
-  "git_main_branch": "main"
+  "git_main_branch": "main",
+  "continuos_integration": ["github-actions", "circleci", "None"]
 }
