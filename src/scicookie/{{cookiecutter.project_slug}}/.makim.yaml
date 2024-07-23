@@ -131,7 +131,7 @@ groups:
         -p "@semantic-release/git" \
         -p "@google/semantic-release-replace-plugin" \
         semantic-release
-        {%- elif cookiecutter.release_workflow == "release-please" %}
+        {%- if cookiecutter.release_workflow == "release-please" %}
         -p release-please \
         -p release-please release-pr 
           --token=$GITHUB_TOKEN \
@@ -140,14 +140,13 @@ groups:
           --token=$GITHUB_TOKEN
           --repo-url={{ cookiecutter.git_username }}/{{ cookiecutter.git_main_branch }} --config-file
         release-please
-        {%- endif %}
 
     tasks:
       ci:
         {%- if cookiecutter.release_workflow == "semantic-release" %}
         help: run semantic release on CI
         run: {{ "${{ vars.app }} --ci" }}
-        {%- elif cookiecutter.release_workflow == "release-please" %}
+        {%- if cookiecutter.release_workflow == "release-please" %}
         help: run release please on CI
         run: {{ "${{ vars.app }}" }}
 
@@ -155,7 +154,6 @@ groups:
         {%- if cookiecutter.release_workflow == "semantic-release" %}
         help: run semantic release in dry-run mode
         run: {{ "${{ vars.app }} --dry-run" }}
-        {%- elif cookiecutter.release_workflow == "release-please" %}
+        {%- if cookiecutter.release_workflow == "release-please" %}
         help: run release please in dry-run mode
         run: {{ "${{ vars.app }} --dry-run" }}
-        {%- endif %}
