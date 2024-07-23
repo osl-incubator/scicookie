@@ -7,10 +7,10 @@
 [tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
 {% if cookiecutter.release_workflow == "semantic-release" -%}
-version = "{{ cookiecutter.project_version }}" #semantic-release
+version = "{{ cookiecutter.project_version }}"  # semantic-release
 {% endif -%}
 {% if cookiecutter.release_workflow == "release-please" -%}
-version = "{{ cookiecutter.project_version }}" #release-please
+version = "{{ cookiecutter.project_version }}"  # release-please
 {% endif -%}
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
