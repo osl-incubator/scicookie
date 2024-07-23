@@ -1,0 +1,30 @@
+name: release-please
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+        # this assumes that you have created a personal access token
+        # (PAT) and configured it as a GitHub action secret named
+        # `MY_RELEASE_PLEASE_TOKEN`.
+        token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+        config-file: release-please-config.json

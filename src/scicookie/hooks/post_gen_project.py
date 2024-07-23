@@ -95,6 +95,19 @@ BUILD_SYSTEM = "pybind11"
 BUILD_SYSTEM = None
 {%- endif %}
 
+ALL_RELEASE_DIRS = [
+    PROJECT_DIRECTORY / 'release-semantic',
+    PROJECT_DIRECTORY / 'release-please',
+]
+
+{% if cookiecutter.release_workflow == "semantic-release" -%}
+RELEASE_PATH = PROJECT_DIRECTORY / '.github' / 'workflows' / 'release.yaml'
+{% if cookiecutter.release_workflow == "release-please" -%}
+RELEASE_PATH = PROJECT_DIRECTORY / '.github' / 'workflows' / 'release-please.yaml'
+{% else %}
+RELEASE_PATH = None
+{%- endif %}
+
 
 def remove_dirs(dirs: list):
     for dirs in dirs:
