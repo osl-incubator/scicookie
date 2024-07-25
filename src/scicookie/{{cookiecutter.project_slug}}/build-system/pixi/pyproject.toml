@@ -2,6 +2,15 @@
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+"{{ cookiecutter.project_slug }}" = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+
 {% include "build-system/base/pyproject.toml" %}
 {% include "build-system/base/dev-deps-pyproject.toml" %}
 {% include "build-system/base/urls-pyproject.toml" %}
