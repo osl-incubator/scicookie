@@ -79,5 +79,6 @@
   "git_https_origin": "",
   "git_https_upstream": "",
   "git_main_branch": "main",
-  "continuos_integration": ["github-actions", "circleci", "None"]
+  "use_github_actions": "no",
+  "use_circleci": "no"
 }

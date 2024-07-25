@@ -50,6 +50,8 @@ USE_PRETTIER = {{ cookiecutter.use_prettier == "yes" }}
 USE_PRE_COMMIT = {{ cookiecutter.use_pre_commit == "yes" }}
 USE_PYTEST = {{ cookiecutter.use_pytest == "yes" }}
 USE_HYPOTHESIS = {{ cookiecutter.use_hypothesis == "yes" }}
+USE_GITHUB_ACTIONS = {{ cookiecutter.use_github_actions == "yes" }}
+USE_CIRCLECI = {{ cookiecutter.use_circleci == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
@@ -97,7 +99,6 @@ BUILD_SYSTEM = "pixi"
 BUILD_SYSTEM = None
 {%- endif %}
 
-CONTINUOS_INTEGRATION = "{{ cookiecutter.continuos_integration }}"
 
 
 def remove_dirs(dirs: list):
@@ -322,13 +323,10 @@ def clean_up_build_system():
 
 
 def ci_clean_up():
-    if CONTINUOS_INTEGRATION == "github-actions":
+    if not USE_CIRCLECI:
         remove_dir(".circleci")
-    elif CONTINUOS_INTEGRATION == "circleci":
+    if USE_GITHUB_ACTIONS:
         remove_dir(".github")
-    else:
-        remove_dir(".github")
-        remove_dir(".circleci")
 
 def http2ssh(url):
     url = url.replace("https://", "git@")

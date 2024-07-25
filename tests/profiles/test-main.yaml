@@ -299,11 +299,9 @@ git_main_branch:
 continuos_integration:
   message: Select one option for Continuous Integration
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#continuous-integration"
-  type: single-choice
+  type: multiple-choices
   default: github-actions
-  # first choice is the default for the UI
   choices:
-    - github-actions
+    - github_actions
     - circleci
-    - None
   visible: true
