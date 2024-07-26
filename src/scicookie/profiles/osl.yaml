@@ -107,5 +107,5 @@ git_main_branch:
 
 continuos_integration:
   choices:
-    - github-actions
+    - github_actions
   visible: false
