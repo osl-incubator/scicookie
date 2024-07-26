@@ -23,7 +23,7 @@ theme:
   name: mkdocs
 {% else %}
   name: {{ cookiecutter.mkdocs_theme }}
-{% endif%}
+{% endif %}
   features:
     - content.code.annotate
     - content.tabs.link
