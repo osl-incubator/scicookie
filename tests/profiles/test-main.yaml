@@ -300,7 +300,6 @@ continuos_integration:
   message: Select one option for Continuous Integration
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#continuous-integration"
   type: multiple-choices
-  default: github-actions
   choices:
     - github_actions
     - circleci
