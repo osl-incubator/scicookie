@@ -30,12 +30,13 @@ export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
 
 BUILD_SYSTEM="others"
 
+COMMAND_PREFIX= 
 if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then
   flit install
 elif command -v pixi &> /dev/null; then
-  pip install ".[dev]"
+  COMMAND_PREFIX="pixi run"
 elif command -v meson &> /dev/null; then
   BUILD_SYSTEM="mesonpy"
   pip install ".[dev]"
@@ -56,15 +57,15 @@ else
   pip install ".[dev]"
 fi
 
-ipython kernel install --name "python3" --user
+$COMMAND_PREFIX ipython kernel install --name "python3" --user
 
 if command -v makim &> /dev/null; then
-  makim tests.linter
-  makim docs.build
+  $COMMAND_PREFIX makim tests.linter
+  $COMMAND_PREFIX makim docs.build
   makim package.build
 elif command -v make &> /dev/null; then
-  make lint
-  make docs-build
+  $COMMAND_PREFIX make lint
+  $COMMAND_PREFIX make docs-build
   make build
 else
   echo "Makim and Make were not found in the system."
