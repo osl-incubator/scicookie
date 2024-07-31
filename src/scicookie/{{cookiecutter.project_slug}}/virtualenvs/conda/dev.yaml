@@ -28,6 +28,7 @@ dependencies:
   - pybind11
   - cmake
 {%- elif cookiecutter.build_system == "pixi" %}
+  - setuptools
   - pixi
 {%- endif %}
   - nodejs # used by semantic-release

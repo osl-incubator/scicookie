@@ -6,7 +6,7 @@
 {%- endif %}
 dev = [
 {#- keep this line here -#}
-{%- if cookiecutter.build_system in ["setuptools", "pybind11"] %}
+{%- if cookiecutter.build_system in ["setuptools", "pybind11", "pixi"] %}
   "build>=0.10.0",
 {%- endif -%}
 {%- if cookiecutter.use_pytest == "yes" %}
