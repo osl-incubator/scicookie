@@ -130,7 +130,7 @@ build:
 	{%- elif cookiecutter.build_system == "pybind11" %}
 	python -m build
 	{%- elif cookiecutter.build_system == "pixi" %}
-	pixi install
+	cargo build
 	{%- endif %}
 
 .PHONY:release-ci
