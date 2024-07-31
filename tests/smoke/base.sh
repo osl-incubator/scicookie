@@ -35,7 +35,7 @@ if command -v poetry &> /dev/null; then
 elif command -v flit &> /dev/null; then
   flit install
 elif command -v pixi &> /dev/null; then
-  pixi install
+  pip install ".[dev]"
 elif command -v meson &> /dev/null; then
   BUILD_SYSTEM="mesonpy"
   pip install ".[dev]"
