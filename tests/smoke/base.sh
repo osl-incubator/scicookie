@@ -63,18 +63,18 @@ $COMMAND_PREFIX ipython kernel install --name "python3" --user
 if command -v makim &> /dev/null; then
   $COMMAND_PREFIX makim tests.linter
   $COMMAND_PREFIX makim docs.build
-  makim package.build
+  $COMMAND_PREFIX makim package.build
 elif command -v make &> /dev/null; then
   $COMMAND_PREFIX make lint
   $COMMAND_PREFIX make docs-build
-  make build
+  $COMMAND_PREFIX make build
 else
   echo "Makim and Make were not found in the system."
   exit 1
 
 fi
 
-python -c "import osl_python_package as mypkg; assert mypkg.__version__ == '0.1.0'"
+$COMMAND_PREFIX python -c "import osl_python_package as mypkg; assert mypkg.__version__ == '0.1.0'"
 
 if [[ "$BUILD_SYSTEM" == "maturin" ]]; then
   python -c "from osl_python_package import add; add(1, 1)"
