@@ -322,7 +322,7 @@ def clean_up_build_system():
     remove_dir("build-system")
 
 
-def ci_clean_up():
+def clean_up_ci():
     if not USE_CIRCLECI:
         remove_dir(".circleci")
     if USE_GITHUB_ACTIONS:
@@ -429,7 +429,7 @@ def prepare_git() -> None:
 def post_gen():
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
-    ci_clean_up()
+    clean_up_ci()
     clean_up_automation()
     clean_up_cli()
     clean_up_code_of_conduct()
