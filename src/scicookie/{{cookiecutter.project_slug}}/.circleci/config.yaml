@@ -1,0 +1,90 @@
+version: 2.1  # Adjust if needed based on CircleCI requirements
+executors:
+  default_image:
+    docker:
+{% if cookiecutter.use_conda == "yes" %}
+      - image: continuumio/miniconda3
+jobs:
+  check-branch:
+    executor: default_image
+    steps:
+      - checkout
+  test:
+    docker:
+      - image: continuumio/miniconda3
+    steps:
+      - checkout
+      - run:
+          name: Create environment
+          command: |
+            conda env create -f conda/dev.yaml
+            conda init bash
+            source ~/.bashrc
+            conda activate {{ cookiecutter.project_slug }}
+{% else %}
+      - image: circleci/python:3.9  # Adjust Python version if needed
+jobs:
+  check-branch:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+  test:
+    docker:
+      - image: circleci/python:3.9  # Adjust Python version if needed    steps:
+      - checkout
+      - run:
+          name: Create environment and install dependencies
+          command: |
+            python -m pip install -r requirements.txt
+{%- endif %}
+            {%- if cookiecutter.build_system == "poetry" %}
+            poetry install
+            {%- elif cookiecutter.build_system == "flit" %}
+            flit install
+            {%- elif cookiecutter.build_system == "pdm" %}
+            pdm install
+            {%- else %}
+            pip install .
+            {%- endif %}
+            {%- if cookiecutter.use_makim == "yes" %}
+            makim tests.unit
+            {%- elif cookiecutter.use_make == "yes" %}
+            make test
+            {%- else %}
+            # Add your command for running tests here
+            {%- endif %}
+            {%- if cookiecutter.use_pre_commit == "yes" %}
+            pre-commit install
+            {%- if cookiecutter.use_makim == "yes" %}
+            makim tests.linter
+            {%- elif cookiecutter.use_make == "yes" %}
+            make lint
+            {%- else %}
+            # Add your command for running the lintAll repositories
+            {%- endif %}
+            {%- else %}
+            # Add your command for running the linter here
+            {%- endif %}
+{% if cookiecutter.use_conda == "yes" %}
+      - save_cache:
+          paths:
+            - ~/.conda/envs/{{ cookiecutter.project_slug }}
+{% endif %}
+
+workflows:
+  main:
+    jobs:
+      - check-branch:
+          filters:
+            branches:
+              only:
+                - main
+            tags: {}
+      - test:
+          filters:
+            branches:
+              only:
+                - main
+            tags: {}

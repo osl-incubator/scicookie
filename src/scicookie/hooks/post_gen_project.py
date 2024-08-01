@@ -50,6 +50,8 @@ USE_PRETTIER = {{ cookiecutter.use_prettier == "yes" }}
 USE_PRE_COMMIT = {{ cookiecutter.use_pre_commit == "yes" }}
 USE_PYTEST = {{ cookiecutter.use_pytest == "yes" }}
 USE_HYPOTHESIS = {{ cookiecutter.use_hypothesis == "yes" }}
+USE_GITHUB_ACTIONS = {{ cookiecutter.use_github_actions == "yes" }}
+USE_CIRCLECI = {{ cookiecutter.use_circleci == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
@@ -94,6 +96,7 @@ BUILD_SYSTEM = "pybind11"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
+
 
 
 def remove_dirs(dirs: list):
@@ -300,6 +303,12 @@ def clean_up_build_system():
     remove_dir("build-system")
 
 
+def clean_up_ci():
+    if not USE_CIRCLECI:
+        remove_dir(".circleci")
+    if USE_GITHUB_ACTIONS:
+        remove_dir(".github")
+
 def http2ssh(url):
     url = url.replace("https://", "git@")
     return url.replace("/", ":", 1)
@@ -401,6 +410,7 @@ def prepare_git() -> None:
 def post_gen():
     # keep this one first, because it changes the package folder
     clean_up_project_layout()
+    clean_up_ci()
     clean_up_automation()
     clean_up_cli()
     clean_up_code_of_conduct()

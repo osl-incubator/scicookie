@@ -48,7 +48,11 @@ version = "{{ cookiecutter.project_version }}"
 {% else %}
 dynamic = ["version"]
 {% endif -%}
+{% if cookiecutter.build_system != "pdm" %}
 requires-python = ">=3.8.1,<4"
+{% else %}
+requires-python = ">=3.8.6,<4"
+{% endif -%}
 dependencies = [
   # note: add your dependencies here
 ]
