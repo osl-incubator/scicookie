@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=65", "wheel", "pixi","build>=0.10.0"]
+requires = ["setuptools>=65", "wheel", "build>=0.10.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.pixi.project]
@@ -9,7 +9,11 @@ platforms = ["osx-arm64", "linux-64"]
 [tool.pixi.pypi-dependencies]
 "{{ cookiecutter.project_slug }}" = { path = ".", editable = true }
 
+[build-dependencies]
+build = ">=0.10.0"
+
 [tool.pixi.tasks]
+build = "python -m build"
 
 {% include "build-system/base/pyproject.toml" %}
 {% include "build-system/base/dev-deps-pyproject.toml" %}
