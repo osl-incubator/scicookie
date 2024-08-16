@@ -1,6 +1,26 @@
 # Release Notes
 ---
 
+# [0.9.0](https://github.com/osl-incubator/scicookie/compare/0.8.3...0.9.0) (2024-08-16)
+
+
+### Bug Fixes
+
+* add section build-system for poetry ([#308](https://github.com/osl-incubator/scicookie/issues/308)) ([b7777bd](https://github.com/osl-incubator/scicookie/commit/b7777bd67d4e6ebc48e93be171dd82f65852f5d9))
+* Fix comment about semantic-release ([#303](https://github.com/osl-incubator/scicookie/issues/303)) ([32980bf](https://github.com/osl-incubator/scicookie/commit/32980bf05ec409484c580ce229b20457d8e256ff))
+* Fix template issue for mkdocs ([#299](https://github.com/osl-incubator/scicookie/issues/299)) ([2160f4f](https://github.com/osl-incubator/scicookie/commit/2160f4f9c548ad9d36328475b9addaea114aaab6))
+
+
+### Features
+
+* Add initial mechanism for conditional question ([#291](https://github.com/osl-incubator/scicookie/issues/291)) ([3591c9e](https://github.com/osl-incubator/scicookie/commit/3591c9e66d29bf908b774664231b6891abc36cdb))
+* Add support for jinja2 template in the visibility attribute ([#296](https://github.com/osl-incubator/scicookie/issues/296)) ([54c6a2e](https://github.com/osl-incubator/scicookie/commit/54c6a2e34ec77ef79d8fb3caa85b0e26f05e80e8))
+* Add support for OR and AND for depends_on ([#295](https://github.com/osl-incubator/scicookie/issues/295)) ([a2ff8c7](https://github.com/osl-incubator/scicookie/commit/a2ff8c7b67e438cc9b7685ccfa686109e5b28635))
+* **caching:** add cache for conda environment in template ci and update ruff linter commands ([#301](https://github.com/osl-incubator/scicookie/issues/301)) ([4018593](https://github.com/osl-incubator/scicookie/commit/4018593d34ddf81719f9b1d34d9a1f0e1619ca47))
+* **doc-template:** adding options for documentation themes ([#292](https://github.com/osl-incubator/scicookie/issues/292)) ([428785d](https://github.com/osl-incubator/scicookie/commit/428785d48d95fa04d17463dd144b5508ab9c77f5))
+* **ruff:** add option for ruff as linter and auto-formatter ([#298](https://github.com/osl-incubator/scicookie/issues/298)) ([549bd67](https://github.com/osl-incubator/scicookie/commit/549bd67432f385f23643940156bae370156aaac5))
+* **template:** Improve support for sphinx RST and MyST ([#289](https://github.com/osl-incubator/scicookie/issues/289)) ([ac6c36b](https://github.com/osl-incubator/scicookie/commit/ac6c36bc7730cec10d09d2d28eae8a45705e8f50))
+
 ## [0.8.3](https://github.com/osl-incubator/scicookie/compare/0.8.2...0.8.3) (2024-05-13)
 
 
