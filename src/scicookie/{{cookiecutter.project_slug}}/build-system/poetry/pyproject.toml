@@ -129,8 +129,9 @@ pydata-sphinx-theme = ">= 0.15.3"
 {% endif %}
 {# keep this line here #}
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
-quarto-cli = ">=1.4.550"
-quartodoc = ">=0.7.2"
+quarto-cli = ">=1.5.56"
+quartodoc = ">=0.7.5"
+griffe = "<=0.49.0"
 {% endif -%}
 {%- if cookiecutter.use_makim == "yes" -%}
 makim = "1.15.1"
