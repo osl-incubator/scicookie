@@ -980,7 +980,8 @@ the following way:</p>
    <span class="p">[</span> <span class="p">]</span> <span class="n">conda</span>
    <span class="p">[</span> <span class="p">]</span> <span class="n">coverage</span>
    <span class="p">[</span> <span class="p">]</span> <span class="n">flake8</span>
-   <span class="p">[</span> <span class="p">]</span> <span class="n">ruff</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">ruff_linter</span>
+   <span class="p">[</span> <span class="p">]</span> <span class="n">ruff_formatter</span>
    <span class="p">[</span> <span class="p">]</span> <span class="n">isort</span>
    <span class="p">[</span> <span class="p">]</span> <span class="n">make</span>
    <span class="p">[</span> <span class="p">]</span> <span class="n">makim</span>
@@ -1312,9 +1313,10 @@ engine</strong>. This tool automates the creation of technical documentation for
 software projects by extracting information from source code, comments and
 project metadata.</p>
 <p>Depending on your taste and the needs of your project, you should choose the
-documentation engine that best suits your needs. SciCookie offers you three
-documentation engine options for your Python package: <em>mkdocs</em>, <em>sphinx</em>,
-<em>jupyter-book</em> and <em>quarto</em>.</p>
+documentation engine that best suits your needs. SciCookie offers you four
+documentation engine options for your Python package: <em>mkdocs</em>, <em>sphinx-rst</em>,
+<em>sphinx-myst</em>, <em>jupyter-book</em> and <em>quarto</em>. Additionally styling options
+(themes) are provided for your documentation.</p>
 <ul>
 <li>
 <p><a href="https://www.mkdocs.org/"><strong>mkdocs</strong></a>: is a fast, simple, and downright
@@ -1324,19 +1326,33 @@ documentation engine options for your Python package: <em>mkdocs</em>, <em>sphin
   create clear and well-structured documentation without requiring advanced
   programming skills. <em>mkdocs</em> can be easily integrated with version control
   systems such as Git, supports a variety of predefined themes that allow you to
-  customise the visual appearance of your documentation. In SciCookie, so far,
-  we use the <em>material</em> theme to generate documentation with <em>mkdocs</em>.</p>
+  customise the visual appearance of your documentation. In SciCookie you can
+  choose between the
+  <a href="https://www.mkdocs.org/user-guide/choosing-your-theme/#mkdocs">MkDocs (default)</a>,
+  <a href="https://github.com/squidfunk/mkdocs-material">Material</a>,
+  <a href="https://github.com/chrissimpkins/cinder">Cinder</a> and
+  <a href="https://www.mkdocs.org/user-guide/choosing-your-theme/#readthedocs">readthedocs</a>
+  themes.</p>
 </li>
 <li>
 <p><a href="https://www.sphinx-doc.org/en/master/"><strong>Sphinx</strong></a>: <em>Sphinx</em> makes it easy to
   create intelligent and attractive documentation. It provides various output
-  formats such as HTML, LaTeX, ePub, Texinfo, manual pages, plain text. It also
-  generates automatic links to functions, classes, citations, glossary terms and
-  similar information. It allows the use of built-in extensions for automatic
-  code snippet checking, the inclusion of docstrings from Python modules, and
-  third-party extensions to include many more features. <em>Sphinx</em> uses the
-  <em>reStructuredText</em> markup language by default and can read <em>MyST</em> markdown
-  through third-party extensions.</p>
+  formats such as HTML, LaTeX, ePub, Texinfo, manual pages, plain text. It
+  allows the use of built-in extensions for automatic code snippet checking, the
+  inclusion of docstrings from Python modules, and third-party extensions to
+  include many more features. To work with <em>Sphinx</em> you can select either of the
+  two available options: <em>sphinx-rst</em> and <em>sphinx-myst</em>. <em>Sphinx-rst</em> uses the
+  <em>reStructuredText</em> markup language by default and <em>Sphinx-myst</em>(Markedly
+  Structured Text - Parser) is a Sphinx and Docutils extension to parse MyST, a
+  rich and extensible flavour of Markdown for authoring technical and scientific
+  documentation. Also, SciCookie offers themes to customize the look and feel of
+  your documentation : a clean and minimalist theme (default -
+  <a href="https://sphinx-themes.org/sample-sites/default-alabaster/">Alabaster</a>), one
+  that is very popular among scientists for its documentation –
+  <a href="https://sphinx-themes.org/sample-sites/sphinx-rtd-theme/">Read the Docs</a> and
+  another collection of themes for
+  <a href="https://sphinx-themes.org/sample-sites/pydata-sphinx-theme/">PyData</a> made for
+  a particular kind of data science projects.</p>
 </li>
 <li>
 <p><a href="https://jupyterbook.org/en/stable/intro.html"><strong>Jupyter Book</strong></a>: allows you
@@ -1347,17 +1363,26 @@ documentation engine options for your Python package: <em>mkdocs</em>, <em>sphin
   the look and feel of the book to your needs and extensions to add additional
   features. It can generate books in a variety of output formats, including
   HTML, PDF and static web pages. It integrates well with version control
-  systems such as Git.</p>
+  systems such as Git. If you want to customise the look or style of the
+  documentation, SciCookie lets you choose between the default
+  (<a href="https://sphinx-book-theme.readthedocs.io/">Sphinx Book Theme</a>) theme or one
+  derived from sphinx such as
+  <a href="https://sphinx-themes.org/sample-sites/sphinx-rtd-theme/">Readthedocs</a> or
+  <a href="https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/index.html">PyData</a>.</p>
 </li>
 <li>
-<p><a href="https://quarto.org/">Quarto</a>: It is a versatile open-source platform designed
-  for scientific and technical publishing. It offers the unique feature of
-  embedding Python code directly into your documentation, enabling interactive
-  and dynamic content creation. With Quarto, you can easily render your
-  documents in multiple formats such as HTML, PDF, and websites, making it
-  convenient for sharing and presenting your work. Additionally, Quarto provides
-  customization options to personalize your content according to your
-  preferences and needs.</p>
+<p><a href="https://quarto.org/"><strong>Quarto</strong></a>: It is a versatile open-source platform
+  designed for scientific and technical publishing. It offers the unique feature
+  of embedding Python code directly into your documentation, enabling
+  interactive and dynamic content creation. With Quarto, you can easily render
+  your documents in multiple formats such as HTML, PDF, and websites, making it
+  convenient for sharing and presenting your work. In addition, Quarto offers
+  customisation options to personalise your content according to your
+  preferences and needs. Through SciCookie, you can choose from some of the
+  themes available in Quarto: <a href="https://bootswatch.com/default/">Default</a>,
+  <a href="https://bootswatch.com/cosmo/">Cosmo</a>,
+  <a href="https://bootswatch.com/cerulean/">Cerulean</a>,
+  <a href="https://bootswatch.com/materia/">Materia</a>.</p>
 </li>
 </ul>
 <p>If you think we should add more options of documentation engines or themes, you
@@ -1411,8 +1436,17 @@ SciCookie, you will find: <em>Black</em>.</p>
 </ul>
 <p>You can read the <a href="https://black.readthedocs.io"><em>black documentation</em></a> if you
 want to know more about it.</p>
-<p>Using code formatters such as <em>Black</em> in your project helps ensure consistent
-and readable code, making it easier to maintain and collaborate on.</p>
+<ul>
+<li><a href="https://docs.astral.sh/ruff/"><strong>Ruff</strong></a>: Ruff is a versatile tool for Python
+  that offers both linting and auto-formatting capabilities. As an
+  auto-formatter, Ruff ensures consistent code formatting, fixes import sorting,
+  and adheres to best practices. Notably, Ruff is significantly faster than
+  tools like Black, making it ideal for large codebases. Its benefits include
+  enhancing code readability, saving time on manual formatting, and allowing for
+  fine-tuned configurations to meet specific project needs.</li>
+</ul>
+<p>Using code formatters such as <em>Black</em> and <em>Ruff</em> in your project helps ensure
+consistent and readable code, making it easier to maintain and collaborate on.</p>
 <h3 id="code-security-vulnerabilities">Code security vulnerabilities<a class="headerlink" href="#code-security-vulnerabilities" title="Permanent link">¤</a></h3>
 <p>The code security vulnerabilities are errors or weaknesses in code that can be
 exploited by attackers to gain unauthorized access, steal data, or cause damage
