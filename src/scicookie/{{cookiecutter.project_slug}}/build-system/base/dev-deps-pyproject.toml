@@ -94,8 +94,9 @@ dev = [
   "pydata-sphinx-theme >= 0.15.3",
   {% endif %}
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
-  "quarto-cli >= 1.4.550",
-  "quartodoc >= 0.7.2",
+  "quarto-cli >= 1.5.56",
+  "quartodoc >= 0.7.5",
+  "griffe = <=0.49.0",
 {%- endif %}
   # 'PosixPath' object has no attribute 'endswith'
   "virtualenv<=20.25.1",
