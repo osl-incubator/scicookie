@@ -72,8 +72,8 @@ dev = [
   {% elif cookiecutter.mkdocs_theme == 'cinder' -%}
   "mkdocs-cinder >= 1.2.0"
   {% endif -%}
-  "mkdocstrings >= 0.21.2",
-  "mkdocstrings-python >= 1.1.2",
+  "mkdocstrings >=0.24.3", extras=["python"],
+  "mkdocs-gen-files >=0.5.0"
 {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
   "Sphinx >= 6.2.1",
   {%- if cookiecutter.sphinx_theme == 'readthedocs'%}

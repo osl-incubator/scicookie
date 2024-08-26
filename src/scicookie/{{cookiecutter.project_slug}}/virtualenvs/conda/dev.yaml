@@ -5,6 +5,8 @@ channels:
 dependencies:
   - python >=3.8.1,<4
   - pip
+  - pip:
+      - paginate
 {%- if cookiecutter.build_system == "poetry" %}
   - poetry
 {%- elif cookiecutter.build_system == "flit" %}
