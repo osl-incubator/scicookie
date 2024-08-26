@@ -6,6 +6,7 @@ dependencies:
   - python >=3.8.1,<4
   - pip
   - pip:
+      # distlib issue
       - paginate
 {%- if cookiecutter.build_system == "poetry" %}
   - poetry
