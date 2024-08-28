@@ -5,9 +5,6 @@ channels:
 dependencies:
   - python >=3.8.1,<4
   - pip
-  - pip:
-      # distlib issue
-      - paginate
 {%- if cookiecutter.build_system == "poetry" %}
   - poetry
 {%- elif cookiecutter.build_system == "flit" %}
@@ -41,3 +38,8 @@ dependencies:
 {%- if cookiecutter.use_make == "yes" %}
   - make
 {%- endif %}
+{%- if cookiecutter.build_system == "poetry" and cookiecutter.documentation_engine == "mkdocs" %}
+  - pip:
+      # distlib issue
+      - paginate
+ {%- endif %}     

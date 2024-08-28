@@ -15,11 +15,11 @@ nav = mkdocs_gen_files.Nav()
 mod_symbol = '<code class="doc-symbol doc-symbol-nav doc-symbol-module"></code>'
 
 root = Path(__file__).parent.parent
-project_layout = "{{ cookiecutter.project_layout }}"
-if project_layout == "src":
-    src = root / "src" / "{{ cookiecutter.package_slug }}"
-else:
-    src = Path("{{ cookiecutter.package_slug }}")
+{% if cookiecutter.project_layout == "src" -%}
+src = root / "src"
+{% else -%}
+src = root
+{% endif -%}
 
 for path in sorted(src.rglob("*.py")):
     module_path = path.relative_to(src).with_suffix("")
