@@ -12,7 +12,9 @@ from pathlib import Path
 import mkdocs_gen_files
 
 nav = mkdocs_gen_files.Nav()
-mod_symbol = '<code class="doc-symbol doc-symbol-nav doc-symbol-module"></code>'
+mod_symbol = (
+    '<code class="doc-symbol doc-symbol-nav doc-symbol-module"></code>'
+)
 
 root = Path(__file__).parent.parent
 {% if cookiecutter.project_layout == "src" -%}
@@ -23,7 +25,9 @@ src = root
 
 for path in sorted(src.rglob("*.py")):
     module_path = path.relative_to(src).with_suffix("")
-    doc_path = path.relative_to(src / "cookiecutter.package_slug").with_suffix(".md")
+    doc_path = path.relative_to(src / "cookiecutter.package_slug").with_suffix(
+        ".md"
+    )
     full_doc_path = Path("api", doc_path)
 
     parts = tuple(module_path.parts)

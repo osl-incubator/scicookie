@@ -41,5 +41,5 @@ dependencies:
 {%- if cookiecutter.build_system == "poetry" and cookiecutter.documentation_engine == "mkdocs" %}
   - pip:
       # distlib issue
-      - paginate
+      - paginate==0.5.6
  {%- endif %}     
