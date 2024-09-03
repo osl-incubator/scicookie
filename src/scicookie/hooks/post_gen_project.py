@@ -129,7 +129,7 @@ def move_selected_doc_dir():
     if DOCUMENTATION_ENGINE.startswith("sphinx"):
         DOCS_SPHINX = Path(DOCS_SPEC_DIR).parent
         remove_dir(Path("docs") / "api")
-        remove_project_file("index.md")
+        remove_project_file(Path("docs") / "index.md")
         
         for file_name in ['conf.py', 'make.bat', 'readme.md']:
             try:

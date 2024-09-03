@@ -104,7 +104,8 @@ mkdocs-material = ">=9.1.15"
 {% elif cookiecutter.mkdocs_theme == "cinder" -%}
 mkdocs-cinder = ">=1.2.0"
 {% endif -%}
-mkdocstrings = ">=0.24.3", extras=["python"],
+mkdocstrings = ">=0.21.2",
+mkdocstrings-python = ">= 1.1.2",
 mkdocs-gen-files = ">=0.5.0"
 {# keep this line here #}
 {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
