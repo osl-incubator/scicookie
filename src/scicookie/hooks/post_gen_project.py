@@ -103,11 +103,17 @@ def remove_dirs(dirs: list):
 
 def remove_dir(dir_path):
     """Remove a directory located at PROJECT_DIRECTORY/dir_path"""
-    shutil.rmtree(PROJECT_DIRECTORY/dir_path)
+    try:
+        shutil.rmtree(PROJECT_DIRECTORY / dir_path)
+    except Exception as e:
+        print(f"Error removing directory {PROJECT_DIRECTORY / dir_path}: {e}")
 
 
 def remove_project_file(filepath: str):
-    os.remove(PROJECT_DIRECTORY / filepath)
+    try:
+        os.remove(PROJECT_DIRECTORY / filepath)
+    except Exception as e:
+        print(f"Error removing file {PROJECT_DIRECTORY / filepath}: {e}")
 
 
 def remove_package_file(filepath: str):
@@ -123,13 +129,19 @@ def move_selected_doc_dir():
     if DOCUMENTATION_ENGINE.startswith("sphinx"):
         DOCS_SPHINX = Path(DOCS_SPEC_DIR).parent
         remove_dir(Path("docs") / "api")
-        remove_project_file(Path("docs") / "index.md")
-        shutil.move(DOCS_SPHINX / 'conf.py', docs_target_dir)
-        shutil.move(DOCS_SPHINX / 'make.bat', docs_target_dir)
-        shutil.move(DOCS_SPHINX / 'readme.md', docs_target_dir)
+        remove_project_file("index.md")
+        
+        for file_name in ['conf.py', 'make.bat', 'readme.md']:
+            try:
+                shutil.move(DOCS_SPHINX / file_name, docs_target_dir)
+            except Exception as e:
+                print(f"Error moving file {file_name}: {e}")
 
     for file_name in os.listdir(DOCS_SPEC_DIR):
-        shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
+        try:
+            shutil.move(DOCS_SPEC_DIR / file_name, docs_target_dir)
+        except Exception as e:
+            print(f"Error moving file {file_name}: {e}")
 
 
 
