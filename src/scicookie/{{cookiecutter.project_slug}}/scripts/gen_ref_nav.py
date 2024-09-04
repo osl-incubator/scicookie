@@ -25,9 +25,7 @@ src = root
 
 for path in sorted(src.rglob("*.py")):
     module_path = path.relative_to(src).with_suffix("")
-    doc_path = path.relative_to(src / "{{ cookiecutter.package_slug }}").with_suffix(
-        ".md"
-    )
+    doc_path = path.relative_to(src / "osl_python_package").with_suffix(".md")
     full_doc_path = Path("api", doc_path)
 
     parts = tuple(module_path.parts)
