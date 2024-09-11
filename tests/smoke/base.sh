@@ -37,7 +37,8 @@ elif command -v flit &> /dev/null; then
   flit install
 elif command -v pixi &> /dev/null; then
   COMMAND_PREFIX="pixi run"
-  pip install ".[dev]"
+  #pip install ".[dev]"
+  pixi install
 elif command -v meson &> /dev/null; then
   BUILD_SYSTEM="mesonpy"
   pip install ".[dev]"
