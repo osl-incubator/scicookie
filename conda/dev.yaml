@@ -12,4 +12,4 @@ dependencies:
   - pip
   - pip:
       - makim==1.15.1
-      - paginate
+      - paginate==0.5.6

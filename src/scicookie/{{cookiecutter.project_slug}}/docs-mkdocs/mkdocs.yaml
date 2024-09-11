@@ -15,7 +15,8 @@ nav:
   - Installation: installation.md
   - Changelog: changelog.md
   - Contributing: contributing.md
-  - API: ./api/references.md
+  # from gen-files
+  - API: api/
   - Notebook page: example.ipynb
 theme:
 {% if cookiecutter.mkdocs_theme == 'default' %}
@@ -45,10 +46,15 @@ theme:
 plugins:
   - search
   - macros
-  # - autorefs
+  - autorefs
   # - exclude:
   #     glob:
   #       - backends/template.md
+  - gen-files:
+      scripts:
+        - scripts/gen_ref_nav.py
+  - literate-nav:
+      nav_file: SUMMARY.md
   - mkdocstrings:
       enable_inventory: true
       handlers:
@@ -62,51 +68,32 @@ plugins:
           import:
             - https://docs.python.org/3/objects.inv
           options:
+            docstring_options:
+              ignore_init_summary: true
+            docstring_section_style: list
             docstring_style: numpy
-            filters:
-              - "!^Bounds"
-              - "!^__class__"
-              - "!^_filter_with_like"
-              - "!^_find_backends"
-              - "!^_key$"
-              - "!^_literal_value_hash_key"
-              - "!^_log"
-              - "!^_nbytes"
-              - "!^_safe_name$"
-              - "!^_schema_from_csv"
-              - "!^_to_geodataframe"
-              - "!^_tuplize"
-              - "!^ast_schema"
-              - "!^backend_table_type"
-              - "!^bounds$"
-              - "!^column$"
-              - "!^compiler$"
-              - "!^context_class"
-              - "!^database_class"
-              - "!^do_connect"
-              - "!^fetch_from_cursor"
-              - "!^get_schema"
-              - "!^largest$"
-              - "!^reconnect"
-              - "!^select_builder_class"
-              - "!^select_class"
-              - "!^table_class$"
-              - "!^table_expr_class"
-              - "!^translator_class"
-              - "!^Options$"
-            show_category_heading: true
+            filters: ["!^_"]
+            heading_level: 1
+            inherited_members: true
+            merge_init_into_class: true
+            separate_signature: true
+            # show_category_heading: true
+            # show_modules: true
             show_root_full_path: false
             show_root_heading: true
-            show_root_toc_entry: true
-            show_source: false
-            show_modules: true
+            # show_root_toc_entry: true
+            show_signature_annotations: true
+            show_source: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            signature_crossrefs: true
+            summary: true
   - mkdocs-jupyter:
       execute: false
       ignore:
         - "*.py"
       include_source: true
       theme: dark
-  - literate-nav
 markdown_extensions:
   - admonition
   - attr_list
@@ -122,8 +109,10 @@ markdown_extensions:
         custom_icons:
           - docs/static/icons
   - pymdownx.details
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      pygments_lang_class: true 
+  - pymdownx.inlinehilite:
+      style_plain_text: python
   - pymdownx.magiclink:
       provider: github
       repo_url_shortener: true

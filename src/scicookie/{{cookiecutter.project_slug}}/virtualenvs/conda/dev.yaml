@@ -38,3 +38,8 @@ dependencies:
 {%- if cookiecutter.use_make == "yes" %}
   - make
 {%- endif %}
+{%- if cookiecutter.build_system == "poetry" and cookiecutter.documentation_engine == "mkdocs" %}
+  - pip:
+      # distlib issue
+      - paginate==0.5.6
+ {%- endif %}     
