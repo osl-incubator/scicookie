@@ -2,7 +2,7 @@ version: 2.1  # Adjust if needed based on CircleCI requirements
 executors:
   default_image:
     docker:
-{% if cookiecutter.use_conda == "yes" %}
+{%- if cookiecutter.use_conda == "yes" %}
       - image: continuumio/miniconda3
 jobs:
   check-branch:
@@ -21,7 +21,7 @@ jobs:
             conda init bash
             source ~/.bashrc
             conda activate {{ cookiecutter.project_slug }}
-{% else %}
+{%- else %}
       - image: circleci/python:3.9  # Adjust Python version if needed
 jobs:
   check-branch:
@@ -48,31 +48,23 @@ jobs:
             {%- else %}
             pip install .
             {%- endif %}
-            {%- if cookiecutter.use_makim == "yes" %}
-            makim tests.unit
-            {%- elif cookiecutter.use_make == "yes" %}
-            make test
-            {%- else %}
-            # Add your command for running tests here
-            {%- endif %}
             {%- if cookiecutter.use_pre_commit == "yes" %}
             pre-commit install
+            {%- endif %}
             {%- if cookiecutter.use_makim == "yes" %}
+            makim tests.unit
             makim tests.linter
-            {%- elif cookiecutter.use_make == "yes" %}
+            {%- endif %}
+            {%- if cookiecutter.use_make == "yes" %}
+            make test
             make lint
-            {%- else %}
-            # Add your command for running the lintAll repositories
             {%- endif %}
-            {%- else %}
-            # Add your command for running the linter here
-            {%- endif %}
-{% if cookiecutter.use_conda == "yes" %}
+{%- if cookiecutter.use_conda == "yes" %}
       - save_cache:
           paths:
             - ~/.conda/envs/{{ cookiecutter.project_slug }}
-{% endif %}
-
+          key: conda-{% raw %}{{ checksum "conda/dev.yaml" }}{% endraw %}
+{%- endif %}
 workflows:
   main:
     jobs:

@@ -325,7 +325,7 @@ def clean_up_build_system():
 def clean_up_ci():
     if not USE_CIRCLECI:
         remove_dir(".circleci")
-    if USE_GITHUB_ACTIONS:
+    if not USE_GITHUB_ACTIONS:
         remove_dir(".github")
 
 def http2ssh(url):
