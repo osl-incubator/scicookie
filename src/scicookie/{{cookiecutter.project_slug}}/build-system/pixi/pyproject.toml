@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=65", "wheel", "build>=1.2.2"]
-build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 40.8.0"]
+build-backend = "setuptools.build_meta:__legacy__"
 
 [tool.pixi.project]
 channels = ["conda-forge"]
