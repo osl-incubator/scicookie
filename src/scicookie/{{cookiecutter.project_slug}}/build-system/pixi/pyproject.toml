@@ -10,7 +10,7 @@ platforms = ["osx-arm64", "linux-64"]
 "{{ cookiecutter.project_slug }}" = { path = ".", editable = true }
 
 [pypi-dependencies]
-python-build = ">=0.2.13"
+build = ">=1.2.2"
 
 [dependencies]
 python-build = ">=1.2.2"
