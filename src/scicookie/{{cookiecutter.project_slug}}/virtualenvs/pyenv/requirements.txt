@@ -6,7 +6,7 @@ flit
 meson-python
 {%- elif cookiecutter.build_system == "setuptools" %}
 setuptools
-python-build
+build
 {%- elif cookiecutter.build_system == "pdm" %}
 pdm
 {%- elif cookiecutter.build_system == "hatch" %}
@@ -23,7 +23,7 @@ cmake
 {%- elif cookiecutter.build_system == "pixi" %}
 setuptools
 pixi
-python-build
+build
 {%- endif %}
 nodejs  # used by semantic-release
 {%- if cookiecutter.use_shellcheck == "yes" %}
