@@ -9,8 +9,11 @@ platforms = ["osx-arm64", "linux-64"]
 [tool.pixi.pypi-dependencies]
 "{{ cookiecutter.project_slug }}" = { path = ".", editable = true }
 
-[pypi-dependencies]
+[tool.pixi.dependencies]
 build = ">=1.2.2"
+
+[environments]
+dev = ["dev"]
 
 {% include "build-system/base/pyproject.toml" %}
 {% include "build-system/base/dev-deps-pyproject.toml" %}
