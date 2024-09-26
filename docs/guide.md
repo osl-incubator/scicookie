@@ -348,6 +348,16 @@ packages. SciCookie support the following:
   game development and automation. Staying up-to-date with the latest pybind11
   documentation ensures the best practices are followed.
 
+- [**Pixi**](https://pixi.sh/latest/): Pixi is a package manager designed to
+  simplify dependency management by creating reproducible development
+  environments. Pixi focuses on local environments for specific projects,
+  generating automatic lock-files to ensure that the same dependencies can be
+  installed across different machines. It also offers a cross-platform task
+  system for efficient project-specific tasks, such as building, testing, and
+  more. Pixi supports multiple languages and is designed to make it easy for
+  developers to share their projects without worrying about dependency
+  conflicts.
+
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your
