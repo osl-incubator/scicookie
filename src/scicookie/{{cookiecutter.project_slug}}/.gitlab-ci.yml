@@ -1,0 +1,113 @@
+stages:
+  - test
+  - release  # Optional stage for releases
+
+# Define common jobs and reusable elements
+build_job: &build_job
+  defaults:
+    run:
+      shell: bash -l {0}
+  steps:
+    - uses: actions/checkout@v3
+
+# Test stage jobs
+test:
+  stage: test
+  <<: *build_job
+  if: <span class="math-inline">\{\{ github\.event\_name \=\= 'push' && github\.base\_branch \=\= 'main' \|\| github\.event\_name \=\= 'pull\_request' \}\}
+runs\-on\: ubuntu\-latest
+timeout\-minutes\: 10
+concurrency\:
+group\: ci\-</span>{{ github.event_name }}-${{ github.ref }}
+    cancel-in-progress: true
+
+  # Add conditional logic based on cookiecutter.use_conda
+  - name: Setup environment
+    <<: *{{ (cookiecutter.use_conda == 'yes') ? 'conda_env' : 'python_env' }}
+
+  - name: Install dependencies
+    run: |
+      {%- if cookiecutter.build_system == "poetry" %}
+      poetry install
+      {%- elif cookiecutter.build_system == "flit" %}
+      flit install
+      {%- elif cookiecutter.build_system == "pdm" %}
+      pdm install
+      {%- elif cookiecutter.build_system == "pixi" %}
+      pixi install
+      {%- else %}
+      pip install .
+      {%- endif %}
+
+  - name: Run tests
+    run: |
+      {%- if cookiecutter.use_makim == "yes" %}
+      makim tests.unit
+      {%- elif cookiecutter.use_make == "yes" %}
+      make test
+      {%- else %}
+      # add your command for running tests here
+      {%- endif %}
+
+  - name: Run style checks
+    if: success() || failure()
+    run: |
+      {%- if cookiecutter.use_pre_commit == "yes" %}
+      pre-commit install
+      {%- if cookiecutter.use_makim == "yes" %}
+      makim tests.linter
+      {%- elif cookiecutter.use_make == "yes" %}
+      make lint
+      {%- else %}
+      # add your command for running the linter here
+      {%- endif %}
+      {%- else %}
+      # add your command for running the linter here
+      {%- endif %}
+
+# Release stage jobs (optional)
+release:
+  stage: release  # Optional stage
+  <<: *build_job
+  if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.base_branch == 'main')
+  runs-on: ubuntu-latest
+  timeout-minutes: 10
+  permissions:
+    contents: write
+    issues: write
+    pull-requests: write
+
+  # Add conditional logic based on cookiecutter.use_conda
+  - name: Setup environment
+    <<: *{{ (cookiecutter.use_conda == 'yes') ? 'conda_env' : 'python_env' }}
+
+  - name: Install deps
+    run: |
+      {%- if cookiecutter.build_system == "poetry" %}
+      poetry install
+      {%- elif cookiecutter.build_system == "flit" %}
+      flit install
+      {%- elif cookiecutter.build_system == "pdm" %}
+      pdm install
+      {%- elif cookiecutter.build_system == "pixi" %}
+      pixi install
+      {%- else %}
+      pip install .
+      {%- endif %}
+
+  - name: Run semantic release (for tests)
+    if: github.event_name != 'workflow_dispatch'
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    run: |
+      {%- if cookiecutter.use_makim == "yes" %}
+      makim release.dry
+      {%- elif cookiecutter.use_make == "yes" %}
+      make release-dry
+      {%- else %}
+      # add your command here to run semantic-release in dry mode
+      {%- endif %}
+
+  - name: Release command
+    if: github.event_name == 'workflow_dispatch'
+    env
