@@ -27,6 +27,9 @@ else
   input_params="use_conda=yes ${input_params}"
 fi
 
+# NOTE: FOR NOW IT IS JUST USED BY POETRY
+USE_PYENV=0
+
 if [[ "${input_params}" == *"use_makim=yes"* ]] || [[ "$input_params" == *"use_make=yes"* ]]; then
   echo "Automation task tool defined."
 else
@@ -62,6 +65,7 @@ if [[ "${input_params}" == *"use_conda=yes"* ]]; then
 fi
 
 if [[ "$input_params" == *"use_pyenv=yes"* ]]; then
+  USE_PYENV=1
   set +x
   virtualenv "${ENV_NAME}"
   source "${ENV_NAME}/bin/activate"
@@ -74,6 +78,9 @@ export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
 BUILD_SYSTEM="others"
 
 if command -v poetry &> /dev/null; then
+  if [[ "$USE_PYENV" == "1" ]]; then
+    poetry config virtualenvs.create true --local
+  fi
   poetry install
 elif command -v flit &> /dev/null; then
   flit install
