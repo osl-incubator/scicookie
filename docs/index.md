@@ -57,7 +57,6 @@ Python package.
   [scikit-build-core](https://scikit-build-core.readthedocs.io/en/latest/),
   [setuptools + pybind11](https://pybind11.readthedocs.io/en/stable/) or
   [Pixi](https://pixi.sh/latest/) based on your preference.
-  
 - The structure of the project can use the _src layout_ or _flat layout_. The
   “src layout” moving the code that is intended to be importable into a
   subdirectory. This subdirectory is typically named src. "Flat layout" refers
