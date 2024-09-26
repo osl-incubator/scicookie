@@ -54,9 +54,10 @@ Python package.
   [Setuptools](https://setuptools.pypa.io/en/latest/),
   [PDM](https://pdm.fming.dev/), [Hatch](https://hatch.pypa.io),
   [Maturin](https://pypi.org/project/maturin/0.8.2/),
-  [scikit-build-core](https://scikit-build-core.readthedocs.io/en/latest/) or
-  [setuptools + pybind11](https://pybind11.readthedocs.io/en/stable/), [Pixi](https://pixi.sh/latest/) based on
-  your preference.
+  [scikit-build-core](https://scikit-build-core.readthedocs.io/en/latest/),
+  [setuptools + pybind11](https://pybind11.readthedocs.io/en/stable/) or
+  [Pixi](https://pixi.sh/latest/) based on your preference.
+  
 - The structure of the project can use the _src layout_ or _flat layout_. The
   “src layout” moving the code that is intended to be importable into a
   subdirectory. This subdirectory is typically named src. "Flat layout" refers
