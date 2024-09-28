@@ -22,17 +22,15 @@ jobs:
             source ~/.bashrc
             conda activate {{ cookiecutter.project_slug }}
 {%- else %}
-      - image: circleci/python:3.9  # Adjust Python version if needed
+      - image: cimg/python:3.10  # Adjust Python version if needed
 jobs:
   check-branch:
-    executor: python/default
+    executor: default_image
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
   test:
-    docker:
-      - image: circleci/python:3.9  # Adjust Python version if needed    steps:
+    executor: default_image
+    steps:
       - checkout
       - run:
           name: Create environment and install dependencies

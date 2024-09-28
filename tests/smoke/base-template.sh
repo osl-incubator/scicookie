@@ -54,3 +54,9 @@ cookiecutter --no-input \
 echo "${OUTPUT_DIR}"
 
 set +ex
+
+if [[ "${input_params}" == *"use_circleci=yes"* ]] && command -v circleci &> /dev/null; then
+  pushd /tmp/osl/osl-python-package
+  circleci config validate
+  popd
+fi

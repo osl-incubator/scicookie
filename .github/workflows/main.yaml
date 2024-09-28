@@ -153,6 +153,7 @@ jobs:
           - automation.sh
           - auto-format-tools.sh
           - build-systems.sh
+          - circleci.sh
           - containers.sh
           - docs-jupyter-book.sh
           - docs-mkdocs.sh
