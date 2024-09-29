@@ -1,4 +1,4 @@
-version: 2.1  # Adjust if needed based on CircleCI requirements
+version: 2.1 # Adjust if needed based on CircleCI requirements
 executors:
   default_image:
     docker:
@@ -22,7 +22,7 @@ jobs:
             source ~/.bashrc
             conda activate {{ cookiecutter.project_slug }}
 {%- else %}
-      - image: cimg/python:3.10  # Adjust Python version if needed
+      - image: cimg/python:3.10 # Adjust Python version if needed
 jobs:
   check-branch:
     executor: default_image
@@ -46,6 +46,7 @@ jobs:
             {%- else %}
             pip install .
             {%- endif %}
+            export PATH=$PATH:/home/circleci/.pyenv/versions/3.10.15/bin;
             {%- if cookiecutter.use_pre_commit == "yes" %}
             pre-commit install
             {%- endif %}
