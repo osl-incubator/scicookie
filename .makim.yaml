@@ -68,7 +68,7 @@ groups:
         run: |
           ./tests/smoke/auto-format-tools.sh
           ./tests/smoke/build-systems.sh
-          ./tests/smoke/circleci.sh
+          ./tests/smoke/ci.sh
           ./tests/smoke/cli.sh
           ./tests/smoke/containers.sh
           ./tests/smoke/docs-jupyter-book.sh
