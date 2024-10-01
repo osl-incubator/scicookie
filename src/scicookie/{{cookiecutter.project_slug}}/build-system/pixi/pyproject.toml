@@ -10,7 +10,7 @@ platforms = ["osx-arm64", "linux-64"]
 "{{ cookiecutter.project_slug }}" = { path = ".", editable = true }
 
 [tool.pixi.dependencies]
-build = ">=1.2.2"
+python-build = ">=1.2.2"
 
 [environments]
 dev = ["dev"]
