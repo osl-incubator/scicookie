@@ -30,10 +30,14 @@ export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
 
 BUILD_SYSTEM="others"
 
+COMMAND_PREFIX= 
 if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then
   flit install
+elif command -v pixi &> /dev/null; then
+  COMMAND_PREFIX="pixi run"
+  pip install ".[dev]"
 elif command -v meson &> /dev/null; then
   BUILD_SYSTEM="mesonpy"
   pip install ".[dev]"
@@ -54,23 +58,23 @@ else
   pip install ".[dev]"
 fi
 
-ipython kernel install --name "python3" --user
+$COMMAND_PREFIX ipython kernel install --name "python3" --user
 
 if command -v makim &> /dev/null; then
-  makim tests.linter
-  makim docs.build
-  makim package.build
+  $COMMAND_PREFIX makim tests.linter
+  $COMMAND_PREFIX makim docs.build
+  $COMMAND_PREFIX makim package.build
 elif command -v make &> /dev/null; then
-  make lint
-  make docs-build
-  make build
+  $COMMAND_PREFIX make lint
+  $COMMAND_PREFIX make docs-build
+  $COMMAND_PREFIX make build
 else
   echo "Makim and Make were not found in the system."
   exit 1
 
 fi
 
-python -c "import osl_python_package as mypkg; assert mypkg.__version__ == '0.1.0'"
+$COMMAND_PREFIX python -c 'import osl_python_package as mypkg; assert mypkg.__version__ == "0.1.0"'
 
 if [[ "$BUILD_SYSTEM" == "maturin" ]]; then
   python -c "from osl_python_package import add; add(1, 1)"
