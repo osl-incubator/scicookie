@@ -5,6 +5,7 @@ channels:
 dependencies:
   - m2-bash
   - git
+  - opensciencelabs::circleci-cli
   - python >=3.8.1,<3.12
   - poetry >=1.5
   - nodejs

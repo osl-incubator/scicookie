@@ -78,5 +78,7 @@
   "git_username": "zoro_roronoa",
   "git_https_origin": "",
   "git_https_upstream": "",
-  "git_main_branch": "main"
+  "git_main_branch": "main",
+  "use_github_actions": "no",
+  "use_circleci": "no"
 }

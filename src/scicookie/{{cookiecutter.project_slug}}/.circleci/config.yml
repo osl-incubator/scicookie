@@ -1,0 +1,81 @@
+version: 2.1 # Adjust if needed based on CircleCI requirements
+executors:
+  default_image:
+    docker:
+{%- if cookiecutter.use_conda == "yes" %}
+      - image: continuumio/miniconda3
+jobs:
+  check-branch:
+    executor: default_image
+    steps:
+      - checkout
+  test:
+    docker:
+      - image: continuumio/miniconda3
+    steps:
+      - checkout
+      - run:
+          name: Create environment
+          command: |
+            conda env create -f conda/dev.yaml
+            conda init bash
+            source ~/.bashrc
+            conda activate {{ cookiecutter.project_slug }}
+{%- else %}
+      - image: cimg/python:3.10 # Adjust Python version if needed
+jobs:
+  check-branch:
+    executor: default_image
+    steps:
+      - checkout
+  test:
+    executor: default_image
+    steps:
+      - checkout
+      - run:
+          name: Create environment and install dependencies
+          command: |
+            python -m pip install -r requirements.txt
+{%- endif %}
+            {%- if cookiecutter.build_system == "poetry" %}
+            poetry install
+            {%- elif cookiecutter.build_system == "flit" %}
+            flit install
+            {%- elif cookiecutter.build_system == "pdm" %}
+            pdm install
+            {%- else %}
+            pip install .
+            {%- endif %}
+            export PATH=$PATH:/home/circleci/.pyenv/versions/3.10.15/bin;
+            {%- if cookiecutter.use_pre_commit == "yes" %}
+            pre-commit install
+            {%- endif %}
+            {%- if cookiecutter.use_makim == "yes" %}
+            makim tests.unit
+            makim tests.linter
+            {%- endif %}
+            {%- if cookiecutter.use_make == "yes" %}
+            make test
+            make lint
+            {%- endif %}
+{%- if cookiecutter.use_conda == "yes" %}
+      - save_cache:
+          paths:
+            - ~/.conda/envs/{{ cookiecutter.project_slug }}
+          key: conda-{% raw %}{{ checksum "conda/dev.yaml" }}{% endraw %}
+{%- endif %}
+workflows:
+  main:
+    jobs:
+      - check-branch:
+          filters:
+            branches:
+              only:
+                - main
+            tags: {}
+      - test:
+          filters:
+            branches:
+              only:
+                - main
+            tags: {}

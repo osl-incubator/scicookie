@@ -38,7 +38,7 @@ def test_content_pytest():
 {%- if cookiecutter.use_hypothesis == "yes" %}
 
 
-@given(st.text())
+@given(st.text().filter(lambda s: s != ""))
 def test_content_hypothesis(response_hypothesis):
     """Test with pytest + hypothesis."""
     assert response_hypothesis
