@@ -307,4 +307,5 @@ continuos_integration:
   choices:
     - github_actions
     - circleci
+    - gitlab_ci
   visible: true
