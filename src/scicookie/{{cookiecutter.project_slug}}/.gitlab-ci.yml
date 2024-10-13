@@ -1,6 +1,6 @@
 stages:
   - test
-  - release  # Optional stage for releases
+  - release
 
 # Define common jobs and reusable elements
 .build_template: &build_template
@@ -21,11 +21,11 @@ test:
     - main
     - merge_requests
   tags:
-    - your-runner-tag  # Specify your GitLab runner tag if needed
+    - your-runner-tag
   timeout: 10 minutes
 
-  # Install dependencies
   script:
+    # Install dependencies
     - |
       {%- if cookiecutter.build_system == "poetry" %}
       poetry install
@@ -39,8 +39,7 @@ test:
       pip install .
       {%- endif %}
 
-  # Run tests
-    - name: Run tests
+    # Run tests
     - |
       {%- if cookiecutter.use_makim == "yes" %}
       makim tests.unit
@@ -50,8 +49,7 @@ test:
       # add your command for running tests here
       {%- endif %}
 
-  # Run style checks
-    - name: Run style checks
+    # Run style checks
     - |
       {% if cookiecutter.use_pre_commit == "yes" %}
       pre-commit install
@@ -68,16 +66,16 @@ test:
 
 # Release stage jobs (optional)
 release:
-  stage: release  # Optional stage
+  stage: release
   <<: *build_template
   only:
     - main
   tags:
-    - your-runner-tag  # Specify your GitLab runner tag if needed
+    - your-runner-tag
   timeout: 10 minutes
 
-  # Setup environment for release
   script:
+    # Setup environment for release
     - echo "Setting up environment for release"
     - |
       {% if cookiecutter.use_conda == 'yes' %}
@@ -86,7 +84,7 @@ release:
       echo "Setting up python environment for release"
       {% endif %}
 
-  # Install dependencies for release
+    # Install dependencies for release
     - |
       {%- if cookiecutter.build_system == "poetry" %}
       poetry install
@@ -100,8 +98,7 @@ release:
       pip install .
       {%- endif %}
 
-  # Run semantic release (for tests)
-    - name: Run semantic release (for tests)
+    # Run semantic release (for tests)
     - |
       {%- if cookiecutter.use_makim == "yes" %}
       makim release.dry
@@ -111,8 +108,6 @@ release:
       # add your command here to run semantic-release in dry mode
       {%- endif %}
 
-  # Release command
-    - name: Release command
+    # Release command
     - |
       # add your command here to perform the actual release
-      

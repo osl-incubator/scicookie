@@ -1,16 +1,24 @@
 #!/bin/bash
 
 # Replace with the actual GitLab project ID and GitLab API URL
-PROJECT_ID=":Yurely%2FTestProject"
+PROJECT_ID="Yurely%2FTestProject"  # Cambia esto si es necesario
 GITLAB_API_URL="https://gitlab.com/api/v4/projects/$PROJECT_ID/ci/lint"
 
 # Read the content of the .gitlab-ci.yml file and format it with jq
 GITLAB_CI_CONTENT=$(jq --raw-input --slurp < .gitlab-ci.yml)
 
+# Print the content for debugging
+echo "Contenido de .gitlab-ci.yml:"
+echo "$GITLAB_CI_CONTENT"
+
 # Send the formatted content to the GitLab CI Lint API using curl
-RESPONSE=$(curl --silent --header "Content-Type: application/json" \
-    --data "{\"content\": $GITLAB_CI_CONTENT}" \
+RESPONSE=$(curl --silent --header "Content-Type: application/json" 
+    --data "{"content": $GITLAB_CI_CONTENT}" 
     "$GITLAB_API_URL")
+
+# Print the response for debugging
+echo "Respuesta de la API:"
+echo "$RESPONSE"
 
 # Extract the 'valid' field from the API response using jq
 VALID=$(echo "$RESPONSE" | jq -r '.valid')
