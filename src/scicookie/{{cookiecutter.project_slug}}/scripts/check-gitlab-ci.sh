@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace with the actual GitLab project ID and GitLab API URL
-PROJECT_ID="Yurely%2FTestProject"  # Cambia esto si es necesario
+PROJECT_ID="<your-username>%2F<your-repo-name> or <your-org>%2F<your-repo-name>"  # Change this according to your project
 GITLAB_API_URL="https://gitlab.com/api/v4/projects/$PROJECT_ID/ci/lint"
 
 # Read the content of the .gitlab-ci.yml file and format it with jq
