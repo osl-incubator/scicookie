@@ -135,7 +135,7 @@ def move_selected_doc_dir():
         docs_target_dir = PROJECT_DIRECTORY
     else:
         docs_target_dir = PROJECT_DIRECTORY / "docs"
-        remove_dir("scripts")
+        remove_project_file(Path("scripts") / "gen_ref_nav.py")
 
     if DOCUMENTATION_ENGINE.startswith("sphinx"):
         DOCS_SPHINX = Path(DOCS_SPEC_DIR).parent
