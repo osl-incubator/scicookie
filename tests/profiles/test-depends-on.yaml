@@ -307,4 +307,5 @@ continuos_integration:
   choices:
     - github_actions
     - circleci
+    - azure_pipelines
   visible: true

@@ -1,0 +1,83 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest # Adjust if needed
+
+steps:
+{%- if cookiecutter.use_conda == "yes" %}
+    - script: |
+      conda env create -f conda/dev.yaml
+      conda init
+      source ~/.bashrc
+      source /usr/share/miniconda/bin/activate
+      conda activate {{ cookiecutter.project_slug }}
+      {%- if cookiecutter.build_system == "poetry" %}
+      poetry install
+      {%- elif cookiecutter.build_system == "flit" %}
+      flit install
+      {%- elif cookiecutter.build_system == "pdm" %}
+      pdm install
+      {%- else %}
+      pip install .
+      {%- endif %}
+      {%- if cookiecutter.use_pre_commit == "yes" %}
+      pre-commit install
+      {%- endif %}
+    displayName: "Install dependencies"
+{%- else %}
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: "3.10" # Adjust if needed
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+      {%- if cookiecutter.build_system == "poetry" %}
+      poetry config virtualenvs.create false;
+      poetry install
+      {%- elif cookiecutter.build_system == "flit" %}
+      flit install
+      {%- elif cookiecutter.build_system == "pdm" %}
+      pdm install
+      {%- elif cookiecutter.build_system == "pixi" %}
+      pixi install
+      {%- else %}
+      pip install .
+      {%- endif %}
+      {%- if cookiecutter.use_pre_commit == "yes" %}
+      pre-commit install
+      {%- endif %}
+    displayName: "Install dependencies"
+{%- endif %}
+  - script: |
+      {%- if cookiecutter.use_conda == "yes" %}
+      source /usr/share/miniconda/bin/activate
+      conda activate {{ cookiecutter.project_slug }}
+      {%- endif %}
+      {%- if cookiecutter.use_makim == "yes" %}
+      makim tests.unit
+      {%- elif cookiecutter.use_make == "yes" %}
+      make test
+      {%- else %}
+      # add your command for running tests here
+      {%- endif %}
+    displayName: "Tests"
+  - script: |
+      {%- if cookiecutter.use_conda == "yes" %}
+      source /usr/share/miniconda/bin/activate
+      conda activate {{ cookiecutter.project_slug }}
+      {%- endif %}
+      {%- if cookiecutter.use_makim == "yes" %}
+      makim tests.linter
+      {%- elif cookiecutter.use_make == "yes" %}
+      make lint
+      {%- else %}
+      # add your command for running the linter here
+      {%- endif %}
+    displayName: "Run style checks"

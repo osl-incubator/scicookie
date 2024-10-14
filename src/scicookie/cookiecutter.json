@@ -80,5 +80,6 @@
   "git_https_upstream": "",
   "git_main_branch": "main",
   "use_github_actions": "no",
-  "use_circleci": "no"
+  "use_circleci": "no",
+  "use_azure_pipelines": "no"
 }
