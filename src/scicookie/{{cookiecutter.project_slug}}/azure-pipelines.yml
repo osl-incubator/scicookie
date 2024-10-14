@@ -11,7 +11,7 @@ pool:
 
 steps:
 {%- if cookiecutter.use_conda == "yes" %}
-    - script: |
+  - script: |
       conda env create -f conda/dev.yaml
       conda init
       source ~/.bashrc
