@@ -40,7 +40,7 @@ include = ["{{ package_path }}/py.typed"]
 {%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'pydata' or cookiecutter.jupyter_book_theme == 'pydata-sphinx-theme' %}
 python = ">=3.9,<4"
 {% else %}
-python = ">=3.8.1,<4"
+python = ">=3.9,<4"
 {% endif %}
 [tool.poetry.group.dev.dependencies]
 {% if cookiecutter.use_pytest == "yes" -%}

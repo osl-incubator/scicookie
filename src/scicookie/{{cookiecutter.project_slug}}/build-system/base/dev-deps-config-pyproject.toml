@@ -14,7 +14,7 @@ testpaths = [
 {%- if cookiecutter.use_black == "yes" %}
 [tool.black]
 line-length = 79
-target-version = ["py38"]
+target-version = ["py39"]
 force-exclude = '''(?x)(
     docs/*
   | .*\\.egg-info
@@ -81,7 +81,7 @@ quote-style = "single"
 
 {%- if cookiecutter.use_mypy == "yes" %}
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.9"
 check_untyped_defs = true
 strict = true
 ignore_missing_imports = true
