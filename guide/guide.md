@@ -348,6 +348,16 @@ packages. SciCookie support the following:
   game development and automation. Staying up-to-date with the latest pybind11
   documentation ensures the best practices are followed.
 
+- [**Pixi**](https://pixi.sh/latest/): Pixi is a package manager designed to
+  simplify dependency management by creating reproducible development
+  environments. Pixi focuses on local environments for specific projects,
+  generating automatic lock-files to ensure that the same dependencies can be
+  installed across different machines. It also offers a cross-platform task
+  system for efficient project-specific tasks, such as building, testing, and
+  more. Pixi supports multiple languages and is designed to make it easy for
+  developers to share their projects without worrying about dependency
+  conflicts.
+
 The idea behind the options in SciCookie is that you can choose from some of the
 most popular system compilers to suit your needs and preferences for developing
 Python packages. If you think we should add more options, you can submit your
@@ -961,3 +971,23 @@ By providing this information, you can easily integrate your codebase with
 GitHub and take advantage of its powerful version control features. These
 functionalities in SciCookie make it easy to manage your project and collaborate
 with others, while ensuring that your code is properly versioned and tracked.
+
+## Continuos integration
+
+Continuous Integration (CI) is a development practice where code changes are
+frequently merged into a shared repository. Each change is automatically built
+and tested to ensure it does not introduce defects or break existing
+functionality. This process helps prevent integration issues and improves code
+quality.
+
+CI tools provide automated feedback on code changes, allowing developers to
+quickly identify and fix problems. By automating repetitive tasks, CI also saves
+time and effort. With SciCookie you can integrate tools like GitHub and/or
+CircleCI into your project.
+
+- GitHub Actions (**github_actions**): This option allows you to incorporate
+  GitHub Actions into your project. As a native CI/CD platform integrated with
+  GitHub, it offers flexible workflows and an easy setup process.
+- CircleCI (**circleci**): This option enables you to integrate CircleCI into
+  your project. Known for its speed and reliability, CircleCI is a cloud-based
+  CI/CD platform that streamlines the development process.
