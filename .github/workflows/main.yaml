@@ -28,6 +28,7 @@ jobs:
 
   tests:
     strategy:
+      fail-fast: false
       matrix:
         os:
           - "ubuntu"
@@ -148,6 +149,7 @@ jobs:
       cancel-in-progress: true
 
     strategy:
+      fail-fast: false
       matrix:
         smoke_file:
           - automation.sh
