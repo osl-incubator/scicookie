@@ -1,6 +1,23 @@
 # Release Notes
 ---
 
+# [0.10.0](https://github.com/osl-incubator/scicookie/compare/0.9.0...0.10.0) (2024-10-15)
+
+
+### Bug Fixes
+
+* Fix development dependencies issues with distlib and move from conda pkg build to python-build ([#314](https://github.com/osl-incubator/scicookie/issues/314)) ([e524f2e](https://github.com/osl-incubator/scicookie/commit/e524f2e232a413ca3fd9ebbf1ca6902b0cd5fb85))
+* Remove griffe from dependencies ([#312](https://github.com/osl-incubator/scicookie/issues/312)) ([37c65c4](https://github.com/osl-incubator/scicookie/commit/37c65c46531bd541949efd9e03c11ccfbd34b5cf))
+* Remove support for python >3.12,<3.9 ([#318](https://github.com/osl-incubator/scicookie/issues/318)) ([9b425f1](https://github.com/osl-incubator/scicookie/commit/9b425f1f30be8cd41f2f59b05b801a8d1f1ca3ab))
+* **template:** Updating quarto-cli and quartodoc versions and pin griffe version ([#310](https://github.com/osl-incubator/scicookie/issues/310)) ([e0ccc0c](https://github.com/osl-incubator/scicookie/commit/e0ccc0cab5a5e65d625ebbe49b30272528de1045))
+
+
+### Features
+
+* Add Circle Ci to the template ([#306](https://github.com/osl-incubator/scicookie/issues/306)) ([ecf5b1c](https://github.com/osl-incubator/scicookie/commit/ecf5b1c2353bdc7c063c59bd1945e651c08c22e2))
+* Add pixi as a build system option to the template ([#305](https://github.com/osl-incubator/scicookie/issues/305)) ([f07e14c](https://github.com/osl-incubator/scicookie/commit/f07e14c742dc3f632e54f633c17951b567a4baec))
+* Autogeneration api documentation files for mkdocs ([#311](https://github.com/osl-incubator/scicookie/issues/311)) ([10ceb0e](https://github.com/osl-incubator/scicookie/commit/10ceb0eab83a6adc686c60e9e0bc7b58cd3d71fc))
+
 # [0.9.0](https://github.com/osl-incubator/scicookie/compare/0.8.3...0.9.0) (2024-08-16)
 
 
