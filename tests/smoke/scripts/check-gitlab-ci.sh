@@ -13,7 +13,7 @@ echo "$GITLAB_CI_CONTENT"
 
 # Send the formatted content to the GitLab CI Lint API using curl
 RESPONSE=$(curl --silent --header "Content-Type: application/json" 
-    --data "{"content": $GITLAB_CI_CONTENT}" 
+    --data "{"content": "$GITLAB_CI_CONTENT"}" 
     "$GITLAB_API_URL")
 
 # Print the response for debugging
