@@ -5,12 +5,14 @@ import sys
 
 import yaml
 
-from jsonschema import ValidationError, validate
+from jsonschema import validate
 
 print(sys.argv)
 args = 3
 if len(sys.argv) != args:
-    raise Exception("Usage: python test_azure_pipelines.py <schema_file> <yaml_file>")
+    raise Exception(
+        "Usage: python test_azure_pipelines.py <schema_file> <yaml_file>"
+    )
 
 schema_file = sys.argv[1]
 yaml_file = sys.argv[2]
