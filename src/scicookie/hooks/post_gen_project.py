@@ -52,11 +52,8 @@ USE_PYTEST = {{ cookiecutter.use_pytest == "yes" }}
 USE_HYPOTHESIS = {{ cookiecutter.use_hypothesis == "yes" }}
 USE_GITHUB_ACTIONS = {{ cookiecutter.use_github_actions == "yes" }}
 USE_CIRCLECI = {{ cookiecutter.use_circleci == "yes" }}
-<<<<<<< HEAD
 USE_AZURE = {{ cookiecutter.use_azure_pipelines == "yes" }}
-=======
 USE_GITLAB_CI = {{ cookiecutter.use_gitlab_ci == "yes" }}
->>>>>>> a47303e (first changes adding gitlab ci)
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
