@@ -29,4 +29,5 @@ if [[ "$VALID" == "true" ]]; then
 else
     echo "The .gitlab-ci.yml file is invalid. Details:"
     echo "$RESPONSE" | jq -r '.errors[]'
+    exit 1
 fi
