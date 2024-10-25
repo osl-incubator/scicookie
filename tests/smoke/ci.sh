@@ -33,7 +33,7 @@ pushd /tmp/osl/osl-python-package
 
 . ${SMOKE_DIR}/base-template.sh "use_gitlab_ci=yes use_conda=yes"
 pushd /tmp/osl/osl-python-package
-  python "${SMOKE_DIR}/scripts/check_azure_pipelines.py" ${SMOKE_DIR}/schemas/gitlab-ci-schema.json .gitlab-ci.yml
+  python "${SMOKE_DIR}/scripts/check-gitlab-ci.sh" ${SMOKE_DIR}/schemas/gitlab-ci-schema.json .gitlab-ci.yml
 popd
 
 . ${SMOKE_DIR}/base-template.sh "use_gitlab_ci=yes use_pyenv=yes"
