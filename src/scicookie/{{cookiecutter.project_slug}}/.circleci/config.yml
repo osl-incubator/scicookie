@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Create environment
+          name: Create environment and install dependencies
           command: |
             conda env create -f conda/dev.yaml
             conda init bash
@@ -38,11 +38,14 @@ jobs:
             python -m pip install -r requirements.txt
 {%- endif %}
             {%- if cookiecutter.build_system == "poetry" %}
+            poetry config virtualenvs.create false;
             poetry install
             {%- elif cookiecutter.build_system == "flit" %}
             flit install
             {%- elif cookiecutter.build_system == "pdm" %}
             pdm install
+            {%- elif cookiecutter.build_system == "pixi" %}
+            pixi install
             {%- else %}
             pip install .
             {%- endif %}
@@ -53,10 +56,12 @@ jobs:
             {%- if cookiecutter.use_makim == "yes" %}
             makim tests.unit
             makim tests.linter
-            {%- endif %}
-            {%- if cookiecutter.use_make == "yes" %}
+            {%- elif cookiecutter.use_make == "yes" %}
             make test
             make lint
+            {%- else %}
+            # add your command for running tests here
+            # add your command for running the linter here
             {%- endif %}
 {%- if cookiecutter.use_conda == "yes" %}
       - save_cache:

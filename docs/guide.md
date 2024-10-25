@@ -31,6 +31,7 @@ The structure of the guide is as follows:
     - [Governance document](#governance-document)
     - [Roadmap document](#roadmap-document)
   - [Version control](#version-control)
+  - [Continuos Integration](#continuos-integration)
 
 ## Notes about the text-based user interface (TUI)
 
@@ -985,9 +986,18 @@ quickly identify and fix problems. By automating repetitive tasks, CI also saves
 time and effort. With SciCookie you can integrate tools like GitHub and/or
 CircleCI into your project.
 
-- GitHub Actions (**github_actions**): This option allows you to incorporate
-  GitHub Actions into your project. As a native CI/CD platform integrated with
-  GitHub, it offers flexible workflows and an easy setup process.
-- CircleCI (**circleci**): This option enables you to integrate CircleCI into
-  your project. Known for its speed and reliability, CircleCI is a cloud-based
-  CI/CD platform that streamlines the development process.
+- [GitHub Actions](https://github.com/features/actions) (**github_actions**):
+  This option allows you to incorporate GitHub Actions into your project. As a
+  native CI/CD platform integrated with GitHub, it offers flexible workflows and
+  an easy setup process.
+- [CircleCI](https://circleci.com/) (**circleci**): This option enables you to
+  integrate CircleCI into your project. Known for its speed and reliability,
+  CircleCI is a cloud-based CI/CD platform that streamlines the development
+  process.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines/)
+  (**azure_pipelines**): With this option, you can integrate Azure Pipelines
+  into your into your project. It is a robust CI/CD platform that enables
+  automation of testing and deployments across multiple environments and
+  supports multiple languages and platforms. It provides continuous integration
+  with GitHub, Azure Repos and other version control systems, facilitating an
+  agile and efficient workflow.

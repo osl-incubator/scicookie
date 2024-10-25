@@ -52,6 +52,7 @@ USE_PYTEST = {{ cookiecutter.use_pytest == "yes" }}
 USE_HYPOTHESIS = {{ cookiecutter.use_hypothesis == "yes" }}
 USE_GITHUB_ACTIONS = {{ cookiecutter.use_github_actions == "yes" }}
 USE_CIRCLECI = {{ cookiecutter.use_circleci == "yes" }}
+USE_AZURE = {{ cookiecutter.use_azure_pipelines == "yes" }}
 {% if cookiecutter.code_of_conduct == "contributor-covenant" -%}
 COC_PATH = PROJECT_DIRECTORY / 'coc' / 'CONTRIBUTOR_COVENANT.md'
 {%- elif cookiecutter.code_of_conduct == "citizen-code-of-conduct" -%}
@@ -327,6 +328,8 @@ def clean_up_ci():
         remove_dir(".circleci")
     if not USE_GITHUB_ACTIONS:
         remove_dir(".github")
+    if not USE_AZURE:
+        remove_project_file("azure-pipelines.yml")
 
 def http2ssh(url):
     url = url.replace("https://", "git@")
