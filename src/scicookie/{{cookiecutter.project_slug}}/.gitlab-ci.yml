@@ -1,0 +1,113 @@
+stages:
+  - test
+  - release
+
+# Define common jobs and reusable elements
+.build_template: &build_template
+  script:
+    - echo "Setting up environment"
+    - |
+      {% if cookiecutter.use_conda == 'yes' %}
+      echo "Setting up conda environment"
+      {% else %}
+      echo "Setting up python environment"
+      {% endif %}
+
+# Test stage jobs
+test:
+  stage: test
+  <<: *build_template
+  only:
+    - main
+    - merge_requests
+  tags:
+    - your-runner-tag
+  timeout: 10 minutes
+
+  script:
+    # Install dependencies
+    - |
+      {%- if cookiecutter.build_system == "poetry" %}
+      poetry install
+      {%- elif cookiecutter.build_system == "flit" %}
+      flit install
+      {%- elif cookiecutter.build_system == "pdm" %}
+      pdm install
+      {%- elif cookiecutter.build_system == "pixi" %}
+      pixi install
+      {%- else %}
+      pip install .
+      {%- endif %}
+
+    # Run tests
+    - |
+      {%- if cookiecutter.use_makim == "yes" %}
+      makim tests.unit
+      {%- elif cookiecutter.use_make == "yes" %}
+      make test
+      {%- else %}
+      # add your command for running tests here
+      {%- endif %}
+
+    # Run style checks
+    - |
+      {% if cookiecutter.use_pre_commit == "yes" %}
+      pre-commit install
+      {%- if cookiecutter.use_makim == "yes" %}
+      makim tests.linter
+      {%- elif cookiecutter.use_make == "yes" %}
+      make lint
+      {%- else %}
+      # add your command for running the linter here
+      {%- endif %}
+      {% else %}
+      # add your command for running the linter here
+      {% endif %}
+
+# Release stage jobs (optional)
+release:
+  stage: release
+  <<: *build_template
+  only:
+    - main
+  tags:
+    - your-runner-tag
+  timeout: 10 minutes
+
+  script:
+    # Setup environment for release
+    - echo "Setting up environment for release"
+    - |
+      {% if cookiecutter.use_conda == 'yes' %}
+      echo "Setting up conda environment for release"
+      {% else %}
+      echo "Setting up python environment for release"
+      {% endif %}
+
+    # Install dependencies for release
+    - |
+      {%- if cookiecutter.build_system == "poetry" %}
+      poetry install
+      {%- elif cookiecutter.build_system == "flit" %}
+      flit install
+      {%- elif cookiecutter.build_system == "pdm" %}
+      pdm install
+      {%- elif cookiecutter.build_system == "pixi" %}
+      pixi install
+      {%- else %}
+      pip install .
+      {%- endif %}
+
+    # Run semantic release (for tests)
+    - |
+      {%- if cookiecutter.use_makim == "yes" %}
+      makim release.dry
+      {%- elif cookiecutter.use_make == "yes" %}
+      make release-dry
+      {%- else %}
+      # add your command here to run semantic-release in dry mode
+      {%- endif %}
+
+    # Release command
+    - |
+      # add your command here to perform the actual release

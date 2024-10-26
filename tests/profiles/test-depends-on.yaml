@@ -308,4 +308,5 @@ continuos_integration:
     - github_actions
     - circleci
     - azure_pipelines
+    - gitlab_ci
   visible: true
