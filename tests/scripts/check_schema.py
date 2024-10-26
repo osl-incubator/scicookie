@@ -10,7 +10,9 @@ from jsonschema import validate
 print(sys.argv)
 args = 3
 if len(sys.argv) != args:
-    raise Exception("Usage: python test_files_ci.py <schema_file> <yaml_file>")
+    raise Exception(
+        "Usage: python test_check_schema.py <schema_file> <yaml_file>"
+    )
 
 schema_file = sys.argv[1]
 yaml_file = sys.argv[2]
