@@ -3,12 +3,12 @@
 {%- else -%}
 {%- set package_path = cookiecutter.package_slug -%}
 {%- endif -%}
-version: 1.0
 groups:
   clean:
     tasks:
       all:
         help: Clean unnecessary temporary files
+        backend: bash
         run: |
           rm -fr build/
           rm -fr dist/
@@ -46,8 +46,9 @@ groups:
 
       preview:
         help: Preview documentation page locally
-        dependencies:
-          - task: docs.build
+        hooks:
+          pre-run:
+            - task: docs.build
         run: |
           {%- if cookiecutter.documentation_engine == "jupyter-book" %}
           cd docs/_build/html/ && python -m http.server
@@ -90,9 +91,10 @@ groups:
 
       ci:
         help: run the sames tests executed on CI
-        dependencies:
-          - task: tests.unit
-          - task: tests.linter
+        hooks:
+          pre-run:
+            - task: tests.unit
+            - task: tests.linter
 
   package:
     tasks:

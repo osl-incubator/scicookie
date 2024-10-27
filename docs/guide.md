@@ -31,7 +31,7 @@ The structure of the guide is as follows:
     - [Governance document](#governance-document)
     - [Roadmap document](#roadmap-document)
   - [Version control](#version-control)
-  - [Continuos Integration](#continuos-integration)
+  - [Continuous Integration](#continuous-integration)
 
 ## Notes about the text-based user interface (TUI)
 
@@ -973,7 +973,7 @@ GitHub and take advantage of its powerful version control features. These
 functionalities in SciCookie make it easy to manage your project and collaborate
 with others, while ensuring that your code is properly versioned and tracked.
 
-## Continuos integration
+## Continuous integration
 
 Continuous Integration (CI) is a development practice where code changes are
 frequently merged into a shared repository. Each change is automatically built

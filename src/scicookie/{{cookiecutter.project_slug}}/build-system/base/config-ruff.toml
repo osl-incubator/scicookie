@@ -1,0 +1,30 @@
+{%- if cookiecutter.use_ruff_linter == "yes" or cookiecutter.use_ruff_formatter == "yes" %}
+[tool.ruff]
+line-length = 79
+force-exclude = true
+src = ["./"]
+exclude = [
+  'docs',
+]
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "D",   # pydocstyle
+  "YTT", # flake8-2020
+  "RUF", # Ruff-specific rules
+  "I001",  # isort
+]
+fixable = ["I001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.isort]
+# Use a single line between direct and from import
+lines-between-types = 1
+
+[tool.ruff.format]
+quote-style = "single"
+{% endif -%}

@@ -111,7 +111,7 @@ For testing your changes locally, you can run:
 
 ```bash
 makim tests.lint
-makim tests.unittest
+makim tests.unit
 makim tests.smoke
 ```
 

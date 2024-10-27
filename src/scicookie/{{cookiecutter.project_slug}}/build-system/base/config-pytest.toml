@@ -1,0 +1,6 @@
+{%- if cookiecutter.use_pytest == "yes" %}
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+{% endif -%}

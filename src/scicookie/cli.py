@@ -98,7 +98,11 @@ def call_cookiecutter(profile: Profile, answers: dict) -> None:
             answers_profile[question_id] = answer
             continue
 
-        for choice in answer:
+        answer_clean: list[str] = (
+            answer if isinstance(answer, list) else [answer]
+        )
+
+        for choice in answer_clean:
             choice_id = f"use_{choice.replace('-', '_')}"
             answers_profile[choice_id] = "yes"
 
@@ -106,6 +110,9 @@ def call_cookiecutter(profile: Profile, answers: dict) -> None:
     pipx_path: list[str] = list(filter(lambda v: ".local/pipx" in v, sys.path))
     new_path: list[str] = [*pipx_path, os.getenv("PATH", "")]
     os.environ["PATH"] = env_path_sep.join(new_path)
+
+    # TODO: print answers with --verbose
+    # print(answers_profile)
 
     cookiecutter(
         str(PACKAGE_PATH), no_input=True, extra_context=answers_profile

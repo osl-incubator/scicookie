@@ -4,7 +4,7 @@
 {%- set package_path = cookiecutter.package_slug -%}
 {%- endif -%}
 default_stages:
-  - commit
+  - pre-commit
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0

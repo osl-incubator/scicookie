@@ -194,7 +194,7 @@ environment:
    or
 
    ```bash
-   $ makim tests.unittest
+   $ makim tests.unit
    ```
 
 9. **Commit and Push Changes**: Stage, commit, and push your changes to GitHub.

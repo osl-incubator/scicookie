@@ -1,10 +1,9 @@
-version: 1.0
 groups:
   clean:
     tasks:
       tmp:
         help: Clean unnecessary temporary files
-        shell: bash
+        backend: bash
         run: |
           rm -fr build/
           rm -fr dist/
@@ -59,23 +58,26 @@ groups:
         help: Run linter tools
         run: pre-commit run --all-files --verbose
 
-      unittest:
+      unit:
         help: Run tests
         run: pytest -s -vv --template src/scicookie tests
 
       smoke:
         help: Run smoke tests
+        matrix:
+          script:
+            - auto-format-tools.sh
+            - build-systems.sh
+            - ci.sh
+            - cli.sh
+            - containers.sh
+            - docs-jupyter-book.sh
+            - docs-mkdocs.sh
+            - docs-quarto.sh
+            - docs-sphinx.sh
+            - files.sh
+            - linters.sh
+            - tests.sh
+            - virtual-envs.sh
         run: |
-          ./tests/smoke/auto-format-tools.sh
-          ./tests/smoke/build-systems.sh
-          ./tests/smoke/ci.sh
-          ./tests/smoke/cli.sh
-          ./tests/smoke/containers.sh
-          ./tests/smoke/docs-jupyter-book.sh
-          ./tests/smoke/docs-mkdocs.sh
-          ./tests/smoke/docs-quarto.sh
-          ./tests/smoke/docs-sphinx.sh
-          ./tests/smoke/files.sh
-          ./tests/smoke/linters.sh
-          ./tests/smoke/tests.sh
-          ./tests/smoke/virtual-envs.sh
+          ./tests/smoke/${{ matrix.script }}
