@@ -1,6 +1,19 @@
 # Release Notes
 ---
 
+# [0.11.0](https://github.com/osl-incubator/scicookie/compare/0.10.0...0.11.0) (2024-10-27)
+
+
+### Bug Fixes
+
+* Split build system config by tools, fix typos, and fix the `default` attribute in profile ([#323](https://github.com/osl-incubator/scicookie/issues/323)) ([010a0dd](https://github.com/osl-incubator/scicookie/commit/010a0dd2cb866027ac06483a954edf2f21a27438))
+
+
+### Features
+
+* Add gitlab ci to the template ([#316](https://github.com/osl-incubator/scicookie/issues/316)) ([8a058f6](https://github.com/osl-incubator/scicookie/commit/8a058f6632963decf86063fa14965b0cfdcb1de2))
+* **template:** Adding azure-pipelines to template ([#317](https://github.com/osl-incubator/scicookie/issues/317)) ([d8c990a](https://github.com/osl-incubator/scicookie/commit/d8c990a61f4ba1f398f83cc3c4285931bda127fa))
+
 # [0.10.0](https://github.com/osl-incubator/scicookie/compare/0.9.0...0.10.0) (2024-10-15)
 
 
