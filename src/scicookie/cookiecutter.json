@@ -81,5 +81,6 @@
   "git_main_branch": "main",
   "use_github_actions": "no",
   "use_circleci": "no",
-  "use_azure_pipelines": "no"
+  "use_azure_pipelines": "no",
+  "use_gitlab_ci": "no"
 }

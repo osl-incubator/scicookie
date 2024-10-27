@@ -1001,3 +1001,10 @@ CircleCI into your project.
   supports multiple languages and platforms. It provides continuous integration
   with GitHub, Azure Repos and other version control systems, facilitating an
   agile and efficient workflow.
+- [GitLab CI/CD](https://about.gitlab.com/topics/ci-cd/) (**gitlab_ci**): GitLab
+  CI/CD helps you realize the vision of software development that is iterative,
+  tested, and always releasing. Measure developer productivity and watch it
+  improve with one unified tool that encourages collaboration, immediate
+  feedback, and bringing ideas to life — not manual, repetitive tasks. A
+  continuous and iterative process to build, test, and deploy helps avoid bugs
+  and code failures.
