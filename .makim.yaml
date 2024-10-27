@@ -58,7 +58,7 @@ groups:
         help: Run linter tools
         run: pre-commit run --all-files --verbose
 
-      unittest:
+      unit:
         help: Run tests
         run: pytest -s -vv --template src/scicookie tests
 

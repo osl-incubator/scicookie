@@ -91,9 +91,10 @@ groups:
 
       ci:
         help: run the sames tests executed on CI
-        dependencies:
-          - task: tests.unit
-          - task: tests.linter
+        hooks:
+          pre-run:
+            - task: tests.unit
+            - task: tests.linter
 
   package:
     tasks:
