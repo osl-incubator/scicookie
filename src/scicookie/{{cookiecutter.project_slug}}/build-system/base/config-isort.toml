@@ -1,0 +1,8 @@
+{%- if cookiecutter.use_isort == "yes" %}
+[tool.isort]
+ensure_newline_before_comments = true
+line_length = 79
+multi_line_output = 3
+include_trailing_comma = true
+skip_glob = ["docs/*", "*.egg-info"]
+{% endif -%}

@@ -1,0 +1,9 @@
+{%- if cookiecutter.use_black == "yes" %}
+[tool.black]
+line-length = 79
+target-version = ["py39"]
+force-exclude = '''(?x)(
+    docs/*
+  | .*\\.egg-info
+)'''  # TOML's single-quoted strings do not require escaping backslashes
+{% endif -%}

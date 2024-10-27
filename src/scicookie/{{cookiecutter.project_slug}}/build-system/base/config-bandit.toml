@@ -1,0 +1,5 @@
+{%- if cookiecutter.use_bandit == "yes" %}
+[tool.bandit]
+exclude_dirs = ["tests"]
+targets = "./"
+{% endif -%}

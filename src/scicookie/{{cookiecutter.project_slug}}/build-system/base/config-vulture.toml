@@ -1,0 +1,11 @@
+{%- if cookiecutter.use_vulture == "yes" %}
+[tool.vulture]
+exclude = ["tests"]
+ignore_decorators = []
+ignore_names = []
+make_whitelist = true
+min_confidence = 80
+paths = ["./"]
+sort_by_size = true
+verbose = false
+{% endif -%}
