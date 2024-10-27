@@ -39,7 +39,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 {%- endraw %}
 {% if cookiecutter.use_conda == "yes" %}
       - name: Cache Conda Packages
@@ -61,7 +61,7 @@ jobs:
           auto-update-conda: true
           conda-solver: libmamba
 {% else %}
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           python-version: "pypy3.9"
 

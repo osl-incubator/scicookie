@@ -1,7 +1,8 @@
-{% include "build-system/base/config-bandit.toml" %}
-{% include "build-system/base/config-black.toml" %}
-{% include "build-system/base/config-isort.toml" %}
-{% include "build-system/base/config-mypy.toml" %}
-{% include "build-system/base/config-pytest.toml" %}
-{% include "build-system/base/config-ruff.toml" %}
-{% include "build-system/base/config-vulture.toml" %}
+{%- include "build-system/base/config-bandit.toml" -%}
+{%- include "build-system/base/config-black.toml" -%}
+{%- include "build-system/base/config-isort.toml" -%}
+{%- include "build-system/base/config-mypy.toml" -%}
+{%- include "build-system/base/config-pytest.toml" -%}
+{%- include "build-system/base/config-ruff.toml" -%}
+{%- include "build-system/base/config-vulture.toml" %}
+{#- keep this at the end of the file #}

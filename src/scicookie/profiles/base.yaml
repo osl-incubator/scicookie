@@ -291,7 +291,7 @@ git_main_branch:
   default: main
   visible: true
 
-continuos_integration:
+continuous_integration:
   message: Select one option for Continuous Integration
   help: "For more information, check:\n  https://osl-incubator.github.io/scicookie/guide/#continuous-integration"
   type: multiple-choices

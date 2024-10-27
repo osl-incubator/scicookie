@@ -134,7 +134,7 @@ quarto-cli = ">=1.5.56"
 quartodoc = ">=0.7.5"
 {% endif -%}
 {%- if cookiecutter.use_makim == "yes" -%}
-makim = "1.15.1"
+makim = "1.19.0"
 {% endif -%}
 # 'PosixPath' object has no attribute 'endswith'
 virtualenv = "<=20.25.1"

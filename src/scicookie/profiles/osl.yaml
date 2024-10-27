@@ -105,7 +105,8 @@ git_https_upstream:
 git_main_branch:
   visible: true
 
-continuos_integration:
+continuous_integration:
+  default: github_actions
   choices:
     - github_actions
   visible: false
