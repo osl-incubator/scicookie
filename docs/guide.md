@@ -509,9 +509,9 @@ community.
   Miniconda.
 
   If you select this option, a conda folder will appear in the project
-  directory, containing a dev.yaml file that you can use to manage the
+  directory, containing a `dev.yaml` file that you can use to manage the
   development project's dependencies. If you do not select this option, a
-  requirements.txt will be added for you to manage with virtualenv.
+  `requirements.txt` will be added for you to manage with virtualenv.
 
 ### Code formatter
 
@@ -520,7 +520,7 @@ of coding standards, such as PEP 8 guidelines. It helps us ensure consistency in
 our code, saves time by automating the formatting process, reduces errors by
 enforcing coding standards, and facilitates collaboration by making it easier
 for multiple developers to work on the same code base. In the options of
-SciCookie, you will find: _Black_.
+SciCookie, you will find: _Black_, _Ruff_ and _Prettier_.
 
 - [**Black**](https://black.readthedocs.io): It is a popular code formatter tool
   for Python that automatically formats code to conform to PEP 8 guidelines. It
@@ -540,8 +540,19 @@ want to know more about it.
   enhancing code readability, saving time on manual formatting, and allowing for
   fine-tuned configurations to meet specific project needs.
 
-Using code formatters such as _Black_ and _Ruff_ in your project helps ensure
-consistent and readable code, making it easier to maintain and collaborate on.
+- [**Prettier**](https://prettier.io/docs/en/): is an opinionated code formatter
+  that removes all original styling and ensures that all outputted code conforms
+  to a consistent style(i.e. code formatting that won’t affect the AST) across
+  your entire codebase because it disregards the original styling\* by parsing
+  it away and re-printing the parsed AST with its own rules that take the
+  maximum line length into account, wrapping code when necessary. Prettier
+  offers support for JavaScript, JSX, Angular, Vue, Flow, TypeScript, CSS, Less,
+  and SCSS, HTML, Ember/Handlebars, JSON, GraphQL, Markdown, including GFM and
+  MDX v1 and YAML.
+
+Using code formatters such as _Black_, _Ruff_ and _Prettier_ in your project
+helps ensure consistent and readable code, making it easier to maintain and
+collaborate on.
 
 ### Code security vulnerabilities
 
@@ -582,7 +593,7 @@ SciCookie you have _coverage_ available.
   may be vulnerable to bugs. This will show you the percentage of code covered
   by your tests, as well as detailed information about which lines were executed
   and which were not. If you want to know more about how it works, you can read
-  the [Coverge documentation](https://coverage.readthedocs.io/).
+  the [Coverage documentation](https://coverage.readthedocs.io/).
 
 By using code coverage testing in Python, you can ensure that your code has been
 thoroughly tested and is free of bugs.
@@ -597,7 +608,7 @@ of data structures, and the implementation of algorithms.
 There are a number of tools that can help you to improve the code style and
 logic of your Python code; analyzing and verification of the code. In SciCookie
 you can choose and include in your project _flake8_, _Ruff_, _isort_, _mccabe_,
-_pydocstyle_ and/or _vulture_.
+_mypy_, _pydocstyle_ and/or _vulture_.
 
 - [**Flake8**](https://flake8.pycqa.org/): A tool that helps you find potential
   performance issues in your code. Flake8 can detect errors in syntax,
@@ -638,6 +649,15 @@ _pydocstyle_ and/or _vulture_.
   loops and if statements. Simply put, it provides an upper bound on the number
   of test cases needed to obtain branch coverage of the code. It is recommended
   to run it during the git hook pre-commit.
+
+- [**mypy**](https://mypy.readthedocs.io/en/stable/): is a static type checker
+  for Python, so it finds errors in your programs without even executing them.
+  Type checkers help ensure that you are using variables and functions in your
+  code correctly. With mypy, add type hints (PEP 484) to your Python programs,
+  and warn you when you use those types incorrectly. It has an easy-to-use type
+  system and easy to use, supporting features such as type inference, callable
+  types, tuple types, union types, structural subtyping and more. Using mypy
+  your programs will be easier to understand, debug and maintain.
 
 - [**Vulture**](https://github.com/jendrikseipp/vulture): finds unused code in
   Python programs. This is useful for cleaning up and finding bugs in large code
@@ -752,9 +772,7 @@ Integrating your Python project with DevOps tools can bring a number of benefits
 to the development and deployment process. DevOps tools are designed to automate
 and streamline the development pipeline, from code development to deployment and
 maintenance, and can help you improve the speed, quality and reliability of the
-development process. In SciCookie you can choose between _Docker_, _Podman_ and
-_Kubernetes_. These are all containerization technologies used to deploy and
-manage applications.
+development process. In SciCookie you have the option of using _Docker_.
 
 - [**Docker**](https://www.docker.com/): This is a containerization platform
   that allows developers to package their applications and dependencies into a
@@ -767,32 +785,12 @@ manage applications.
   [Docker website](https://www.docker.com/) and in the
   [Docker documentation](https://docs.docker.com/).
 
-- [**Podman**](https://podman.io/): It is a container engine without the need
-  for a daemon running as root. With Podman, you can easily create and run
-  containers, as well as manage their lifecycle and resources. This integration
-  improves development and deployment processes, making them more efficient and
-  streamlined. Podman in Python project helps to achieve a more secure,
-  efficient and flexible containerization strategy and gives more control over
-  application dependencies and configurations. As Podman allows containers to be
-  managed without the need for a daemon, it provides a more secure and
-  lightweight solution. You can read more about this on the
-  [Podman website](https://podman.io/) and in the
-  [Podman documentation](https://docs.podman.io/).
+SciCookie can work with [**Podman**](https://podman.io/), but is supported via
+[`docker-compose`](https://docs.docker.com/compose/).
 
-- [**Kubernetes**](https://kubernetes.io/): It is a container orchestration
-  platform that automates the deployment, scaling, and management of
-  containerized applications. It provides a platform for managing and scaling
-  containerized applications across multiple hosts and environments, and offers
-  advanced features such as automatic scaling, rolling updates, and
-  self-healing. In Python projects, Kubernetes can be used to manage and
-  orchestrate containerized Python applications, providing a scalable and
-  reliable platform for running and deploying applications. You can read more
-  about this on the [Kubernetes website](https://kubernetes.io/) and in the
-  [Kubernetes documentation](https://kubernetes.io/docs/).
-
-Overall, Docker, Podman, and Kubernetes are powerful tools for managing and
-deploying containerized applications, and can provide a streamlined and
-efficient platform for running Python projects.
+Overall, Docker is a powerful tools for managing and deploying containerized
+application, and can provide a streamlined and efficient platform for running
+Python projects.
 
 In case you do not want to include DevOps in your project, you can do so by
 selecting the option `None` (this is the default option).
@@ -805,8 +803,8 @@ tools are used to streamline and optimize various operations, reduce human
 intervention, increase efficiency, and minimize errors. Currently, SciCookie
 allows you to use `Make` and/or `Makim`.
 
-- [Makim](https://osl-incubator.github.io/makim): Makim is an innovative tool
-  inspired by make, designed to simplify target and dependency definition
+- [**Makim**](https://osl-incubator.github.io/makim): Makim is an innovative
+  tool inspired by make, designed to simplify target and dependency definition
   through YAML format. It introduces advanced features such as conditionals,
   arguments, and dependencies with targeted parameters. It also facilitates
   organized grouping of targets and supports user-defined variables and
@@ -815,11 +813,11 @@ allows you to use `Make` and/or `Makim`.
   improved target management while maintaining compatibility with familiar YAML
   syntax.
 
-- [Make](<https://en.wikipedia.org/wiki/Make_(software)>): Make is a versatile
-  build automation tool that uses Makefiles to define rules and dependencies for
-  compiling code and building projects. It automates the process, intelligently
-  rebuilding only changed components, streamlining software development
-  workflows.
+- [**Make**](<https://en.wikipedia.org/wiki/Make_(software)>): Make is a
+  versatile build automation tool that uses Makefiles to define rules and
+  dependencies for compiling code and building projects. It automates the
+  process, intelligently rebuilding only changed components, streamlining
+  software development workflows.
 
 ## Project team
 
@@ -986,25 +984,25 @@ quickly identify and fix problems. By automating repetitive tasks, CI also saves
 time and effort. With SciCookie you can integrate tools like GitHub and/or
 CircleCI into your project.
 
-- [GitHub Actions](https://github.com/features/actions) (**github_actions**):
-  This option allows you to incorporate GitHub Actions into your project. As a
-  native CI/CD platform integrated with GitHub, it offers flexible workflows and
-  an easy setup process.
-- [CircleCI](https://circleci.com/) (**circleci**): This option enables you to
-  integrate CircleCI into your project. Known for its speed and reliability,
+- [**GitHub Actions**](https://github.com/features/actions)
+  (**github_actions**): This option allows you to incorporate GitHub Actions
+  into your project. As a native CI/CD platform integrated with GitHub, it
+  offers flexible workflows and an easy setup process.
+- [**CircleCI**](https://circleci.com/) (**circleci**): This option enables you
+  to integrate CircleCI into your project. Known for its speed and reliability,
   CircleCI is a cloud-based CI/CD platform that streamlines the development
   process.
-- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines/)
+- [**Azure Pipelines**](https://azure.microsoft.com/products/devops/pipelines/)
   (**azure_pipelines**): With this option, you can integrate Azure Pipelines
   into your into your project. It is a robust CI/CD platform that enables
   automation of testing and deployments across multiple environments and
   supports multiple languages and platforms. It provides continuous integration
   with GitHub, Azure Repos and other version control systems, facilitating an
   agile and efficient workflow.
-- [GitLab CI/CD](https://about.gitlab.com/topics/ci-cd/) (**gitlab_ci**): GitLab
-  CI/CD helps you realize the vision of software development that is iterative,
-  tested, and always releasing. Measure developer productivity and watch it
-  improve with one unified tool that encourages collaboration, immediate
-  feedback, and bringing ideas to life — not manual, repetitive tasks. A
-  continuous and iterative process to build, test, and deploy helps avoid bugs
+- [**GitLab CI/CD**](https://about.gitlab.com/topics/ci-cd/) (**gitlab_ci**):
+  GitLab CI/CD helps you realize the vision of software development that is
+  iterative, tested, and always releasing. Measure developer productivity and
+  watch it improve with one unified tool that encourages collaboration,
+  immediate feedback, and bringing ideas to life — not manual, repetitive tasks.
+  A continuous and iterative process to build, test, and deploy helps avoid bugs
   and code failures.

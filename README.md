@@ -38,18 +38,25 @@ requirements.
   2.0, and GPL 3
 - Documentation engines: mkdocs, sphinx-rst, sphinx-myst, jupyter-boook, quarto
 - Test library: pytest, hypothesis
-- Auto format code tool: black
+- Auto format code tools: _black_, _ruff_ and _prettier_.
+- Code style with _Flake8_.
+- Allows _Ruff_ to be used as a linter.
 - Initial integration with git
 - Support to conda (as base environment) and poetry as packaging and dependency
   management
 - Support to pre-commit
-- CI with github actions
-- Release workflow with semantic release and github actions
+- Static analysis of shell scripts using _ShellCheck_.
+- Support for _Makim_ and _Make_ as automation tools.
+- You can choose between different code of conduct, roadmap and governance
+  documents based on recognized community documents.
+- CI options: github actions, circleci, azure pipelines and gitlab CI.
+- Release workflow with semantic release
 - Flexible build system selection: Choose between popular build systems like
   [Poetry](https://python-poetry.org/), [Flit](https://flit.pypa.io),
   [meson-python](https://meson-python.readthedocs.io/en/latest/index.html),
   [Setuptools](https://setuptools.pypa.io/en/latest/),
   [PDM](https://pdm.fming.dev/), [Hatch](https://hatch.pypa.io),
+  [Pixi](https://pixi.sh/latest/),
   [Maturin](https://pypi.org/project/maturin/0.8.2/),
   [scikit-build-core](https://scikit-build-core.readthedocs.io/en/latest/) or
   [setuptools + pybind11](https://pybind11.readthedocs.io/en/stable/) based on
@@ -71,9 +78,11 @@ requirements.
   the template gives you the option to use the
   [McCabe](https://github.com/PyCQA/mccabe) library, which is included via
   flake8.
+- Choose between _Click_ and _Argparse_ as Command Line Interface (CLI)
+- Code coverage testing with _Coverage_.
 - Provides the option to add initial files that allow you to run and orchestrate
-  containers using [Docker](https://docs.docker.com/) or
-  [Podman](https://podman.io/) in your project.
+  containers using [Docker](https://docs.docker.com/) (Podman is supported
+  through `docker-compose`).
 
 ## Quickstart
 
@@ -93,11 +102,18 @@ Generate a Python package project:
 scicookie
 ```
 
-You can also select a specific profile, for example:
+_Use a profile as an alternative_
+
+A profile is a set of template-specific settings. OSL has a specific profile
+with the libraries we recommend. You can use it to generate the project by
+running:
 
 ```bash
 scicookie --profile osl
 ```
+
+**Note**: _If the `--profile osl` flag omitted, the default SciCookie profile
+will be used_
 
 You can also use it with `pipx`:
 
