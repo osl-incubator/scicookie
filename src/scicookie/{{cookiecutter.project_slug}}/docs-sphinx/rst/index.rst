@@ -13,7 +13,7 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    Example <example>
    contributing
    changelog
-   
+
 
 Indices and tables
 ==================

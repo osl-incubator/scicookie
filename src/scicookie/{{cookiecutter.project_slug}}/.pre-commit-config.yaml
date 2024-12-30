@@ -7,9 +7,18 @@ default_stages:
   - pre-commit
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.6.0
     hooks:
       - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: debug-statements
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: detect-private-key
 {# keep this comment #}
 {%- if cookiecutter.use_prettier == "yes" %}
   - repo: https://github.com/pre-commit/mirrors-prettier

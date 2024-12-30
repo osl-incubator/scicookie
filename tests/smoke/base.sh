@@ -30,7 +30,7 @@ export PATH=$(echo $PATH| sed -E "s/[^:]+\/scicookie\/[^:]+//g")
 
 BUILD_SYSTEM="others"
 
-COMMAND_PREFIX= 
+COMMAND_PREFIX=
 if command -v poetry &> /dev/null; then
   poetry install
 elif command -v flit &> /dev/null; then

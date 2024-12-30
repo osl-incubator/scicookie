@@ -110,7 +110,7 @@ markdown_extensions:
           - docs/static/icons
   - pymdownx.details
   - pymdownx.highlight:
-      pygments_lang_class: true 
+      pygments_lang_class: true
   - pymdownx.inlinehilite:
       style_plain_text: python
   - pymdownx.magiclink:

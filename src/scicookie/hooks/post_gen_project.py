@@ -137,7 +137,7 @@ def move_selected_doc_dir():
     if DOCUMENTATION_ENGINE.startswith("sphinx"):
         DOCS_SPHINX = Path(DOCS_SPEC_DIR).parent
         remove_project_file(Path("docs") / "index.md")
-        
+
         for file_name in ['conf.py', 'make.bat', 'readme.md']:
             try:
                 shutil.move(DOCS_SPHINX / file_name, docs_target_dir)
@@ -167,7 +167,7 @@ def clean_up_automation():
 def clean_up_docs():
     move_selected_doc_dir()
     remove_dirs(ALL_DOCS_DIRS)
-    
+
 
 def clean_up_project_layout():
     if USE_SRC_LAYOUT:
