@@ -97,7 +97,7 @@ dev = [
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
   "quarto-cli >= 1.5.56",
   "quartodoc >= 0.7.5",
-{%- endif %}
+{%- endif -%}
   # 'PosixPath' object has no attribute 'endswith'
   "virtualenv<=20.25.1",
 ]
