@@ -9,12 +9,17 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: check-json
+        exclude: "src/scicookie/{{cookiecutter.project_slug}}.*"
       - id: check-toml
+        exclude: "src/scicookie/{{cookiecutter.project_slug}}.*"
       - id: check-xml
       - id: debug-statements
+        exclude: "src/scicookie/{{cookiecutter.project_slug}}.*|src/scicookie/hooks/.*"
       - id: check-builtin-literals
+        exclude: "src/scicookie/{{cookiecutter.project_slug}}.*|src/scicookie/hooks/.*"
       - id: check-case-conflict
       - id: check-docstring-first
+        exclude: "src/scicookie/{{cookiecutter.project_slug}}.*"
       - id: detect-private-key
 
   - repo: https://github.com/pre-commit/mirrors-prettier
