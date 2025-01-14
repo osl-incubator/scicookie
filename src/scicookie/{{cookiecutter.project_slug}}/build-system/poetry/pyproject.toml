@@ -4,24 +4,13 @@
 {% set package_path = cookiecutter.package_slug -%}
 {% endif -%}
 
-[project]
+[tool.poetry]
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.project_version }}"  # semantic-release
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
 license = "{{ cookiecutter.project_license }}"
-requires-python = ">=3.9,<4"
-{% if cookiecutter.command_line_interface != "None" -%}
-[project.scripts]
-"{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
-{% endif -%}
-
-[build-system]
-requires = ["poetry-core>=2", "poetry>=2"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry]
 {% if cookiecutter.project_layout == "src" -%}
 packages = [
   {include = "{{ cookiecutter.package_slug }}", from="src"},
@@ -38,6 +27,15 @@ exclude = [
   ".git/*",
   ".env*",
 ]
+requires-python = ">=3.9,<4"
+{% if cookiecutter.command_line_interface != "None" -%}
+[project.scripts]
+"{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
+{% endif -%}
+
+[build-system]
+requires = ["poetry-core>=2", "poetry>=2"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 {% if cookiecutter.use_pytest == "yes" -%}
