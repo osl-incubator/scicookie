@@ -9,15 +9,11 @@ name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.project_version }}"  # semantic-release
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
-authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
-license = "{{ cookiecutter.project_license }}"
-dependencies = [
-{%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'pydata' or cookiecutter.jupyter_book_theme == 'pydata-sphinx-theme' %}
-  "python >= 3.9,<4"
-{% else %}
-  "python >= 3.9,<4"
-{% endif %}
+authors = [
+  {name = "Ivan Ogasawara", email = "ivan.ogasawara@gmail.com"}
 ]
+license = "{{ cookiecutter.project_license }}"
+requires-python = ">=3.9,<4"
 {% if cookiecutter.command_line_interface != "None" -%}
 [project.scripts]
 "{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
