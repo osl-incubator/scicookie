@@ -1,19 +1,33 @@
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
 {% if cookiecutter.project_layout == "src" -%}
 {% set package_path = "src/" + cookiecutter.package_slug -%}
 {% else -%}
 {% set package_path = cookiecutter.package_slug -%}
 {% endif -%}
 
-[tool.poetry]
+[project]
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.project_version }}"  # semantic-release
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 authors = ["{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"]
+license = "{{ cookiecutter.project_license }}"
+dependencies = [
+{%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'pydata' or cookiecutter.jupyter_book_theme == 'pydata-sphinx-theme' %}
+  "python >= 3.9,<4"
+{% else %}
+  "python >= 3.9,<4"
+{% endif %}
+
+{% if cookiecutter.command_line_interface != "None" -%}
+[project.scripts]
+"{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
+{% endif -%}
+
+[build-system]
+requires = ["poetry-core>=2", "poetry>=2"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
 {% if cookiecutter.project_layout == "src" -%}
 packages = [
   {include = "{{ cookiecutter.package_slug }}", from="src"},
@@ -23,25 +37,14 @@ packages = [
   {include = "{{ cookiecutter.package_slug }}"},
 ]
 {% endif %}
-license = "{{ cookiecutter.project_license }}"
+{%- if cookiecutter.use_mypy == "yes" %}
+include = ["{{ package_path }}/py.typed"]
+{% endif %}
 exclude = [
   ".git/*",
   ".env*",
 ]
-{%- if cookiecutter.use_mypy == "yes" %}
-include = ["{{ package_path }}/py.typed"]
-{% endif %}
-{% if cookiecutter.command_line_interface != "None" -%}
-[tool.poetry.scripts]
-"{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
-{% endif -%}
-{# keep this line here #}
-[tool.poetry.dependencies]
-{%- if cookiecutter.documentation_engine == 'quarto' or cookiecutter.sphinx_theme == 'pydata' or cookiecutter.jupyter_book_theme == 'pydata-sphinx-theme' %}
-python = ">=3.9,<4"
-{% else %}
-python = ">=3.9,<4"
-{% endif %}
+
 [tool.poetry.group.dev.dependencies]
 {% if cookiecutter.use_pytest == "yes" -%}
 pytest = ">=7.3.2"
@@ -134,9 +137,10 @@ quarto-cli = ">=1.5.56"
 quartodoc = ">=0.7.5"
 {% endif -%}
 {%- if cookiecutter.use_makim == "yes" -%}
-makim = "1.19.0"
+makim = "1.20.0"
 {% endif -%}
 # 'PosixPath' object has no attribute 'endswith'
 virtualenv = "<=20.25.1"
+]
 
 {% include "build-system/base/dev-deps-config-pyproject.toml" %}

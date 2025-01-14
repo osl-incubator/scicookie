@@ -46,7 +46,7 @@ dev = [
   "pydocstyle >= 6.3.0",
 {%- endif -%}
 {%- if cookiecutter.use_makim == "yes" %}
-  "makim == 1.19.0",
+  "makim == 1.20.0",
 {%- endif -%}
 {%- if cookiecutter.use_vulture == "yes" %}
   "vulture >= 2.7",
