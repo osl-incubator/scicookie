@@ -95,7 +95,7 @@ docs-preview: docs-build
 #NOTE: This command will fail if ({{cookiecutter.git_https_origin}})<- this is not a correct URL.
 .PHONY:docs-build
 docs-build:
-	jupyter-book build docs --config docs/_config.yaml
+	jupyter-book build docs
 
 .PHONY: docs-preview
 docs-preview: docs-build
