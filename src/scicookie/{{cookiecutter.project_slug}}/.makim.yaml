@@ -32,7 +32,7 @@ groups:
         run: |
           {%- if cookiecutter.documentation_engine == "jupyter-book" %}
           rm -rf docs/_build
-          jupyter-book build docs --config docs/_config.yaml
+          jupyter-book build docs
           {%- elif cookiecutter.documentation_engine == "mkdocs" %}
           mkdocs build --config-file mkdocs.yaml
           {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
