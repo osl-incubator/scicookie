@@ -24,6 +24,9 @@ cmake
 setuptools
 pixi
 build
+{%- elif cookiecutter.build_system == "uv" %}
+uv
+build
 {%- endif %}
 nodejs  # used by semantic-release
 {%- if cookiecutter.use_shellcheck == "yes" %}

@@ -31,6 +31,9 @@ dependencies:
   - setuptools
   - pixi
   - python-build
+{%- elif cookiecutter.build_system == "uv" %}
+  - uv
+  - python-build
 {%- endif %}
   - nodejs # used by semantic-release
 {%- if cookiecutter.use_shellcheck == "yes" %}

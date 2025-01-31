@@ -97,6 +97,8 @@ BUILD_SYSTEM = "scikit-build-core"
 BUILD_SYSTEM = "pybind11"
 {% elif cookiecutter.build_system == "pixi" -%}
 BUILD_SYSTEM = "pixi"
+{% elif cookiecutter.build_system == "uv" -%}
+BUILD_SYSTEM = "uv"
 {%- else %}
 BUILD_SYSTEM = None
 {%- endif %}
@@ -272,6 +274,11 @@ def clean_up_build_system():
             PROJECT_DIRECTORY / 'pyproject.toml'
         )
     elif BUILD_SYSTEM == "pixi":
+        shutil.move(
+            build_system_dir / "pyproject.toml",
+            PROJECT_DIRECTORY / 'pyproject.toml'
+        )
+    elif BUILD_SYSTEM == "uv":
         shutil.move(
             build_system_dir / "pyproject.toml",
             PROJECT_DIRECTORY / 'pyproject.toml'
