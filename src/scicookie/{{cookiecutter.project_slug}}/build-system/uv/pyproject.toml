@@ -2,9 +2,14 @@
 requires = ["setuptools>=40.8.0", "wheel", "build>=1.2.2"]
 build-backend = "setuptools.build_meta"
 
-[tool.uv.project]
-channels = ["conda-forge"]
-platforms = ["osx-arm64", "linux-64"]
+[[index]]
+url = "https://test.pypi.org/simple"
+default = true
+
+[tool.uv.index]
+url = "https://test.pypi.org/simple"
+default = true
+
 
 [tool.uv.pypi-dependencies]
 "{{ cookiecutter.project_slug }}" = { path = ".", editable = true }

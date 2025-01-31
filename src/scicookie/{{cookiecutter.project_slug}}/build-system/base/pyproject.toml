@@ -42,7 +42,7 @@ classifiers = [
   "Typing :: Typed",
 {% endif -%}
 ]
-{% if cookiecutter.build_system in ["scikit-build-core", "pixi", "] %}
+{% if cookiecutter.build_system in ["scikit-build-core", "pixi", "uv"] %}
 version = "{{ cookiecutter.project_version }}"
 {% else %}
 dynamic = ["version"]
