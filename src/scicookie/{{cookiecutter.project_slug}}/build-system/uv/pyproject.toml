@@ -3,7 +3,7 @@ requires = ["setuptools>=40.8.0", "wheel", "build>=1.2.2"]
 build-backend = "setuptools.build_meta"
 
 [tool.uv]
-index-url = "https://test.pypi.org/simple"  # ✅ CORRECT SYNTAX
+index-url = "https://pypi.org/simple"
 
 
 {% include "build-system/base/pyproject.toml" %}
