@@ -39,7 +39,6 @@ elif command -v pixi &> /dev/null; then
   COMMAND_PREFIX="pixi run"
   pip install ".[dev]"
 elif command -v uv &> /dev/null; then
-  uv pip install -r requirements.txt
   uv pip install -e ".[dev]"
 elif command -v meson &> /dev/null; then
   BUILD_SYSTEM="mesonpy"
