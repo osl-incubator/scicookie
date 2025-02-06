@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+# [0.12.0](https://github.com/osl-incubator/scicookie/compare/0.11.0...0.12.0) (2025-02-06)
+
+
+### Features
+
+* Add more pre commits hooks ([#331](https://github.com/osl-incubator/scicookie/issues/331)) ([72f0bf2](https://github.com/osl-incubator/scicookie/commit/72f0bf2e47cad8b1ca74fdd7ddb003df76d881e5))
+
 # [0.11.0](https://github.com/osl-incubator/scicookie/compare/0.10.0...0.11.0) (2024-10-27)
 
 
