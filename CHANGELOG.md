@@ -1,6 +1,13 @@
 # Release Notes
 ---
 
+# [0.13.0](https://github.com/osl-incubator/scicookie/compare/0.12.0...0.13.0) (2025-02-08)
+
+
+### Features
+
+* Adds uv support ([#334](https://github.com/osl-incubator/scicookie/issues/334)) ([33fd0bd](https://github.com/osl-incubator/scicookie/commit/33fd0bd3d1e2de25b3620664bbb98af9fad160bd))
+
 # [0.12.0](https://github.com/osl-incubator/scicookie/compare/0.11.0...0.12.0) (2025-02-06)
 
 

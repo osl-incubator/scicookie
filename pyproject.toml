@@ -1,6 +1,6 @@
 [project]
 name = "scicookie"
-version = "0.12.0"  # semantic-release
+version = "0.13.0"  # semantic-release
 description = "Cookiecutter template for a Python package"
 readme = "docs/description.md"
 authors = [
