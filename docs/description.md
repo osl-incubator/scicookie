@@ -23,7 +23,7 @@ needs.
 - **Project Structure:** Choose between "src" (code in a subdirectory) and
   "flat" (all files in the top-level directory) layouts.
 - **Packaging & Dependencies:** Supports Poetry, Flit, meson-python, setuptools,
-  PDM, Hatch, Maturin, scikit-build-core, Pixi, or setuptools + pybind11 for
+  PDM, Hatch, Maturin, scikit-build-core, Pixi, uv, or setuptools + pybind11 for
   flexible build systems.
 - **Testing & Linting:** Integrates with pytest and hypothesis (testing), black,
   ruff and prettier (auto-formatting), bandit (security), pydocstyle
