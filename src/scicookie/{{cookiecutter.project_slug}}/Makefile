@@ -132,7 +132,7 @@ build:
 	{%- elif cookiecutter.build_system == "pixi" %}
 	pixi run -e dev python -m build
 	{%- elif cookiecutter.build_system == "uv" %}
-    python -m build
+	python -m build
 	{%- endif %}
 
 .PHONY:release-ci
