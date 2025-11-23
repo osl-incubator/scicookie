@@ -307,3 +307,30 @@ continuous_integration:
     - azure_pipelines
     - gitlab_ci
   visible: true
+
+add_communication_tool:
+  message: Do you want to add a communication tool?
+  help: https://osl-incubator.github.io/scicookie/guide/#communication-tool
+  type: confirm
+  default: "False"
+  visible: true
+
+communication_platform:
+  message: Select the communication platform
+  help: https://osl-incubator.github.io/scicookie/guide/#communication-tool
+  type: single-choice
+  default: discord
+  choices:
+    - discord
+    - discourse
+    - slack
+    - zulip
+    - telegram
+  visible: ${{ add_communication_tool == "True" }}
+
+communication_link:
+  message: Type the communication link
+  help: https://osl-incubator.github.io/scicookie/guide/#communication-tool
+  type: text
+  default: ""
+  visible: ${{ add_communication_tool == "True" }}

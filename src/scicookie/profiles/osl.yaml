@@ -110,3 +110,15 @@ continuous_integration:
   choices:
     - github_actions
   visible: false
+
+add_communication_tool:
+  default: "False"
+  visible: true
+
+communication_platform:
+  default: discord
+  visible: ${{ add_communication_tool | string == "True" }}
+
+communication_link:
+  default: ""
+  visible: ${{ add_communication_tool | string == "True" }}
