@@ -115,7 +115,7 @@
 
 - Documentation: {{ cookiecutter.documentation_url }}
 
-{% if cookiecutter.add_communication_tool | string == "True" -%}
+{% if cookiecutter.communication_platform != "None" %}
 ## Communication
 
 Platform: **{{ cookiecutter.communication_platform }}**

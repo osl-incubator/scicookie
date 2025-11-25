@@ -111,14 +111,17 @@ continuous_integration:
     - github_actions
   visible: false
 
-add_communication_tool:
-  default: "False"
-  visible: true
-
 communication_platform:
-  default: discord
-  visible: ${{ add_communication_tool | string == "True" }}
+  default: None
+  choices:
+    - None
+    - discord
+    - discourse
+    - slack
+    - zulip
+    - telegram
+  visible: true
 
 communication_link:
   default: ""
-  visible: ${{ add_communication_tool | string == "True" }}
+  visible: ${{ communication_platform != "None" }}
