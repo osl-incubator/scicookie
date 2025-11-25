@@ -115,6 +115,13 @@
 
 - Documentation: {{ cookiecutter.documentation_url }}
 
+{% if cookiecutter.communication_platform != "None" %}
+## Communication
+
+Platform: **{{ cookiecutter.communication_platform }}**
+Link: {{ cookiecutter.communication_link }}
+{% endif -%}
+
 ## Features
 
 TBD

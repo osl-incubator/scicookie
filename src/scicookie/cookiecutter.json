@@ -83,5 +83,14 @@
   "use_github_actions": "no",
   "use_circleci": "no",
   "use_azure_pipelines": "no",
-  "use_gitlab_ci": "no"
+  "use_gitlab_ci": "no",
+  "communication_platform": [
+    "None",
+    "discord",
+    "discourse",
+    "slack",
+    "zulip",
+    "telegram"
+  ],
+  "communication_link": ""
 }
