@@ -16,7 +16,7 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -46,7 +46,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Cache Conda packages
         uses: actions/cache@v4
@@ -112,7 +112,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Cache Conda packages
         uses: actions/cache@v4
@@ -172,7 +172,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: conda-incubator/setup-miniconda@v3
         with:
