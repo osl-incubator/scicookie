@@ -125,3 +125,9 @@ communication_platform:
 communication_link:
   default: ""
   visible: ${{ communication_platform != "None" }}
+
+add_donate_url:
+  visible: true
+
+donate_url:
+  visible: ${{ add_donate_url | string == "True" }}

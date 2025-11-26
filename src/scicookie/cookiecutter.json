@@ -92,5 +92,7 @@
     "zulip",
     "telegram"
   ],
-  "communication_link": ""
+  "communication_link": "",
+  "add_donate_url": "False",
+  "donate_url": ""
 }
