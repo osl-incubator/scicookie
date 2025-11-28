@@ -66,10 +66,9 @@ dev = [
   "mkdocs-exclude >= 1.0.2",
   "mkdocs-jupyter >= 0.24.1",
   "mkdocs-literate-nav >= 0.6.0",
-  "mkdocs-macros-plugin >= 0.7.0, < 1",
-  "mkdocstrings >= 0.21.2",
-  "mkdocstrings-python >= 1.1.2",
-  "mkdocs-gen-files >=0.5.0",
+  "mkdocs-macros-plugin >= 1.5.0",
+  "mkdocstrings[python] >= 1",
+  "mkdocs-gen-files >=0.6.0",
   {% if cookiecutter.mkdocs_theme == 'material' -%}
   "mkdocs-material >= 9.4",
   {% elif cookiecutter.mkdocs_theme == 'cinder' -%}
