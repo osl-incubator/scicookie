@@ -65,8 +65,6 @@ plugins:
           paths: [.]
           {%- endif %}
 
-          import:
-            - https://docs.python.org/3/objects.inv
           options:
             docstring_options:
               ignore_init_summary: true
