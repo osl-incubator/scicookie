@@ -1,6 +1,20 @@
 # Release Notes
 ---
 
+# [0.14.0](https://github.com/osl-incubator/scicookie/compare/0.13.0...0.14.0) (2025-11-28)
+
+
+### Bug Fixes
+
+* Fix template and project config for mkdocs and update dependencies ([#350](https://github.com/osl-incubator/scicookie/issues/350)) ([3e2eacf](https://github.com/osl-incubator/scicookie/commit/3e2eacfb011302e3c88faf3a241ed7f6ed64e044))
+
+
+### Features
+
+* Add donation URL feature  ([#349](https://github.com/osl-incubator/scicookie/issues/349)) ([35f608a](https://github.com/osl-incubator/scicookie/commit/35f608a6c69aab0dff40b54ff50d6e759c4ae6fa))
+* Add github workflow for closing stale prs ([#342](https://github.com/osl-incubator/scicookie/issues/342)) ([ce7742b](https://github.com/osl-incubator/scicookie/commit/ce7742b6ecab15148d6f159a975c3d907f35c033))
+* Added new template for communication platform ([#347](https://github.com/osl-incubator/scicookie/issues/347)) ([707cb1e](https://github.com/osl-incubator/scicookie/commit/707cb1e49b400cd71db25d1640b5db385427c88b))
+
 # [0.13.0](https://github.com/osl-incubator/scicookie/compare/0.12.0...0.13.0) (2025-02-08)
 
 
