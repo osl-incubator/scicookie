@@ -65,8 +65,6 @@ plugins:
           paths: [.]
           {%- endif %}
 
-          import:
-            - https://docs.python.org/3/objects.inv
           options:
             docstring_options:
               ignore_init_summary: true
@@ -102,12 +100,6 @@ markdown_extensions:
   - footnotes
   - md_in_html
   - meta
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-      options:
-        custom_icons:
-          - docs/static/icons
   - pymdownx.details
   - pymdownx.highlight:
       pygments_lang_class: true

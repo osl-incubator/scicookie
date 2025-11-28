@@ -6,7 +6,7 @@ dependencies:
   - bash
   - git
   - opensciencelabs::circleci-cli
-  - python >=3.9,<3.12
+  - python >=3.10,<3.14
   - poetry >=2
   - nodejs
   - compilers

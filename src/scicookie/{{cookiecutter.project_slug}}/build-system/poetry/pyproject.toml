@@ -13,7 +13,7 @@ authors = [
   {name = "{{ cookiecutter.author_full_name }}", email = "{{ cookiecutter.author_email }}"}
 ]
 license = "{{ cookiecutter.project_license }}"
-requires-python = ">=3.9,<4"
+requires-python = ">=3.10,<4"
 {% if cookiecutter.command_line_interface != "None" -%}
 [project.scripts]
 "{{ cookiecutter.project_slug }}" = "{{ cookiecutter.package_slug }}.__main__:app"
@@ -67,10 +67,10 @@ pre-commit = ">=3.3.2"
 flake8 = ">=4.0.1, <7"
 {% endif -%}
 {%- if cookiecutter.use_ruff_linter == "yes" or cookiecutter.use_ruff_formatter == "yes" -%}
-ruff = ">=0.2.0"
+ruff = ">=0.14.0"
 {% endif -%}
 {%- if cookiecutter.use_mypy == "yes" -%}
-mypy = ">=1.5.0"
+mypy = ">=1.18.0"
 {% endif -%}
 {%- if cookiecutter.use_bandit == "yes" -%}
 bandit = ">=1.7.5"
@@ -97,15 +97,14 @@ mkdocs = ">=1.4.3"
 mkdocs-exclude = ">=1.0.2"
 mkdocs-jupyter = ">=0.24.1"
 mkdocs-literate-nav = ">=0.6.0"
-mkdocs-macros-plugin = ">=0.7.0,<1"
+mkdocs-macros-plugin = ">=1.5.0"
 {% if cookiecutter.mkdocs_theme == "material" -%}
 mkdocs-material = ">=9.1.15"
 {% elif cookiecutter.mkdocs_theme == "cinder" -%}
 mkdocs-cinder = ">=1.2.0"
 {% endif -%}
-mkdocstrings = ">=0.21.2"
-mkdocstrings-python = ">= 1.1.2"
-mkdocs-gen-files = ">=0.5.0"
+mkdocstrings = { version = ">=1", extras = ["python"] }
+mkdocs-gen-files = ">=0.6.0"
 {# keep this line here #}
 {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
 Sphinx = ">=6.2.1"
@@ -133,9 +132,8 @@ quarto-cli = ">=1.5.56"
 quartodoc = ">=0.7.5"
 {% endif -%}
 {%- if cookiecutter.use_makim == "yes" -%}
-makim = "1.20.0"
+makim = "1.27.0"
 {% endif -%}
-# 'PosixPath' object has no attribute 'endswith'
-virtualenv = "<=20.25.1"
+virtualenv = ">=20.34"
 
 {% include "build-system/base/dev-deps-config-pyproject.toml" %}
