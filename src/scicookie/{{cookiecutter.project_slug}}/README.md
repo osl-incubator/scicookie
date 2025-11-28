@@ -122,6 +122,11 @@ Platform: **{{ cookiecutter.communication_platform }}**
 Link: {{ cookiecutter.communication_link }}
 {% endif -%}
 
+{% if cookiecutter.donate_url %}
+## 💝 Support the Project
+
+[![Donate]({{ cookiecutter.donate_url }})]({{ cookiecutter.donate_url }})
+{% endif %}
 ## Features
 
 TBD

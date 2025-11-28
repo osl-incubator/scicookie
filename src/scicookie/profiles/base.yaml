@@ -323,3 +323,10 @@ communication_link:
   type: text
   default: ""
   visible: ${{ communication_platform != "None" }}
+
+donate_url:
+  message: Type the donate URL
+  help: https://osl-incubator.github.io/scicookie/guide/
+  type: text
+  default: ""
+  visible: true
