@@ -329,16 +329,9 @@ communication_link:
   default: ""
   visible: ${{ communication_platform != "None" }}
 
-add_donate_url:
-  message: Do you want to add a donate URL?
-  help: https://osl-incubator.github.io/scicookie/guide/
-  type: confirm
-  default: "False"
-  visible: true
-
 donate_url:
   message: Type the donate URL
   help: https://osl-incubator.github.io/scicookie/guide/
   type: text
   default: ""
-  visible: ${{ add_donate_url | string == "True" }}
+  visible: true

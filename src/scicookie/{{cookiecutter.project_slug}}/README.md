@@ -122,10 +122,10 @@ Platform: **{{ cookiecutter.communication_platform }}**
 Link: {{ cookiecutter.communication_link }}
 {% endif -%}
 
-{% if cookiecutter.add_donate_url | string == "True" %}
-## Donate ❤️
+{% if cookiecutter.donate_url %}
+## 💝 Support the Project
 
-[![Donate](https://img.shields.io/badge/Support-Donate-orange)]({{ cookiecutter.donate_url }})
+[![Donate]({{ cookiecutter.donate_url }})]({{ cookiecutter.donate_url }})
 {% endif %}
 ## Features
 
