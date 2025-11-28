@@ -71,7 +71,7 @@ dev = [
   "mkdocstrings-python >= 1.1.2",
   "mkdocs-gen-files >=0.5.0",
   {% if cookiecutter.mkdocs_theme == 'material' -%}
-  "mkdocs-material >= 9.1.15",
+  "mkdocs-material >= 9.4",
   {% elif cookiecutter.mkdocs_theme == 'cinder' -%}
   "mkdocs-cinder >= 1.2.0"
   {% endif %}
