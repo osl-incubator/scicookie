@@ -1,10 +1,31 @@
 name: {{ cookiecutter.project_slug }}
 channels:
   - nodefaults
+{%- if cookiecutter.use_pytorch_cpu == "yes" or cookiecutter.use_pytorch_cuda == "yes" or cookiecutter.use_pytorch_rocm == "yes" or cookiecutter.use_pytorch_mps == "yes" %}
+  - pytorch
+{%- endif %}
+{%- if cookiecutter.use_pytorch_cuda == "yes" %}
+  - nvidia
+{%- endif %}
   - conda-forge
 dependencies:
   - python >=3.10,<=3.14
   - pip
+{%- if cookiecutter.use_pytorch_cpu == "yes" %}
+  - pytorch
+  - cpuonly
+{%- endif %}
+{%- if cookiecutter.use_pytorch_cuda == "yes" %}
+  - pytorch
+  - pytorch-cuda=12.1
+{%- endif %}
+{%- if cookiecutter.use_pytorch_rocm == "yes" %}
+  - pytorch
+  - pytorch-rocm=5.6
+{%- endif %}
+{%- if cookiecutter.use_pytorch_mps == "yes" %}
+  - pytorch
+{%- endif %}
 {%- if cookiecutter.build_system == "poetry" %}
   - poetry
 {%- elif cookiecutter.build_system == "flit" %}

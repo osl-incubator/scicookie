@@ -127,8 +127,6 @@ Link: {{ cookiecutter.communication_link }}
 
 [![Donate]({{ cookiecutter.donate_url }})]({{ cookiecutter.donate_url }})
 {% endif %}
-
-
 ## Features
 
 TBD

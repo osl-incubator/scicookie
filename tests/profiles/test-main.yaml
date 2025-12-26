@@ -364,8 +364,10 @@ data_ai_libs:
     - panel
     - plotly
     - polars
-    - pytorch(cpu)
-    - pytorch(gpu)
+    - pytorch-cpu
+    - pytorch-cuda
+    - pytorch-rocm
+    - pytorch-mps
     - quarto-cli
     - rago
     - requests

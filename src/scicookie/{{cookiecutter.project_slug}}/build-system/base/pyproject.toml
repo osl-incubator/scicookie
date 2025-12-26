@@ -102,7 +102,17 @@ dependencies = [
   "torchvision",
   "torchaudio",
 {%- endif %}
-{%- if cookiecutter.use_pytorch_gpu == "yes" %}
+{%- if cookiecutter.use_pytorch_cuda == "yes" %}
+  "torch",
+  "torchvision",
+  "torchaudio",
+{%- endif %}
+{%- if cookiecutter.use_pytorch_rocm == "yes" %}
+  "torch",
+  "torchvision",
+  "torchaudio",
+{%- endif %}
+{%- if cookiecutter.use_pytorch_mps == "yes" %}
   "torch",
   "torchvision",
   "torchaudio",
