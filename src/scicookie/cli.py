@@ -20,7 +20,13 @@ from scicookie.ui import make_questions
 PACKAGE_PATH = Path(__file__).parent
 COOKIECUTTER_FILE_PATH = PACKAGE_PATH / "cookiecutter.json"
 
-
+def safe_input(prompt: str) -> str:
+    """Read full input from the user without truncation."""
+    try:
+        return input(prompt)
+    except EOFError:
+        return ""
+        
 class CustomHelpFormatter(argparse.RawTextHelpFormatter):
     """Formatter for generating usage messages and argument help strings.
 
@@ -162,3 +168,6 @@ def app() -> None:
 
     args = parser.parse_args()
     call_app(args.profile)
+
+if __name__ == "__main__":
+    app()
