@@ -126,18 +126,16 @@ Below are the fields within the TUI that relate to project information:
   generally find information about the project, the team, events, the blog, etc.
   It is used to promote the project.
 
-  - **donate_url**: This field allows you to specify a URL for project funding or 
+- **donate_url**: This field allows you to specify a URL for project funding or 
   donations (e.g., GitHub Sponsors, Open Collective, or Ko-fi). Providing this 
   URL helps community members support the ongoing maintenance and development 
   of the project. This link is typically surfaced in the `README.md` and 
   repository metadata.
-## Communication Tools
 
 - **communication_platform**: Select the primary platform for community 
   discussion (Discord, Slack, Telegram, etc.).
 - **communication_link**: The invite link or URL for the selected 
   communication platform. 
-
 
 - **project_license**: This field allows you to specify the license of the
   project. In SciCookie you can find and choose from the following well-known
