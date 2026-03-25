@@ -130,6 +130,7 @@ Below are the fields within the TUI that relate to project information:
   project. In SciCookie you can find and choose from the following well-known
   open source software licenses: _MIT_, _BSD 3 Clauses_, _ISC license_, _Apache
   Software License 2.0_ and _GNU General Public License v3_.
+
   - **`MIT` option**: is a free software license that allows users to use,
     modify and redistribute the software without significant restrictions. It is
     a permissive license that allows users to do whatever they want with the
