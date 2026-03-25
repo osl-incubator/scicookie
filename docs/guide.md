@@ -172,6 +172,14 @@ Below are the fields within the TUI that relate to project information:
   If you want to include another type of license according to the needs of your
   project, you can do so by selecting the option `Other`.
 
+  ## Donation URL
+
+SciCookie allows you to include a donation URL for your project. This can be useful if you want to support ongoing development through community contributions.
+
+You can specify a donation URL that will be displayed in your project’s documentation or repository metadata.
+
+This feature helps maintainers receive support and encourages sustainability of open source projects.
+
 ## Project settings
 
 Setting up some configurations in the project structure is important because it
