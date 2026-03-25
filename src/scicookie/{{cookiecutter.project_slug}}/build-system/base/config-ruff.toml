@@ -14,9 +14,9 @@ select = [
   "D",   # pydocstyle
   "YTT", # flake8-2020
   "RUF", # Ruff-specific rules
-  "I001",  # isort
+  "I",    # isort
 ]
-fixable = ["I001"]
+fixable = ["I"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
