@@ -20,39 +20,30 @@ class Profile:
     def _load_profiles_available(self):
         self.profiles_available = []
 
-        profiles_path = Path(__file__).absolute().parent / "profiles"
+        profile_path = Path(__file__).absolute().parent / "profile"
 
         for file in profiles_path.glob("*.yaml"):
             self.profiles_available.append(file.stem)
 
-    def read_config(self):
-        """Read the config file."""
-        config = {}
+def read_config(self):
+    """Read the config file."""
+    config = {}
 
-        # Load base config
-        with open(PROFILE_DIR_PATH / "base.yaml") as f:
-            config = yaml.safe_load(f)
+    # Load base config
+    with open(PROFILE_DIR_PATH / "base.yaml") as f:
+        config = yaml.safe_load(f)
 
-        # Load selected profile
-        with open(PROFILE_DIR_PATH / f"{self.profile_name}.yaml") as f:
-            config_profile = yaml.safe_load(f)
+    # Load selected profile
+    with open(PROFILE_DIR_PATH / f"{self.profile_name}.yaml") as f:
+        config_profile = yaml.safe_load(f)
 
-            # ✅ VALIDATION HERE
-            self._validate_profile(config_profile)
+        for name, properties in config_profile.items():
+                if name not in config:
+                        config[name] = properties
+                elif isinstance(config[name], dict) and isinstance(properties, dict):
+                                for key, value in properties.items():
+                                        config[name][key] = value
+                else:
+                    config[name] = properties
 
-            for name, properties in config_profile.items():
-                config[name].update(properties)
-
-        return config
-
-    def _validate_profile(self, profile: dict):
-        if not isinstance(profile, dict):
-            return  # ❗ don't break execution
-
-    for field_name, field_props in profile.items():
-        # skip anything unexpected instead of crashing
-        if not isinstance(field_name, str):
-            continue
-
-        if not isinstance(field_props, dict):
-            continue
+    return config

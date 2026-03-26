@@ -1,3 +1,5 @@
+{% if cookiecutter.documentation_engine == "sphinx(rst)" %}
+
 #!/usr/bin/env python
 #
 # {{ cookiecutter.project_slug }} documentation build configuration file, created by
@@ -171,3 +173,5 @@ texinfo_documents = [
      "One line description of project.",
      "Miscellaneous"),
 ]
+
+{% endif %}
