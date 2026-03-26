@@ -46,14 +46,12 @@ class Profile:
         return config
 
     def _validate_profile(self, profile: dict):
-        required_fields = ["name", "version"]
+        if not isinstance(profile, dict):
+            raise TypeError("Profile must be a dictionary")
 
-        for field in required_fields:
-            if field not in profile:
-                raise ValueError(f"Missing required field: '{field}' in profile")
+    for field_name, field_props in profile.items():
+        if not isinstance(field_name, str):
+            raise TypeError(f"Invalid field name: {field_name}")
 
-        if not isinstance(profile.get("name"), str):
-            raise TypeError("Field 'name' must be a string")
-
-        if "version" in profile and not isinstance(profile["version"], str):
-            raise TypeError("Field 'version' must be a string")
+        if not isinstance(field_props, dict):
+            raise TypeError(f"Invalid structure for '{field_name}', expected dict")
