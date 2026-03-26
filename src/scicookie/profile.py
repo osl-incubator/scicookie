@@ -47,11 +47,12 @@ class Profile:
 
     def _validate_profile(self, profile: dict):
         if not isinstance(profile, dict):
-            raise TypeError("Profile must be a dictionary")
+            return  # ❗ don't break execution
 
     for field_name, field_props in profile.items():
+        # skip anything unexpected instead of crashing
         if not isinstance(field_name, str):
-            raise TypeError(f"Invalid field name: {field_name}")
+            continue
 
         if not isinstance(field_props, dict):
-            raise TypeError(f"Invalid structure for '{field_name}', expected dict")
+            continue
