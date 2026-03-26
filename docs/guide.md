@@ -184,12 +184,6 @@ documentation or repository metadata.
 This feature helps maintainers receive support and encourages sustainability of
 open source projects.
 
-### Supported platforms
-
-- GitHub Sponsors
-- Open Collective
-- Buy Me a Coffee
-
 ## Project settings
 
 Setting up some configurations in the project structure is important because it
