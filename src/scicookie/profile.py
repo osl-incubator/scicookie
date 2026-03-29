@@ -1,49 +1,58 @@
+"""Profile module for handling profiles defined in the .yaml files."""
+
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+from logs import SciCookieErrorType, SciCookieLogs
+
+PROFILE_DIR_PATH = Path(__file__).absolute().parent.parent / "profiles"
+
+
 class Profile:
     """Profile class that handles profiles defined in the .yaml files."""
 
     profile_name: str = ""
-    config: dict[str, Any] = {}
-    profiles_available: list[str] = []
+    config: dict[str, Any]
+    profiles_available: list[str]
 
     def __init__(self, profile_name: str):
+        self.config = {}
+        self.profiles_available = []
         self._load_profiles_available()
-
         if profile_name not in self.profiles_available:
             SciCookieLogs.raise_error(
                 f"The given profile ({profile_name}) is not available.",
                 SciCookieErrorType.SCICOOKIE_INVALID_PARAMETER,
             )
-
         self.profile_name = profile_name
         self.config = self.read_config()
 
     def _load_profiles_available(self):
+        """Load available profiles from the profiles directory."""
         self.profiles_available = []
-
-        profile_path = Path(__file__).absolute().parent / "profile"
-
+        profiles_path = Path(__file__).absolute().parent.parent / "profiles"
         for file in profiles_path.glob("*.yaml"):
             self.profiles_available.append(file.stem)
 
-def read_config(self):
-    """Read the config file."""
-    config = {}
-
-    # Load base config
-    with open(PROFILE_DIR_PATH / "base.yaml") as f:
-        config = yaml.safe_load(f)
-
-    # Load selected profile
-    with open(PROFILE_DIR_PATH / f"{self.profile_name}.yaml") as f:
-        config_profile = yaml.safe_load(f)
-
-        for name, properties in config_profile.items():
+    def read_config(self):
+        """Read the config file."""
+        config = {}
+        # Load base config
+        with open(PROFILE_DIR_PATH / "base.yaml") as f:
+            config = yaml.safe_load(f)
+        # Load selected profile
+        with open(PROFILE_DIR_PATH / f"{self.profile_name}.yaml") as f:
+            config_profile = yaml.safe_load(f)
+            for name, properties in config_profile.items():
                 if name not in config:
-                        config[name] = properties
-                elif isinstance(config[name], dict) and isinstance(properties, dict):
-                                for key, value in properties.items():
-                                        config[name][key] = value
+                    config[name] = properties
+                elif isinstance(config[name], dict) and isinstance(
+                    properties, dict
+                ):
+                    for key, value in properties.items():
+                        config[name][key] = value
                 else:
                     config[name] = properties
-
-    return config
+        return config
