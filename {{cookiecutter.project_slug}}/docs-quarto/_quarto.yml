@@ -17,7 +17,7 @@ website:
 
 format:
   html:
-    theme: {{ cookiecutter.quarto_theme }}
+    theme: { { cookiecutter.quarto_theme } }
     css: styles.css
     toc: true
 
@@ -25,10 +25,10 @@ format:
 quartodoc:
   style: pkgdown
   dir: api
-  package: {{ cookiecutter.package_slug }}
+  package: { { cookiecutter.package_slug } }
   sections:
     - title: Functions and Modules
       desc: This page outlines the API reference of {{ cookiecutter.package_slug }}.
       contents:
-      # You can add modules and functions here, for example:
+        # You can add modules and functions here, for example:
         - get_version

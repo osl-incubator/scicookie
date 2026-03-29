@@ -26,6 +26,13 @@ repos:
     rev: "v3.0.2"
     hooks:
       - id: prettier
+        exclude: "src/scicookie/{{cookiecutter.project_slug}}.*"
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        exclude: "src/scicookie/{{cookiecutter.project_slug}}.*"
 
   - repo: local
     hooks:
