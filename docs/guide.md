@@ -174,11 +174,15 @@ Below are the fields within the TUI that relate to project information:
 
   ## Donation URL
 
-SciCookie allows you to include a donation URL for your project. This can be useful if you want to support ongoing development through community contributions.
+SciCookie allows you to include a donation URL for your project. This can be
+useful if you want to support ongoing development through community
+contributions.
 
-You can specify a donation URL that will be displayed in your project’s documentation or repository metadata.
+You can specify a donation URL that will be displayed in your project’s
+documentation or repository metadata.
 
-This feature helps maintainers receive support and encourages sustainability of open source projects.
+This feature helps maintainers receive support and encourages sustainability of
+open source projects.
 
 ## Project settings
 
