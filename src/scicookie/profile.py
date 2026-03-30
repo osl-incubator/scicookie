@@ -47,7 +47,9 @@ class Profile:
         for name, properties in config_profile.items():
             if name not in config:
                 config[name] = properties
-            elif isinstance(config[name], dict) and isinstance(properties, dict):
+            elif isinstance(config[name], dict) and isinstance(
+                properties, dict
+            ):
                 config[name].update(properties)
             else:
                 config[name] = properties
@@ -62,6 +64,7 @@ class Profile:
             field_type = field_props.get("type")
             if field_type and field_type not in valid_types:
                 SciCookieLogs.raise_error(
-                    f"Profile field '{field_name}' has invalid type '{field_type}'.",
+                    f"Profile field '{field_name}' has invalid type "
+                    f"'{field_type}'.",
                     SciCookieErrorType.SCICOOKIE_INVALID_PARAMETER,
                 )
