@@ -13,4 +13,5 @@ dependencies:
   - pip
   - pip:
       - makim==1.29.0
+      - xonsh>=0.22.8
       - paginate
