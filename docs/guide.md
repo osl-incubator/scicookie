@@ -172,7 +172,6 @@ Below are the fields within the TUI that relate to project information:
   If you want to include another type of license according to the needs of your
   project, you can do so by selecting the option `Other`.
 
-  ## Donation URL
 
 ## Donation URL
 
