@@ -172,14 +172,17 @@ Below are the fields within the TUI that relate to project information:
   If you want to include another type of license according to the needs of your
   project, you can do so by selecting the option `Other`.
 
-  ## Donation URL
+
+## Donation URL
 
 SciCookie allows you to include a donation URL for your project. This can be
 useful if you want to support ongoing development through community
 contributions.
 
-You can specify a donation URL that will be displayed in your project’s
-documentation or repository metadata.
+- **donate_url**: This field allows you to specify a donation URL for your
+  project (e.g. a GitHub Sponsors, Open Collective, or Ko-fi link). It is
+  empty by default. When set, it will be displayed in your project's
+  documentation or repository metadata.
 
 This feature helps maintainers receive support and encourages sustainability of
 open source projects.
