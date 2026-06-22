@@ -16,7 +16,7 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -46,10 +46,10 @@ jobs:
         shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Cache Conda packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.conda/pkgs
           key: conda-${{ runner.os }}-${{ hashFiles('**/conda*.yaml') }}
@@ -57,7 +57,7 @@ jobs:
             conda-${{ runner.os }}-
 
       - name: Install dependencies with conda for linux/macos
-        uses: conda-incubator/setup-miniconda@v3
+        uses: conda-incubator/setup-miniconda@v4
         if: ${{ matrix.os != 'windows' }}
         with:
           miniforge-version: latest
@@ -68,7 +68,7 @@ jobs:
           conda-solver: libmamba
 
       - name: Install dependencies with conda for windows
-        uses: conda-incubator/setup-miniconda@v3
+        uses: conda-incubator/setup-miniconda@v4
         if: ${{ matrix.os == 'windows' }}
         with:
           miniforge-version: latest
@@ -112,10 +112,10 @@ jobs:
         shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Cache Conda packages
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.conda/pkgs
           key: conda-${{ runner.os }}-${{ hashFiles('**/conda*.yaml') }}
@@ -123,7 +123,7 @@ jobs:
             conda-${{ runner.os }}-
 
       - name: Install dependencies with conda for linux/macos
-        uses: conda-incubator/setup-miniconda@v3
+        uses: conda-incubator/setup-miniconda@v4
         with:
           miniforge-version: latest
           environment-file: conda/dev.yaml
@@ -172,9 +172,9 @@ jobs:
         shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
-      - uses: conda-incubator/setup-miniconda@v3
+      - uses: conda-incubator/setup-miniconda@v4
         with:
           miniforge-version: latest
           environment-file: conda/dev.yaml
