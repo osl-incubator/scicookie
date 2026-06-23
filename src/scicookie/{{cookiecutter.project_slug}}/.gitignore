@@ -162,3 +162,10 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+{% if cookiecutter.build_system == "uv" %}
+# uv lock file
+# Commit uv.lock if this is an application. Ignore it if this is a library.
+# See https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile
+uv.lock
+{% endif %}
