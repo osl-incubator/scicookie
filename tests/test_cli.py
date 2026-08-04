@@ -15,7 +15,7 @@ import pytest
 import yaml
 
 from scicookie.cli import _get_cookiecutter_default_answer
-from scicookie.logs import SciCookieErrorType
+from scicookie.logs import SciCookieErrorType as ErrorType
 from scicookie.ui import check_visibility
 
 
@@ -137,7 +137,6 @@ class TestDependsOn(BaseCLITestProfile):
         assert "Traceback" not in output, output
 
 
-
 def test_get_cookiecutter_default_answer_returns_string():
     """Return string defaults unchanged."""
     assert _get_cookiecutter_default_answer("default") == "default"
@@ -152,7 +151,7 @@ def test_get_cookiecutter_default_answer_rejects_empty_list(monkeypatch):
     """Reject empty list defaults as invalid cookiecutter configuration."""
 
     def raise_error(message, message_type):
-        assert message_type == SciCookieErrorType.SCICOOKIE_INVALID_CONFIGURATION
+        assert message_type == ErrorType.SCICOOKIE_INVALID_CONFIGURATION
         raise ValueError(message)
 
     monkeypatch.setattr("scicookie.cli.SciCookieLogs.raise_error", raise_error)
