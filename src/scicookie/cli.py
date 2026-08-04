@@ -54,11 +54,19 @@ def _get_cookiecutter_default_answer(
             "Invalid cookiecutter configuration.",
             SciCookieErrorType.SCICOOKIE_INVALID_CONFIGURATION,
         )
+        return ""
 
     if isinstance(answer_definition, str):
         return answer_definition
 
-    return answer_definition[0]
+    if answer_definition:
+        return answer_definition[0]
+
+    SciCookieLogs.raise_error(
+        "Invalid cookiecutter configuration.",
+        SciCookieErrorType.SCICOOKIE_INVALID_CONFIGURATION,
+    )
+    return ""
 
 
 def call_cookiecutter(profile: Profile, answers: dict) -> None:
