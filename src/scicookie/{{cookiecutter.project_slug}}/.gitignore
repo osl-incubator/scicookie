@@ -111,6 +111,14 @@ ipython_config.py
 # maturin build system
 #Cargo.lock
 
+{%- elif cookiecutter.build_system == "uv" %}
+# uv build system
+#   According to uv documentation, uv.lock should be committed to version control
+#   for applications to ensure reproducible installs. For libraries, it is usually
+#   omitted, though it can still be committed to pin development environments.
+#   https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile
+#uv.lock
+
 {%- endif %}
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
