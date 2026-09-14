@@ -59,3 +59,28 @@ def test_project_name_with_example_context(cookies, context):
     with open(README_FILE) as f:
         title = f.readline().rstrip()
         assert title == "# Example"
+
+
+@pytest.mark.parametrize(
+    "build_system,expected_lock,unexpected_lock",
+    [
+        ("uv", "uv.lock", "poetry.lock"),
+        ("poetry", "poetry.lock", "uv.lock"),
+        ("pdm", "pdm.lock", "uv.lock"),
+        ("maturin", "Cargo.lock", "uv.lock"),
+    ],
+)
+def test_gitignore_lockfile_for_build_system(
+    cookies, context, build_system, expected_lock, unexpected_lock
+):
+    """Test lockfile configuration in .gitignore for build systems."""
+    result = cookies.bake(
+        extra_context={**context, "build_system": build_system}
+    )
+    assert result.exit_code == 0
+    assert result.exception is None
+    gitignore_path = Path(result.project_path) / ".gitignore"
+    assert gitignore_path.is_file()
+    content = gitignore_path.read_text()
+    assert expected_lock in content
+    assert unexpected_lock not in content
