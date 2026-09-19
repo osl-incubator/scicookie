@@ -32,9 +32,9 @@ DOCS_SPEC_DIR = PROJECT_DIRECTORY / f'docs-{DOCUMENTATION_ENGINE}'
 
 USE_SRC_LAYOUT = {{ cookiecutter.project_layout == "src" }}
 if USE_SRC_LAYOUT:
-    PACKAGE_PATH = PROJECT_DIRECTORY / "src" / "{{ cookiecutter.package_slug}}"
+    PACKAGE_PATH = PROJECT_DIRECTORY / "src" / {{ cookiecutter.package_slug | tojson }}
 else:
-    PACKAGE_PATH = PROJECT_DIRECTORY / "{{ cookiecutter.package_slug}}"
+    PACKAGE_PATH = PROJECT_DIRECTORY / {{ cookiecutter.package_slug | tojson }}
 
 COMPILE_SOURCE_DIR = PROJECT_DIRECTORY / "src"
 
@@ -175,7 +175,7 @@ def clean_up_project_layout():
     if USE_SRC_LAYOUT:
         if not os.path.exists("src"):
             os.mkdir("src")
-            shutil.move('{{cookiecutter.package_slug}}', 'src')
+            shutil.move({{ cookiecutter.package_slug | tojson }}, 'src')
 
 
 def clean_up_code_of_conduct():
@@ -375,15 +375,15 @@ def clean_up_linter():
 
 
 def prepare_git() -> None:
-    git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
-    git_https_upstream = http2ssh("{{cookiecutter.git_https_upstream}}")
-    git_main_branch = http2ssh("{{cookiecutter.git_main_branch}}")
+    git_https_origin = http2ssh({{ cookiecutter.git_https_origin | tojson }})
+    git_https_upstream = http2ssh({{ cookiecutter.git_https_upstream | tojson }})
+    git_main_branch = http2ssh({{ cookiecutter.git_main_branch | tojson }})
     unique_id = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     git_new_branch = f"initial-from-scicookie-{unique_id}"
     git_stash_branch = f"stash-from-scicookie-{unique_id}"
 
-    git_author_name = "{{cookiecutter.author_full_name}}"
-    git_author_email = "{{cookiecutter.author_email}}"
+    git_author_name = {{ cookiecutter.author_full_name | tojson }}
+    git_author_email = {{ cookiecutter.author_email | tojson }}
 
     use_remote = git_https_origin != '' or git_https_upstream != ''
 

@@ -1,5 +1,7 @@
 """Cookiecutter bake test."""
 
+import subprocess
+
 from pathlib import Path
 
 import pytest
@@ -59,3 +61,32 @@ def test_project_name_with_example_context(cookies, context):
     with open(README_FILE) as f:
         title = f.readline().rstrip()
         assert title == "# Example"
+
+
+def test_author_name_with_double_quotes(cookies, context):
+    """Test double quotes in the author name are preserved."""
+    author = 'Robert "Bob" Smith'
+    result = cookies.bake(
+        extra_context={**context, "author_full_name": author}
+    )
+    assert result.exit_code == 0
+    assert result.exception is None
+    git_author = subprocess.check_output(
+        ["git", "log", "-1", "--format=%an"],
+        cwd=result.project_path,
+        text=True,
+    ).strip()
+    assert git_author == author
+
+
+def test_package_slug_is_not_executed_by_pre_gen_hook(
+    cookies, context, tmp_path
+):
+    """Test a crafted package slug is rejected instead of executed."""
+    marker = tmp_path / "marker"
+    package_slug = f'x"; open(r"{marker}", "w").close(); _ = "'
+    result = cookies.bake(
+        extra_context={**context, "package_slug": package_slug}
+    )
+    assert result.exit_code != 0
+    assert not marker.exists()
