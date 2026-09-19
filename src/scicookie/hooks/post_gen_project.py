@@ -38,6 +38,9 @@ else:
 
 COMPILE_SOURCE_DIR = PROJECT_DIRECTORY / "src"
 
+# seconds; a first run may need to download prettier
+PRETTIER_TIMEOUT = 300
+
 USE_BLACK = {{ cookiecutter.use_black == "yes" }}
 USE_BANDIT = {{ cookiecutter.use_bandit == "yes" }}
 USE_CONTAINERS = {{ cookiecutter.use_containers in ['Docker', 'Podman'] }}
@@ -357,14 +360,20 @@ def clean_up_linter():
     # -----------------
 
     # prettier
-    subprocess.call([
-        "npx",
-        "--yes",
-        "prettier",
-        "--write",
-        "--ignore-unknown",
-        PROJECT_DIRECTORY
-    ])
+    # --prefer-offline reuses the cached prettier instead of asking the
+    # npm registry every time, which could stall generation indefinitely
+    try:
+        subprocess.call([
+            "npx",
+            "--yes",
+            "--prefer-offline",
+            "prettier",
+            "--write",
+            "--ignore-unknown",
+            PROJECT_DIRECTORY
+        ], timeout=PRETTIER_TIMEOUT)
+    except (FileNotFoundError, subprocess.TimeoutExpired) as e:
+        print(f"Skipping prettier formatting: {e}")
 
     if not USE_PRETTIER:
         remove_project_file(".prettierrc.yaml")
