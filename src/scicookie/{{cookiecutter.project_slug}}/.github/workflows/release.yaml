@@ -116,7 +116,7 @@ jobs:
             ./docs/_build/html
             {%- elif cookiecutter.documentation_engine == "mkdocs" %}
             build/
-            {%- elif cookiecutter.documentation_engine == "sphinx" %}
+            {%- elif cookiecutter.documentation_engine in ["sphinx(rst)", "sphinx(myst)"] %}
             docs/_build/html/
             {%- else %}
             # add here the path for your documentation static folder
