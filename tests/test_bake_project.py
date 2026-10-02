@@ -59,3 +59,40 @@ def test_project_name_with_example_context(cookies, context):
     with open(README_FILE) as f:
         title = f.readline().rstrip()
         assert title == "# Example"
+
+
+@pytest.mark.parametrize(
+    "governance_document,expected_title",
+    [
+        (
+            "numpy-governance",
+            "# Example project governance and decision-making",
+        ),
+        ("sciml-governance", "# Example Governance"),
+    ],
+)
+def test_governance_document_with_example_context(
+    cookies, context, governance_document, expected_title
+):
+    """Test the selected governance document is moved to governance.md."""
+    result = cookies.bake(
+        extra_context={**context, "governance_document": governance_document}
+    )
+    assert result.exit_code == 0
+    assert result.exception is None
+    GOVERNANCE_FILE = Path(result.project_path) / "governance.md"
+    assert GOVERNANCE_FILE.is_file()
+    with open(GOVERNANCE_FILE) as f:
+        assert f.readline().rstrip() == expected_title
+    assert not (Path(result.project_path) / "governance").exists()
+
+
+def test_governance_document_none_with_example_context(cookies, context):
+    """Test no governance document is generated when None is selected."""
+    result = cookies.bake(
+        extra_context={**context, "governance_document": "None"}
+    )
+    assert result.exit_code == 0
+    assert result.exception is None
+    assert not (Path(result.project_path) / "governance.md").exists()
+    assert not (Path(result.project_path) / "governance").exists()
