@@ -13,6 +13,7 @@ PROJECT_DIRECTORY = Path(os.path.abspath(os.path.curdir)).resolve()
 
 ALL_DOCS_DIRS = [
     PROJECT_DIRECTORY / 'docs-mkdocs',
+    PROJECT_DIRECTORY / 'docs-zensical',
     PROJECT_DIRECTORY / 'docs-sphinx',
     PROJECT_DIRECTORY / 'docs-jupyter-book',
     PROJECT_DIRECTORY / 'docs-quarto',
@@ -130,10 +131,13 @@ def remove_package_file(filepath: str):
 
 
 def move_selected_doc_dir():
-    if DOCUMENTATION_ENGINE == "mkdocs":
+    if DOCUMENTATION_ENGINE in ["mkdocs", "zensical"]:
         docs_target_dir = PROJECT_DIRECTORY
     else:
         docs_target_dir = PROJECT_DIRECTORY / "docs"
+        remove_project_file(Path("scripts") / "gen_ref_nav.py")
+
+    if DOCUMENTATION_ENGINE == "zensical":
         remove_project_file(Path("scripts") / "gen_ref_nav.py")
 
     if DOCUMENTATION_ENGINE.startswith("sphinx"):
@@ -360,7 +364,7 @@ def clean_up_linter():
     subprocess.call([
         "npx",
         "--yes",
-        "prettier",
+        "prettier@3.0.2",
         "--write",
         "--ignore-unknown",
         PROJECT_DIRECTORY

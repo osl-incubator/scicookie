@@ -159,6 +159,7 @@ jobs:
           - containers.sh
           - docs-jupyter-book.sh
           - docs-mkdocs.sh
+          - docs-zensical.sh
           - docs-quarto.sh
           - docs-sphinx.sh
           - files.sh

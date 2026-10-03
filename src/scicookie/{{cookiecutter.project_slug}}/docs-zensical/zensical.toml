@@ -1,0 +1,13 @@
+[project]
+site_name = "{{ cookiecutter.project_name }}"
+site_description = "{{ cookiecutter.project_short_description }}"
+site_author = "{{ cookiecutter.author_full_name }}"
+site_url = "{{ cookiecutter.documentation_url }}"
+docs_dir = "docs"
+site_dir = "build"
+nav = [
+  { "Home" = "index.md" },
+  { "Installation" = "installation.md" },
+  { "Contributing" = "contributing.md" },
+  { "Changelog" = "changelog.md" },
+]

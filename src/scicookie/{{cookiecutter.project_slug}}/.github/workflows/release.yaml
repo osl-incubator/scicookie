@@ -114,6 +114,8 @@ jobs:
           publish_dir: >-
             {%- if cookiecutter.documentation_engine == "jupyter-book" %}
             ./docs/_build/html
+            {%- elif cookiecutter.documentation_engine == "zensical" %}
+            build/
             {%- elif cookiecutter.documentation_engine == "mkdocs" %}
             build/
             {%- elif cookiecutter.documentation_engine == "sphinx" %}

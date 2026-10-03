@@ -47,6 +47,8 @@ dev = [
 {%- endif -%}
 {%- if cookiecutter.use_makim == "yes" %}
   "makim == 1.27.0",
+  # Makim imports Click, but does not declare it as a dependency.
+  "click >= 8",
 {%- endif -%}
 {%- if cookiecutter.use_vulture == "yes" %}
   "vulture >= 2.7",
@@ -60,7 +62,9 @@ dev = [
 {%- endif %}
   "ipython < 8",
   "ipykernel >=6.0.0",
-{%- if cookiecutter.documentation_engine == 'mkdocs' %}
+{%- if cookiecutter.documentation_engine == 'zensical' %}
+  "zensical >= 0.0.1",
+{%- elif cookiecutter.documentation_engine == 'mkdocs' %}
   "Jinja2 >= 3.1.2",
   "mkdocs >= 1.4.3",
   "mkdocs-exclude >= 1.0.2",
@@ -86,7 +90,7 @@ dev = [
   "nbsphinx >= 0.9.2",
   "pandoc >= 2.3",
 {%- elif cookiecutter.documentation_engine == 'jupyter-book' %}
-  "jupyter-book >= 0.15.1",
+  "jupyter-book >= 0.15.1,<2",
   "myst-parser >= 0.18.1",
   {%- if cookiecutter.jupyter_book_theme == 'readthedocs-sphinx-theme'%}
   "sphinx-rtd-theme >= 1.2.2",
@@ -96,6 +100,8 @@ dev = [
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
   "quarto-cli >= 1.5.56",
   "quartodoc >= 0.7.5",
+  # Quartodoc still uses the Griffe 1.x docstring parser API.
+  "griffe < 2",
 {%- endif -%}
   # 'PosixPath' object has no attribute 'endswith'
   "virtualenv>=20.34",

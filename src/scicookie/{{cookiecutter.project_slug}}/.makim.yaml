@@ -33,6 +33,8 @@ groups:
           {%- if cookiecutter.documentation_engine == "jupyter-book" %}
           rm -rf docs/_build
           jupyter-book build docs
+          {%- elif cookiecutter.documentation_engine == "zensical" %}
+          zensical build
           {%- elif cookiecutter.documentation_engine == "mkdocs" %}
           mkdocs build --config-file mkdocs.yaml
           {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}
@@ -52,6 +54,8 @@ groups:
         run: |
           {%- if cookiecutter.documentation_engine == "jupyter-book" %}
           cd docs/_build/html/ && python -m http.server
+          {%- elif cookiecutter.documentation_engine == "zensical" %}
+          zensical serve
           {%- elif cookiecutter.documentation_engine == "mkdocs" %}
           mkdocs serve --watch docs --config-file mkdocs.yaml
           {%- elif cookiecutter.documentation_engine.startswith("sphinx") %}

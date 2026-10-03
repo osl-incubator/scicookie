@@ -32,6 +32,8 @@
 {% if cookiecutter.mkdocs_theme == "material" -%}
 [![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
 {% endif -%}
+{%- elif cookiecutter.documentation_engine == "zensical" -%}
+[![Zensical](https://img.shields.io/badge/Documentation%20engine-Zensical-orange)](https://zensical.org/)
 {%- elif cookiecutter.documentation_engine == "sphinx(rst)" -%}
 ![Sphinx](https://img.shields.io/badge/Documentation%20engine-Sphinx-orange?logo=sphinx)
 {%- elif cookiecutter.documentation_engine == "sphinx(myst)" -%}

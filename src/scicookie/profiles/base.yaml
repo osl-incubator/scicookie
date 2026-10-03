@@ -120,6 +120,7 @@ documentation_engine:
   # first choice is the default for the UI
   choices:
     - mkdocs
+    - zensical
     - sphinx(rst)
     - sphinx(myst)
     - jupyter-book

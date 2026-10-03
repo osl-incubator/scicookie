@@ -429,10 +429,16 @@ software projects by extracting information from source code, comments and
 project metadata.
 
 Depending on your taste and the needs of your project, you should choose the
-documentation engine that best suits your needs. SciCookie offers you four
-documentation engine options for your Python package: _mkdocs_, _sphinx-rst_,
-_sphinx-myst_, _jupyter-book_ and _quarto_. Additionally styling options
-(themes) are provided for your documentation.
+documentation engine that best suits your needs. SciCookie offers the following
+documentation engine options for your Python package: _mkdocs_, _zensical_,
+_sphinx-rst_, _sphinx-myst_, _jupyter-book_ and _quarto_. Additionally styling
+options (themes) are provided for your documentation.
+
+- [**Zensical**](https://zensical.org/docs/): builds documentation from Markdown
+  using a `zensical.toml` configuration file. Select `zensical` as the
+  documentation engine, then use `make docs-build` and `make docs-preview`, or
+  `makim docs.build` and `makim docs.preview`. The generated site is written to
+  `build/`.
 
 - [**mkdocs**](https://www.mkdocs.org/): is a fast, simple, and downright
   gorgeous static site generator for creating project documentation.

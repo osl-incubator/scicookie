@@ -19,6 +19,7 @@
   "command_line_interface": ["None", "Click", "Argparse"],
   "documentation_engine": [
     "mkdocs",
+    "zensical",
     "sphinx(rst)",
     "sphinx(myst)",
     "jupyter-book",

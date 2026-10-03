@@ -73,7 +73,16 @@ test: ## run tests quickly with the default Python
 	@echo "No test library installed."
 	{%- endif %}
 
-{% if cookiecutter.documentation_engine == 'mkdocs' -%}
+{% if cookiecutter.documentation_engine == 'zensical' -%}
+.PHONY:docs-build
+docs-build:
+	zensical build
+
+.PHONY: docs-preview
+docs-preview: docs-build
+	zensical serve
+
+{%- elif cookiecutter.documentation_engine == 'mkdocs' -%}
 .PHONY:docs-build
 docs-build:
 	mkdocs build --config-file mkdocs.yaml
