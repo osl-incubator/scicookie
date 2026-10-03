@@ -4,6 +4,25 @@ SciCookie is a package that offers a template for your Python project. The team
 has created this guide to help you understand every option and its
 functionality.
 
+For `multiple-choices` questions in a custom profile, `default` can be a single
+choice or a list of choices:
+
+```yaml
+linters:
+  type: multiple-choices
+  choices:
+    - ruff
+    - mypy
+  default:
+    - ruff
+    - mypy
+```
+
+Each list item supports the same `${{ ... }}` expressions as string defaults.
+When a question is hidden or no choices are selected, its defaults are used.
+Selecting choices replaces the defaults rather than adding to them. Use
+`default: []` when no tools should be enabled by default.
+
 The structure of the guide is as follows:
 
 - [SciCookie user guide](#scicookie-user-guide)

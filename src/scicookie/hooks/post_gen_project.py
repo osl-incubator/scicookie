@@ -360,7 +360,7 @@ def clean_up_linter():
     subprocess.call([
         "npx",
         "--yes",
-        "prettier",
+        "prettier@3.0.2",
         "--write",
         "--ignore-unknown",
         PROJECT_DIRECTORY

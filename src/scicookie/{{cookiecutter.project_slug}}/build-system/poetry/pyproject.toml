@@ -130,9 +130,12 @@ pydata-sphinx-theme = ">= 0.15.3"
 {%- elif cookiecutter.documentation_engine == 'quarto' %}
 quarto-cli = ">=1.5.56"
 quartodoc = ">=0.7.5"
+# Quartodoc uses parser options removed in Griffe 2.
+griffe = "<2"
 {% endif -%}
 {%- if cookiecutter.use_makim == "yes" -%}
 makim = "1.27.0"
+click = ">=8"
 {% endif -%}
 virtualenv = ">=20.34"
 

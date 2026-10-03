@@ -117,9 +117,9 @@ def sanitize_package_slug(package_slug: str) -> str:
     )
 
 
-def make_questions(questions: dict[str, Any]) -> dict[str, str]:
+def make_questions(questions: dict[str, Any]) -> dict[str, Any]:
     """Generate all the visible questions."""
-    answers: dict[str, str] = {}
+    answers: dict[str, Any] = {}
 
     # Get the size of the terminal window
     try:
@@ -147,9 +147,15 @@ def make_questions(questions: dict[str, Any]) -> dict[str, str]:
         question_obj = _create_question(question_id, question)
 
         default_answer = question.get("default", "")
-        default_answer = (
-            ENV.from_string(default_answer).render(answers).strip()
-        )
+        if isinstance(default_answer, list):
+            default_answer = [
+                ENV.from_string(value).render(answers).strip()
+                for value in default_answer
+            ]
+        else:
+            default_answer = (
+                ENV.from_string(default_answer).render(answers).strip()
+            )
 
         # note: if question_object is None, that means that the question is
         #       not visible

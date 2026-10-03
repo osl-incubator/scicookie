@@ -75,15 +75,19 @@ def call_cookiecutter(profile: Profile, answers: dict) -> None:
             # "control_flow" is not defined in cookiecutter config
             continue
 
+        if question.get("type") == "multiple-choices":
+            selected = answers.get(question_id, question.get("default", []))
+            selected = selected if isinstance(selected, list) else [selected]
+            for choice in question.get("choices", {}):
+                choice_id = f"use_{choice.replace('-', '_')}"
+                answers_profile[choice_id] = (
+                    "yes" if choice in selected else "no"
+                )
+            continue
+
         if not question.get("visible", False):
             # get the default for non visible questions
             answers_profile[question_id] = question.get("default")
-            continue
-
-        if question.get("type") == "multiple-choices":
-            for choice in question.get("choices", {}):
-                choice_id = f"use_{choice.replace('-', '_')}"
-                answers_profile[choice_id] = "no"
             continue
 
         answers_profile[question_id] = question.get(
