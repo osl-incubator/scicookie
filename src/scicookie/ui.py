@@ -102,7 +102,7 @@ def check_visibility(
         tmp_satisfied = False
 
         for crit_key, crit_value in criteria_or.items():
-            if answers[crit_key] == crit_value:
+            if answers.get(crit_key) == crit_value:
                 tmp_satisfied = True
 
         depends_satisfied = depends_satisfied and tmp_satisfied
