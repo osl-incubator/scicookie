@@ -168,7 +168,7 @@ def make_questions(questions: dict[str, Any]) -> dict[str, str]:
             + "):"
             + Fore.RESET
         )
-        print(Fore.BLUE + ">> HELP: " + question["help"] + Fore.RESET)
+        print(Fore.BLUE + ">> HELP: " + question.get("help", "") + Fore.RESET)
         answer = inquirer.prompt([question_obj])
 
         # note: if answer is none, it means that the user cancelled
