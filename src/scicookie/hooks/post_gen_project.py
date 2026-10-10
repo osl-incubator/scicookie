@@ -377,7 +377,7 @@ def clean_up_linter():
 def prepare_git() -> None:
     git_https_origin = http2ssh("{{cookiecutter.git_https_origin}}")
     git_https_upstream = http2ssh("{{cookiecutter.git_https_upstream}}")
-    git_main_branch = http2ssh("{{cookiecutter.git_main_branch}}")
+    git_main_branch = "{{cookiecutter.git_main_branch}}"
     unique_id = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     git_new_branch = f"initial-from-scicookie-{unique_id}"
     git_stash_branch = f"stash-from-scicookie-{unique_id}"
@@ -388,7 +388,7 @@ def prepare_git() -> None:
     use_remote = git_https_origin != '' or git_https_upstream != ''
 
     if not use_remote:
-        subprocess.call(["git", "init", "-b", git_main_branch])
+        subprocess.check_call(["git", "init", "-b", git_main_branch])
         subprocess.call(
             ["git", "config", "user.name", git_author_name]
         )
@@ -401,7 +401,7 @@ def prepare_git() -> None:
         ])
         return
 
-    subprocess.call(["git", "init", "-b", git_stash_branch])
+    subprocess.check_call(["git", "init", "-b", git_stash_branch])
 
     # config
     subprocess.call(
