@@ -1,5 +1,7 @@
 """Cookiecutter bake test."""
 
+import subprocess
+
 from pathlib import Path
 
 import pytest
@@ -59,3 +61,29 @@ def test_project_name_with_example_context(cookies, context):
     with open(README_FILE) as f:
         title = f.readline().rstrip()
         assert title == "# Example"
+
+
+def test_prepare_git_with_slash_in_main_branch(cookies, context):
+    """Check a main branch name with a slash survives prepare_git.
+
+    `git_main_branch` is a branch name, not a URL, but it used to be run
+    through the same URL-to-SSH helper as `git_https_origin`/
+    `git_https_upstream`. That helper turns the first "/" into a ":", and
+    git refuses to create a branch whose name contains a colon, so any
+    main-branch name with a slash in it (e.g. "release/1.0") broke
+    `git init -b <branch>` outright.
+    """
+    result = cookies.bake(
+        extra_context={**context, "git_main_branch": "release/1.0"}
+    )
+    assert result.exit_code == 0
+    assert result.exception is None
+
+    branch = subprocess.run(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+        cwd=result.project_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    assert branch == "release/1.0"
