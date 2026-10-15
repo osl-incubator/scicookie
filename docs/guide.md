@@ -32,6 +32,7 @@ The structure of the guide is as follows:
     - [Roadmap document](#roadmap-document)
   - [Version control](#version-control)
   - [Continuous Integration](#continuous-integration)
+  - [Donation URL](#donation-url)
 
 ## Notes about the text-based user interface (TUI)
 
@@ -1029,3 +1030,19 @@ CircleCI into your project.
   immediate feedback, and bringing ideas to life — not manual, repetitive tasks.
   A continuous and iterative process to build, test, and deploy helps avoid bugs
   and code failures.
+
+## Donation URL
+
+Open source projects often rely on community support to sustain development.
+SciCookie lets you add a donation URL to your project so contributors and users
+can find out how to support your work financially.
+
+**donate_url**: This is an optional field where you can enter the URL of a
+donation page. When provided, SciCookie adds a "Support the Project" section to
+your generated `README.md` that links directly to the donation page. If you
+leave this field empty, no donation section is added to the README.
+
+Examples of services commonly used for open source donations include
+[GitHub Sponsors](https://github.com/sponsors),
+[Open Collective](https://opencollective.com/), and
+[Ko-fi](https://ko-fi.com/).

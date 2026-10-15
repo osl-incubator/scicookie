@@ -326,7 +326,7 @@ communication_link:
 
 donate_url:
   message: Type the donate URL
-  help: https://osl-incubator.github.io/scicookie/guide/
+  help: https://osl-incubator.github.io/scicookie/guide/#donation-url
   type: text
   default: ""
   visible: true
