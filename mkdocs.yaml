@@ -13,6 +13,7 @@ nav:
   - Home: "index.md"
   - Installation: "install.md"
   - Guide: "guide.md"
+  - Creating a Profile: "creating-a-profile.md"
   - Contributing: "contributing.md"
   - Changelog: "changelog.md"
   - Code of Conduct: "conduct.md"
