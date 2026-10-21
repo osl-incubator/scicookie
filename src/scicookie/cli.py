@@ -86,9 +86,16 @@ def call_cookiecutter(profile: Profile, answers: dict) -> None:
                 answers_profile[choice_id] = "no"
             continue
 
-        answers_profile[question_id] = question.get(
-            "default"
-        ) or _get_cookiecutter_default_answer(cookiecutter_config[question_id])
+        question_default = question.get("default")
+        # `or` here would also replace an intentionally empty default (e.g. git_username's
+        # `default: ""` in base.yaml, meant to leave the field blank) with cookiecutter.json's
+        # placeholder value ("zoro_roronoa"), which then gets baked into the generated
+        # project's mkdocs.yaml social links. Only fall back when no default was set at all.
+        answers_profile[question_id] = (
+            question_default
+            if question_default is not None
+            else _get_cookiecutter_default_answer(cookiecutter_config[question_id])
+        )
 
     for question_id, answer in answers.items():
         if answer in [None, ""] or questions[question_id].get("control_flow"):
