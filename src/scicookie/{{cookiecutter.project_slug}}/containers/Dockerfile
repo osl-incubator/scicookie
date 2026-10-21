@@ -41,6 +41,11 @@ RUN apt-get update && \
         vim && \
     rm -rf /var/lib/apt/lists/*
 
+# USER below needs this to exist, or every `docker run` on this image fails with
+# "unable to find user {{ cookiecutter.package_slug }}: no matching entries in passwd file"
+RUN groupadd --gid ${GID} {{ cookiecutter.package_slug }} && \
+    useradd --uid ${UID} --gid ${GID} --create-home --shell /bin/bash {{ cookiecutter.package_slug }}
+
 USER {{ cookiecutter.package_slug }}
 
 WORKDIR /{{ cookiecutter.project_slug }}
