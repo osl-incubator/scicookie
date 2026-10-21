@@ -49,6 +49,6 @@ class Profile:
         with open(PROFILE_DIR_PATH / f"{self.profile_name}.yaml") as f:
             config_profile = yaml.safe_load(f)
             for name, properties in config_profile.items():
-                config[name].update(properties)
+                config.setdefault(name, {}).update(properties)
 
         return config
