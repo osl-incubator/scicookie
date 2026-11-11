@@ -22,7 +22,13 @@ def context():
 
 def test_bake_project(cookies):
     """Run simple test for cookiecutter."""
-    result = cookies.bake()
+    result = cookies.bake(
+    template=str(
+        Path(__file__).resolve().parent.parent / "src" / "scicookie"
+    )
+)
+
+
     assert result.exit_code == 0
     assert result.exception is None
     assert result.project_path.name == "osl-python-package"
